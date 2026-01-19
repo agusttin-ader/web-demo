@@ -10,10 +10,10 @@ export default function Home() {
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
               Demo de landing para alojamientos
             </p>
-            <h1 className="text-3xl leading-tight md:text-4xl lg:text-5xl">
+            <h1 className="mx-auto max-w-2xl text-3xl leading-tight md:text-4xl lg:text-5xl">
               Webs para hostels y hoteles que convierten visitas en reservas
             </h1>
-            <p className="mx-auto max-w-md text-base sm:text-lg text-neutral-700">
+            <p className="mx-auto max-w-2xl text-center text-base sm:text-lg text-neutral-700">
               Diseño minimalista, rápido y pensado para tus huéspedes.
             </p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
