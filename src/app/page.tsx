@@ -11,19 +11,17 @@ export default function Home() {
               Demo de landing para alojamientos
             </p>
             <h1 className="mx-auto max-w-2xl text-3xl leading-tight md:text-4xl lg:text-5xl">
-              Webs para hostels y hoteles que convierten visitas en reservas
+              Webs modernas para proyectos turísticos
             </h1>
             <p className="mx-auto max-w-2xl text-center text-base sm:text-lg text-neutral-700">
-              Diseño minimalista, rápido y pensado para tus huéspedes.
+              Diseño minimalista, claro y funcional
             </p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               <a
-                href="https://wa.me/5491168696491"
+                href="#contacto"
                 className="inline-flex items-center justify-center rounded-full border border-black bg-black px-7 py-3 text-sm font-medium uppercase tracking-[0.16em] text-[#f7f5ef] shadow-[0_12px_28px_rgba(0,0,0,0.16)] transform transition-transform duration-150 hover:scale-105 hover:bg-neutral-900 hover:border-neutral-900"
-                target="_blank"
-                rel="noreferrer"
               >
-                Contactame por WhatsApp
+                Ver contacto
               </a>
               <div className="flex flex-wrap justify-center gap-3 text-[0.75rem] text-neutral-600">
                 <span className="flex items-center gap-1">
@@ -140,24 +138,60 @@ export default function Home() {
         <header className="mx-auto max-w-2xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">Servicios</h2>
           <p className="text-sm text-neutral-700">
-            Un conjunto de servicios pensados para que tu presencia online sea coherente, profesional y orientada a resultados.
+            Servicios puntuales para que tu proyecto turístico tenga una presencia online clara y efectiva.
           </p>
         </header>
         <div className="grid gap-4 md:grid-cols-2">
           <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
-            <h3 className="text-base">Diseño web moderno y minimalista</h3>
+            <h3 className="text-base">Diseño web moderno</h3>
           </article>
           <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
-            <h3 className="text-base">Optimización para dispositivos móviles</h3>
+            <h3 className="text-base">Optimización móvil</h3>
           </article>
           <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
-            <h3 className="text-base">Formularios de contacto y reservas</h3>
+            <h3 className="text-base">Formularios de contacto</h3>
           </article>
           <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
-            <h3 className="text-base">Estructura clara y carga rápida</h3>
+            <h3 className="text-base">Integración con WhatsApp</h3>
           </article>
           <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 md:col-span-2">
-            <h3 className="text-base">Mejora de la experiencia del usuario</h3>
+            <h3 className="text-base">Enfoque en experiencia de usuario</h3>
+          </article>
+        </div>
+      </section>
+
+      {/* FUNCIONALIDADES PARA HOSTELS Y HOSTERÍAS */}
+      <section id="funcionalidades" className="space-y-8">
+        <header className="mx-auto max-w-2xl text-center space-y-2">
+          <h2 className="text-xl md:text-2xl">Funcionalidades para hostels y hosterías</h2>
+          <p className="text-sm text-neutral-700">
+            Estas son algunas de las funciones que se pueden integrar en un sitio web turístico:
+          </p>
+        </header>
+        <div className="mx-auto grid max-w-3xl gap-3 md:grid-cols-2">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+            Calendario de reservas y disponibilidad
+          </article>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+            Formularios de reserva
+          </article>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+            Integración con WhatsApp
+          </article>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+            Enlaces a Booking y Airbnb
+          </article>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+            Información turística y actividades
+          </article>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+            Mapas y ubicación
+          </article>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+            Galería de habitaciones
+          </article>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+            Pagos online
           </article>
         </div>
       </section>
@@ -226,17 +260,12 @@ export default function Home() {
         </header>
         <div className="mx-auto max-w-2xl text-center text-base text-neutral-700 space-y-3">
           <p>
-            Soy <strong>Agustín Ader</strong>, Desarrollador Frontend con 9 años de experiencia en
-            atención al cliente.
+            Soy Agustín Ader, desarrollador frontend con 9 años de experiencia en atención al cliente.
+            Creo sitios web claros, modernos y pensados para el usuario real.
           </p>
           <p>
-            Trabajo con proyectos de turismo, hostels y hoteles, creando sitios web claros, funcionales
-            y orientados a resultados.
-          </p>
-          <p>
-            Mi enfoque combina diseño moderno con una experiencia de usuario simple y efectiva.
-            Actualmente estoy organizando mi radicación en Bariloche y busco colaborar con
-            emprendimientos locales.
+            Mi experiencia me permite entender las necesidades de los huéspedes y diseñar soluciones
+            prácticas, simples y efectivas.
           </p>
         </div>
       </section>
@@ -248,11 +277,12 @@ export default function Home() {
         </header>
         <div className="mx-auto max-w-2xl text-center text-base text-neutral-700 space-y-3">
           <p>
-            Tener más de 9 años de experiencia en atención al cliente me permite entender las
-            necesidades reales de los huéspedes.
+            Tengo más de 9 años de experiencia en atención al cliente,
+            lo que me permite comprender cómo piensan y sienten los usuarios.
           </p>
           <p>
-            Diseño sitios web pensando en la claridad, la confianza y la facilidad de uso.
+            Mi enfoque combina diseño visual con funcionalidad real,
+            para que la experiencia sea clara, simple y efectiva.
           </p>
         </div>
       </section>
@@ -284,16 +314,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COLABORACIÓN Y VOLUNTARIADO */}
-      <section id="colaboracion-voluntariado" className="space-y-8">
+      {/* COLABORACIÓN */}
+      <section id="colaboracion" className="space-y-8">
         <header className="mx-auto max-w-2xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">Colaboración y voluntariado</h2>
+          <h2 className="text-xl md:text-2xl">Colaboración</h2>
         </header>
         <div className="mx-auto max-w-2xl text-center text-base text-neutral-700 space-y-3">
           <p>
-            Estoy abierto a colaborar en proyectos locales, tanto de forma profesional como en modalidad
-            de voluntariado, con el objetivo de integrarme a la comunidad y aportar valor con mi
-            trabajo.
+            Estoy abierto a colaborar en proyectos locales,
+            ya sea de forma profesional o en modalidad de voluntariado,
+            con el objetivo de integrarme a la comunidad
+            y aportar valor con mi trabajo.
           </p>
         </div>
       </section>
@@ -301,9 +332,9 @@ export default function Home() {
       {/* CONTACTO */}
       <section id="contacto" className="space-y-6">
         <header className="mx-auto max-w-xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">¿Querés mejorar tu presencia online?</h2>
+          <h2 className="text-xl md:text-2xl">¿Charlamos?</h2>
           <p className="text-sm text-neutral-700">
-            Si tenés un proyecto turístico, me encantaría ayudarte a potenciarlo.
+            Si te interesa una web como esta para tu proyecto, podemos hablar sin compromiso.
           </p>
         </header>
         <div className="mt-4 flex justify-center">
