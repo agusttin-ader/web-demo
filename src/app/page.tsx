@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 export default function Home() {
@@ -19,6 +21,13 @@ export default function Home() {
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="#contacto"
+                onClick={(event) => {
+                  event.preventDefault();
+                  const section = document.getElementById("contacto");
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }
+                }}
                 className="inline-flex items-center justify-center rounded-full border border-black bg-black px-7 py-3 text-sm font-medium uppercase tracking-[0.16em] text-[#f7f5ef] shadow-[0_12px_28px_rgba(0,0,0,0.16)] transform transition-transform duration-150 hover:scale-105 hover:bg-neutral-900 hover:border-neutral-900"
               >
                 Ver contacto
