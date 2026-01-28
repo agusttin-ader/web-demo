@@ -1,22 +1,26 @@
 "use client";
 
 import Image from "next/image";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
 
 export default function Home() {
   return (
-    <main className="space-y-20 md:space-y-24 lg:space-y-28 px-4 sm:px-6">
+    <>
+      <main className="space-y-20 md:space-y-24 lg:space-y-28 px-4 sm:px-6">
       {/* HERO */}
       <section id="hero" className="pt-10 md:pt-12 lg:pt-16">
         <div className="flex flex-col items-center gap-10 text-center">
           <div className="max-w-2xl space-y-5">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
-              Demo de landing para alojamientos
+              Desarrollo web para empresas y emprendimientos
             </p>
             <h1 className="mx-auto max-w-2xl text-3xl leading-tight md:text-4xl lg:text-5xl">
-              Webs modernas para proyectos turísticos
+              Sitios web profesionales para aumentar consultas y ventas
             </h1>
             <p className="mx-auto max-w-2xl text-center text-base sm:text-lg text-neutral-700">
-              Diseño minimalista, claro y funcional
+              Diseño claro y funcional, pensado para convertir visitantes en clientes. Ideal para
+              turismo y servicios.
             </p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               <a
@@ -32,14 +36,14 @@ export default function Home() {
               >
                 Ver contacto
               </a>
-              <div className="flex flex-wrap justify-center gap-3 text-[0.75rem] text-neutral-600">
+              <div className="flex flex-wrap justify-center gap-3 text-[0.75rem] text-neutral-600 ml-2">
                 <span className="flex items-center gap-1">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-black" />
-                  Diseño adaptado a móviles
+                  Optimizado para móviles
                 </span>
                 <span className="flex items-center gap-1">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-black" />
-                  Textos listos para personalizar
+                  Contenidos orientados a resultados
                 </span>
               </div>
             </div>
@@ -58,7 +62,7 @@ export default function Home() {
                 />
               </div>
               <div className="space-y-2 px-5 py-5 text-sm">
-                <h2 className="text-lg">Escápate al lago</h2>
+                <h3 className="text-lg">Escápate al lago</h3>
                 <p className="text-neutral-700">
                   Noches tranquilas, desayuno incluido y atención personalizada para cada huésped.
                 </p>
@@ -76,10 +80,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SEO support paragraph (hidden visually) */}
+      <p className="sr-only">
+        Ofrezco desarrollo web profesional para empresas y emprendimientos, creando sitios
+        móviles, rápidos y optimizados para SEO que mejoran consultas y conversiones. Diseño
+        soluciones centradas en objetivos de negocio: estructuras claras, formularios eficientes e
+        integración de canales de contacto para facilitar la conversión. Trabajo con sectores de
+        servicios y proyectos turísticos, adaptando funcionalidades según operaciones y público
+        objetivo. Mi enfoque combina experiencia técnica y comprensión del negocio para entregar
+        resultados medibles.
+      </p>
+
       {/* GALERÍA DE EJEMPLO */}
       <section aria-label="Imágenes de ejemplo" className="space-y-6">
         <div className="grid gap-4 md:grid-cols-3">
-          <figure className="overflow-hidden rounded-2xl border border-black/10 bg-white/70 transform transition-transform duration-150 hover:scale-105">
+          <figure className="overflow-hidden rounded-2xl border border-black/10 bg-white/70 transform transition-transform duration-150 hover:scale-105 text-center">
             <div className="relative h-40">
               <Image
                 src="/images/hostel-room.jpg"
@@ -91,7 +106,7 @@ export default function Home() {
               />
             </div>
           </figure>
-          <figure className="overflow-hidden rounded-2xl border border-black/10 bg-white/70 transform transition-transform duration-150 hover:scale-105">
+          <figure className="overflow-hidden rounded-2xl border border-black/10 bg-white/70 transform transition-transform duration-150 hover:scale-105 text-center">
             <div className="relative h-40">
               <Image
                 src="/images/bariloche-landscape.jpg"
@@ -103,7 +118,7 @@ export default function Home() {
               />
             </div>
           </figure>
-          <figure className="overflow-hidden rounded-2xl border border-black/10 bg-white/70 transform transition-transform duration-150 hover:scale-105">
+          <figure className="overflow-hidden rounded-2xl border border-black/10 bg-white/70 transform transition-transform duration-150 hover:scale-105 text-center">
             <div className="relative h-40">
               <Image
                 src="/images/clean-interior.jpg"
@@ -127,16 +142,16 @@ export default function Home() {
           </p>
         </header>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
             <h3 className="text-base">Más reservas directas</h3>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
             <h3 className="text-base">Mejor imagen profesional</h3>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
             <h3 className="text-base">Experiencia clara para el huésped</h3>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
             <h3 className="text-base">Optimizada para móviles</h3>
           </article>
         </div>
@@ -147,24 +162,30 @@ export default function Home() {
         <header className="mx-auto max-w-2xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">Servicios</h2>
           <p className="text-sm text-neutral-700">
-            Servicios puntuales para que tu proyecto turístico tenga una presencia online clara y efectiva.
+            Servicios de desarrollo web pensados para empresas y emprendimientos: entrego sitios
+            profesionales, rápidos y orientados a convertir visitantes en clientes. Complementos
+            opcionales disponibles para mantener coherencia de marca.
           </p>
         </header>
         <div className="grid gap-4 md:grid-cols-2">
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
-            <h3 className="text-base">Diseño web moderno</h3>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
+            <h3 className="text-base">Desarrollo de sitios profesionales</h3>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
-            <h3 className="text-base">Optimización móvil</h3>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
+            <h3 className="text-base">Diseño mobile‑first y responsive</h3>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
-            <h3 className="text-base">Formularios de contacto</h3>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
+            <h3 className="text-base">Estructura preparada para SEO</h3>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
-            <h3 className="text-base">Integración con WhatsApp</h3>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
+            <h3 className="text-base">Formularios y optimización de consultas</h3>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 md:col-span-2">
-            <h3 className="text-base">Enfoque en experiencia de usuario</h3>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
+            <h3 className="text-base">Integración con WhatsApp y canales de contacto</h3>
+          </article>
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 md:col-span-2 text-center">
+            <h3 className="text-base">Gestión básica de redes sociales (opcional)</h3>
+            <p className="text-sm text-neutral-700 mt-2">Servicio complementario: gestión simple y coherente con la web, orientada a mantener la imagen de marca. Opcional, no es parte del servicio principal.</p>
           </article>
         </div>
       </section>
@@ -178,28 +199,28 @@ export default function Home() {
           </p>
         </header>
         <div className="mx-auto grid max-w-3xl gap-3 md:grid-cols-2">
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105 text-center">
             Calendario de reservas y disponibilidad
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105 text-center">
             Formularios de reserva
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105 text-center">
             Integración con WhatsApp
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105 text-center">
             Enlaces a Booking y Airbnb
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105 text-center">
             Información turística y actividades
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105 text-center">
             Mapas y ubicación
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105 text-center">
             Galería de habitaciones
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-800 transform transition-transform duration-150 hover:scale-105 text-center">
             Pagos online
           </article>
         </div>
@@ -253,10 +274,10 @@ export default function Home() {
           <h2 className="text-xl md:text-2xl">Opiniones</h2>
         </header>
         <div className="mx-auto grid max-w-3xl gap-4 md:grid-cols-2">
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-700 shadow-[0_10px_24px_rgba(0,0,0,0.03)] transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-700 shadow-[0_10px_24px_rgba(0,0,0,0.03)] transform transition-transform duration-150 hover:scale-105 text-center">
             <p>“Agustín logró una web clara y moderna que mejoró nuestras consultas.”</p>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-700 shadow-[0_10px_24px_rgba(0,0,0,0.03)] transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-700 shadow-[0_10px_24px_rgba(0,0,0,0.03)] transform transition-transform duration-150 hover:scale-105 text-center">
             <p>“Excelente comunicación y enfoque profesional.”</p>
           </article>
         </div>
@@ -269,12 +290,15 @@ export default function Home() {
         </header>
         <div className="mx-auto max-w-2xl text-center text-base text-neutral-700 space-y-3">
           <p>
-            Soy Agustín Ader, desarrollador frontend con 9 años de experiencia en atención al cliente.
-            Creo sitios web claros, modernos y pensados para el usuario real.
+            Soy Agustín Ader, desarrollador frontend con más de 9 años de experiencia en atención al
+            cliente y administración. Combino know‑how técnico con comprensión de procesos de negocio
+            para entregar soluciones web confiables y orientadas a resultados.
           </p>
           <p>
-            Mi experiencia me permite entender las necesidades de los huéspedes y diseñar soluciones
-            prácticas, simples y efectivas.
+            Trabajo con empresas y emprendimientos —incluyendo turismo y servicios— para convertir
+            necesidades operativas en sitios claros, fáciles de usar y pensados para generar consultas
+            y ventas. Me involucro como socio técnico: comunicación directa, entregas puntuales y
+            soluciones prácticas para tu negocio.
           </p>
         </div>
       </section>
@@ -305,19 +329,19 @@ export default function Home() {
           </p>
         </header>
         <div className="grid gap-4 md:grid-cols-2">
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
             <h3 className="text-base">Enfoque en resultados</h3>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
             <h3 className="text-base">Comunicación clara</h3>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
             <h3 className="text-base">Experiencia con clientes reales</h3>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 text-center">
             <h3 className="text-base">Diseño simple y efectivo</h3>
           </article>
-          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 md:col-span-2">
+          <article className="rounded-2xl border border-black/10 bg-white/80 p-5 text-sm shadow-[0_10px_24px_rgba(0,0,0,0.04)] transform transition-transform duration-150 hover:scale-105 md:col-span-2 text-center">
             <h3 className="text-base">Trato profesional y cercano</h3>
           </article>
         </div>
@@ -343,20 +367,58 @@ export default function Home() {
         <header className="mx-auto max-w-xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">¿Charlamos?</h2>
           <p className="text-sm text-neutral-700">
-            Si te interesa una web como esta para tu proyecto, podemos hablar sin compromiso.
+            Si buscás una web profesional que mejore consultas y ventas para tu negocio, contactame
+            sin compromiso. Primero entendemos el proyecto y luego ofrezco servicios complementarios
+            si son necesarios.
           </p>
         </header>
         <div className="mt-4 flex justify-center">
           <a
-            href="https://wa.me/5491168696491"
+            href="https://wa.me/5491168696491?text=Hola%20%21%20Me%20podrias%20dar%20mas%20informacion%3F"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
+            aria-label="Contactar por WhatsApp"
             className="inline-flex items-center justify-center rounded-full border border-black bg-black px-7 py-3 text-sm font-medium uppercase tracking-[0.16em] text-[#f7f5ef] shadow-[0_12px_28px_rgba(0,0,0,0.16)] transform transition-transform duration-150 hover:scale-105 hover:bg-neutral-900 hover:border-neutral-900"
           >
-            Escribirme por WhatsApp
+            Contactame por WhatsApp
           </a>
         </div>
       </section>
     </main>
+
+      <footer className="mt-8 border-t border-black/10 pt-6">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="flex items-center justify-center gap-4 -translate-y-2 transform">
+            <a
+              href="https://www.instagram.com/agusttin.ader/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="inline-flex items-center justify-center w-9 h-9 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
+            >
+              <FaInstagram className="w-5 h-5" aria-hidden="true" />
+            </a>
+
+            <a
+              href="mailto:agusttin.dev@gmail.com"
+              aria-label="Correo electrónico"
+              className="inline-flex items-center justify-center w-9 h-9 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
+            >
+              <FiMail className="w-5 h-5" aria-hidden="true" />
+            </a>
+
+            <a
+              href="https://wa.me/5491168696491?text=Hola%20%21%20Me%20podrias%20dar%20mas%20informacion%3F"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="inline-flex items-center justify-center w-9 h-9 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
+            >
+              <FaWhatsapp className="w-5 h-5" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }

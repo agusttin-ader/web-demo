@@ -19,9 +19,37 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Demo | Turismo",
-  description: "Demo de sitio web para proyectos turísticos",
+  title: "Agustín Ader | Desarrollo Web Profesional",
+  description: "Desarrollo de sitios web profesionales para negocios y emprendimientos. Especial enfoque en servicios y turismo.",
+  icons: {
+    icon: "/favicon.svg",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.agustinaderdev.com",
+    images: [
+      {
+        url: "/og-image.png",
+        alt: "Agustín Ader - Desarrollo Web Profesional",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://www.agustinaderdev.com",
+  },
 };
+
+export const metadataBase = new URL("https://www.agustinaderdev.com");
 
 export default function RootLayout({
   children,
@@ -29,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es-AR">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
