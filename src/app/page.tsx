@@ -16,7 +16,7 @@ export default function Home() {
               Desarrollo web para empresas y emprendimientos
             </p>
             <h1 className="mx-auto max-w-2xl text-3xl leading-tight md:text-4xl lg:text-5xl">
-              Sitios web profesionales para aumentar consultas y ventas
+              Desarrollo web profesional para negocios y emprendimientos
             </h1>
             <p className="mx-auto max-w-2xl text-center text-base sm:text-lg text-neutral-700">
               Diseño claro y funcional, pensado para convertir visitantes en clientes. Ideal para
@@ -32,6 +32,7 @@ export default function Home() {
                     section.scrollIntoView({ behavior: "smooth", block: "start" });
                   }
                 }}
+                aria-label="Ir al contacto"
                 className="inline-flex items-center justify-center rounded-full border border-black bg-black px-7 py-3 text-sm font-medium uppercase tracking-[0.16em] text-[#f7f5ef] shadow-[0_12px_28px_rgba(0,0,0,0.16)] transform transition-transform duration-150 hover:scale-105 hover:bg-neutral-900 hover:border-neutral-900"
               >
                 Ver contacto
@@ -82,13 +83,12 @@ export default function Home() {
 
       {/* SEO support paragraph (hidden visually) */}
       <p className="sr-only">
-        Ofrezco desarrollo web profesional para empresas y emprendimientos, creando sitios
-        móviles, rápidos y optimizados para SEO que mejoran consultas y conversiones. Diseño
-        soluciones centradas en objetivos de negocio: estructuras claras, formularios eficientes e
-        integración de canales de contacto para facilitar la conversión. Trabajo con sectores de
-        servicios y proyectos turísticos, adaptando funcionalidades según operaciones y público
-        objetivo. Mi enfoque combina experiencia técnica y comprensión del negocio para entregar
-        resultados medibles.
+        Soy desarrollador especializado en desarrollo web profesional para pymes y emprendimientos: creo
+        páginas web para negocios pensadas para convertir visitantes en clientes. Entrego sitios rápidos
+        y responsivos, con arquitectura clara, formularios eficientes e integración de canales como
+        WhatsApp para facilitar consultas. Trabajo con emprendimientos y el sector turismo, adaptando
+        contenidos y funcionalidades según la operativa del negocio. Mi enfoque prioriza usabilidad,
+        rendimiento y SEO práctico para aumentar consultas y reservas sin sacrificar simplicidad.
       </p>
 
       {/* GALERÍA DE EJEMPLO */}
@@ -374,7 +374,7 @@ export default function Home() {
         </header>
         <div className="mt-4 flex justify-center">
           <a
-            href="https://wa.me/5491168696491?text=Hola%20%21%20Me%20podrias%20dar%20mas%20informacion%3F"
+            href="https://wa.me/5491168696491?text=Hola%21%20Me%20pod%C3%A9s%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Contactar por WhatsApp"
@@ -396,7 +396,18 @@ export default function Home() {
               aria-label="Instagram"
               className="inline-flex items-center justify-center w-9 h-9 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
             >
-              <FaInstagram className="w-5 h-5" aria-hidden="true" />
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="18" cy="6" r="0.75" fill="currentColor" />
+              </svg>
             </a>
 
             <a
@@ -404,17 +415,37 @@ export default function Home() {
               aria-label="Correo electrónico"
               className="inline-flex items-center justify-center w-9 h-9 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
             >
-              <FiMail className="w-5 h-5" aria-hidden="true" />
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M3 6.5C3 5.6716 3.6716 5 4.5 5h15c.8284 0 1.5.6716 1.5 1.5v11c0 .8284-.6716 1.5-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11z" stroke="currentColor" strokeWidth="1.2" />
+                <path d="M4 7.5l8 5 8-5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </a>
 
             <a
-              href="https://wa.me/5491168696491?text=Hola%20%21%20Me%20podrias%20dar%20mas%20informacion%3F"
+              href="https://wa.me/5491168696491?text=Hola%21%20Me%20pod%C3%A9s%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
               className="inline-flex items-center justify-center w-9 h-9 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
             >
-              <FaWhatsapp className="w-5 h-5" aria-hidden="true" />
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M20.52 3.48A11.9 11.9 0 0 0 12 0C5.373 0 .001 5.373 0 12c0 2.115.55 4.155 1.6 5.95L0 24l6.3-1.65A11.9 11.9 0 0 0 12 24c6.627 0 12-5.373 12-12 0-1.98-.48-3.84-1.48-5.52z" stroke="currentColor" strokeWidth="0.6" />
+                <path d="M17.2 14.1c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.34.22-.63.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.28.3-.47.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.19-.24-.57-.48-.49-.66-.5l-.56-.01c-.2 0-.52.07-.8.37-.28.3-1.07 1.04-1.07 2.54 0 1.5 1.1 2.95 1.25 3.15.15.2 2.15 3.35 5.2 4.69 3.05 1.34 3.05.89 3.6.83.55-.07 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z" stroke="currentColor" strokeWidth="0.6" />
+              </svg>
             </a>
           </div>
         </div>
