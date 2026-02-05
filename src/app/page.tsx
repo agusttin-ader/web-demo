@@ -390,7 +390,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4">
           <div className="flex items-center justify-center gap-4 -translate-y-2 transform">
             <a
-              href="https://www.instagram.com/agusttin.ader/"
+              href="https://www.instagram.com/agustinader.dev?utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"

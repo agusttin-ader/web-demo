@@ -60,7 +60,7 @@ const structuredData = {
       "@type": "Person",
       "name": "Agustín Ader",
       "url": "https://www.agustinaderdev.com",
-      "sameAs": ["https://www.instagram.com/agusttin.ader/"],
+      "sameAs": ["https://www.instagram.com/agustinader.dev?utm_source=qr"],
       "email": "mailto:agusttin.dev@gmail.com"
     },
     {
