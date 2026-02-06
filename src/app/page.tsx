@@ -11,9 +11,14 @@ export default function Home() {
       {/* HERO */}
       <section id="hero" className="pt-10 md:pt-12 lg:pt-16">
         <div className="flex flex-col items-center gap-10 text-center">
-          <div className="max-w-2xl space-y-5">
+          <div className="max-w-2xl space-y-6">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
               Desarrollo web para empresas y emprendimientos
+            </p>
+            <p className="text-[0.75rem] sm:text-xs md:text-sm tracking-[0.18em] text-neutral-500/90 flex items-center justify-center gap-2">
+              <span>Agustín Ader</span>
+              <span className="inline-block h-1 w-1 rounded-full bg-neutral-500" aria-hidden="true" />
+              <span>Desarrollo Web</span>
             </p>
             <h1 className="mx-auto max-w-2xl text-3xl leading-tight md:text-4xl lg:text-5xl">
               Desarrollo web profesional para negocios y emprendimientos
@@ -386,60 +391,57 @@ export default function Home() {
       </section>
     </main>
 
-      <footer className="mt-8 border-t border-black/10 pt-6">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="flex items-center justify-center gap-4 -translate-y-2 transform">
-            <a
-              href="https://www.instagram.com/agustinader.dev?utm_source=qr"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="inline-flex items-center justify-center w-9 h-9 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
-            >
-              <svg
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="18" cy="6" r="0.75" fill="currentColor" />
-              </svg>
-            </a>
+    <footer className="mt-0 border-t border-black/10 pt-6 pb-8 md:pb-10">
+      <div className="max-w-5xl mx-auto px-4">
+        {/* conos de contacto (elemento de accin final) */}
+        <div className="flex justify-center gap-3">
+          <a
+            href="https://www.instagram.com/agustinader.dev?utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="inline-flex items-center justify-center w-10 h-10 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
+          >
+            <FaInstagram className="w-5 h-5" aria-hidden="true" />
+          </a>
 
-            <a
-              href="mailto:agusttin.dev@gmail.com"
-              aria-label="Correo electrónico"
-              className="inline-flex items-center justify-center w-9 h-9 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
-            >
-              <svg
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path d="M3 6.5C3 5.6716 3.6716 5 4.5 5h15c.8284 0 1.5.6716 1.5 1.5v11c0 .8284-.6716 1.5-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11z" stroke="currentColor" strokeWidth="1.2" />
-                <path d="M4 7.5l8 5 8-5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
+          <a
+            href="mailto:agusttin.dev@gmail.com"
+            aria-label="Correo electrónico"
+            className="inline-flex items-center justify-center w-10 h-10 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
+          >
+            <FiMail className="w-5 h-5" aria-hidden="true" />
+          </a>
 
-            <a
-              href="https://wa.me/5491168696491?text=Hola%21%20Me%20pod%C3%A9s%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              className="inline-flex items-center justify-center w-9 h-9 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
-            >
-              <FaWhatsapp className="w-5 h-5" aria-hidden="true" />
-            </a>
-          </div>
+          <a
+            href="https://wa.me/5491168696491?text=Hola%21%20Me%20pod%C3%A9s%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            className="inline-flex items-center justify-center w-10 h-10 text-black hover:opacity-80 hover:scale-105 transition-transform duration-150"
+          >
+            <FaWhatsapp className="w-5 h-5" aria-hidden="true" />
+          </a>
         </div>
-      </footer>
+
+        {/* Espacio vertical entre íconos y firma (un poco más compacto) */}
+        <div className="mt-6 md:mt-8" />
+
+        {/* Firma final de autoría */}
+        <div className="flex flex-col items-center gap-2">
+          <img
+            src="/images/logo.png"
+            alt="Agustín Ader – Desarrollador Frontend"
+            width={512}
+            height={512}
+            className="h-[32px] md:h-[40px] lg:h-[44px] w-auto object-contain"
+          />
+          <span className="text-xs md:text-sm text-neutral-600">
+            Desarrollado por Agustín Ader
+          </span>
+        </div>
+      </div>
+    </footer>
     </>
   );
 }

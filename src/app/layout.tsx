@@ -92,6 +92,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
+        <header className="border-b border-black/5">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <div className="py-2" />
+          </div>
+        </header>
+
         {children}
       </body>
     </html>
