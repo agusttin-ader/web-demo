@@ -48,6 +48,7 @@ export default function Home() {
   const opinionsReveal = useRevealSection();
   const aboutReveal = useRevealSection();
   const experienceReveal = useRevealSection();
+  const workProcessReveal = useRevealSection();
   const whyMeReveal = useRevealSection();
   const collaborationReveal = useRevealSection();
   const contactReveal = useRevealSection();
@@ -58,8 +59,8 @@ export default function Home() {
       <section
         id="hero"
         ref={heroReveal.ref}
-        className={`pt-10 md:pt-12 lg:pt-16 transition-all duration-700 ease-out ${
-          heroReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        className={`pt-10 md:pt-12 lg:pt-16 transition-transform duration-[600ms] ease-out ${
+          heroReveal.isVisible ? "translate-y-0" : "translate-y-[12px]"
         }`}
       >
         <div className="flex flex-col items-center gap-10 text-center">
@@ -72,14 +73,29 @@ export default function Home() {
               <span className="inline-block h-1 w-1 rounded-full bg-neutral-500" aria-hidden="true" />
               <span>Desarrollo Web</span>
             </p>
-            <h1 className="mx-auto max-w-2xl text-3xl leading-tight md:text-4xl lg:text-5xl">
-              Desarrollo web profesional para negocios y emprendimientos
+            <h1
+              className={`mx-auto max-w-2xl text-3xl leading-tight md:text-4xl lg:text-5xl font-normal transition-opacity duration-[600ms] ease-out ${
+                heroReveal.isVisible ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ transitionDelay: heroReveal.isVisible ? "0ms" : "0ms" }}
+            >
+              Desarrollo web profesional para negocios que buscan más consultas
             </h1>
-            <p className="mx-auto max-w-2xl text-center text-base sm:text-lg text-neutral-700">
-              Diseño claro y funcional, pensado para convertir visitantes en clientes. Ideal para
-              turismo y servicios.
+            <p
+              className={`mx-auto max-w-2xl text-center text-base sm:text-lg text-neutral-700 leading-relaxed transition-opacity duration-[600ms] ease-out ${
+                heroReveal.isVisible ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ transitionDelay: heroReveal.isVisible ? "80ms" : "0ms" }}
+            >
+              Diseño claro y funcional, pensado para convertir visitas en clientes reales. Ideal
+              para empresas de tamaño mediano o grande.
             </p>
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+            <div
+              className={`mt-5 flex flex-wrap items-center justify-center gap-3 transition-opacity duration-[600ms] ease-out ${
+                heroReveal.isVisible ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ transitionDelay: heroReveal.isVisible ? "160ms" : "0ms" }}
+            >
               <a
                 href="#contacto"
                 onClick={(event) => {
@@ -92,9 +108,9 @@ export default function Home() {
                 aria-label="Ir al contacto"
                 className="inline-flex items-center justify-center rounded-full border border-black bg-black px-7 py-3 text-sm font-medium uppercase tracking-[0.16em] text-[#f7f5ef] shadow-[0_12px_28px_rgba(0,0,0,0.16)] transform transition-transform duration-150 hover:scale-105 hover:bg-neutral-900 hover:border-neutral-900"
               >
-                Ver contacto
+                Hablemos de tu proyecto
               </a>
-              <div className="flex flex-wrap justify-center gap-3 text-[0.75rem] text-neutral-600 ml-2">
+              <div className="flex flex-wrap justify-center gap-3 text-[0.75rem] text-neutral-600 tracking-[0.02em] ml-2">
                 <span className="flex items-center gap-1">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-black" />
                   Optimizado para móviles
@@ -153,7 +169,7 @@ export default function Home() {
         aria-label="Imágenes de ejemplo"
         ref={galleryReveal.ref}
         className={`space-y-6 transition-all duration-500 ease-out ${
-          galleryReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          galleryReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
         }`}
       >
         <div className="grid gap-4 md:grid-cols-3">
@@ -201,12 +217,12 @@ export default function Home() {
         id="beneficios"
         ref={benefitsReveal.ref}
         className={`space-y-8 transition-all duration-500 ease-out ${
-          benefitsReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          benefitsReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
         }`}
       >
         <header className="mx-auto max-w-2xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">Beneficios para tu negocio</h2>
-          <p className="text-sm text-neutral-700">
+          <h2 className="text-xl md:text-2xl font-medium">Beneficios para tu negocio</h2>
+          <p className="text-sm text-neutral-700 leading-relaxed">
             Una web clara y bien pensada puede traducirse en más reservas y una mejor percepción de tu alojamiento.
           </p>
         </header>
@@ -231,12 +247,12 @@ export default function Home() {
         id="servicios"
         ref={servicesReveal.ref}
         className={`space-y-8 transition-all duration-500 ease-out ${
-          servicesReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          servicesReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
         }`}
       >
         <header className="mx-auto max-w-2xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">Servicios</h2>
-          <p className="text-sm text-neutral-700">
+          <h2 className="text-xl md:text-2xl font-medium">Servicios</h2>
+          <p className="text-sm text-neutral-700 leading-relaxed">
             Servicios de desarrollo web pensados para empresas y emprendimientos: entrego sitios
             profesionales, rápidos y orientados a convertir visitantes en clientes. Complementos
             opcionales disponibles para mantener coherencia de marca.
@@ -270,12 +286,12 @@ export default function Home() {
         id="funcionalidades"
         ref={featuresReveal.ref}
         className={`space-y-8 transition-all duration-500 ease-out ${
-          featuresReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          featuresReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
         }`}
       >
         <header className="mx-auto max-w-2xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">Funcionalidades para hostels y hosterías</h2>
-          <p className="text-sm text-neutral-700">
+          <h2 className="text-xl md:text-2xl font-medium">Funcionalidades para hostels y hosterías</h2>
+          <p className="text-sm text-neutral-700 leading-relaxed">
             Estas son algunas de las funciones que se pueden integrar en un sitio web turístico:
           </p>
         </header>
@@ -312,12 +328,12 @@ export default function Home() {
         id="demo"
         ref={demoReveal.ref}
         className={`space-y-8 transition-all duration-500 ease-out ${
-          demoReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          demoReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
         }`}
       >
         <header className="mx-auto max-w-2xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">Bloques de ejemplo</h2>
-          <p className="text-sm text-neutral-700">
+          <h2 className="text-xl md:text-2xl font-medium">Bloques de ejemplo</h2>
+          <p className="text-sm text-neutral-700 leading-relaxed">
             Tres tarjetas simples para mostrar información clave de tu alojamiento.
           </p>
         </header>
@@ -360,11 +376,11 @@ export default function Home() {
         id="opiniones"
         ref={opinionsReveal.ref}
         className={`space-y-8 transition-all duration-500 ease-out ${
-          opinionsReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          opinionsReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
         }`}
       >
         <header className="mx-auto max-w-2xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">Opiniones</h2>
+          <h2 className="text-xl md:text-2xl font-medium">Opiniones</h2>
         </header>
         <div className="mx-auto grid max-w-3xl gap-4 md:grid-cols-2">
           <article className="rounded-2xl border border-black/10 bg-white/80 p-4 text-sm text-neutral-700 shadow-[0_10px_24px_rgba(0,0,0,0.03)] transform transition-transform duration-150 hover:scale-105 text-center">
@@ -381,13 +397,13 @@ export default function Home() {
         id="about"
         ref={aboutReveal.ref}
         className={`space-y-8 transition-all duration-500 ease-out ${
-          aboutReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          aboutReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
         }`}
       >
         <header className="mx-auto max-w-2xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">Sobre mí</h2>
+          <h2 className="text-xl md:text-2xl font-medium">Sobre mí</h2>
         </header>
-        <div className="mx-auto max-w-2xl text-center text-base text-neutral-700 space-y-3">
+        <div className="mx-auto max-w-2xl text-center text-base text-neutral-700 space-y-3 leading-relaxed">
           <p>
             Soy Agustín Ader, desarrollador frontend con más de 9 años de experiencia en atención al
             cliente y administración. Combino know‑how técnico con comprensión de procesos de negocio
@@ -407,13 +423,13 @@ export default function Home() {
         id="experiencia-cliente"
         ref={experienceReveal.ref}
         className={`space-y-8 transition-all duration-500 ease-out ${
-          experienceReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          experienceReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
         }`}
       >
         <header className="mx-auto max-w-2xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">Experiencia en atención al cliente</h2>
+          <h2 className="text-xl md:text-2xl font-medium">Experiencia en atención al cliente</h2>
         </header>
-        <div className="mx-auto max-w-2xl text-center text-base text-neutral-700 space-y-3">
+        <div className="mx-auto max-w-2xl text-center text-base text-neutral-700 space-y-3 leading-relaxed">
           <p>
             Tengo más de 9 años de experiencia en atención al cliente,
             lo que me permite comprender cómo piensan y sienten los usuarios.
@@ -425,17 +441,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CÓMO TRABAJO */}
+      <section
+        id="como-trabajo"
+        ref={workProcessReveal.ref}
+        className={`space-y-6 md:space-y-8 transition-all duration-500 ease-out ${
+          workProcessReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
+        }`}
+      >
+        <header className="mx-auto max-w-2xl text-center space-y-2">
+          <h2 className="text-xl md:text-2xl font-medium">Cómo trabajo</h2>
+        </header>
+        <div className="mx-auto max-w-2xl text-center text-base text-neutral-700 space-y-3 leading-relaxed">
+          <p>Analizo tu negocio y tus objetivos.</p>
+          <p>Diseño una web clara, rápida y enfocada en conversión.</p>
+          <p>Entrego una solución simple de usar y mantener.</p>
+        </div>
+      </section>
+
       {/* WHY ME */}
       <section
         id="why-me"
         ref={whyMeReveal.ref}
         className={`space-y-8 transition-all duration-500 ease-out ${
-          whyMeReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          whyMeReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
         }`}
       >
         <header className="mx-auto max-w-2xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">¿Por qué trabajar conmigo?</h2>
-          <p className="text-sm text-neutral-700">
+          <h2 className="text-xl md:text-2xl font-medium">¿Por qué trabajar conmigo?</h2>
+          <p className="text-sm text-neutral-700 leading-relaxed">
             Algunos motivos por los que puedo sumar a tu proyecto.
           </p>
         </header>
@@ -463,13 +497,13 @@ export default function Home() {
         id="colaboracion"
         ref={collaborationReveal.ref}
         className={`space-y-8 transition-all duration-500 ease-out ${
-          collaborationReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          collaborationReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
         }`}
       >
         <header className="mx-auto max-w-2xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">Colaboración</h2>
+          <h2 className="text-xl md:text-2xl font-medium">Colaboración</h2>
         </header>
-        <div className="mx-auto max-w-2xl text-center text-base text-neutral-700 space-y-3">
+        <div className="mx-auto max-w-2xl text-center text-base text-neutral-700 space-y-3 leading-relaxed">
           <p>
             Estoy abierto a colaborar en proyectos locales,
             ya sea de forma profesional o en modalidad de voluntariado,
@@ -484,12 +518,12 @@ export default function Home() {
         id="contacto"
         ref={contactReveal.ref}
         className={`space-y-6 transition-all duration-500 ease-out ${
-          contactReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          contactReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[12px]"
         }`}
       >
         <header className="mx-auto max-w-xl text-center space-y-2">
-          <h2 className="text-xl md:text-2xl">¿Hablamos?</h2>
-          <p className="text-sm text-neutral-700">
+          <h2 className="text-xl md:text-2xl font-medium">¿Hablamos?</h2>
+          <p className="text-sm text-neutral-700 leading-relaxed">
             Si buscás una web profesional que mejore consultas y ventas para tu negocio, contactame
             sin compromiso. Primero entendemos el proyecto y luego ofrezco servicios complementarios
             si son necesarios.
