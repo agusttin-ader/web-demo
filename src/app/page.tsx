@@ -1,15 +1,67 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 
+function useRevealSection() {
+  const ref = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, isVisible };
+}
+
 export default function Home() {
+  const heroReveal = useRevealSection();
+  const galleryReveal = useRevealSection();
+  const benefitsReveal = useRevealSection();
+  const servicesReveal = useRevealSection();
+  const featuresReveal = useRevealSection();
+  const demoReveal = useRevealSection();
+  const opinionsReveal = useRevealSection();
+  const aboutReveal = useRevealSection();
+  const experienceReveal = useRevealSection();
+  const whyMeReveal = useRevealSection();
+  const collaborationReveal = useRevealSection();
+  const contactReveal = useRevealSection();
   return (
     <>
       <main className="space-y-20 md:space-y-24 lg:space-y-28 px-4 sm:px-6">
       {/* HERO */}
-      <section id="hero" className="pt-10 md:pt-12 lg:pt-16">
+      <section
+        id="hero"
+        ref={heroReveal.ref}
+        className={`pt-10 md:pt-12 lg:pt-16 transition-all duration-700 ease-out ${
+          heroReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <div className="flex flex-col items-center gap-10 text-center">
           <div className="max-w-2xl space-y-6">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
@@ -97,7 +149,13 @@ export default function Home() {
       </p>
 
       {/* GALERÍA DE EJEMPLO */}
-      <section aria-label="Imágenes de ejemplo" className="space-y-6">
+      <section
+        aria-label="Imágenes de ejemplo"
+        ref={galleryReveal.ref}
+        className={`space-y-6 transition-all duration-500 ease-out ${
+          galleryReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <div className="grid gap-4 md:grid-cols-3">
           <figure className="overflow-hidden rounded-2xl border border-black/10 bg-white/70 transform transition-transform duration-150 hover:scale-105 text-center">
             <div className="relative h-40">
@@ -139,7 +197,13 @@ export default function Home() {
       </section>
 
       {/* BENEFICIOS */}
-      <section id="beneficios" className="space-y-8">
+      <section
+        id="beneficios"
+        ref={benefitsReveal.ref}
+        className={`space-y-8 transition-all duration-500 ease-out ${
+          benefitsReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <header className="mx-auto max-w-2xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">Beneficios para tu negocio</h2>
           <p className="text-sm text-neutral-700">
@@ -163,7 +227,13 @@ export default function Home() {
       </section>
 
       {/* SERVICIOS */}
-      <section id="servicios" className="space-y-8">
+      <section
+        id="servicios"
+        ref={servicesReveal.ref}
+        className={`space-y-8 transition-all duration-500 ease-out ${
+          servicesReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <header className="mx-auto max-w-2xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">Servicios</h2>
           <p className="text-sm text-neutral-700">
@@ -196,7 +266,13 @@ export default function Home() {
       </section>
 
       {/* FUNCIONALIDADES PARA HOSTELS Y HOSTERÍAS */}
-      <section id="funcionalidades" className="space-y-8">
+      <section
+        id="funcionalidades"
+        ref={featuresReveal.ref}
+        className={`space-y-8 transition-all duration-500 ease-out ${
+          featuresReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <header className="mx-auto max-w-2xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">Funcionalidades para hostels y hosterías</h2>
           <p className="text-sm text-neutral-700">
@@ -232,7 +308,13 @@ export default function Home() {
       </section>
 
       {/* DEMO */}
-      <section id="demo" className="space-y-8">
+      <section
+        id="demo"
+        ref={demoReveal.ref}
+        className={`space-y-8 transition-all duration-500 ease-out ${
+          demoReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <header className="mx-auto max-w-2xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">Bloques de ejemplo</h2>
           <p className="text-sm text-neutral-700">
@@ -274,7 +356,13 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIOS */}
-      <section id="opiniones" className="space-y-8">
+      <section
+        id="opiniones"
+        ref={opinionsReveal.ref}
+        className={`space-y-8 transition-all duration-500 ease-out ${
+          opinionsReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <header className="mx-auto max-w-2xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">Opiniones</h2>
         </header>
@@ -289,7 +377,13 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="space-y-8">
+      <section
+        id="about"
+        ref={aboutReveal.ref}
+        className={`space-y-8 transition-all duration-500 ease-out ${
+          aboutReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <header className="mx-auto max-w-2xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">Sobre mí</h2>
         </header>
@@ -309,7 +403,13 @@ export default function Home() {
       </section>
 
       {/* EXPERIENCIA ATENCIÓN AL CLIENTE */}
-      <section id="experiencia-cliente" className="space-y-8">
+      <section
+        id="experiencia-cliente"
+        ref={experienceReveal.ref}
+        className={`space-y-8 transition-all duration-500 ease-out ${
+          experienceReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <header className="mx-auto max-w-2xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">Experiencia en atención al cliente</h2>
         </header>
@@ -326,7 +426,13 @@ export default function Home() {
       </section>
 
       {/* WHY ME */}
-      <section id="why-me" className="space-y-8">
+      <section
+        id="why-me"
+        ref={whyMeReveal.ref}
+        className={`space-y-8 transition-all duration-500 ease-out ${
+          whyMeReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <header className="mx-auto max-w-2xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">¿Por qué trabajar conmigo?</h2>
           <p className="text-sm text-neutral-700">
@@ -353,7 +459,13 @@ export default function Home() {
       </section>
 
       {/* COLABORACIÓN */}
-      <section id="colaboracion" className="space-y-8">
+      <section
+        id="colaboracion"
+        ref={collaborationReveal.ref}
+        className={`space-y-8 transition-all duration-500 ease-out ${
+          collaborationReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <header className="mx-auto max-w-2xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">Colaboración</h2>
         </header>
@@ -368,7 +480,13 @@ export default function Home() {
       </section>
 
       {/* CONTACTO */}
-      <section id="contacto" className="space-y-6">
+      <section
+        id="contacto"
+        ref={contactReveal.ref}
+        className={`space-y-6 transition-all duration-500 ease-out ${
+          contactReveal.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <header className="mx-auto max-w-xl text-center space-y-2">
           <h2 className="text-xl md:text-2xl">¿Hablamos?</h2>
           <p className="text-sm text-neutral-700">
