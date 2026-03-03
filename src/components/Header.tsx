@@ -1,17 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const navItems = [
   { id: "servicios", label: "Servicios" },
   { id: "proyectos", label: "Proyectos" },
   { id: "about", label: "Sobre mí" },
-  { id: "contacto", label: "Contacto" },
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -20,35 +26,39 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-[var(--background)]/98 backdrop-blur-md pt-[env(safe-area-inset-top)]">
+    <header
+      className={`sticky top-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-300 ${
+        scrolled ? "border-b border-[var(--card-border)] bg-[var(--background-elevated)]/95 shadow-[var(--shadow-sm)] backdrop-blur-lg" : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 md:py-4">
         <a
-          href="#"
+          href="#hero"
           onClick={(e) => {
             e.preventDefault();
             scrollTo("hero");
           }}
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 rounded-lg"
           aria-label="Agustín Ader - Inicio"
         >
           <Image
             src="/images/logo.png"
-            alt="Agustín Ader"
-            width={140}
-            height={44}
-            className="h-10 w-auto object-contain md:h-11"
+            alt="Agustín Ader - Desarrollo Web Profesional"
+            width={160}
+            height={50}
+            className="h-9 w-auto object-contain object-left md:h-10"
             priority
+            unoptimized={false}
           />
         </a>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 text-sm text-[var(--muted)] md:flex">
+        <nav className="hidden items-center gap-8 text-sm md:flex">
           {navItems.map(({ id, label }) => (
             <button
               key={id}
               type="button"
               onClick={() => scrollTo(id)}
-              className="hover:text-[var(--foreground)] transition-colors"
+              className="link-brand cursor-pointer"
             >
               {label}
             </button>
@@ -59,17 +69,16 @@ export function Header() {
               e.preventDefault();
               scrollTo("contacto");
             }}
-            className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-4 py-2.5 text-sm font-medium text-white transition hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-4 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-[var(--accent-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
           >
-            Hablemos
+            Pedir presupuesto
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
         </nav>
 
-        {/* Mobile: hamburger + CTA */}
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <a
             href="#contacto"
             onClick={(e) => {
@@ -78,12 +87,12 @@ export function Header() {
             }}
             className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl bg-[var(--accent)] px-3 py-2 text-sm font-medium text-white"
           >
-            Hablemos
+            Presupuesto
           </a>
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
-            className="inline-flex h-11 min-w-[44px] items-center justify-center rounded-xl border border-black/10 text-[var(--foreground)] hover:bg-black/5"
+            className="inline-flex h-11 min-w-[44px] items-center justify-center rounded-xl border border-[var(--card-border)] text-[var(--foreground)] hover:bg-[var(--accent-soft-hover)] transition-colors"
             aria-expanded={open}
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
           >
@@ -100,16 +109,15 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="border-t border-black/5 bg-[var(--background)] px-4 py-4 md:hidden">
+        <div className="border-t border-[var(--card-border)] bg-[var(--background-elevated)] px-4 py-4 md:hidden animate-in">
           <nav className="flex flex-col gap-1">
             {navItems.map(({ id, label }) => (
               <button
                 key={id}
                 type="button"
                 onClick={() => scrollTo(id)}
-                className="rounded-lg py-3 text-left text-sm font-medium text-[var(--foreground)] hover:bg-black/5"
+                className="link-brand cursor-pointer rounded-lg py-3 px-3 text-left text-sm font-medium text-[var(--foreground)] hover:bg-[var(--accent-soft-hover)] transition-colors"
               >
                 {label}
               </button>

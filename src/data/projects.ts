@@ -26,7 +26,7 @@ export const projects: Project[] = [
     id: "la-guarida",
     title: "La Guarida Instrumentos",
     description: "Catálogo de guitarras, bajos y accesorios. Muestra de instrumentos disponibles, sección «Sobre la guarida», contacto por WhatsApp y diseño responsive.",
-    image: "/images/laguarida-instrumentos.png",
+    image: "/images/laguarida.PNG",
     link: "https://www.laguaridainstrumentos.com/",
     tags: ["Catálogo", "Instrumentos", "Responsive"],
   },

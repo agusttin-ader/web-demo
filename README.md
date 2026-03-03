@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Portfolio de **Agustín Ader** — desarrollo web profesional. Next.js, diseño responsive y formulario de presupuesto con envío por email.
+
+## Formulario de presupuesto
+
+El formulario de contacto envía los mensajes a **agusttin.dev@gmail.com** usando [Resend](https://resend.com).
+
+1. Creá una API key en [resend.com/api-keys](https://resend.com/api-keys).
+2. Copiá `.env.example` a `.env.local` y agregá tu clave: `RESEND_API_KEY=re_xxx`.
+3. Para producción, verificá tu dominio en [resend.com/domains](https://resend.com/domains) y actualizá el remitente en `src/app/actions/send-budget-request.ts` (por defecto usa `onboarding@resend.dev` para pruebas).
 
 ## Getting Started
 
