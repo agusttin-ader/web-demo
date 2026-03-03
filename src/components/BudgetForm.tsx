@@ -95,7 +95,7 @@ export function BudgetForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="w-full rounded-xl bg-[var(--accent)] px-6 py-3.5 text-sm font-medium text-white shadow-[var(--shadow-sm)] transition-all duration-200 hover:bg-[var(--accent-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed"
+        className="w-full rounded-xl bg-[var(--btn-primary-bg)] px-6 py-3.5 text-sm font-medium text-[var(--btn-primary-text)] shadow-[var(--shadow-sm)] transition-all duration-200 hover:bg-[var(--btn-primary-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {isPending ? "Enviando…" : "Pedir presupuesto"}
       </button>

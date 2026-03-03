@@ -7,11 +7,12 @@ import { FiMail } from "react-icons/fi";
 import { projects } from "@/data/projects";
 import { BudgetForm } from "@/components/BudgetForm";
 
-function useRevealSection() {
+function useRevealSection(initialVisible = false) {
   const ref = useRef<HTMLElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(initialVisible);
 
   useEffect(() => {
+    if (initialVisible) return;
     const el = ref.current;
     if (!el) return;
     if (typeof IntersectionObserver === "undefined") {
@@ -31,7 +32,7 @@ function useRevealSection() {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [initialVisible]);
 
   return { ref, isVisible };
 }
@@ -91,8 +92,9 @@ const servicios = [
 ];
 
 export default function Home() {
-  const heroReveal = useRevealSection();
+  const heroReveal = useRevealSection(true);
   const rubrosReveal = useRevealSection();
+  const processReveal = useRevealSection();
   const projectsReveal = useRevealSection();
   const servicesReveal = useRevealSection();
   const testimonialsReveal = useRevealSection();
@@ -124,14 +126,14 @@ export default function Home() {
             <p className="mt-4 w-full max-w-xl text-base text-[var(--foreground-muted)] leading-relaxed sm:text-lg">
               Especialmente para turismo, hostels y alojamientos — y abierto a cualquier rubro. Diseño claro, rápido y enfocado en que te lleguen más consultas y reservas.
             </p>
-            <div className="mt-8 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
+            <div className="hero-ctas">
               <a
                 href="#contacto"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToContact();
                 }}
-                className="inline-flex w-full min-h-[48px] items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 text-sm font-medium text-white shadow-[var(--shadow-md)] transition-all duration-200 hover:bg-[var(--accent-hover)] hover:shadow-[var(--shadow-lg)] sm:w-auto sm:min-h-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+                className="inline-flex w-full min-h-[48px] items-center justify-center gap-2 rounded-xl bg-[var(--btn-primary-bg)] px-6 py-3.5 text-sm font-medium text-[var(--btn-primary-text)] shadow-[var(--shadow-md)] transition-all duration-200 hover:bg-[var(--btn-primary-hover)] hover:shadow-[var(--shadow-lg)] sm:w-auto sm:min-h-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
               >
                 Pedir presupuesto
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -149,14 +151,33 @@ export default function Home() {
                 Ver proyectos
               </a>
             </div>
-            <p className="mt-5 text-center text-xs text-[var(--muted)] sm:text-sm">
-              Optimizado para móviles · Sin compromiso
+            <p className="hero-labels text-sm text-[var(--foreground-muted)]">
+              <span>9+ años de experiencia</span>
+              <span className="text-[var(--muted)]">·</span>
+              <span>Respuesta en 24 h</span>
+              <span className="text-[var(--muted)]">·</span>
+              <span>Entregas a tiempo</span>
             </p>
+            <a
+              href="#trabajo-con"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("trabajo-con")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="mt-10 flex flex-col items-center gap-2 text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)]"
+              aria-label="Bajar a Trabajo con"
+            >
+              <span className="text-xs uppercase tracking-widest">Scroll</span>
+              <svg className="h-6 w-6 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </a>
           </div>
         </section>
 
-        {/* PARA QUIÉN */}
+        {/* PARA QUIÉN - Trabajo con */}
         <section
+          id="trabajo-con"
           ref={rubrosReveal.ref}
           className={`px-4 sm:px-6 ${transitionClass} ${rubrosReveal.isVisible ? visibleClass : hiddenClass}`}
         >
@@ -178,6 +199,39 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* PROCESO */}
+        <section
+          id="proceso"
+          ref={processReveal.ref}
+          className={`px-4 sm:px-6 ${transitionClass} ${processReveal.isVisible ? visibleClass : hiddenClass}`}
+        >
+          <div className="mx-auto max-w-3xl">
+            <SectionHeader
+              label="Proceso"
+              title="Cómo trabajo"
+              subtitle="Un flujo claro para que sepas en qué etapa estamos y cuándo tendrás tu sitio listo."
+            />
+          </div>
+          <div className="mx-auto mt-7 grid max-w-4xl gap-5 sm:mt-8 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
+            {[
+              { step: "01", title: "Consulta", desc: "Contamos qué necesitás y definimos alcance, plazos y presupuesto." },
+              { step: "02", title: "Propuesta", desc: "Te envío una propuesta formal con entregables y cronograma." },
+              { step: "03", title: "Desarrollo", desc: "Diseño y desarrollo con revisiones en cada etapa clave." },
+              { step: "04", title: "Entrega", desc: "Publicamos tu sitio, te doy acceso y soporte post-lanzamiento." },
+            ].map(({ step, title, desc }) => (
+              <div
+                key={step}
+                className="group overflow-hidden rounded-2xl bg-[var(--background-elevated)] p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:ring-1 hover:ring-[var(--card-border)]"
+              >
+                <div className="mb-3 h-px w-8 bg-[var(--accent)]/40 transition-all duration-300 group-hover:w-12 group-hover:bg-[var(--accent)]" aria-hidden />
+                <span className="text-xs font-semibold tracking-wider text-[var(--accent)]">{step}</span>
+                <h3 className="mt-2 text-lg font-semibold tracking-tight text-[var(--foreground)]">{title}</h3>
+                <p className="mt-2 text-sm text-[var(--foreground-muted)] leading-relaxed">{desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -290,12 +344,20 @@ export default function Home() {
               <p className="text-base text-[var(--foreground)] leading-relaxed sm:text-lg">
                 &ldquo;Agustín logró una web clara y moderna que mejoró nuestras consultas.&rdquo;
               </p>
+              <footer className="mt-4">
+                <cite className="not-italic text-sm font-medium text-[var(--foreground)]">Leo Ruberti</cite>
+                <span className="block text-sm text-[var(--foreground-muted)]">La Guarida Instrumentos</span>
+              </footer>
             </blockquote>
             <blockquote className="group rounded-2xl bg-[var(--background-elevated)] p-6 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:ring-1 hover:ring-[var(--card-border)] sm:p-8">
               <div className="mb-4 h-px w-8 bg-[var(--accent)]/40 group-hover:bg-[var(--accent)] group-hover:w-12 transition-all duration-300 mx-auto" aria-hidden />
               <p className="text-base text-[var(--foreground)] leading-relaxed sm:text-lg">
                 &ldquo;Excelente comunicación y enfoque profesional.&rdquo;
               </p>
+              <footer className="mt-4">
+                <cite className="not-italic text-sm font-medium text-[var(--foreground)]">Leo Ruberti</cite>
+                <span className="block text-sm text-[var(--foreground-muted)]">La Guarida Instrumentos</span>
+              </footer>
             </blockquote>
           </div>
         </section>
@@ -325,7 +387,7 @@ export default function Home() {
                 e.preventDefault();
                 scrollToContact();
               }}
-              className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-[var(--accent-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+              className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[var(--btn-primary-bg)] px-5 py-3 text-sm font-medium text-[var(--btn-primary-text)] transition-all duration-200 hover:bg-[var(--btn-primary-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
             >
               Hablemos de tu proyecto
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

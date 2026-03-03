@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
+  { id: "proceso", label: "Proceso" },
   { id: "servicios", label: "Servicios" },
   { id: "proyectos", label: "Proyectos" },
   { id: "about", label: "Sobre mí" },
@@ -52,7 +54,8 @@ export function Header() {
           />
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm md:flex">
+        <nav className="hidden items-center gap-6 text-sm md:flex">
+          <ThemeToggle />
           {navItems.map(({ id, label }) => (
             <button
               key={id}
@@ -69,7 +72,7 @@ export function Header() {
               e.preventDefault();
               scrollTo("contacto");
             }}
-            className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-4 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-[var(--accent-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+            className="inline-flex items-center gap-2 rounded-xl bg-[var(--btn-primary-bg)] px-4 py-2.5 text-sm font-medium text-[var(--btn-primary-text)] transition-all duration-200 hover:bg-[var(--btn-primary-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
           >
             Pedir presupuesto
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
@@ -79,13 +82,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
           <a
             href="#contacto"
             onClick={(e) => {
               e.preventDefault();
               scrollTo("contacto");
             }}
-            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl bg-[var(--accent)] px-3 py-2 text-sm font-medium text-white"
+            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl bg-[var(--btn-primary-bg)] px-3 py-2 text-sm font-medium text-[var(--btn-primary-text)] transition-colors hover:bg-[var(--btn-primary-hover)]"
           >
             Presupuesto
           </a>

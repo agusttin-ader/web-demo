@@ -15,6 +15,9 @@
   /* CTAs: tono del logo, hover más oscuro para feedback claro */
   --accent: #1e293b;
   --accent-hover: #0f172a;
+  --btn-primary-bg: #1e293b;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #0f172a;
   --accent-soft: rgba(30, 41, 59, 0.1);
   --accent-soft-hover: rgba(30, 41, 59, 0.16);
   --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
@@ -27,6 +30,34 @@
   --link-underline-duration: 0.65s;
   --link-text: #1e293b;
   --link-text-hover: #0f172a;
+}
+
+/* Modo oscuro: invertir colores con contraste */
+html.dark {
+  color-scheme: dark;
+}
+html.dark,
+.dark {
+  --background: #0f172a;
+  --background-elevated: #1e293b;
+  --foreground: #f1f5f9;
+  --foreground-muted: #94a3b8;
+  --muted: #64748b;
+  --card-bg: #1e293b;
+  --card-border: rgba(248, 250, 252, 0.1);
+  --accent: #cbd5e1;
+  --accent-hover: #f1f5f9;
+  --btn-primary-bg: #f1f5f9;
+  --btn-primary-text: #0f172a;
+  --btn-primary-hover: #e2e8f0;
+  --accent-soft: rgba(203, 213, 225, 0.15);
+  --accent-soft-hover: rgba(203, 213, 225, 0.25);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.4);
+  --link-text: #cbd5e1;
+  --link-text-hover: #f1f5f9;
+  --link-underline: rgba(248, 250, 252, 0.85);
 }
 
 /*
@@ -76,6 +107,30 @@
   }
 }
 
+/* Hero: aire entre botones y etiquetas */
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1.25rem;
+}
+@media (min-width: 640px) {
+  .hero-ctas {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+}
+.hero-labels {
+  margin-top: 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem 2.5rem;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -98,6 +153,7 @@ body {
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
