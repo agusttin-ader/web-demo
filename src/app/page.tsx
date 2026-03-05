@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { projects } from "@/data/projects";
+import { examples } from "@/data/examples";
 import { BudgetForm } from "@/components/BudgetForm";
 
 function useRevealSection(initialVisible = false) {
@@ -96,8 +97,8 @@ export default function Home() {
   const rubrosReveal = useRevealSection();
   const processReveal = useRevealSection();
   const projectsReveal = useRevealSection();
+  const examplesReveal = useRevealSection();
   const servicesReveal = useRevealSection();
-  const testimonialsReveal = useRevealSection();
   const aboutReveal = useRevealSection();
   const contactReveal = useRevealSection();
 
@@ -235,7 +236,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PROYECTOS */}
+        {/* PROYECTOS: La Guarida + testimonio */}
         <section
           id="proyectos"
           ref={projectsReveal.ref}
@@ -245,10 +246,10 @@ export default function Home() {
             <SectionHeader
               label="Proyectos"
               title="Webs que desarrollé"
-              subtitle="Una muestra de lo que puedo hacer para tu negocio: sitios claros, rápidos y pensados para atraer clientes."
+              subtitle="Sitios en producción para clientes: claros, rápidos y pensados para atraer clientes."
             />
           </div>
-          <div className="mx-auto mt-7 grid max-w-5xl gap-5 sm:mt-8 sm:gap-6 md:grid-cols-2 md:gap-8">
+          <div className="mx-auto mt-7 max-w-3xl sm:mt-8">
             {projects.map((project) => (
               <article
                 key={project.id}
@@ -297,6 +298,99 @@ export default function Home() {
                     </a>
                   )}
                 </div>
+                <div className="border-t border-[var(--card-border)] px-5 py-5 sm:px-6 sm:py-6">
+                  <p className="text-center text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">Lo que dice el cliente</p>
+                  <div className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
+                    <blockquote className="text-center">
+                      <p className="text-sm text-[var(--foreground)] leading-relaxed sm:text-base">
+                        &ldquo;Agustín logró una web clara y moderna que mejoró nuestras consultas.&rdquo;
+                      </p>
+                      <footer className="mt-2">
+                        <cite className="not-italic text-sm font-medium text-[var(--foreground)]">Leo Ruberti</cite>
+                        <span className="block text-xs text-[var(--foreground-muted)]">La Guarida Instrumentos</span>
+                      </footer>
+                    </blockquote>
+                    <blockquote className="text-center">
+                      <p className="text-sm text-[var(--foreground)] leading-relaxed sm:text-base">
+                        &ldquo;Excelente comunicación y enfoque profesional.&rdquo;
+                      </p>
+                      <footer className="mt-2">
+                        <cite className="not-italic text-sm font-medium text-[var(--foreground)]">Leo Ruberti</cite>
+                        <span className="block text-xs text-[var(--foreground-muted)]">La Guarida Instrumentos</span>
+                      </footer>
+                    </blockquote>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* EJEMPLOS: deploys de demostración */}
+        <section
+          id="ejemplos"
+          ref={examplesReveal.ref}
+          className={`px-4 sm:px-6 ${transitionClass} ${examplesReveal.isVisible ? visibleClass : hiddenClass}`}
+        >
+          <div className="mx-auto max-w-3xl">
+            <SectionHeader
+              label="Ejemplos"
+              title="Deploys de demostración"
+              subtitle="No son proyectos en producción: son sitios publicados solo a modo de ejemplo para mostrar tipos de desarrollo (ecommerce, landing, etc.)."
+            />
+          </div>
+          <div className="mx-auto mt-7 grid max-w-5xl gap-5 sm:mt-8 sm:gap-6 md:grid-cols-2 md:gap-8">
+            {examples.map((example) => (
+              <article
+                key={example.id}
+                className="group overflow-hidden rounded-2xl bg-[var(--background-elevated)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:ring-1 hover:ring-[var(--card-border)]"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden sm:aspect-[4/3]">
+                  <Image
+                    src={example.image}
+                    alt={example.title}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                  {example.tags && example.tags.length > 0 && (
+                    <div className="absolute left-3 top-3 flex flex-wrap gap-2 sm:left-4 sm:top-4">
+                      {example.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-lg bg-[var(--background-elevated)]/95 px-2.5 py-1 text-[11px] font-medium text-[var(--foreground)] shadow-sm backdrop-blur-sm"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <div className="p-5 text-center sm:p-6">
+                  <div className="mb-3 h-px w-8 bg-[var(--accent)]/40 group-hover:bg-[var(--accent)] group-hover:w-12 transition-all duration-300 mx-auto" aria-hidden />
+                  <h3 className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
+                    {example.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-[var(--foreground-muted)] leading-relaxed">
+                    {example.description}
+                  </p>
+                  {example.link && example.link !== "#" && (
+                    <a
+                      href={example.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-brand mt-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--foreground)]"
+                    >
+                      Ver ejemplo
+                      <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  )}
+                  {example.link === "#" && (
+                    <span className="mt-4 inline-block text-xs text-[var(--muted)]">Próximamente</span>
+                  )}
+                </div>
               </article>
             ))}
           </div>
@@ -326,39 +420,6 @@ export default function Home() {
                 <p className="mt-3 flex-1 text-sm text-[var(--foreground-muted)] leading-relaxed">{desc}</p>
               </article>
             ))}
-          </div>
-        </section>
-
-        {/* TESTIMONIOS */}
-        <section
-          id="opiniones"
-          ref={testimonialsReveal.ref}
-          className={`px-4 sm:px-6 ${transitionClass} ${testimonialsReveal.isVisible ? visibleClass : hiddenClass}`}
-        >
-          <div className="mx-auto max-w-3xl">
-            <SectionHeader label="Opiniones" title="Lo que dicen quienes trabajaron conmigo" />
-          </div>
-          <div className="mx-auto mt-7 grid max-w-4xl grid-cols-1 gap-6 sm:mt-8 sm:gap-8 md:grid-cols-2">
-            <blockquote className="group rounded-2xl bg-[var(--background-elevated)] p-6 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:ring-1 hover:ring-[var(--card-border)] sm:p-8">
-              <div className="mb-4 h-px w-8 bg-[var(--accent)]/40 group-hover:bg-[var(--accent)] group-hover:w-12 transition-all duration-300 mx-auto" aria-hidden />
-              <p className="text-base text-[var(--foreground)] leading-relaxed sm:text-lg">
-                &ldquo;Agustín logró una web clara y moderna que mejoró nuestras consultas.&rdquo;
-              </p>
-              <footer className="mt-4">
-                <cite className="not-italic text-sm font-medium text-[var(--foreground)]">Leo Ruberti</cite>
-                <span className="block text-sm text-[var(--foreground-muted)]">La Guarida Instrumentos</span>
-              </footer>
-            </blockquote>
-            <blockquote className="group rounded-2xl bg-[var(--background-elevated)] p-6 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:ring-1 hover:ring-[var(--card-border)] sm:p-8">
-              <div className="mb-4 h-px w-8 bg-[var(--accent)]/40 group-hover:bg-[var(--accent)] group-hover:w-12 transition-all duration-300 mx-auto" aria-hidden />
-              <p className="text-base text-[var(--foreground)] leading-relaxed sm:text-lg">
-                &ldquo;Excelente comunicación y enfoque profesional.&rdquo;
-              </p>
-              <footer className="mt-4">
-                <cite className="not-italic text-sm font-medium text-[var(--foreground)]">Leo Ruberti</cite>
-                <span className="block text-sm text-[var(--foreground-muted)]">La Guarida Instrumentos</span>
-              </footer>
-            </blockquote>
           </div>
         </section>
 
