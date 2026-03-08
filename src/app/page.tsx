@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { projects } from "@/data/projects";
+import { inDevelopmentProjects } from "@/data/in-development";
 import { examples } from "@/data/examples";
 import { BudgetForm } from "@/components/BudgetForm";
 
@@ -97,6 +98,7 @@ export default function Home() {
   const rubrosReveal = useRevealSection();
   const processReveal = useRevealSection();
   const projectsReveal = useRevealSection();
+  const inDevelopmentReveal = useRevealSection();
   const examplesReveal = useRevealSection();
   const servicesReveal = useRevealSection();
   const aboutReveal = useRevealSection();
@@ -113,7 +115,7 @@ export default function Home() {
         <section
           id="hero"
           ref={heroReveal.ref}
-          className={`px-4 pt-12 pb-8 sm:px-6 sm:pt-16 sm:pb-10 md:pt-24 md:pb-12 ${transitionClass} ${
+          className={`hero-premium-bg px-4 pt-12 pb-8 sm:px-6 sm:pt-16 sm:pb-10 md:pt-24 md:pb-12 ${transitionClass} ${
             heroReveal.isVisible ? visibleClass : hiddenClass
           }`}
         >
@@ -190,7 +192,7 @@ export default function Home() {
               {rubros.map(({ label, desc }) => (
                 <div
                   key={label}
-                  className="group rounded-2xl bg-[var(--background-elevated)] p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:ring-1 hover:ring-[var(--card-border)] sm:p-8"
+                  className="group rounded-2xl bg-[var(--background-elevated)] p-6 card-premium border border-[var(--card-border)] hover:ring-1 hover:ring-[var(--card-border)] sm:p-8"
                 >
                   <div className="mb-4 h-px w-8 bg-[var(--accent)]/40 group-hover:bg-[var(--accent)] group-hover:w-12 transition-all duration-300 mx-auto" aria-hidden />
                   <h3 className="text-lg font-semibold tracking-tight text-[var(--foreground)] text-center">
@@ -225,7 +227,7 @@ export default function Home() {
             ].map(({ step, title, desc }) => (
               <div
                 key={step}
-                className="group overflow-hidden rounded-2xl bg-[var(--background-elevated)] p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:ring-1 hover:ring-[var(--card-border)]"
+                className="group overflow-hidden rounded-2xl bg-[var(--background-elevated)] p-6 card-premium border border-[var(--card-border)] hover:ring-1 hover:ring-[var(--card-border)]"
               >
                 <div className="mb-3 h-px w-8 bg-[var(--accent)]/40 transition-all duration-300 group-hover:w-12 group-hover:bg-[var(--accent)]" aria-hidden />
                 <span className="text-xs font-semibold tracking-wider text-[var(--accent)]">{step}</span>
@@ -253,7 +255,7 @@ export default function Home() {
             {projects.map((project) => (
               <article
                 key={project.id}
-                className="group overflow-hidden rounded-2xl bg-[var(--background-elevated)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:ring-1 hover:ring-[var(--card-border)]"
+                className="group overflow-hidden rounded-2xl bg-[var(--background-elevated)] card-premium border border-[var(--card-border)] hover:ring-1 hover:ring-[var(--card-border)]"
               >
                 <div className="relative aspect-[16/10] overflow-hidden sm:aspect-[4/3]">
                   <Image
@@ -326,6 +328,89 @@ export default function Home() {
           </div>
         </section>
 
+        {/* EN DESARROLLO: proyectos en curso con permiso del cliente */}
+        {inDevelopmentProjects.length > 0 && (
+          <section
+            id="en-desarrollo"
+            ref={inDevelopmentReveal.ref}
+            className={`px-4 sm:px-6 ${transitionClass} ${inDevelopmentReveal.isVisible ? visibleClass : hiddenClass}`}
+          >
+            <div className="mx-auto max-w-3xl">
+              <SectionHeader
+                label="En desarrollo"
+                title="Proyectos en curso"
+                subtitle="Sitios que estamos desarrollando ahora. Podés ver el avance en el enlace."
+              />
+            </div>
+            <div
+              className={`mx-auto mt-7 gap-5 sm:mt-8 sm:gap-6 md:gap-8 ${
+                inDevelopmentProjects.length === 1
+                  ? "grid max-w-3xl grid-cols-1"
+                  : "grid max-w-5xl grid-cols-1 md:grid-cols-2"
+              }`}
+            >
+              {inDevelopmentProjects.map((project) => (
+                <article
+                  key={project.id}
+                  className="card-premium group overflow-hidden rounded-2xl border border-[var(--card-border)] bg-[var(--background-elevated)] hover:ring-1 hover:ring-[var(--card-border)]"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden sm:aspect-[4/3]">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      style={{ objectPosition: project.imagePosition ?? "center 40%" }}
+                      unoptimized
+                    />
+                    <span className="absolute right-3 top-3 rounded-lg bg-amber-500/95 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white shadow-sm">
+                      En desarrollo
+                    </span>
+                    {project.tags && project.tags.length > 0 && (
+                      <div className="absolute left-3 bottom-3 flex flex-wrap gap-2 sm:left-4 sm:bottom-4">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-lg bg-[var(--background-elevated)]/95 px-2.5 py-1 text-[11px] font-medium text-[var(--foreground)] shadow-sm backdrop-blur-sm"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-5 text-center sm:p-6">
+                    <div className="mb-3 h-px w-8 bg-[var(--accent)]/40 group-hover:bg-[var(--accent)] group-hover:w-12 transition-all duration-300 mx-auto" aria-hidden />
+                    <h3 className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
+                      {project.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-[var(--foreground-muted)] leading-relaxed">
+                      {project.description}
+                    </p>
+                    <div className="mt-4">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-brand inline-flex items-center gap-2 text-sm font-medium text-[var(--foreground)]"
+                      >
+                        Ver avance
+                        <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                      <p className="mt-1.5 text-xs text-[var(--muted)]">
+                        Abre en nueva pestaña · Sitio en desarrollo
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* EJEMPLOS: deploys de demostración */}
         <section
           id="ejemplos"
@@ -336,14 +421,14 @@ export default function Home() {
             <SectionHeader
               label="Ejemplos"
               title="Deploys de demostración"
-              subtitle="No son proyectos en producción: son sitios publicados solo a modo de ejemplo para mostrar tipos de desarrollo (ecommerce, landing, etc.)."
+              subtitle="Sitios de ejemplo en vivo (alojados en Vercel) para que veas el tipo de desarrollo: ecommerce, turismo con reservas, etc. No son proyectos en producción."
             />
           </div>
           <div className="mx-auto mt-7 grid max-w-5xl gap-5 sm:mt-8 sm:gap-6 md:grid-cols-2 md:gap-8">
             {examples.map((example) => (
               <article
                 key={example.id}
-                className="group overflow-hidden rounded-2xl bg-[var(--background-elevated)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:ring-1 hover:ring-[var(--card-border)]"
+                className="group overflow-hidden rounded-2xl bg-[var(--background-elevated)] card-premium border border-[var(--card-border)] hover:ring-1 hover:ring-[var(--card-border)]"
               >
                 <div className="relative aspect-[16/10] overflow-hidden sm:aspect-[4/3]">
                   <Image
@@ -352,6 +437,8 @@ export default function Home() {
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    style={{ objectPosition: example.imagePosition ?? "center 40%" }}
+                    unoptimized
                   />
                   {example.tags && example.tags.length > 0 && (
                     <div className="absolute left-3 top-3 flex flex-wrap gap-2 sm:left-4 sm:top-4">
@@ -374,18 +461,28 @@ export default function Home() {
                   <p className="mt-2 text-sm text-[var(--foreground-muted)] leading-relaxed">
                     {example.description}
                   </p>
+                  {example.extraNote && (
+                    <p className="mt-3 text-xs text-[var(--accent)] font-medium">
+                      {example.extraNote}
+                    </p>
+                  )}
                   {example.link && example.link !== "#" && (
-                    <a
-                      href={example.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="link-brand mt-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--foreground)]"
-                    >
-                      Ver ejemplo
-                      <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
+                    <div className="mt-4">
+                      <a
+                        href={example.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-brand inline-flex items-center gap-2 text-sm font-medium text-[var(--foreground)]"
+                      >
+                        Ver demo en vivo
+                        <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                      <p className="mt-1.5 text-xs text-[var(--muted)]">
+                        Abre en nueva pestaña · Sitio de demostración
+                      </p>
+                    </div>
                   )}
                   {example.link === "#" && (
                     <span className="mt-4 inline-block text-xs text-[var(--muted)]">Próximamente</span>
@@ -413,7 +510,7 @@ export default function Home() {
             {servicios.map(({ title, desc }) => (
               <article
                 key={title}
-                className="group flex min-h-[200px] flex-col rounded-2xl bg-[var(--background-elevated)] p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:ring-1 hover:ring-[var(--card-border)] sm:p-8"
+                className="group flex min-h-[200px] flex-col rounded-2xl bg-[var(--background-elevated)] p-6 card-premium border border-[var(--card-border)] hover:ring-1 hover:ring-[var(--card-border)] sm:p-8"
               >
                 <div className="mb-4 h-px w-8 bg-[var(--accent)]/40 group-hover:bg-[var(--accent)] group-hover:w-12 transition-all duration-300" aria-hidden />
                 <h3 className="font-semibold tracking-tight text-[var(--foreground)]">{title}</h3>

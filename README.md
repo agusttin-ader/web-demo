@@ -6,7 +6,7 @@ El formulario de contacto envía los mensajes a **agusttin.dev@gmail.com** usand
 
 1. Creá una API key en [resend.com/api-keys](https://resend.com/api-keys).
 2. Copiá `.env.example` a `.env.local` y agregá tu clave: `RESEND_API_KEY=re_xxx`.
-3. Para producción, verificá tu dominio en [resend.com/domains](https://resend.com/domains) y actualizá el remitente en `src/app/actions/send-budget-request.ts` (por defecto usa `onboarding@resend.dev` para pruebas).
+3. Para producción: verificá tu dominio en [resend.com/domains](https://resend.com/domains) y definí `RESEND_FROM_EMAIL` en `.env.local` (ej. `Portfolio <noreply@agustinaderdev.com>`). Si no está definido, se usa `onboarding@resend.dev`.
 
 ## Getting Started
 

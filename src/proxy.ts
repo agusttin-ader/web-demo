@@ -12,6 +12,11 @@ export function proxy(request: NextRequest) {
     "Permissions-Policy",
     "camera=(), microphone=(), geolocation=()"
   );
+  // CSP en modo report-only: no bloquea; permite detectar violaciones (incluye 'unsafe-inline' por el script del tema en head)
+  response.headers.set(
+    "Content-Security-Policy-Report-Only",
+    "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+  );
 
   return response;
 }

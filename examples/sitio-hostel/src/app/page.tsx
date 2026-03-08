@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CalculadoraEstadia } from "@/components/CalculadoraEstadia";
 
 const WHATSAPP_NUMERO = "5491168696491";
@@ -23,6 +24,47 @@ export default function Home() {
 
       {/* Contenido */}
       <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-14">
+        {/* Ubicación - card con imagen y texto */}
+        <section className="mb-12 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <div className="relative aspect-[16/10] w-full sm:aspect-[21/9]">
+            <Image
+              src="/centro.jpg"
+              alt="Vista del centro y alrededores"
+              fill
+              className="object-cover"
+              sizes="(min-width: 640px) 896px, 100vw"
+              priority
+            />
+            <p className="absolute bottom-2 left-2 text-xs text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+              Foto de{" "}
+              <a
+                href="https://unsplash.com/es/@thayran?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white/90"
+              >
+                Thayran Melo
+              </a>{" "}
+              en{" "}
+              <a
+                href="https://unsplash.com/es/fotos/edificio-de-piedra-marron-hFY0ZefVjQ8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white/90"
+              >
+                Unsplash
+              </a>
+            </p>
+          </div>
+          <div className="p-5 sm:p-6">
+            <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">
+              Ubicación
+            </h2>
+            <p className="mt-2 text-slate-600 dark:text-slate-400">
+              A minutos del centro y de la terminal. Fácil acceso al transporte público.
+            </p>
+          </div>
+        </section>
         <section className="mb-12">
           <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-100">
             Reservas

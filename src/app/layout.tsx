@@ -32,13 +32,16 @@ export const metadata: Metadata = {
     title: "Agustín Ader | Desarrollo Web Profesional para Negocios",
     description: "Desarrollo de sitios web profesionales, responsive y optimizados para SEO. Turismo, hostels, servicios y emprendimientos.",
     locale: "es_AR",
-    images: [{ url: "/images/logo.png", alt: "Agustín Ader - Desarrollo Web Profesional", width: 280, height: 88 }],
+    images: [
+      { url: "/og-image.svg", alt: "Agustín Ader - Desarrollo Web Profesional", width: 1200, height: 630 },
+      { url: "/images/logo.png", alt: "Agustín Ader - Desarrollo Web Profesional", width: 280, height: 88 },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Agustín Ader | Desarrollo Web Profesional",
     description: "Sitios web profesionales, responsive y SEO para tu negocio.",
-    images: ["/images/logo.png"],
+    images: ["/og-image.svg", "/images/logo.png"],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://www.agustinaderdev.com" },

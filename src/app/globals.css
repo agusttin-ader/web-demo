@@ -23,6 +23,8 @@
   --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
   --shadow-md: 0 4px 20px rgba(15, 23, 42, 0.07);
   --shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.1);
+  --shadow-premium: 0 8px 32px rgba(15, 23, 42, 0.08);
+  --shadow-premium-hover: 0 20px 50px rgba(15, 23, 42, 0.12);
   --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   /* Marca personal: subrayado oscuro que se completa al hover (transición lenta) */
@@ -55,6 +57,8 @@ html.dark,
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.4);
+  --shadow-premium: 0 8px 32px rgba(0, 0, 0, 0.25);
+  --shadow-premium-hover: 0 20px 50px rgba(0, 0, 0, 0.35);
   --link-text: #cbd5e1;
   --link-text-hover: #f1f5f9;
   --link-underline: rgba(248, 250, 252, 0.85);
@@ -131,6 +135,30 @@ html.dark,
   gap: 2rem 2.5rem;
 }
 
+/* Hero: fondo sutil premium (gradiente muy suave) */
+.hero-premium-bg {
+  background: linear-gradient(180deg, var(--background) 0%, var(--background) 85%, rgba(248, 250, 252, 0.97) 100%);
+}
+html.dark .hero-premium-bg,
+.dark .hero-premium-bg {
+  background: linear-gradient(180deg, var(--background) 0%, var(--background) 85%, rgba(15, 23, 42, 0.98) 100%);
+}
+
+/* Cards premium: hover con elevación suave y escala mínima */
+.card-premium {
+  box-shadow: var(--shadow-premium);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease, border-color 0.2s ease;
+}
+.card-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-premium-hover);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-premium:hover {
+    transform: none;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -171,7 +199,9 @@ p {
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.25rem 5rem;
+  padding: 0;
+  padding-left: max(1.25rem, env(safe-area-inset-left));
+  padding-right: max(1.25rem, env(safe-area-inset-right));
   padding-bottom: max(5rem, env(safe-area-inset-bottom));
   width: 100%;
 }

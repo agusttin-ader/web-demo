@@ -4,6 +4,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const TO_EMAIL = "agusttin.dev@gmail.com";
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Portfolio <onboarding@resend.dev>";
 
 export type BudgetFormState = {
   success: boolean;
@@ -64,7 +65,7 @@ export async function sendBudgetRequest(
   `;
 
   const { data, error } = await resend.emails.send({
-    from: "Portfolio <onboarding@resend.dev>",
+    from: FROM_EMAIL,
     to: [TO_EMAIL],
     replyTo: email,
     subject: `[Presupuesto] ${escapeHtml(name)} – Consulta desde portfolio`,

@@ -8,6 +8,7 @@ const navItems = [
   { id: "proceso", label: "Proceso" },
   { id: "servicios", label: "Servicios" },
   { id: "proyectos", label: "Proyectos" },
+  { id: "en-desarrollo", label: "En desarrollo" },
   { id: "ejemplos", label: "Ejemplos" },
   { id: "about", label: "Sobre mí" },
 ];
