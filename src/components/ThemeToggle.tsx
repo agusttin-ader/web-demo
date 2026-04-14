@@ -12,11 +12,14 @@ export function ThemeToggle() {
     const stored = localStorage.getItem(STORAGE_KEY);
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const isDark = stored === "dark" || (!stored && prefersDark);
-    setDark(isDark);
     const html = document.documentElement;
     if (isDark) html.classList.add("dark");
     else html.classList.remove("dark");
-    setMounted(true);
+    const syncState = window.requestAnimationFrame(() => {
+      setDark(isDark);
+      setMounted(true);
+    });
+    return () => window.cancelAnimationFrame(syncState);
   }, []);
 
   const toggle = () => {

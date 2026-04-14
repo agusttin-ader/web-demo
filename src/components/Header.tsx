@@ -8,7 +8,7 @@ const navItems = [
   { id: "proceso", label: "Proceso" },
   { id: "servicios", label: "Servicios" },
   { id: "proyectos", label: "Proyectos" },
-  { id: "en-desarrollo", label: "En desarrollo" },
+  { id: "en-desarrollo", label: "En curso" },
   { id: "ejemplos", label: "Ejemplos" },
   { id: "about", label: "Sobre mí" },
 ];
@@ -32,10 +32,12 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-300 ${
-        scrolled ? "border-b border-[var(--card-border)] bg-[var(--background-elevated)]/95 shadow-[var(--shadow-sm)] backdrop-blur-lg" : "border-b border-transparent bg-transparent"
+        scrolled
+          ? "border-b border-[var(--card-border)] bg-[var(--background-elevated)]/95 shadow-[var(--shadow-sm)] backdrop-blur-lg"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 md:py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 py-3 md:py-4">
         <a
           href="#hero"
           onClick={(e) => {
@@ -50,13 +52,13 @@ export function Header() {
             alt="Agustín Ader - Desarrollo Web Profesional"
             width={160}
             height={50}
-            className="h-9 w-auto object-contain object-left md:h-10"
+            className="h-9 w-auto object-contain object-left lg:h-10"
             priority
             unoptimized={false}
           />
         </a>
 
-        <nav className="hidden items-center gap-6 text-sm md:flex">
+        <nav className="hidden items-center gap-5 text-sm lg:flex">
           <ThemeToggle />
           {navItems.map(({ id, label }) => (
             <button
@@ -74,16 +76,16 @@ export function Header() {
               e.preventDefault();
               scrollTo("contacto");
             }}
-            className="inline-flex items-center gap-2 rounded-xl bg-[var(--btn-primary-bg)] px-4 py-2.5 text-sm font-medium text-[var(--btn-primary-text)] transition-all duration-200 hover:bg-[var(--btn-primary-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+            className="inline-flex items-center gap-2 rounded-xl bg-[var(--btn-primary-bg)] px-4 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] shadow-[var(--shadow-sm)] transition-all duration-200 hover:bg-[var(--btn-primary-hover)] hover:shadow-[var(--shadow-md)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
           >
-            Pedir presupuesto
+            Solicitar propuesta
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
         </nav>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
           <a
             href="#contacto"
@@ -93,7 +95,7 @@ export function Header() {
             }}
             className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl bg-[var(--btn-primary-bg)] px-3 py-2 text-sm font-medium text-[var(--btn-primary-text)] transition-colors hover:bg-[var(--btn-primary-hover)]"
           >
-            Presupuesto
+            Propuesta
           </a>
           <button
             type="button"
@@ -116,14 +118,14 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-[var(--card-border)] bg-[var(--background-elevated)] px-4 py-4 md:hidden animate-in">
+        <div className="animate-in border-t border-[var(--card-border)] bg-[var(--background-elevated)] px-1 py-4 lg:hidden">
           <nav className="flex flex-col gap-1">
             {navItems.map(({ id, label }) => (
               <button
                 key={id}
                 type="button"
                 onClick={() => scrollTo(id)}
-                className="link-brand cursor-pointer rounded-lg py-3 px-3 text-left text-sm font-medium text-[var(--foreground)] hover:bg-[var(--accent-soft-hover)] transition-colors"
+                className="cursor-pointer rounded-lg px-3 py-3 text-left text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--accent-soft-hover)]"
               >
                 {label}
               </button>
