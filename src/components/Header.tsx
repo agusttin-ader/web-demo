@@ -2,15 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { FaWhatsapp } from "react-icons/fa";
 import { ThemeToggle } from "./ThemeToggle";
+import { WHATSAPP_DEMO_URL } from "@/lib/whatsapp";
 
 const navItems = [
-  { id: "proceso", label: "Proceso" },
-  { id: "servicios", label: "Servicios" },
-  { id: "proyectos", label: "Proyectos" },
-  { id: "en-desarrollo", label: "En curso" },
-  { id: "ejemplos", label: "Ejemplos" },
-  { id: "about", label: "Sobre mí" },
+  { id: "problema", label: "Problema" },
+  { id: "demo", label: "Demo" },
+  { id: "ejemplo", label: "Ejemplo" },
 ];
 
 export function Header() {
@@ -34,31 +33,30 @@ export function Header() {
       className={`sticky top-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-300 ${
         scrolled
           ? "border-b border-[var(--card-border)] bg-[var(--background-elevated)]/95 shadow-[var(--shadow-sm)] backdrop-blur-lg"
-          : "border-b border-transparent bg-transparent"
+          : "border-b border-transparent bg-[var(--background)]/80 backdrop-blur-sm"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 py-3 md:py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 py-3 md:gap-4 md:py-4">
         <a
           href="#hero"
           onClick={(e) => {
             e.preventDefault();
             scrollTo("hero");
           }}
-          className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 rounded-lg"
+          className="flex min-w-0 shrink items-center gap-2 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
           aria-label="Agustín Ader - Inicio"
         >
           <Image
             src="/images/logo.png"
-            alt="Agustín Ader - Desarrollo Web Profesional"
+            alt="Agustín Ader"
             width={160}
             height={50}
-            className="h-9 w-auto object-contain object-left lg:h-10"
+            className="h-8 w-auto max-w-[140px] object-contain object-left sm:h-9 lg:h-10"
             priority
-            unoptimized={false}
           />
         </a>
 
-        <nav className="hidden items-center gap-5 text-sm lg:flex">
+        <nav className="hidden items-center gap-4 text-sm lg:flex">
           <ThemeToggle />
           {navItems.map(({ id, label }) => (
             <button
@@ -71,36 +69,31 @@ export function Header() {
             </button>
           ))}
           <a
-            href="#contacto"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo("contacto");
-            }}
+            href={WHATSAPP_DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl bg-[var(--btn-primary-bg)] px-4 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] shadow-[var(--shadow-sm)] transition-all duration-200 hover:bg-[var(--btn-primary-hover)] hover:shadow-[var(--shadow-md)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
           >
-            Solicitar propuesta
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            <FaWhatsapp className="h-4 w-4" aria-hidden />
+            Demo gratis
           </a>
         </nav>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex shrink-0 items-center gap-2 lg:hidden">
           <ThemeToggle />
           <a
-            href="#contacto"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo("contacto");
-            }}
-            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl bg-[var(--btn-primary-bg)] px-3 py-2 text-sm font-medium text-[var(--btn-primary-text)] transition-colors hover:bg-[var(--btn-primary-hover)]"
+            href={WHATSAPP_DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl bg-[var(--btn-primary-bg)] px-3 py-2 text-xs font-semibold text-[var(--btn-primary-text)] sm:px-4 sm:text-sm"
           >
-            Propuesta
+            <FaWhatsapp className="h-4 w-4 shrink-0" aria-hidden />
+            <span className="truncate">Demo gratis</span>
           </a>
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
-            className="inline-flex h-11 min-w-[44px] items-center justify-center rounded-xl border border-[var(--card-border)] text-[var(--foreground)] hover:bg-[var(--accent-soft-hover)] transition-colors"
+            className="inline-flex h-11 min-w-[44px] items-center justify-center rounded-xl border border-[var(--card-border)] text-[var(--foreground)] transition-colors hover:bg-[var(--accent-soft-hover)]"
             aria-expanded={open}
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
           >
@@ -130,6 +123,16 @@ export function Header() {
                 {label}
               </button>
             ))}
+            <a
+              href={WHATSAPP_DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-3 mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--btn-primary-bg)] py-3 text-sm font-semibold text-[var(--btn-primary-text)]"
+              onClick={() => setOpen(false)}
+            >
+              <FaWhatsapp className="h-4 w-4" aria-hidden />
+              Pedí tu demo gratis
+            </a>
           </nav>
         </div>
       )}
