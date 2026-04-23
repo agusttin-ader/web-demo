@@ -10,37 +10,35 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Agustín Ader | Web que genera consultas · Demo gratis",
+  title: "Agustin Ader | Landing pages para mas consultas",
   description:
-    "Páginas web para turismo y servicios (cabañas, excursiones). Organizo servicios y contacto para que te escriban por WhatsApp. Demo con tu negocio antes de pagar.",
+    "Webs simples y claras para negocios que quieren mas consultas y reservas. Diseno mobile-first, integracion con WhatsApp y enfoque en conversion real.",
   keywords: [
-    "web para turismo",
-    "página web cabañas",
-    "demo web gratis",
-    "WhatsApp negocio",
-    "web excursiones",
-    "sitio web servicios",
-    "Argentina",
+    "landing page para negocios",
+    "web para consultas",
+    "diseno web conversion",
+    "integracion whatsapp",
+    "web mobile first",
+    "desarrollador freelance argentina",
   ],
   authors: [{ name: "Agustín Ader", url: "https://www.agustinaderdev.com" }],
   creator: "Agustín Ader",
   openGraph: {
     type: "website",
     url: "https://www.agustinaderdev.com",
-    siteName: "Agustín Ader",
-    title: "Agustín Ader | Web que genera consultas · Demo gratis",
-    description:
-      "Sitios web claros para turismo y servicios. Más consultas desde Instagram y botón directo a WhatsApp. Probá tu web antes de pagar.",
+    siteName: "Agustin Ader - Landing pages",
+    title: "Agustin Ader | Webs para mas consultas y reservas",
+    description: "Landing pages claras y rapidas para convertir visitas en consultas por WhatsApp.",
     locale: "es_AR",
     images: [
-      { url: "/og-image.svg", alt: "Agustín Ader — Web para turismo y servicios", width: 1200, height: 630 },
-      { url: "/images/logo.png", alt: "Agustín Ader", width: 280, height: 88 },
+      { url: "/og-image.svg", alt: "Agustin Ader - Landing pages para conversion", width: 1200, height: 630 },
+      { url: "/images/logo.png", alt: "Agustin Ader - Landing pages para conversion", width: 280, height: 88 },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agustín Ader | Demo web gratis",
-    description: "Web para turismo y servicios. Consultas por WhatsApp.",
+    title: "Agustin Ader | Landing pages para mas consultas",
+    description: "Webs simples y claras para negocios que quieren convertir mas.",
     images: ["/og-image.svg", "/images/logo.png"],
   },
   robots: { index: true, follow: true },
@@ -50,7 +48,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#0f172a",
+  themeColor: "#1d3634",
 };
 
 const structuredData = {
@@ -62,27 +60,27 @@ const structuredData = {
       name: "Agustín Ader",
       url: "https://www.agustinaderdev.com",
       sameAs: [
-        "https://www.instagram.com/agusttin.ader/",
+        "https://www.instagram.com/agustinader.dev",
         "https://wa.me/5491168696491",
       ],
       email: "mailto:agusttin.dev@gmail.com",
-      jobTitle: "Desarrollador Frontend",
-      description: "Desarrollador web. Sitios para turismo y servicios con foco en consultas por WhatsApp.",
+      jobTitle: "Desarrollador web freelance",
+      description: "Desarrollo landing pages para negocios que necesitan mas consultas y reservas, con enfoque en conversion y contacto directo por WhatsApp.",
     },
     {
       "@type": "WebSite",
       "@id": "https://www.agustinaderdev.com/#website",
       url: "https://www.agustinaderdev.com",
-      name: "Agustín Ader",
-      description: "Páginas web para turismo y servicios. Demo gratis antes de pagar. Consultas por WhatsApp.",
+      name: "Agustin Ader | Landing pages para conversion",
+      description: "Landing pages simples, claras y orientadas a generar consultas reales para negocios.",
       publisher: { "@id": "https://www.agustinaderdev.com/#person" },
       inLanguage: "es-AR",
     },
     {
       "@type": "ProfessionalService",
       "@id": "https://www.agustinaderdev.com/#service",
-      name: "Agustín Ader · Web para turismo y servicios",
-      description: "Páginas web claras para turismo y servicios. Demo antes de pagar.",
+      name: "Agustin Ader - Web para negocios",
+      description: "Servicio de landing pages para conversion con integracion de WhatsApp y enfoque mobile-first.",
       url: "https://www.agustinaderdev.com",
       areaServed: "AR",
     },

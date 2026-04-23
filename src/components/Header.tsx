@@ -2,14 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { FaWhatsapp } from "react-icons/fa";
 import { ThemeToggle } from "./ThemeToggle";
-import { WHATSAPP_DEMO_URL } from "@/lib/whatsapp";
 
 const navItems = [
-  { id: "problema", label: "Problema" },
-  { id: "demo", label: "Demo" },
-  { id: "ejemplo", label: "Ejemplo" },
+  { id: "beneficios", label: "Beneficios" },
+  { id: "servicios", label: "Servicios" },
+  { id: "proyecto-real", label: "Proyecto real" },
+  { id: "sobre-mi", label: "Sobre mi" },
 ];
 
 export function Header() {
@@ -22,6 +21,17 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) {
+      document.body.style.overflow = "";
+      return;
+    }
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -33,30 +43,31 @@ export function Header() {
       className={`sticky top-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-300 ${
         scrolled
           ? "border-b border-[var(--card-border)] bg-[var(--background-elevated)]/95 shadow-[var(--shadow-sm)] backdrop-blur-lg"
-          : "border-b border-transparent bg-[var(--background)]/80 backdrop-blur-sm"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 py-3 md:gap-4 md:py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 py-3 md:py-4">
         <a
           href="#hero"
           onClick={(e) => {
             e.preventDefault();
             scrollTo("hero");
           }}
-          className="flex min-w-0 shrink items-center gap-2 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+          className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 rounded-lg"
           aria-label="Agustín Ader - Inicio"
         >
           <Image
             src="/images/logo.png"
-            alt="Agustín Ader"
+            alt="Agustín Ader - Desarrollo Web Profesional"
             width={160}
             height={50}
-            className="h-8 w-auto max-w-[140px] object-contain object-left sm:h-9 lg:h-10"
+            className="h-9 w-auto object-contain object-left lg:h-10"
             priority
+            unoptimized={false}
           />
         </a>
 
-        <nav className="hidden items-center gap-4 text-sm lg:flex">
+        <nav className="hidden items-center gap-5 text-sm lg:flex">
           <ThemeToggle />
           {navItems.map(({ id, label }) => (
             <button
@@ -68,74 +79,63 @@ export function Header() {
               {label}
             </button>
           ))}
-          <a
-            href={WHATSAPP_DEMO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-[var(--btn-primary-bg)] px-4 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] shadow-[var(--shadow-sm)] transition-all duration-200 hover:bg-[var(--btn-primary-hover)] hover:shadow-[var(--shadow-md)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
-          >
-            <FaWhatsapp className="h-4 w-4" aria-hidden />
-            Demo gratis
-          </a>
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
-          <a
-            href={WHATSAPP_DEMO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl bg-[var(--btn-primary-bg)] px-3 py-2 text-xs font-semibold text-[var(--btn-primary-text)] sm:px-4 sm:text-sm"
-          >
-            <FaWhatsapp className="h-4 w-4 shrink-0" aria-hidden />
-            <span className="truncate">Demo gratis</span>
-          </a>
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
-            className="inline-flex h-11 min-w-[44px] items-center justify-center rounded-xl border border-[var(--card-border)] text-[var(--foreground)] transition-colors hover:bg-[var(--accent-soft-hover)]"
+            className={`relative z-[60] inline-flex h-11 min-w-[44px] items-center justify-center rounded-xl border px-3 transition-colors ${
+              open
+                ? "border-[var(--btn-primary-bg)] bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)]"
+                : "border-[var(--card-border)] text-[var(--foreground)] hover:bg-[var(--accent-soft-hover)]"
+            }`}
             aria-expanded={open}
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
           >
-            {open ? (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
+            <span className="relative h-4 w-6" aria-hidden>
+              <span
+                className={`absolute left-0 top-0 h-[2px] w-6 rounded-full bg-current transition-all duration-300 ${
+                  open ? "translate-y-[7px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-[7px] h-[2px] w-6 rounded-full bg-current transition-all duration-300 ${
+                  open ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-[14px] h-[2px] w-6 rounded-full bg-current transition-all duration-300 ${
+                  open ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
+              />
+            </span>
           </button>
         </div>
       </div>
 
-      {open && (
-        <div className="animate-in border-t border-[var(--card-border)] bg-[var(--background-elevated)] px-1 py-4 lg:hidden">
-          <nav className="flex flex-col gap-1">
+      <div
+        className={`fixed inset-0 z-40 bg-[var(--background)] transition-transform duration-300 ease-out lg:hidden ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+        aria-hidden={!open}
+      >
+        <div className="flex h-full flex-col px-5 pt-24">
+          <nav className="flex flex-col gap-2">
             {navItems.map(({ id, label }) => (
               <button
                 key={id}
                 type="button"
                 onClick={() => scrollTo(id)}
-                className="cursor-pointer rounded-lg px-3 py-3 text-left text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--accent-soft-hover)]"
+                className="cursor-pointer rounded-xl px-4 py-3 text-left text-base font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--accent-soft-hover)]"
               >
                 {label}
               </button>
             ))}
-            <a
-              href={WHATSAPP_DEMO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mx-3 mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--btn-primary-bg)] py-3 text-sm font-semibold text-[var(--btn-primary-text)]"
-              onClick={() => setOpen(false)}
-            >
-              <FaWhatsapp className="h-4 w-4" aria-hidden />
-              Pedí tu demo gratis
-            </a>
           </nav>
         </div>
-      )}
+      </div>
     </header>
   );
 }
