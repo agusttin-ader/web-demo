@@ -1,141 +1,150 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { id: "beneficios", label: "Beneficios" },
+  { id: "proyecto-real", label: "Proyectos" },
   { id: "servicios", label: "Servicios" },
-  { id: "proyecto-real", label: "Proyecto real" },
-  { id: "sobre-mi", label: "Sobre mi" },
+  { id: "contacto", label: "Contacto" },
 ];
+
+const WHATSAPP_URL =
+  "https://wa.me/5491168696491?text=Hola%20Agustin,%20quiero%20mejorar%20mi%20web%20para%20recibir%20mas%20consultas.";
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      const delta = currentY - lastScrollY.current;
+
+      if (currentY < 80) {
+        setVisible(true);
+      } else if (delta > 8) {
+        setVisible(false);
+        setOpen(false);
+      } else if (delta < -8) {
+        setVisible(true);
+      }
+
+      lastScrollY.current = currentY;
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    if (!open) {
-      document.body.style.overflow = "";
-      return;
-    }
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
 
   const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     setOpen(false);
   };
 
   return (
-    <header
-      className={`sticky top-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-300 ${
-        scrolled
-          ? "border-b border-[var(--card-border)] bg-[var(--background-elevated)]/95 shadow-[var(--shadow-sm)] backdrop-blur-lg"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 py-3 md:py-4">
-        <a
-          href="#hero"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollTo("hero");
-          }}
-          className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 rounded-lg"
-          aria-label="Agustín Ader - Inicio"
-        >
-          <Image
-            src="/images/logo.png"
-            alt="Agustín Ader - Desarrollo Web Profesional"
-            width={160}
-            height={50}
-            className="h-9 w-auto object-contain object-left lg:h-10"
-            priority
-            unoptimized={false}
-          />
-        </a>
-
-        <nav className="hidden items-center gap-5 text-sm lg:flex">
-          <ThemeToggle />
-          {navItems.map(({ id, label }) => (
-            <button
-              key={id}
-              type="button"
-              onClick={() => scrollTo(id)}
-              className="link-brand cursor-pointer"
-            >
-              {label}
-            </button>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2 lg:hidden">
-          <ThemeToggle />
-          <button
-            type="button"
-            onClick={() => setOpen((o) => !o)}
-            className={`relative z-[60] inline-flex h-11 min-w-[44px] items-center justify-center rounded-xl border px-3 transition-colors ${
-              open
-                ? "border-[var(--btn-primary-bg)] bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)]"
-                : "border-[var(--card-border)] text-[var(--foreground)] hover:bg-[var(--accent-soft-hover)]"
-            }`}
-            aria-expanded={open}
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          >
-            <span className="relative h-4 w-6" aria-hidden>
-              <span
-                className={`absolute left-0 top-0 h-[2px] w-6 rounded-full bg-current transition-all duration-300 ${
-                  open ? "translate-y-[7px] rotate-45" : ""
-                }`}
-              />
-              <span
-                className={`absolute left-0 top-[7px] h-[2px] w-6 rounded-full bg-current transition-all duration-300 ${
-                  open ? "opacity-0" : "opacity-100"
-                }`}
-              />
-              <span
-                className={`absolute left-0 top-[14px] h-[2px] w-6 rounded-full bg-current transition-all duration-300 ${
-                  open ? "-translate-y-[7px] -rotate-45" : ""
-                }`}
-              />
-            </span>
-          </button>
-        </div>
-      </div>
-
-      <div
-        className={`fixed inset-0 z-40 bg-[var(--background)] transition-transform duration-300 ease-out lg:hidden ${
-          open ? "translate-x-0" : "translate-x-full"
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 border-b border-[var(--card-border)] bg-[var(--background-elevated)] pt-[env(safe-area-inset-top)] transition-transform duration-300 ${
+          visible ? "translate-y-0" : "-translate-y-full"
         }`}
-        aria-hidden={!open}
       >
-        <div className="flex h-full flex-col px-5 pt-24">
-          <nav className="flex flex-col gap-2">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-[var(--container-inline)] py-3 sm:py-3.5">
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo("hero");
+            }}
+            className="flex shrink-0 items-center overflow-visible focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+            aria-label="Agustín Ader - Inicio"
+          >
+            <Image
+              src="/images/logo-transparent.png"
+              alt="Agustín Ader - Desarrollo Web"
+              width={240}
+              height={84}
+              className="h-10 w-auto max-w-none object-contain object-left sm:h-11"
+              priority
+            />
+          </a>
+
+          <nav className="hidden items-center gap-1 md:flex">
             {navItems.map(({ id, label }) => (
               <button
                 key={id}
                 type="button"
                 onClick={() => scrollTo(id)}
-                className="cursor-pointer rounded-xl px-4 py-3 text-left text-base font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--accent-soft-hover)]"
+                className="px-3.5 py-2 text-sm font-medium text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)]"
               >
                 {label}
               </button>
             ))}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary ml-2 !min-h-[2.25rem] !px-4 !py-1.5 !text-xs"
+            >
+              WhatsApp
+            </a>
           </nav>
+
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              type="button"
+              onClick={() => setOpen((o) => !o)}
+              className="inline-flex h-10 w-10 items-center justify-center border border-[var(--card-border)] text-[var(--foreground)]"
+              aria-expanded={open}
+              aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            >
+              <span className="relative h-3.5 w-5" aria-hidden>
+                <span className={`absolute left-0 top-0 h-[1.5px] w-5 bg-current transition-transform ${open ? "translate-y-[6px] rotate-45" : ""}`} />
+                <span className={`absolute left-0 top-[6px] h-[1.5px] w-5 bg-current transition-opacity ${open ? "opacity-0" : ""}`} />
+                <span className={`absolute left-0 top-[12px] h-[1.5px] w-5 bg-current transition-transform ${open ? "-translate-y-[6px] -rotate-45" : ""}`} />
+              </span>
+            </button>
+          </div>
         </div>
+      </header>
+
+      <div
+        className={`fixed inset-0 z-40 flex flex-col bg-[var(--background-elevated)] px-6 pt-24 transition-opacity duration-200 md:hidden ${
+          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        aria-hidden={!open}
+      >
+        <nav className="flex flex-col gap-1 border-t border-[var(--card-border)] pt-4">
+          {navItems.map(({ id, label }) => (
+            <button
+              key={id}
+              type="button"
+              onClick={() => scrollTo(id)}
+              className="px-2 py-4 text-left font-[family-name:var(--font-display)] text-xl font-bold text-[var(--foreground)] transition-colors hover:text-[var(--accent)]"
+            >
+              {label}
+            </button>
+          ))}
+        </nav>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary mt-8 w-full"
+          onClick={() => setOpen(false)}
+        >
+          Escribirme por WhatsApp
+        </a>
       </div>
-    </header>
+    </>
   );
 }
