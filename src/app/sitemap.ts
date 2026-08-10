@@ -1,14 +1,17 @@
 import type { MetadataRoute } from "next";
-
-const BASE_URL = "https://www.agustinaderdev.com";
+import { projects } from "@/data/projects";
+import { absoluteUrl, OG_IMAGE, SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const projectImages = projects.map((project) => absoluteUrl(project.image));
+
   return [
     {
-      url: BASE_URL,
+      url: SITE_URL,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 1,
+      images: [absoluteUrl(OG_IMAGE.url), absoluteUrl("/new-logo-transparent.webp"), ...projectImages],
     },
   ];
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useId, useRef } from "react";
 import { sendBudgetRequest, type BudgetFormState } from "@/app/actions/send-budget-request";
 
 const initialState: BudgetFormState = {
@@ -8,96 +8,176 @@ const initialState: BudgetFormState = {
   message: "",
 };
 
-export function BudgetForm() {
+const fieldClass = "field-input";
+
+type BudgetFormProps = {
+  /** Larger padding / stronger presence for the contact stage */
+  featured?: boolean;
+};
+
+export function BudgetForm({ featured = false }: BudgetFormProps) {
   const [state, formAction, isPending] = useActionState(sendBudgetRequest, initialState);
+  const formId = useId();
+  const statusId = `${formId}-status`;
+  const hintId = `${formId}-hint`;
+  const statusRef = useRef<HTMLParagraphElement>(null);
+  const hasError = Boolean(state.message && !state.success);
+  const hasSuccess = Boolean(state.message && state.success);
+  const hasStatus = Boolean(state.message);
+
+  useEffect(() => {
+    if (!state.message) return;
+    statusRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [state.message]);
 
   return (
     <form
       action={formAction}
-      className="w-full max-w-2xl space-y-5 rounded-2xl border border-[var(--card-border)] bg-[var(--background-elevated)] p-6 shadow-[var(--shadow-md)] sm:p-8"
+      className={
+        featured
+          ? "budget-form budget-form--featured flex w-full flex-col gap-[var(--space-3)]"
+          : "budget-form flex w-full flex-col gap-[var(--space-3)] rounded-[var(--radius-xl)] border border-[var(--card-border)] bg-[var(--background-elevated)] p-[var(--space-3)] shadow-[var(--shadow-md)] sm:p-[var(--space-4)]"
+      }
+      noValidate={false}
+      aria-busy={isPending}
+      aria-describedby={hintId}
     >
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
-          Nombre y apellido *
+        <p className="eyebrow tracking-[0.14em]">Propuesta</p>
+        <h3 className="mt-2 font-display text-[length:var(--text-2xl)] font-bold tracking-tight text-[var(--foreground)] sm:text-[length:var(--text-3xl)]">
+          Pedí tu propuesta
+        </h3>
+        <p id={hintId} className="mt-2 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)] sm:text-[length:var(--text-base)]">
+          Nombre, email y objetivo del proyecto. En menos de un minuto queda listo.
+        </p>
+      </div>
+
+      <p
+        ref={statusRef}
+        id={statusId}
+        role={hasError ? "alert" : "status"}
+        aria-live="polite"
+        aria-atomic="true"
+        className={
+          hasStatus
+            ? `rounded-[var(--radius-md)] border px-3.5 py-3 text-[length:var(--text-sm)] leading-snug ${
+                hasSuccess
+                  ? "border-[color-mix(in_srgb,var(--accent)_35%,var(--card-border))] bg-[var(--accent-soft)] text-[var(--accent-bright)]"
+                  : "border-[var(--danger)]/40 bg-[var(--danger-soft)] text-[var(--danger)]"
+              }`
+            : "sr-only"
+        }
+      >
+        {state.message || (isPending ? "Enviando solicitud…" : "")}
+      </p>
+
+      <div className="hp-field" aria-hidden="true">
+        <label htmlFor={`${formId}-company`}>Empresa</label>
+        <input
+          id={`${formId}-company`}
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          defaultValue=""
+        />
+      </div>
+
+      <div>
+        <label htmlFor={`${formId}-name`} className="mb-2 block text-[length:var(--text-sm)] font-medium text-[var(--foreground)]">
+          Nombre y apellido{" "}
+          <span className="text-[var(--danger)]" aria-hidden>
+            *
+          </span>
+          <span className="sr-only">(obligatorio)</span>
         </label>
         <input
-          id="name"
+          id={`${formId}-name`}
           name="name"
           type="text"
           required
           autoComplete="name"
+          aria-required="true"
+          aria-invalid={hasError || undefined}
+          aria-describedby={hasStatus ? statusId : undefined}
           placeholder="Ej: Agustín Ader"
           maxLength={120}
-          className="w-full rounded-xl border border-[var(--foreground)]/10 bg-[var(--background)] px-4 py-3 text-[var(--foreground)] placeholder:text-[var(--muted)] shadow-[0_2px_8px_rgba(15,23,42,0.06)] transition-all focus:border-[var(--accent)]/60 focus:outline-none focus:ring-0 focus:shadow-[0_0_0_4px_rgba(30,41,59,0.15)]"
-          disabled={isPending}
+          className={fieldClass}
+          disabled={isPending || hasSuccess}
         />
       </div>
+
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
-          Email *
+        <label htmlFor={`${formId}-email`} className="mb-2 block text-[length:var(--text-sm)] font-medium text-[var(--foreground)]">
+          Email{" "}
+          <span className="text-[var(--danger)]" aria-hidden>
+            *
+          </span>
+          <span className="sr-only">(obligatorio)</span>
         </label>
         <input
-          id="email"
+          id={`${formId}-email`}
           name="email"
           type="email"
           required
           autoComplete="email"
+          inputMode="email"
+          aria-required="true"
+          aria-invalid={hasError || undefined}
+          aria-describedby={hasStatus ? statusId : undefined}
           placeholder="tu@email.com"
           maxLength={254}
-          className="w-full rounded-xl border border-[var(--foreground)]/10 bg-[var(--background)] px-4 py-3 text-[var(--foreground)] placeholder:text-[var(--muted)] shadow-[0_2px_8px_rgba(15,23,42,0.06)] transition-all focus:border-[var(--accent)]/60 focus:outline-none focus:ring-0 focus:shadow-[0_0_0_4px_rgba(30,41,59,0.15)]"
-          disabled={isPending}
+          className={fieldClass}
+          disabled={isPending || hasSuccess}
         />
       </div>
+
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
-          Teléfono de contacto (opcional)
+        <label htmlFor={`${formId}-phone`} className="mb-2 block text-[length:var(--text-sm)] font-medium text-[var(--foreground)]">
+          Teléfono de contacto <span className="font-normal text-[var(--muted)]">(opcional)</span>
         </label>
         <input
-          id="phone"
+          id={`${formId}-phone`}
           name="phone"
           type="tel"
           autoComplete="tel"
+          inputMode="tel"
           placeholder="+54 9 11 1234-5678"
           maxLength={30}
-          className="w-full rounded-xl border border-[var(--foreground)]/10 bg-[var(--background)] px-4 py-3 text-[var(--foreground)] placeholder:text-[var(--muted)] shadow-[0_2px_8px_rgba(15,23,42,0.06)] transition-all focus:border-[var(--accent)]/60 focus:outline-none focus:ring-0 focus:shadow-[0_0_0_4px_rgba(30,41,59,0.15)]"
-          disabled={isPending}
+          className={fieldClass}
+          disabled={isPending || hasSuccess}
         />
       </div>
+
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
-          Objetivo del proyecto *
+        <label htmlFor={`${formId}-message`} className="mb-2 block text-[length:var(--text-sm)] font-medium text-[var(--foreground)]">
+          Objetivo del proyecto{" "}
+          <span className="text-[var(--danger)]" aria-hidden>
+            *
+          </span>
+          <span className="sr-only">(obligatorio)</span>
         </label>
         <textarea
-          id="message"
+          id={`${formId}-message`}
           name="message"
           required
           rows={4}
           maxLength={2000}
-          placeholder="Describe alcance esperado, plazos estimados y cualquier referencia relevante..."
-          className="w-full resize-y min-h-[100px] rounded-xl border border-[var(--foreground)]/10 bg-[var(--background)] px-4 py-3 text-[var(--foreground)] placeholder:text-[var(--muted)] shadow-[0_2px_8px_rgba(15,23,42,0.06)] transition-all focus:border-[var(--accent)]/60 focus:outline-none focus:ring-0 focus:shadow-[0_0_0_4px_rgba(30,41,59,0.15)]"
-          disabled={isPending}
+          aria-required="true"
+          aria-invalid={hasError || undefined}
+          aria-describedby={hasStatus ? statusId : undefined}
+          placeholder="Alcance, plazos y cualquier referencia relevante"
+          className={`${fieldClass} min-h-[100px] resize-y`}
+          disabled={isPending || hasSuccess}
         />
       </div>
 
-      {state.message && (
-        <p
-          role="alert"
-          className={`text-sm rounded-lg px-3 py-2 ${
-            state.success
-              ? "bg-[var(--accent-soft)] text-[var(--accent-hover)]"
-              : "bg-red-50 text-red-700"
-          }`}
-        >
-          {state.message}
-        </p>
-      )}
-
       <button
         type="submit"
-        disabled={isPending}
-        className="w-full rounded-xl bg-[var(--btn-primary-bg)] px-6 py-3.5 text-sm font-medium text-[var(--btn-primary-text)] shadow-[var(--shadow-sm)] transition-all duration-200 hover:bg-[var(--btn-primary-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed"
+        disabled={isPending || hasSuccess}
+        className="btn-primary focus-ring mt-1 w-full disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {isPending ? "Enviando solicitud..." : "Solicitar propuesta"}
+        {hasSuccess ? "Mensaje enviado" : isPending ? "Enviando solicitud…" : "Solicitar propuesta"}
       </button>
     </form>
   );

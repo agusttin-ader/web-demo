@@ -1,10 +1,11 @@
 "use server";
 
 import { Resend } from "resend";
+import { EMAIL } from "@/lib/constants";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const TO_EMAIL = "agusttin.dev@gmail.com";
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Portfolio <onboarding@resend.dev>";
+/** Inbox for form submissions. In Resend test mode must match your account email. */
+const TO_EMAIL = process.env.RESEND_TO_EMAIL || EMAIL;
 
 export type BudgetFormState = {
   success: boolean;
@@ -15,6 +16,15 @@ export async function sendBudgetRequest(
   _prev: BudgetFormState,
   formData: FormData
 ): Promise<BudgetFormState> {
+  // Honeypot — bots that fill hidden fields get a silent success.
+  const honeypot = String(formData.get("company") ?? "").trim();
+  if (honeypot) {
+    return {
+      success: true,
+      message: "Mensaje enviado. Te responderé a la brevedad.",
+    };
+  }
+
   const rawName = (formData.get("name") as string)?.trim() ?? "";
   const rawEmail = (formData.get("email") as string)?.trim() ?? "";
   const rawPhone = (formData.get("phone") as string)?.trim() ?? "";
@@ -53,6 +63,9 @@ export async function sendBudgetRequest(
     };
   }
 
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const subjectName = name.replace(/[\r\n\u0000-\u001f]+/g, " ").trim();
+
   const html = `
     <h2>Nueva solicitud de presupuesto – Portfolio</h2>
     <p><strong>Nombre:</strong> ${escapeHtml(name)}</p>
@@ -64,11 +77,11 @@ export async function sendBudgetRequest(
     <p style="color:#78716c;font-size:12px;">Enviado desde el formulario de presupuesto de tu portfolio.</p>
   `;
 
-  const { data, error } = await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: FROM_EMAIL,
     to: [TO_EMAIL],
     replyTo: email,
-    subject: `[Presupuesto] ${escapeHtml(name)} – Consulta desde portfolio`,
+    subject: `[Presupuesto] ${subjectName} – Consulta desde portfolio`,
     html,
   });
 

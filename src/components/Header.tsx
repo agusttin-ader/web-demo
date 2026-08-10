@@ -1,116 +1,211 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useId } from "react";
 import Image from "next/image";
+import { ExternalLink } from "@/components/ExternalLink";
+import { IconArrowRight, IconWhatsApp } from "@/components/icons";
+import { NAV_ITEMS, WHATSAPP_URL } from "@/lib/constants";
 
-const navItems = [
-  { id: "beneficios", label: "Beneficios" },
-  { id: "proyecto-real", label: "Proyectos" },
-  { id: "servicios", label: "Servicios" },
-  { id: "contacto", label: "Contacto" },
-];
-
-const WHATSAPP_URL =
-  "https://wa.me/5491168696491?text=Hola%20Agustin,%20quiero%20mejorar%20mi%20web%20para%20recibir%20mas%20consultas.";
+const SECTION_IDS = ["hero", ...NAV_ITEMS.map((item) => item.id)] as const;
+const FOCUSABLE =
+  'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const lastScrollY = useRef(0);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeId, setActiveId] = useState<string>("hero");
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const firstMenuItemRef = useRef<HTMLAnchorElement>(null);
+  const menuId = useId();
+  const titleId = useId();
 
   useEffect(() => {
     const onScroll = () => {
-      const currentY = window.scrollY;
-      const delta = currentY - lastScrollY.current;
-
-      if (currentY < 80) {
-        setVisible(true);
-      } else if (delta > 8) {
-        setVisible(false);
-        setOpen(false);
-      } else if (delta < -8) {
-        setVisible(true);
-      }
-
-      lastScrollY.current = currentY;
+      setScrolled(window.scrollY > 12);
     };
-
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
+    const elements = SECTION_IDS.map((id) => document.getElementById(id)).filter(
+      (el): el is HTMLElement => Boolean(el)
+    );
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]?.target?.id) {
+          setActiveId(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-35% 0px -50% 0px",
+        threshold: [0.1, 0.25, 0.5],
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = open ? "hidden" : "";
+    document.body.dataset.navOpen = open ? "true" : "";
+    if (open) {
+      window.requestAnimationFrame(() => firstMenuItemRef.current?.focus());
+    }
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
+      delete document.body.dataset.navOpen;
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const panel = panelRef.current;
+    if (!panel) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const nodes = Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
+        (el) => !el.hasAttribute("disabled") && el.getAttribute("aria-hidden") !== "true"
+      );
+      if (!nodes.length) return;
+
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      el.setAttribute("tabindex", "-1");
+      el.focus({ preventScroll: true });
+    }
+    setActiveId(id);
     setOpen(false);
   };
 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b border-[var(--card-border)] bg-[var(--background-elevated)] pt-[env(safe-area-inset-top)] transition-transform duration-300 ${
-          visible ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className={`site-header pt-[env(safe-area-inset-top)] ${scrolled || open ? "is-scrolled" : ""}`}
+        role="banner"
       >
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-[var(--container-inline)] py-3 sm:py-3.5">
+        <div className="mx-auto flex w-full max-w-[var(--content-max)] items-center justify-between gap-[var(--space-2)] px-[var(--container-inline)] py-3">
           <a
             href="#hero"
             onClick={(e) => {
               e.preventDefault();
               scrollTo("hero");
             }}
-            className="flex shrink-0 items-center overflow-visible focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
-            aria-label="Agustín Ader - Inicio"
+            className="nav-logo focus-ring"
+            aria-label="Agustín Ader, ir al inicio"
           >
             <Image
-              src="/images/logo-transparent.png"
-              alt="Agustín Ader - Desarrollo Web"
-              width={240}
-              height={84}
-              className="h-10 w-auto max-w-none object-contain object-left sm:h-11"
-              priority
+              src="/new-logo-transparent.webp"
+              alt=""
+              width={72}
+              height={72}
+              className="h-8 w-auto object-contain object-left sm:h-9"
+              sizes="36px"
             />
           </a>
 
-          <nav className="hidden items-center gap-1 md:flex">
-            {navItems.map(({ id, label }) => (
-              <button
-                key={id}
-                type="button"
-                onClick={() => scrollTo(id)}
-                className="px-3.5 py-2 text-sm font-medium text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)]"
-              >
-                {label}
-              </button>
-            ))}
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary ml-2 !min-h-[2.25rem] !px-4 !py-1.5 !text-xs"
-            >
+          <nav className="hidden items-center gap-0.5 md:flex" aria-label="Secciones principales">
+            <ul className="flex items-center gap-0.5">
+              {NAV_ITEMS.map(({ id, label }) => {
+                const isActive = activeId === id;
+                return (
+                  <li key={id}>
+                    <a
+                      href={`#${id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollTo(id);
+                      }}
+                      className={`nav-link focus-ring ${isActive ? "is-active" : ""}`}
+                      aria-current={isActive ? "location" : undefined}
+                    >
+                      {label}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+            <ExternalLink href={WHATSAPP_URL} className="nav-cta focus-ring ml-3">
               WhatsApp
-            </a>
+              <IconArrowRight className="h-3 w-3 opacity-70" aria-hidden />
+            </ExternalLink>
           </nav>
 
           <div className="flex items-center gap-2 md:hidden">
+            <ExternalLink
+              href={WHATSAPP_URL}
+              className="nav-cta focus-ring !min-h-9 !px-3"
+              aria-label="Contactar por WhatsApp"
+            >
+              <IconWhatsApp className="h-3.5 w-3.5" aria-hidden />
+              <span className="nav-cta-label" aria-hidden>
+                WhatsApp
+              </span>
+            </ExternalLink>
             <button
+              ref={menuButtonRef}
               type="button"
               onClick={() => setOpen((o) => !o)}
-              className="inline-flex h-10 w-10 items-center justify-center border border-[var(--card-border)] text-[var(--foreground)]"
+              className="focus-ring inline-flex h-10 w-10 items-center justify-center rounded-[var(--radius)] border border-[var(--card-border)] bg-[rgba(255,255,255,0.03)] text-[var(--foreground)] transition-colors hover:bg-[rgba(255,255,255,0.06)]"
               aria-expanded={open}
-              aria-label={open ? "Cerrar menú" : "Abrir menú"}
+              aria-controls={menuId}
+              aria-haspopup="dialog"
+              aria-label={open ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
             >
               <span className="relative h-3.5 w-5" aria-hidden>
-                <span className={`absolute left-0 top-0 h-[1.5px] w-5 bg-current transition-transform ${open ? "translate-y-[6px] rotate-45" : ""}`} />
-                <span className={`absolute left-0 top-[6px] h-[1.5px] w-5 bg-current transition-opacity ${open ? "opacity-0" : ""}`} />
-                <span className={`absolute left-0 top-[12px] h-[1.5px] w-5 bg-current transition-transform ${open ? "-translate-y-[6px] -rotate-45" : ""}`} />
+                <span
+                  className={`absolute left-0 top-0 h-[1.5px] w-5 origin-center bg-current transition-transform duration-300 ease-[var(--ease-out)] ${
+                    open ? "translate-y-[6px] rotate-45" : ""
+                  }`}
+                />
+                <span
+                  className={`absolute left-0 top-[6px] h-[1.5px] w-5 bg-current transition-opacity duration-200 ${
+                    open ? "opacity-0" : ""
+                  }`}
+                />
+                <span
+                  className={`absolute left-0 top-[12px] h-[1.5px] w-5 origin-center bg-current transition-transform duration-300 ease-[var(--ease-out)] ${
+                    open ? "-translate-y-[6px] -rotate-45" : ""
+                  }`}
+                />
               </span>
             </button>
           </div>
@@ -118,32 +213,64 @@ export function Header() {
       </header>
 
       <div
-        className={`fixed inset-0 z-40 flex flex-col bg-[var(--background-elevated)] px-6 pt-24 transition-opacity duration-200 md:hidden ${
-          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        ref={panelRef}
+        id={menuId}
+        className={`nav-mobile-panel fixed inset-0 z-[45] flex flex-col px-[var(--container-inline)] pt-24 pb-[calc(env(safe-area-inset-bottom)+1.5rem)] transition-[opacity,visibility] duration-300 md:hidden ${
+          open
+            ? "is-open pointer-events-auto visible opacity-100"
+            : "pointer-events-none invisible opacity-0"
         }`}
-        aria-hidden={!open}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        inert={!open ? true : undefined}
       >
-        <nav className="flex flex-col gap-1 border-t border-[var(--card-border)] pt-4">
-          {navItems.map(({ id, label }) => (
-            <button
-              key={id}
-              type="button"
-              onClick={() => scrollTo(id)}
-              className="px-2 py-4 text-left font-[family-name:var(--font-display)] text-xl font-bold text-[var(--foreground)] transition-colors hover:text-[var(--accent)]"
-            >
-              {label}
-            </button>
-          ))}
+        <h2 id={titleId} className="sr-only">
+          Menú de navegación
+        </h2>
+
+        <nav className="flex flex-1 flex-col gap-1 border-t border-[var(--section-divider)] pt-[var(--space-3)]" aria-label="Navegación móvil">
+          <ul className="flex flex-col gap-1">
+            {NAV_ITEMS.map(({ id, label }, index) => {
+              const isActive = activeId === id;
+              return (
+                <li key={id}>
+                  <a
+                    ref={index === 0 ? firstMenuItemRef : undefined}
+                    href={`#${id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollTo(id);
+                    }}
+                    className={`nav-mobile-link focus-ring ${isActive ? "is-active" : ""}`}
+                    style={{ transitionDelay: open ? `${80 + index * 55}ms` : "0ms" }}
+                    aria-current={isActive ? "location" : undefined}
+                    tabIndex={open ? 0 : -1}
+                  >
+                    <span>{label}</span>
+                    <IconArrowRight className="h-4 w-4 opacity-40" aria-hidden />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </nav>
-        <a
+
+        <ExternalLink
           href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary mt-8 w-full"
+          className="nav-cta focus-ring mt-auto w-full !min-h-12 !text-[length:var(--text-sm)]"
           onClick={() => setOpen(false)}
+          tabIndex={open ? 0 : -1}
+          style={{
+            opacity: open ? 1 : 0,
+            transform: open ? "translateY(0)" : "translateY(8px)",
+            transition: "opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out)",
+            transitionDelay: open ? "260ms" : "0ms",
+          }}
         >
+          <IconWhatsApp className="h-4 w-4" aria-hidden />
           Escribirme por WhatsApp
-        </a>
+        </ExternalLink>
       </div>
     </>
   );
