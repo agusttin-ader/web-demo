@@ -128,7 +128,7 @@ export function Services() {
           />
         </Reveal>
 
-        <div className="mt-12 border-t border-[var(--section-divider)] lg:mt-16">
+        <div className="mt-16 border-t border-[var(--section-divider)] lg:mt-20">
           {SERVICES.map((service, index) => (
             <ServiceProduct key={service.id} service={service} index={index} />
           ))}

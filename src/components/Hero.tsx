@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { IconArrowRight } from "@/components/icons";
 import { Magnetic } from "@/components/Magnetic";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -67,42 +66,26 @@ export function Hero() {
       <div className="hero-aurora" aria-hidden />
       <div className="hero-mesh" aria-hidden />
 
-      <div className="site-container relative z-10 grid min-h-[calc(100dvh-6rem)] items-center gap-8 pb-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10 lg:pb-20">
+      <div className="site-container relative z-10 grid min-h-[calc(100dvh-6rem)] items-center gap-12 pb-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:pb-28">
         <div className="min-w-0 max-w-2xl">
-          <div className="hero-enter inline-flex max-w-full items-center gap-3" style={{ animationDelay: "0ms" }}>
-            <Image
-              src="/new-logo-transparent.webp"
-              alt="Agustín Ader — logo de desarrollo web y landing pages"
-              width={56}
-              height={56}
-              className="h-11 w-11 shrink-0 object-contain sm:h-14 sm:w-14"
-              priority
-              fetchPriority="high"
-              sizes="56px"
-            />
-            <p className="min-w-0 font-display text-[length:var(--text-xl)] font-bold tracking-tight text-[var(--foreground)] sm:text-[length:var(--text-2xl)]">
-              Agustin Ader
-            </p>
-          </div>
-
           <h1
             id="hero-heading"
-            className="hero-enter mt-6 max-w-[16ch] text-[length:var(--text-hero)] font-extrabold leading-[0.94] tracking-[-0.045em] text-[var(--foreground)] sm:mt-8"
-            style={{ animationDelay: "80ms" }}
+            className="hero-enter max-w-[15ch] font-display text-[length:var(--text-hero)] font-semibold leading-[0.98] tracking-[-0.045em] text-[var(--foreground)]"
+            style={{ animationDelay: "0ms" }}
           >
             Landing pages que <span className="text-gradient">convierten</span> visitas en consultas
           </h1>
 
           <p
-            className="hero-enter mt-5 max-w-md text-[length:var(--text-lg)] leading-relaxed text-[var(--foreground-muted)]"
-            style={{ animationDelay: "160ms" }}
+            className="hero-enter mt-8 max-w-md text-[length:var(--text-lg)] leading-relaxed text-[var(--foreground-muted)]"
+            style={{ animationDelay: "80ms" }}
           >
             Diseño mobile-first, performance real y contacto directo por WhatsApp para negocios en Argentina.
           </p>
 
           <div
-            className="hero-enter mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:items-center"
-            style={{ animationDelay: "240ms" }}
+            className="hero-enter mt-10 flex w-full flex-col gap-4 sm:mt-12 sm:max-w-none sm:flex-row sm:items-center"
+            style={{ animationDelay: "160ms" }}
           >
             <Magnetic className="w-full sm:w-auto" strength={0.2}>
               <a href="#proyecto-real" className="btn-primary focus-ring w-full sm:w-auto">
@@ -116,9 +99,9 @@ export function Hero() {
           </div>
 
           <ul
-            className="hero-enter mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-[var(--section-divider)] pt-6"
+            className="hero-enter mt-14 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[var(--section-divider)] pt-8"
             aria-label="Tecnologías"
-            style={{ animationDelay: "320ms" }}
+            style={{ animationDelay: "240ms" }}
           >
             {TECH_STACK.map((tech, i) => (
               <li
@@ -132,7 +115,7 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="hero-enter relative min-w-0 w-full lg:justify-self-end" style={{ animationDelay: "200ms" }}>
+        <div className="hero-enter relative min-w-0 w-full lg:justify-self-end" style={{ animationDelay: "120ms" }}>
           <FloatingMockups />
         </div>
       </div>

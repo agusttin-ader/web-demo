@@ -35,20 +35,20 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
       action={formAction}
       className={
         featured
-          ? "budget-form budget-form--featured flex w-full flex-col gap-[var(--space-3)]"
-          : "budget-form flex w-full flex-col gap-[var(--space-3)] rounded-[var(--radius-xl)] border border-[var(--card-border)] bg-[var(--background-elevated)] p-[var(--space-3)] shadow-[var(--shadow-md)] sm:p-[var(--space-4)]"
+          ? "budget-form budget-form--featured flex w-full flex-col gap-6 sm:gap-7"
+          : "budget-form flex w-full flex-col gap-6 rounded-[var(--radius-xl)] border border-[var(--card-border)] bg-[var(--background-elevated)] p-6 sm:gap-7 sm:p-8"
       }
       noValidate={false}
       aria-busy={isPending}
       aria-describedby={hintId}
     >
       <div>
-        <p className="eyebrow tracking-[0.14em]">Propuesta</p>
-        <h3 className="mt-2 font-display text-[length:var(--text-2xl)] font-bold tracking-tight text-[var(--foreground)] sm:text-[length:var(--text-3xl)]">
+        <p className="eyebrow">Propuesta</p>
+        <h3 className="mt-4 font-display text-[length:var(--text-2xl)] font-semibold tracking-tight text-[var(--foreground)] sm:text-[length:var(--text-3xl)]">
           Pedí tu propuesta
         </h3>
-        <p id={hintId} className="mt-2 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)] sm:text-[length:var(--text-base)]">
-          Nombre, email y objetivo del proyecto. En menos de un minuto queda listo.
+        <p id={hintId} className="mt-3 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)] sm:text-[length:var(--text-base)]">
+          Nombre, email y objetivo. En menos de un minuto queda listo.
         </p>
       </div>
 

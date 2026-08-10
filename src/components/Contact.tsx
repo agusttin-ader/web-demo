@@ -15,57 +15,44 @@ export function Contact() {
       className="contact-stage section-contact relative overflow-x-clip cv-auto"
       aria-labelledby="contacto-heading"
     >
-      <div className="contact-stage-glow" aria-hidden />
-      <div className="contact-stage-grid" aria-hidden />
-
       <div className="site-container relative z-10 py-[var(--section-y)]">
-        <div className="cq mx-auto max-w-6xl">
+        <div className="cq mx-auto max-w-5xl">
           <Reveal>
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="eyebrow tracking-[0.18em]">Contacto</p>
+            <div className="max-w-lg">
+              <p className="eyebrow">Contacto</p>
               <h2
                 id="contacto-heading"
-                className="mt-4 font-display text-[clamp(2rem,5vw,3.5rem)] font-extrabold tracking-tight text-[var(--foreground)]"
+                className="mt-8 font-display text-[clamp(2.25rem,5.5vw,3.75rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-[var(--foreground)]"
               >
-                Contame tu proyecto y armamos la propuesta
+                Contame tu proyecto
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-[length:var(--text-base)] leading-relaxed text-[var(--foreground-muted)] sm:text-[length:var(--text-lg)]">
-                Completá el formulario con lo esencial. Si preferís ir más rápido, también estamos por WhatsApp.
+              <p className="mt-8 max-w-md text-[length:var(--text-lg)] leading-relaxed text-[var(--foreground-muted)]">
+                Completá el formulario. Si preferís ir más rápido, también estamos por WhatsApp.
               </p>
             </div>
           </Reveal>
 
-          <div className="mt-10 grid items-start gap-8 lg:mt-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-10 xl:gap-14">
+          <div className="mt-16 grid items-start gap-16 lg:mt-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-24">
             <Reveal variant="left" className="order-2 lg:order-1">
-              <aside className="contact-aside flex h-full flex-col justify-between gap-8 lg:min-h-[28rem] lg:py-2">
-                <ul className="space-y-5">
+              <aside className="flex flex-col gap-16 lg:sticky lg:top-[calc(var(--header-offset)+1.5rem)] lg:pt-1">
+                <ul className="space-y-10">
                   {PROMISES.map((item) => (
-                    <li key={item.title} className="flex gap-4 border-t border-[var(--section-divider)] pt-5 first:border-t-0 first:pt-0">
-                      <span
-                        className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--accent)] shadow-[0_0_12px_rgba(92,225,255,0.45)]"
-                        aria-hidden
-                      />
-                      <div className="min-w-0">
-                        <p className="font-display text-[length:var(--text-lg)] font-bold text-[var(--foreground)]">
-                          {item.title}
-                        </p>
-                        <p className="mt-1 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
-                          {item.desc}
-                        </p>
-                      </div>
+                    <li key={item.title} className="max-w-xs">
+                      <p className="font-display text-[length:var(--text-xl)] font-semibold text-[var(--foreground)]">
+                        {item.title}
+                      </p>
+                      <p className="mt-3 text-[length:var(--text-sm)] leading-relaxed text-[var(--muted)]">
+                        {item.desc}
+                      </p>
                     </li>
                   ))}
                 </ul>
 
-                <div className="rounded-[var(--radius-lg)] border border-[var(--card-border)] bg-[rgba(255,255,255,0.02)] p-5 sm:p-6">
-                  <p className="text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
+                <div className="border-t border-[var(--section-divider)] pt-10">
+                  <p className="text-[length:var(--text-sm)] text-[var(--muted)]">
                     ¿Necesitás una respuesta más rápida?
                   </p>
-                  <WhatsAppButton
-                    variant="ghost"
-                    magnetic={false}
-                    className="mt-4 w-full !min-h-11 justify-center"
-                  >
+                  <WhatsAppButton variant="ghost" magnetic={false} className="mt-6 w-full sm:w-auto">
                     Escribirme por WhatsApp
                   </WhatsAppButton>
                 </div>

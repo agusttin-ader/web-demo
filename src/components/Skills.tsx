@@ -97,7 +97,7 @@ export function Skills() {
           />
         </Reveal>
 
-        <div className="cq-grid mt-10 sm:mt-12">
+        <div className="cq-grid mt-14 sm:mt-16">
           {SKILLS.map((skill, i) => (
             <Reveal key={skill.name} className="h-full" delay={i * 40}>
               <SkillCard skill={skill} />

@@ -35,7 +35,7 @@ export function BentoGrid() {
           />
         </Reveal>
 
-        <div className="cq-grid-bento mt-10 sm:mt-12">
+        <div className="cq-grid-bento mt-14 sm:mt-16">
           <BentoCell className="bento-cell-accent cq-bento-experience relative">
             <div className="bento-cell-glow" aria-hidden />
             <div className="relative flex h-full flex-col justify-between p-5 sm:p-7 lg:p-8">

@@ -15,7 +15,7 @@ export function Portfolio() {
           />
         </Reveal>
 
-        <div className="cq-grid-portfolio mx-auto mt-12 max-w-6xl lg:mt-16">
+        <div className="cq-grid-portfolio mx-auto mt-16 max-w-5xl lg:mt-20">
           {projects.map((project, index) => (
             <Reveal key={project.id} variant={index % 2 === 0 ? "left" : "right"} delay={index * 80}>
               <ProjectCard project={project} priority={index === 0} />

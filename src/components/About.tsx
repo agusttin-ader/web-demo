@@ -34,7 +34,7 @@ export function About() {
   return (
     <section id="sobre-mi" className="section-shell">
       <div className="cq w-full">
-        <div className="grid gap-10 border-b border-[var(--section-divider)] pb-16 lg:grid-cols-[1fr_1.1fr] lg:gap-20 lg:pb-24">
+        <div className="grid gap-14 border-b border-[var(--section-divider)] pb-20 lg:grid-cols-[1fr_1.1fr] lg:gap-24 lg:pb-28">
           <Reveal>
             <p className="eyebrow tracking-[0.18em]">Sobre mi</p>
             <h2 className="mt-6 max-w-[12ch] break-words font-display text-[clamp(2.125rem,8vw,4.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-[var(--foreground)]">

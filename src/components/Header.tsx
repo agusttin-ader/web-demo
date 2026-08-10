@@ -13,6 +13,7 @@ const FOCUSABLE =
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [heroHidden, setHeroHidden] = useState(true);
   const [activeId, setActiveId] = useState<string>("hero");
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -21,12 +22,30 @@ export function Header() {
   const titleId = useId();
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 12);
+    const hero = document.getElementById("hero");
+
+    const update = () => {
+      const y = window.scrollY;
+      setScrolled(y > 12);
+
+      if (!hero) {
+        setHeroHidden(false);
+        return;
+      }
+
+      // Stay hidden while the hero still covers most of the first viewport.
+      const heroBottom = hero.offsetTop + hero.offsetHeight;
+      const revealAt = Math.max(heroBottom - window.innerHeight * 0.35, window.innerHeight * 0.55);
+      setHeroHidden(y < revealAt);
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
   useEffect(() => {
@@ -119,7 +138,14 @@ export function Header() {
   return (
     <>
       <header
-        className={`site-header pt-[env(safe-area-inset-top)] ${scrolled || open ? "is-scrolled" : ""}`}
+        className={[
+          "site-header pt-[env(safe-area-inset-top)]",
+          heroHidden && !open ? "is-hero-hidden" : "",
+          scrolled || open ? "is-scrolled" : "",
+          open ? "is-menu-open" : "",
+        ]
+          .filter(Boolean)
+          .join(" ")}
         role="banner"
       >
         <div className="mx-auto flex w-full max-w-[var(--content-max)] items-center justify-between gap-[var(--space-2)] px-[var(--container-inline)] py-3">
@@ -129,7 +155,7 @@ export function Header() {
               e.preventDefault();
               scrollTo("hero");
             }}
-            className="nav-logo focus-ring"
+            className="nav-logo focus-ring gap-2.5 sm:gap-3"
             aria-label="Agustín Ader, ir al inicio"
           >
             <Image
@@ -139,7 +165,11 @@ export function Header() {
               height={72}
               className="h-8 w-auto object-contain object-left sm:h-9"
               sizes="36px"
+              priority
             />
+            <span className="font-display text-[length:var(--text-base)] font-semibold tracking-tight text-[var(--foreground)] sm:text-[length:var(--text-lg)]">
+              Agustin Ader
+            </span>
           </a>
 
           <nav className="hidden items-center gap-0.5 md:flex" aria-label="Secciones principales">
