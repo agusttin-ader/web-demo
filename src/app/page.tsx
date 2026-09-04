@@ -7,7 +7,7 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Portfolio } from "@/components/Portfolio";
-import { Reveal } from "@/components/Reveal";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Services } from "@/components/Services";
 import { Skills } from "@/components/Skills";
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <main id="contenido" className="page-mesh site-shell relative z-10" aria-label="Contenido principal">
+      <main id="contenido" className="site-shell relative z-10" aria-label="Contenido principal">
         <Hero />
 
-        <div className="border-y border-[var(--section-divider)] py-5" aria-hidden>
+        <div className="marquee-section border-y border-[var(--section-divider)] py-6" aria-hidden>
           <div className="site-container overflow-x-clip">
             <div className="marquee-strip md:hidden">
               {MARQUEE_ITEMS.map((item) => (
@@ -40,10 +40,10 @@ export default function Home() {
                 {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
                   <span
                     key={`${item}-${i}`}
-                    className="mx-8 flex shrink-0 items-center gap-8 font-display text-[length:var(--text-sm)] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]"
+                    className="mx-10 flex shrink-0 items-center gap-10 font-display text-[length:var(--text-sm)] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]"
                   >
                     {item}
-                    <span className="h-1 w-1 rounded-full bg-[var(--accent)] opacity-50" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)] opacity-60" />
                   </span>
                 ))}
               </div>
@@ -53,61 +53,62 @@ export default function Home() {
 
         <section id="problema" className="section-shell">
           <div className="cq mx-auto max-w-3xl">
-            <Reveal>
-              <SectionHeader
-                label="El problema"
-                title="Tenes trafico, pero no consultas"
-                description="Se pierde tiempo respondiendo lo mismo por WhatsApp y la web no guia a nadie. Una landing clara convierte mejor y ordena el contacto desde el primer click."
-              />
-            </Reveal>
-            <Reveal>
-              <ul className="cq-grid-problem mb-10">
-                {PROBLEM_POINTS.map((point) => (
+            <SectionHeader
+              label="El problema"
+              title="Tenés tráfico, pero no consultas"
+              description="Se pierde tiempo respondiendo lo mismo por WhatsApp y la web no guía a nadie. Una landing clara convierte mejor y ordena el contacto desde el primer click."
+            />
+            <MotionReveal variant="scale" delay={40}>
+              <ul className="cq-grid-problem mb-12">
+                {PROBLEM_POINTS.map((point, i) => (
                   <li
                     key={point}
-                    className="border-t border-[var(--section-divider)] py-6 text-center text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)] sm:border-t-0 sm:py-2 sm:text-[length:var(--text-base)]"
+                    className="glass-card rounded-[var(--radius-xl)] p-6 text-center text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)] sm:text-[length:var(--text-base)]"
+                    style={{ transitionDelay: `${i * 80}ms` }}
                   >
-                    {point}
+                    <span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">
+                      {i + 1}
+                    </span>
+                    <p>{point}</p>
                   </li>
                 ))}
               </ul>
-              <div className="mx-auto max-w-xl border-t border-[var(--section-divider)] pt-10 text-center">
-                <IconComments className="mx-auto h-5 w-5 text-[var(--accent)]" aria-hidden />
-                <p className="mt-5 font-display text-[length:var(--text-lg)] font-semibold leading-snug text-[var(--foreground)] sm:text-[length:var(--text-xl)]">
-                  Menos friccion, mas consultas reales. Ese es el objetivo de cada decision.
+              <div className="mx-auto max-w-xl text-center">
+                <IconComments className="mx-auto h-6 w-6 text-[var(--accent)]" aria-hidden />
+                <p className="mt-6 font-display text-[length:var(--text-xl)] font-semibold leading-snug text-[var(--foreground)] sm:text-[length:var(--text-2xl)]">
+                  Menos fricción, más consultas reales.{" "}
+                  <span className="text-gradient">Ese es el objetivo.</span>
                 </p>
               </div>
-            </Reveal>
+            </MotionReveal>
           </div>
         </section>
 
         <section id="beneficios" className="section-shell">
           <div className="cq mx-auto max-w-4xl">
-            <Reveal>
-              <SectionHeader label="Beneficios" title="Lo que cambia con una buena landing" />
-            </Reveal>
+            <SectionHeader label="Beneficios" title="Lo que cambia con una buena landing" />
 
             <div className="cq-grid-benefits">
               {BENEFITS.map((b, i) => (
-                <Reveal
+                <MotionReveal
                   key={b.title}
                   className={b.span || undefined}
-                  variant={i % 2 === 0 ? "up" : "fade"}
-                  delay={i * 70}
+                  variant={i % 2 === 0 ? "up" : "scale"}
+                  delay={i * 40}
                 >
                   <article
-                    className={`h-full border-t border-[var(--section-divider)] py-8 ${
-                      b.accent ? "border-[color-mix(in_srgb,var(--accent)_35%,var(--section-divider))]" : ""
+                    className={`glass-card h-full rounded-[var(--radius-xl)] p-8 ${
+                      b.accent ? "glass-card-accent" : ""
                     }`}
                   >
-                    <h3 className="font-display text-[length:var(--text-xl)] font-semibold text-[var(--foreground)]">
+                    <h3 className="font-display text-[length:var(--text-xl)] font-bold text-[var(--foreground)]">
                       {b.title}
                     </h3>
                     <p className="mt-4 max-w-md text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)] sm:text-[length:var(--text-base)]">
                       {b.desc}
                     </p>
                   </article>
-                </Reveal>
+                </MotionReveal>
               ))}
             </div>
           </div>

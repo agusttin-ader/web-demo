@@ -148,7 +148,7 @@ export function Header() {
           .join(" ")}
         role="banner"
       >
-        <div className="mx-auto flex w-full max-w-[var(--content-max)] items-center justify-between gap-[var(--space-2)] px-[var(--container-inline)] py-3">
+        <div className="header-inner mx-auto flex w-full max-w-[var(--content-max)] items-center justify-between gap-[var(--space-2)] rounded-[var(--radius-full)] border border-transparent px-[var(--container-inline)] py-2.5 transition-all duration-500 ease-[var(--ease-out)]">
           <a
             href="#hero"
             onClick={(e) => {

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   HiOutlineBriefcase,
   HiOutlineCpuChip,
@@ -8,7 +9,7 @@ import {
 } from "react-icons/hi2";
 import { ExternalLink } from "@/components/ExternalLink";
 import { IconWhatsApp } from "@/components/icons";
-import { Reveal } from "@/components/Reveal";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import {
   CERTIFICATIONS_SHORT,
@@ -17,26 +18,28 @@ import {
   WHATSAPP_URL,
 } from "@/lib/constants";
 
-function BentoCell({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <Reveal className={`bento-cell ${className}`}>{children}</Reveal>;
+function BentoCell({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
+  return (
+    <MotionReveal className={`bento-cell ${className}`} variant="scale" delay={delay}>
+      {children}
+    </MotionReveal>
+  );
 }
 
 export function BentoGrid() {
   return (
     <section id="overview" className="section-shell">
       <div className="cq w-full">
-        <Reveal>
-          <SectionHeader
-            align="left"
-            label="Overview"
-            title="Todo en un vistazo"
-            description="Experiencia, stack, clientes y disponibilidad — condensado en un layout limpio."
-            className="mb-0 max-w-xl"
-          />
-        </Reveal>
+        <SectionHeader
+          align="left"
+          label="Overview"
+          title="Todo en un vistazo"
+          description="Experiencia, stack, clientes y disponibilidad — condensado en un layout limpio."
+          className="mb-0 max-w-xl"
+        />
 
         <div className="cq-grid-bento mt-14 sm:mt-16">
-          <BentoCell className="bento-cell-accent cq-bento-experience relative">
+          <BentoCell className="bento-cell-accent cq-bento-experience relative" delay={0}>
             <div className="bento-cell-glow" aria-hidden />
             <div className="relative flex h-full flex-col justify-between p-5 sm:p-7 lg:p-8">
               <div className="flex items-center gap-2 text-[var(--muted)]">
@@ -44,7 +47,7 @@ export function BentoGrid() {
                 <span className="eyebrow-muted tracking-[0.14em]">Experiencia</span>
               </div>
               <div className="min-w-0">
-                <p className="font-display text-[clamp(3.25rem,12vw,6.5rem)] font-bold leading-none tracking-tight text-[var(--foreground)]">
+                <p className="font-display text-[clamp(3.25rem,12vw,6.5rem)] font-bold leading-none tracking-tight text-gradient">
                   2+
                 </p>
                 <p className="mt-3 max-w-xs text-[length:var(--text-lg)] text-[var(--foreground-muted)]">
@@ -55,11 +58,11 @@ export function BentoGrid() {
             </div>
           </BentoCell>
 
-          <BentoCell className="cq-span-2">
+          <BentoCell className="cq-span-2" delay={80}>
             <div className="flex h-full flex-col p-5 sm:p-7">
               <div className="flex items-center gap-2 text-[var(--muted)]">
                 <HiOutlineCpuChip className="h-4 w-4 shrink-0" aria-hidden />
-                <span className="eyebrow-muted tracking-[0.14em]">Tecnologias</span>
+                <span className="eyebrow-muted tracking-[0.14em]">Tecnologías</span>
               </div>
               <p className="mt-4 font-display text-[length:var(--text-xl)] font-bold text-[var(--foreground)]">
                 Stack moderno
@@ -74,7 +77,7 @@ export function BentoGrid() {
             </div>
           </BentoCell>
 
-          <BentoCell>
+          <BentoCell delay={120}>
             <div className="flex h-full flex-col p-5 sm:p-6">
               <div className="flex items-center gap-2 text-[var(--muted)]">
                 <HiOutlineBuildingOffice2 className="h-4 w-4 shrink-0" aria-hidden />
@@ -93,7 +96,7 @@ export function BentoGrid() {
             </div>
           </BentoCell>
 
-          <BentoCell>
+          <BentoCell delay={160}>
             <div className="flex h-full flex-col justify-between p-5 sm:p-6">
               <div className="flex items-center gap-2 text-[var(--muted)]">
                 <HiOutlineSignal className="h-4 w-4 shrink-0" aria-hidden />
@@ -111,7 +114,7 @@ export function BentoGrid() {
             </div>
           </BentoCell>
 
-          <BentoCell className="cq-span-2">
+          <BentoCell className="cq-span-2" delay={200}>
             <div className="flex h-full flex-col p-5 sm:p-7">
               <div className="flex items-center gap-2 text-[var(--muted)]">
                 <HiOutlineAcademicCap className="h-4 w-4 shrink-0" aria-hidden />
@@ -130,7 +133,7 @@ export function BentoGrid() {
             </div>
           </BentoCell>
 
-          <BentoCell className="bento-cell-cta cq-span-2">
+          <BentoCell className="bento-cell-cta cq-span-2" delay={240}>
             <ExternalLink
               href={WHATSAPP_URL}
               className="focus-ring relative flex h-full flex-col justify-between rounded-[inherit] p-5 sm:p-7"

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { FaGithub } from "react-icons/fa6";
 import { ExternalLink } from "@/components/ExternalLink";
 import { IconExternal } from "@/components/icons";
+import { ProjectMedia } from "@/components/ProjectMedia";
 import type { Project } from "@/data/projects";
 
 type ProjectCardProps = {
@@ -12,33 +12,21 @@ type ProjectCardProps = {
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   const demoUrl = project.demo ?? project.link;
   const technologies = project.technologies?.length ? project.technologies : project.tags ?? [];
+  const badgeLabel = project.type === "demo" ? "Demo" : "En producción";
+  const badgeClass = project.type === "demo" ? "project-badge-demo" : "project-badge-live";
 
   return (
     <article className="apple-card group relative flex h-full flex-col overflow-hidden">
-      <div className="apple-card-media relative aspect-[16/10] overflow-hidden bg-[var(--surface-2)]">
-        <Image
-          src={project.image}
-          alt={
-            project.imageAlt ??
-            `Captura de la landing page de ${project.title} (${project.client})`
-          }
-          fill
-          sizes="(min-width: 1024px) 560px, (min-width: 768px) 50vw, 100vw"
-          className="object-cover object-top transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.035]"
-          priority={priority}
-          loading={priority ? "eager" : "lazy"}
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(5,7,10,0.45)] via-transparent to-transparent opacity-80" />
-        <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-3">
-          <p className="rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(5,7,10,0.72)] px-3 py-1.5 text-[length:var(--text-xs)] font-medium text-[var(--foreground)] shadow-[var(--shadow-sm)] backdrop-blur-md">
-            {project.stack}
-          </p>
-        </div>
+      <div className="apple-card-media relative overflow-hidden">
+        <ProjectMedia project={project} variant="featured" priority={priority} showStack />
       </div>
 
       <div className="flex flex-1 flex-col px-4 pb-6 pt-5 sm:px-8 sm:pb-8 sm:pt-7">
-        <p className="eyebrow-muted tracking-[0.14em]">Cliente</p>
-        <h3 className="mt-2 font-display text-[clamp(1.5rem,3vw,1.85rem)] font-bold tracking-tight text-[var(--foreground)]">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className={`project-badge ${badgeClass}`}>{badgeLabel}</span>
+          <p className="eyebrow-muted tracking-[0.14em]">Caso destacado</p>
+        </div>
+        <h3 className="mt-3 font-display text-[clamp(1.5rem,3vw,1.85rem)] font-bold tracking-tight text-[var(--foreground)]">
           {project.title}
         </h3>
         <p className="mt-1 text-[length:var(--text-sm)] text-[var(--foreground-muted)]">{project.client}</p>
@@ -85,7 +73,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
         <div className="mt-auto flex flex-wrap gap-3 pt-7">
           {demoUrl ? (
             <ExternalLink href={demoUrl} className="apple-card-btn apple-card-btn-primary focus-ring">
-              Ver demo
+              {project.type === "demo" ? "Ver demo" : "Ver sitio"}
               <IconExternal className="mi-icon mi-icon-external h-3 w-3 opacity-70" aria-hidden />
             </ExternalLink>
           ) : null}

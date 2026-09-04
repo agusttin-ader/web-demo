@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 
 type SectionHeaderProps = {
   label: string;
@@ -22,13 +23,11 @@ export function SectionHeader({
   const centered = align === "center";
 
   return (
-    <div
-      className={`mb-[var(--space-8)] max-w-2xl ${centered ? "mx-auto text-center" : "text-left"} ${className}`.trim()}
-    >
+    <MotionReveal variant="up" className={`mb-[var(--space-8)] max-w-2xl ${centered ? "mx-auto text-center" : "text-left"} ${className}`.trim()}>
       <p className="eyebrow">{label}</p>
       <h2
         id={id}
-        className={`mt-6 font-display text-[length:var(--text-3xl)] font-semibold tracking-tight text-[var(--foreground)] ${titleClassName}`.trim()}
+        className={`mt-6 font-display text-[length:var(--text-3xl)] font-bold tracking-[-0.03em] text-[var(--foreground)] ${titleClassName}`.trim()}
       >
         {title}
       </h2>
@@ -41,6 +40,6 @@ export function SectionHeader({
           {description}
         </p>
       ) : null}
-    </div>
+    </MotionReveal>
   );
 }

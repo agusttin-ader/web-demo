@@ -5,9 +5,9 @@ import {
   SiTypescript,
   SiTailwindcss,
   SiVercel,
-  SiCss3,
+  SiFramer,
 } from "react-icons/si";
-import { Reveal } from "@/components/Reveal";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 import { SectionHeader } from "@/components/SectionHeader";
 
 type SkillLevel = "Avanzado" | "Experto";
@@ -25,7 +25,7 @@ const SKILLS: Skill[] = [
   { name: "React", category: "Frontend", level: "Experto", score: 94, icon: SiReact },
   { name: "TypeScript", category: "Lenguaje", level: "Avanzado", score: 88, icon: SiTypescript },
   { name: "Tailwind CSS", category: "Styling", level: "Experto", score: 92, icon: SiTailwindcss },
-  { name: "Motion CSS", category: "Motion", level: "Avanzado", score: 82, icon: SiCss3 },
+  { name: "Framer Motion", category: "Motion", level: "Avanzado", score: 85, icon: SiFramer },
   { name: "Vercel", category: "Deploy", level: "Avanzado", score: 86, icon: SiVercel },
 ];
 
@@ -38,9 +38,9 @@ function SkillCard({ skill }: { skill: Skill }) {
   const Icon = skill.icon;
 
   return (
-    <article className="skill-card group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--card-border)] bg-[var(--surface-1)] p-5 shadow-[var(--shadow-sm)] sm:p-6">
+    <article className="skill-card group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl)] border border-[var(--card-border)] bg-[var(--surface-1)]/60 p-5 backdrop-blur-sm sm:p-6">
       <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_0%_0%,rgba(92,225,255,0.08),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_0%_0%,rgba(139,92,246,0.1),transparent_55%)]" />
       </div>
 
       <div className="relative flex items-center justify-between gap-3">
@@ -74,7 +74,7 @@ function SkillCard({ skill }: { skill: Skill }) {
           aria-valuenow={skill.score}
         >
           <div
-            className="skill-meter-fill h-full origin-left rounded-full bg-[linear-gradient(90deg,var(--accent-deep),var(--accent))]"
+            className="skill-meter-fill h-full origin-left rounded-full bg-[linear-gradient(90deg,var(--accent-deep),var(--accent-cyan))]"
             style={{ ["--skill-score" as string]: `${skill.score}%` }}
           />
         </div>
@@ -87,21 +87,19 @@ export function Skills() {
   return (
     <section id="skills" className="section-shell">
       <div className="cq w-full">
-        <Reveal>
-          <SectionHeader
-            align="left"
-            label="Skills"
-            title="Stack con el que construyo"
-            description="Herramientas seleccionadas para entregar landings rapidas, claras y orientadas a conversion."
-            className="mb-0 max-w-xl"
-          />
-        </Reveal>
+        <SectionHeader
+          align="left"
+          label="Skills"
+          title="Stack con el que construyo"
+          description="Herramientas seleccionadas para entregar landings rápidas, claras y orientadas a conversión."
+          className="mb-0 max-w-xl"
+        />
 
         <div className="cq-grid mt-14 sm:mt-16">
           {SKILLS.map((skill, i) => (
-            <Reveal key={skill.name} className="h-full" delay={i * 40}>
+            <MotionReveal key={skill.name} className="h-full" variant="scale" delay={i * 50}>
               <SkillCard skill={skill} />
-            </Reveal>
+            </MotionReveal>
           ))}
         </div>
       </div>
