@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-label="Agustín Ader">
-  <rect width="32" height="32" rx="6" fill="#020108"/>
-  <g transform="translate(4 3) scale(0.75)">
-    <path d="M4 22 L10 22 L16 10 L22 22 L28 22 L16 4 Z" fill="none"/>
-    <path d="M4 22 L10 22 L16 10 L12 16 Z" fill="#5ce1ff"/>
-    <path d="M16 10 L22 22 L28 22 L16 4 Z" fill="#1e3a5f"/>
-    <path d="M13 22 L19 22 L16 17 Z" fill="#2d6cdf"/>
-  </g>
-</svg>
