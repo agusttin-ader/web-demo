@@ -59,7 +59,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="hero-stage relative min-h-[100dvh] overflow-x-clip overflow-y-visible pt-[var(--header-offset)]"
+      className="hero-stage relative min-h-[100dvh] overflow-x-clip overflow-y-visible pt-[calc(var(--header-offset)+0.25rem)]"
       aria-labelledby="hero-heading"
     >
       <div className="hero-mesh" aria-hidden />

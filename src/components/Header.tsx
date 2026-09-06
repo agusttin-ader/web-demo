@@ -13,22 +13,40 @@ const FOCUSABLE =
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
   const [activeId, setActiveId] = useState<string>("hero");
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const firstMenuItemRef = useRef<HTMLAnchorElement>(null);
+  const lastScrollY = useRef(0);
   const menuId = useId();
   const titleId = useId();
 
+  const atHero = activeId === "hero" && !open;
+
   useEffect(() => {
+    const SCROLL_DELTA = 6;
+    const HIDE_AFTER = 96;
+
     const update = () => {
-      setScrolled(window.scrollY > 12);
+      const y = window.scrollY;
+      setScrolled(y > 12);
+
+      if (open || y <= 12) {
+        setNavHidden(false);
+      } else if (y > lastScrollY.current + SCROLL_DELTA && y > HIDE_AFTER) {
+        setNavHidden(true);
+      } else if (y < lastScrollY.current - SCROLL_DELTA) {
+        setNavHidden(false);
+      }
+
+      lastScrollY.current = y;
     };
 
     update();
     window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);
-  }, []);
+  }, [open]);
 
   useEffect(() => {
     const elements = SECTION_IDS.map((id) => document.getElementById(id)).filter(
@@ -122,8 +140,10 @@ export function Header() {
       <header
         className={[
           "site-header pt-[env(safe-area-inset-top)]",
-          scrolled || open ? "is-scrolled" : "is-visible",
+          atHero ? "is-at-hero" : "is-past-hero",
+          scrolled ? "is-scrolled" : "",
           open ? "is-menu-open" : "",
+          navHidden && !open ? "is-nav-hidden" : "",
         ]
           .filter(Boolean)
           .join(" ")}
