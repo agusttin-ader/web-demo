@@ -13,7 +13,6 @@ const FOCUSABLE =
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [heroHidden, setHeroHidden] = useState(true);
   const [activeId, setActiveId] = useState<string>("hero");
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -22,30 +21,13 @@ export function Header() {
   const titleId = useId();
 
   useEffect(() => {
-    const hero = document.getElementById("hero");
-
     const update = () => {
-      const y = window.scrollY;
-      setScrolled(y > 12);
-
-      if (!hero) {
-        setHeroHidden(false);
-        return;
-      }
-
-      // Stay hidden while the hero still covers most of the first viewport.
-      const heroBottom = hero.offsetTop + hero.offsetHeight;
-      const revealAt = Math.max(heroBottom - window.innerHeight * 0.35, window.innerHeight * 0.55);
-      setHeroHidden(y < revealAt);
+      setScrolled(window.scrollY > 12);
     };
 
     update();
     window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
+    return () => window.removeEventListener("scroll", update);
   }, []);
 
   useEffect(() => {
@@ -140,22 +122,21 @@ export function Header() {
       <header
         className={[
           "site-header pt-[env(safe-area-inset-top)]",
-          heroHidden && !open ? "is-hero-hidden" : "",
-          scrolled || open ? "is-scrolled" : "",
+          scrolled || open ? "is-scrolled" : "is-visible",
           open ? "is-menu-open" : "",
         ]
           .filter(Boolean)
           .join(" ")}
         role="banner"
       >
-        <div className="header-inner mx-auto flex w-full max-w-[var(--content-max)] items-center justify-between gap-[var(--space-2)] rounded-[var(--radius-full)] border border-transparent px-[var(--container-inline)] py-2.5 transition-all duration-500 ease-[var(--ease-out)]">
+        <div className="header-inner">
           <a
             href="#hero"
             onClick={(e) => {
               e.preventDefault();
               scrollTo("hero");
             }}
-            className="nav-logo focus-ring gap-2.5 sm:gap-3"
+            className="nav-logo focus-ring min-w-0 shrink"
             aria-label="Agustín Ader, ir al inicio"
           >
             <Image
@@ -163,11 +144,11 @@ export function Header() {
               alt=""
               width={72}
               height={72}
-              className="h-8 w-auto object-contain object-left sm:h-9"
+              className="h-8 w-auto shrink-0 object-contain object-left sm:h-9"
               sizes="36px"
               priority
             />
-            <span className="font-display text-[length:var(--text-base)] font-semibold tracking-tight text-[var(--foreground)] sm:text-[length:var(--text-lg)]">
+            <span className="nav-logo-text font-display text-[length:var(--text-base)] font-semibold tracking-tight text-[var(--foreground)] sm:text-[length:var(--text-lg)]">
               Agustin Ader
             </span>
           </a>
@@ -199,10 +180,10 @@ export function Header() {
             </ExternalLink>
           </nav>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="nav-mobile-actions flex shrink-0 items-center gap-1.5 sm:gap-2 md:hidden">
             <ExternalLink
               href={WHATSAPP_URL}
-              className="nav-cta focus-ring !min-h-9 !px-3"
+              className="nav-cta nav-cta--icon focus-ring"
               aria-label="Contactar por WhatsApp"
             >
               <IconWhatsApp className="h-3.5 w-3.5" aria-hidden />
@@ -245,7 +226,7 @@ export function Header() {
       <div
         ref={panelRef}
         id={menuId}
-        className={`nav-mobile-panel fixed inset-0 z-[45] flex flex-col px-[var(--container-inline)] pt-24 pb-[calc(env(safe-area-inset-bottom)+1.5rem)] transition-[opacity,visibility] duration-300 md:hidden ${
+        className={`nav-mobile-panel fixed inset-x-0 bottom-0 z-[45] flex flex-col px-[var(--container-inline)] pb-[calc(env(safe-area-inset-bottom)+1.5rem)] transition-[opacity,visibility] duration-300 md:hidden ${
           open
             ? "is-open pointer-events-auto visible opacity-100"
             : "pointer-events-none invisible opacity-0"
@@ -259,8 +240,8 @@ export function Header() {
           Menú de navegación
         </h2>
 
-        <nav className="flex flex-1 flex-col gap-1 border-t border-[var(--section-divider)] pt-[var(--space-3)]" aria-label="Navegación móvil">
-          <ul className="flex flex-col gap-1">
+        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto pt-[var(--space-1)]" aria-label="Navegación móvil">
+          <ul className="flex flex-col gap-0.5">
             {NAV_ITEMS.map(({ id, label }, index) => {
               const isActive = activeId === id;
               return (

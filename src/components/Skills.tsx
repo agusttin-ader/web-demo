@@ -7,81 +7,23 @@ import {
   SiVercel,
   SiFramer,
 } from "react-icons/si";
-import { MotionReveal } from "@/components/motion/MotionReveal";
+import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
-
-type SkillLevel = "Avanzado" | "Experto";
 
 type Skill = {
   name: string;
-  category: string;
-  level: SkillLevel;
-  score: number;
+  use: string;
   icon: IconType;
 };
 
 const SKILLS: Skill[] = [
-  { name: "Next.js", category: "Framework", level: "Experto", score: 95, icon: SiNextdotjs },
-  { name: "React", category: "Frontend", level: "Experto", score: 94, icon: SiReact },
-  { name: "TypeScript", category: "Lenguaje", level: "Avanzado", score: 88, icon: SiTypescript },
-  { name: "Tailwind CSS", category: "Styling", level: "Experto", score: 92, icon: SiTailwindcss },
-  { name: "Framer Motion", category: "Motion", level: "Avanzado", score: 85, icon: SiFramer },
-  { name: "Vercel", category: "Deploy", level: "Avanzado", score: 86, icon: SiVercel },
+  { name: "Next.js", use: "Sitios rápidos y SEO", icon: SiNextdotjs },
+  { name: "React", use: "Interfaces interactivas", icon: SiReact },
+  { name: "TypeScript", use: "Código más sólido", icon: SiTypescript },
+  { name: "Tailwind CSS", use: "Diseño consistente", icon: SiTailwindcss },
+  { name: "Framer Motion", use: "Animaciones suaves", icon: SiFramer },
+  { name: "Vercel", use: "Publicación y hosting", icon: SiVercel },
 ];
-
-function levelTone(level: SkillLevel) {
-  if (level === "Experto") return "text-[var(--accent-bright)]";
-  return "text-[var(--foreground)]";
-}
-
-function SkillCard({ skill }: { skill: Skill }) {
-  const Icon = skill.icon;
-
-  return (
-    <article className="skill-card group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl)] border border-[var(--card-border)] bg-[var(--surface-1)]/60 p-5 backdrop-blur-sm sm:p-6">
-      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_0%_0%,rgba(139,92,246,0.1),transparent_55%)]" />
-      </div>
-
-      <div className="relative flex items-center justify-between gap-3">
-        <span className="skill-card-icon" aria-hidden>
-          <Icon size={20} />
-        </span>
-
-        <span className="shrink-0 rounded-[var(--radius-full)] border border-[var(--card-border)] px-2.5 py-1 text-[length:var(--text-xs)] font-medium leading-none tracking-wide text-[var(--muted)] transition-colors duration-300 group-hover:border-[var(--card-border-hover)] group-hover:text-[var(--foreground-muted)]">
-          {skill.category}
-        </span>
-      </div>
-
-      <h3 className="relative mt-5 font-display text-[length:var(--text-lg)] font-bold tracking-tight text-[var(--foreground)]">
-        {skill.name}
-      </h3>
-
-      <div className="relative mt-auto pt-5">
-        <div className="mb-2 flex items-center justify-between gap-3">
-          <span className={`text-[length:var(--text-xs)] font-semibold uppercase tracking-[0.12em] ${levelTone(skill.level)}`}>
-            {skill.level}
-          </span>
-          <span className="text-[length:var(--text-xs)] tabular-nums text-[var(--muted)]">{skill.score}%</span>
-        </div>
-
-        <div
-          className="h-1.5 overflow-hidden rounded-full bg-[var(--surface-3)]"
-          role="meter"
-          aria-label={`Nivel de ${skill.name}`}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuenow={skill.score}
-        >
-          <div
-            className="skill-meter-fill h-full origin-left rounded-full bg-[linear-gradient(90deg,var(--accent-deep),var(--accent-cyan))]"
-            style={{ ["--skill-score" as string]: `${skill.score}%` }}
-          />
-        </div>
-      </div>
-    </article>
-  );
-}
 
 export function Skills() {
   return (
@@ -89,19 +31,32 @@ export function Skills() {
       <div className="cq w-full">
         <SectionHeader
           align="left"
-          label="Skills"
-          title="Stack con el que construyo"
-          description="Herramientas seleccionadas para entregar landings rápidas, claras y orientadas a conversión."
+          label="Stack"
+          title="Con qué laburo"
+          description="Herramientas que uso para entregar sitios rápidos, claros y que inviten a escribirte."
           className="mb-0 max-w-xl"
         />
 
-        <div className="cq-grid mt-14 sm:mt-16">
-          {SKILLS.map((skill, i) => (
-            <MotionReveal key={skill.name} className="h-full" variant="scale" delay={i * 50}>
-              <SkillCard skill={skill} />
-            </MotionReveal>
-          ))}
-        </div>
+        <Reveal variant="up" delay={40}>
+          <div className="skills-panel mt-14 sm:mt-16">
+            <ul className="skills-list">
+              {SKILLS.map((skill, i) => {
+                const Icon = skill.icon;
+                return (
+                  <li key={skill.name} className="skills-item" style={{ transitionDelay: `${i * 50}ms` }}>
+                    <span className="skills-item-icon" aria-hidden>
+                      <Icon size={22} />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="skills-item-name">{skill.name}</p>
+                      <p className="skills-item-use">{skill.use}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

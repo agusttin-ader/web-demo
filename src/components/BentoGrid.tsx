@@ -9,7 +9,7 @@ import {
 } from "react-icons/hi2";
 import { ExternalLink } from "@/components/ExternalLink";
 import { IconWhatsApp } from "@/components/icons";
-import { MotionReveal } from "@/components/motion/MotionReveal";
+import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import {
   CERTIFICATIONS_SHORT,
@@ -20,9 +20,9 @@ import {
 
 function BentoCell({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
   return (
-    <MotionReveal className={`bento-cell ${className}`} variant="scale" delay={delay}>
+    <Reveal className={`bento-cell ${className}`} variant="scale" delay={delay}>
       {children}
-    </MotionReveal>
+    </Reveal>
   );
 }
 
@@ -32,9 +32,9 @@ export function BentoGrid() {
       <div className="cq w-full">
         <SectionHeader
           align="left"
-          label="Overview"
-          title="Todo en un vistazo"
-          description="Experiencia, stack, clientes y disponibilidad — condensado en un layout limpio."
+          label="Resumen"
+          title="De un vistazo"
+          description="Experiencia, herramientas, clientes y si estoy tomando laburo — todo junto."
           className="mb-0 max-w-xl"
         />
 
@@ -51,7 +51,7 @@ export function BentoGrid() {
                   2+
                 </p>
                 <p className="mt-3 max-w-xs text-[length:var(--text-lg)] text-[var(--foreground-muted)]">
-                  años construyendo landings claras para negocios reales.
+                  años haciendo landings claras para negocios de acá.
                 </p>
                 <p className="mt-4 text-[length:var(--text-sm)] text-[var(--muted)]">Freelance · Argentina · 2024—hoy</p>
               </div>
@@ -65,7 +65,7 @@ export function BentoGrid() {
                 <span className="eyebrow-muted tracking-[0.14em]">Tecnologías</span>
               </div>
               <p className="mt-4 font-display text-[length:var(--text-xl)] font-bold text-[var(--foreground)]">
-                Stack moderno
+                Stack con el que laburo
               </p>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {OVERVIEW_TECH.map((tech) => (
@@ -105,10 +105,10 @@ export function BentoGrid() {
               <div className="mt-6">
                 <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(37,211,102,0.35)] bg-[rgba(37,211,102,0.08)] px-3 py-1.5 text-[length:var(--text-xs)] font-semibold uppercase tracking-[0.12em] text-[#4ade80]">
                   <span className="bento-pulse" aria-hidden />
-                  Open to work
+                  Tomando proyectos
                 </span>
                 <p className="mt-4 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
-                  Disponible para nuevos proyectos este mes.
+                  Tengo lugar para proyectos nuevos este mes.
                 </p>
               </div>
             </div>
@@ -149,7 +149,7 @@ export function BentoGrid() {
                   Hablemos de tu web
                 </p>
                 <p className="mt-2 max-w-sm text-[length:var(--text-sm)] text-[var(--btn-primary-text)]/80">
-                  Contame tu negocio por WhatsApp y armamos el siguiente paso.
+                  Contame tu negocio por WhatsApp y vemos cómo seguir.
                 </p>
                 <span className="mt-6 inline-flex items-center gap-2 text-[length:var(--text-sm)] font-semibold text-[var(--btn-primary-text)]">
                   <IconWhatsApp className="h-4 w-4" aria-hidden />

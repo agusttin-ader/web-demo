@@ -9,25 +9,25 @@ import {
 
 export const SITE_URL = "https://www.agustinaderdev.com";
 export const SITE_NAME = "Agustín Ader";
-export const SITE_TAGLINE = "Landing pages para más consultas";
+export const SITE_TAGLINE = "Landings para más consultas";
 
 export const DEFAULT_TITLE = `${SITE_NAME} | ${SITE_TAGLINE}`;
 export const DEFAULT_DESCRIPTION =
-  "Diseño y desarrollo de landing pages mobile-first para negocios en Argentina. Claridad, velocidad e integración con WhatsApp para convertir visitas en consultas reales.";
+  "Armo landings claras y rápidas para negocios en Argentina. Pensadas para el celu, con WhatsApp integrado, para que te escriban de verdad.";
 
-export const OG_TITLE = `${SITE_NAME} | Webs que convierten visitas en consultas`;
+export const OG_TITLE = `${SITE_NAME} | Webs que traen consultas`;
 export const OG_DESCRIPTION =
-  "Landing pages claras y rápidas, pensadas para mobile y contacto directo por WhatsApp. Más consultas, menos fricción.";
+  "Landings simples de entender, rápidas de cargar y con contacto directo por WhatsApp. Más consultas, menos idas y vueltas.";
 
 export const TWITTER_TITLE = DEFAULT_TITLE;
 export const TWITTER_DESCRIPTION =
-  "Landing pages mobile-first para negocios que quieren más consultas y un canal propio de contacto.";
+  "Landings para negocios que quieren más consultas y un canal propio, sin depender solo de las redes.";
 
 export const OG_IMAGE = {
   url: "/og-image.png",
   width: 1200,
   height: 630,
-  alt: "Agustín Ader — Landing pages para conversión y consultas por WhatsApp",
+  alt: "Agustín Ader — Landings para más consultas por WhatsApp",
   type: "image/png",
 } as const;
 
@@ -232,7 +232,7 @@ export function buildJsonLd() {
         "@id": `${SITE_URL}/#service`,
         name: `${SITE_NAME} — Landing pages para negocios`,
         description:
-          "Servicio de diseño y desarrollo de landing pages orientadas a conversión, con integración de WhatsApp y enfoque mobile-first.",
+          "Diseño y desarrollo de landings para negocios en Argentina, con WhatsApp integrado y enfoque mobile-first.",
         url: SITE_URL,
         image: { "@id": `${SITE_URL}/#primaryimage` },
         logo: { "@id": `${SITE_URL}/#logo` },

@@ -39,7 +39,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             </dd>
           </div>
           <div>
-            <dt className="eyebrow-muted tracking-[0.12em]">Solucion</dt>
+            <dt className="eyebrow-muted tracking-[0.12em]">Solución</dt>
             <dd className="mt-1.5 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
               {project.solution}
             </dd>
@@ -56,7 +56,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
 
         {technologies.length ? (
           <div className="mt-6">
-            <p className="eyebrow-muted tracking-[0.12em]">Tecnologias</p>
+            <p className="eyebrow-muted tracking-[0.12em]">Tecnologías</p>
             <ul className="mt-3 flex flex-wrap gap-2">
               {technologies.map((tech) => (
                 <li

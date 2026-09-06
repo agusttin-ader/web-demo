@@ -18,7 +18,7 @@ export function WhatsAppButton({
   children = "Escribirme por WhatsApp",
   href = WHATSAPP_URL,
   className = "",
-  magnetic = true,
+  magnetic = false,
   strength = 0.2,
   variant = "primary",
   showIcon = true,

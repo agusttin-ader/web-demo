@@ -1,13 +1,7 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import { IconArrowRight } from "@/components/icons";
-import { Magnetic } from "@/components/Magnetic";
-import { SplitTextReveal } from "@/components/motion/TextReveal";
+import { Reveal } from "@/components/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { TECH_STACK } from "@/lib/constants";
-
-const EASE = [0.25, 0.46, 0.45, 0.94] as const;
 
 function FloatingMockups() {
   return (
@@ -24,7 +18,7 @@ function FloatingMockups() {
         </div>
         <div className="space-y-3 p-5">
           <div className="h-2.5 w-1/3 rounded-full bg-[var(--accent-soft)]" />
-          <div className="h-10 w-4/5 rounded-[var(--radius-md)] bg-[linear-gradient(90deg,rgba(167,139,250,0.2),rgba(34,211,238,0.15))]" />
+          <div className="h-10 w-4/5 rounded-[var(--radius-md)] bg-[linear-gradient(90deg,rgba(94,234,184,0.22),rgba(125,211,252,0.16))]" />
           <div className="h-2 w-full rounded-full bg-[var(--surface-2)]" />
           <div className="h-2 w-5/6 rounded-full bg-[var(--surface-2)]" />
           <div className="mt-4 grid grid-cols-3 gap-2.5">
@@ -32,7 +26,7 @@ function FloatingMockups() {
             <div className="aspect-[4/3] rounded-[var(--radius-md)] bg-[var(--surface-3)]" />
             <div className="aspect-[4/3] rounded-[var(--radius-md)] bg-[var(--accent-soft)]" />
           </div>
-          <div className="mt-3 h-8 w-32 rounded-full bg-[linear-gradient(135deg,#c4b5fd,#a78bfa)]" />
+          <div className="mt-3 h-8 w-32 rounded-full bg-[linear-gradient(135deg,#fde68a,#5eead4)]" />
         </div>
       </div>
 
@@ -40,7 +34,7 @@ function FloatingMockups() {
         <div className="mx-auto mt-2.5 h-1 w-10 rounded-full bg-[var(--muted)]/40" />
         <div className="space-y-2.5 p-4 pt-5">
           <div className="h-2 w-2/3 rounded-full bg-[var(--foreground)]/20" />
-          <div className="h-16 rounded-[var(--radius-md)] bg-[linear-gradient(160deg,rgba(139,92,246,0.2),rgba(34,211,238,0.1))]" />
+          <div className="h-16 rounded-[var(--radius-md)] bg-[linear-gradient(160deg,rgba(94,234,184,0.18),rgba(125,211,252,0.1))]" />
           <div className="h-2 w-full rounded-full bg-[var(--surface-3)]" />
           <div className="h-7 rounded-full bg-[#25D366]/90" />
         </div>
@@ -62,66 +56,51 @@ function FloatingMockups() {
 }
 
 export function Hero() {
-  const reduce = useReducedMotion();
-
   return (
     <section
       id="hero"
       className="hero-stage relative min-h-[100dvh] overflow-x-clip overflow-y-visible pt-[var(--header-offset)]"
       aria-labelledby="hero-heading"
     >
-      <div className="hero-aurora" aria-hidden />
       <div className="hero-mesh" aria-hidden />
 
       <div className="site-container relative z-10 grid min-h-[calc(100dvh-6rem)] items-center gap-14 pb-24 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-20 lg:pb-32">
         <div className="min-w-0 max-w-2xl">
-          <motion.p
-            className="eyebrow mb-8"
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, ease: EASE }}
-          >
-            Desarrollo web · Argentina
-          </motion.p>
+          <Reveal variant="up">
+            <p className="eyebrow mb-8">Desarrollo web · Argentina</p>
+          </Reveal>
 
-          <h1
-            id="hero-heading"
-            className="max-w-[14ch] font-display text-[length:var(--text-hero)] font-bold leading-[0.95] tracking-[-0.04em] text-[var(--foreground)]"
-          >
-            <SplitTextReveal text="Landing pages que" delay={0.05} />
-            <br />
-            <span className="text-gradient">
-              <SplitTextReveal text="convierten" delay={0.15} />
-            </span>
-            <br />
-            <SplitTextReveal text="visitas en consultas" delay={0.22} />
-          </h1>
+          <Reveal variant="up" delay={60}>
+            <h1
+              id="hero-heading"
+              className="max-w-[14ch] font-display text-[length:var(--text-hero)] font-bold leading-[0.95] tracking-[-0.04em] text-[var(--foreground)]"
+            >
+              Landing pages que
+              <br />
+              <span className="text-gradient">convierten</span>
+              <br />
+              visitas en consultas
+            </h1>
+          </Reveal>
 
-          <motion.p
-            className="mt-10 max-w-md text-[length:var(--text-lg)] leading-relaxed text-[var(--foreground-muted)]"
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: 0.3, ease: EASE }}
-          >
-            Diseño mobile-first, performance real y contacto directo por WhatsApp para negocios que quieren resultados.
-          </motion.p>
+          <Reveal variant="up" delay={120}>
+            <p className="mt-10 max-w-md text-[length:var(--text-lg)] leading-relaxed text-[var(--foreground-muted)]">
+              Diseño para el celu, carga rápida y WhatsApp a mano — para negocios que quieren que la web labure de
+              verdad.
+            </p>
+          </Reveal>
 
-          <motion.div
-            className="mt-12 flex w-full flex-col gap-4 sm:max-w-none sm:flex-row sm:items-center"
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: 0.38, ease: EASE }}
-          >
-            <Magnetic className="w-full sm:w-auto" strength={0.2}>
+          <Reveal variant="up" delay={160}>
+            <div className="mt-12 flex w-full flex-col gap-4 sm:max-w-none sm:flex-row sm:items-center">
               <a href="#proyecto-real" className="btn-primary focus-ring w-full sm:w-auto">
                 Ver proyectos
                 <IconArrowRight className="mi-icon mi-icon-right h-4 w-4" aria-hidden />
               </a>
-            </Magnetic>
-            <WhatsAppButton variant="ghost" strength={0.16} className="w-full sm:w-auto">
-              Hablar por WhatsApp
-            </WhatsAppButton>
-          </motion.div>
+              <WhatsAppButton variant="ghost" magnetic={false} className="w-full sm:w-auto">
+                Hablar por WhatsApp
+              </WhatsAppButton>
+            </div>
+          </Reveal>
 
           <ul className="mt-16 flex flex-wrap items-center gap-x-5 gap-y-3" aria-label="Tecnologías">
             {TECH_STACK.map((tech, i) => (
@@ -140,14 +119,9 @@ export function Hero() {
           </ul>
         </div>
 
-        <motion.div
-          className="hero-enter relative min-w-0 w-full lg:justify-self-end"
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: 0.15, ease: EASE }}
-        >
+        <Reveal variant="up" delay={80} className="hero-enter relative min-w-0 w-full lg:justify-self-end">
           <FloatingMockups />
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

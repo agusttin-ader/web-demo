@@ -1,11 +1,11 @@
 import { BudgetForm } from "@/components/BudgetForm";
-import { MotionReveal } from "@/components/motion/MotionReveal";
+import { Reveal } from "@/components/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const PROMISES = [
-  { title: "Respuesta en 24h", desc: "Te contesto con una propuesta clara." },
-  { title: "Sin compromiso", desc: "Contame el objetivo y vemos el alcance." },
-  { title: "Enfoque conversión", desc: "La web pensada para generar consultas." },
+  { title: "Te respondo en 24 hs", desc: "Con una propuesta clara, sin vueltas." },
+  { title: "Sin compromiso", desc: "Contame qué necesitás y vemos si encaja." },
+  { title: "Pensado para consultas", desc: "La web hecha para que te escriban, no solo para mirar." },
 ] as const;
 
 export function Contact() {
@@ -17,7 +17,7 @@ export function Contact() {
     >
       <div className="site-container relative z-10 py-[var(--section-y)]">
         <div className="cq mx-auto max-w-5xl">
-          <MotionReveal variant="up">
+          <Reveal variant="up">
             <div className="max-w-lg">
               <p className="eyebrow">Contacto</p>
               <h2
@@ -27,13 +27,13 @@ export function Contact() {
                 Contame tu <span className="text-gradient">proyecto</span>
               </h2>
               <p className="mt-8 max-w-md text-[length:var(--text-lg)] leading-relaxed text-[var(--foreground-muted)]">
-                Completá el formulario. Si preferís ir más rápido, también estamos por WhatsApp.
+                Completá el formulario o escribime por WhatsApp si preferís ir más directo.
               </p>
             </div>
-          </MotionReveal>
+          </Reveal>
 
           <div className="mt-16 grid items-start gap-16 lg:mt-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-24">
-            <MotionReveal variant="left" className="order-2 lg:order-1">
+            <Reveal variant="left" className="order-2 lg:order-1">
               <aside className="flex flex-col gap-16 lg:sticky lg:top-[calc(var(--header-offset)+1.5rem)] lg:pt-1">
                 <ul className="space-y-6">
                   {PROMISES.map((item) => (
@@ -50,20 +50,20 @@ export function Contact() {
 
                 <div className="border-t border-[var(--section-divider)] pt-10">
                   <p className="text-[length:var(--text-sm)] text-[var(--muted)]">
-                    ¿Necesitás una respuesta más rápida?
+                    ¿Querés respuesta al toque?
                   </p>
                   <WhatsAppButton variant="ghost" magnetic={false} className="mt-6 w-full sm:w-auto">
                     Escribirme por WhatsApp
                   </WhatsAppButton>
                 </div>
               </aside>
-            </MotionReveal>
+            </Reveal>
 
-            <MotionReveal variant="right" delay={80} className="order-1 min-w-0 lg:order-2">
+            <Reveal variant="right" delay={80} className="order-1 min-w-0 lg:order-2">
               <div className="contact-form-shell glass-card rounded-[var(--radius-2xl)] p-6 sm:p-8 lg:p-10">
                 <BudgetForm featured />
               </div>
-            </MotionReveal>
+            </Reveal>
           </div>
         </div>
       </div>

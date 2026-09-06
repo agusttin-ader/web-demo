@@ -1,5 +1,3 @@
-"use client";
-
 import type { IconType } from "react-icons";
 import {
   HiOutlineCursorArrowRays,
@@ -10,7 +8,7 @@ import {
   HiArrowUpRight,
 } from "react-icons/hi2";
 import { ExternalLink } from "@/components/ExternalLink";
-import { MotionReveal } from "@/components/motion/MotionReveal";
+import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { WHATSAPP_URL, whatsappUrl } from "@/lib/constants";
 
@@ -26,92 +24,86 @@ type Service = {
 const SERVICES: Service[] = [
   {
     id: "landing",
-    title: "Landing de conversión",
-    desc: "Estructura, jerarquía y CTAs pensados para que el visitante entienda rápido y actúe sin fricción.",
+    title: "Landing que convierte",
+    desc: "Ordeno la info para que se entienda rápido y el visitante sepa qué hacer — sin dar vueltas.",
     cta: "Quiero una landing",
     icon: HiOutlineCursorArrowRays,
-    accent: "rgba(139, 92, 246, 0.25)",
+    accent: "rgba(94, 234, 184, 0.2)",
   },
   {
     id: "whatsapp",
     title: "WhatsApp integrado",
-    desc: "Un solo click y el cliente ya te escribe con el mensaje listo. Menos pasos, más consultas.",
-    cta: "Integrar WhatsApp",
+    desc: "Un click y ya te escriben con el mensaje armado. Menos pasos, más consultas.",
+    cta: "Sumar WhatsApp",
     icon: HiOutlineChatBubbleLeftRight,
-    accent: "rgba(37, 211, 102, 0.2)",
+    accent: "rgba(37, 211, 102, 0.18)",
   },
   {
     id: "forms",
     title: "Formularios simples",
-    desc: "Solo los campos que importan. Captura leads cualificados sin cansar al visitante.",
+    desc: "Solo los datos que necesitás. Sin formularios eternos que espantan a la gente.",
     cta: "Armar formulario",
     icon: HiOutlineDocumentText,
-    accent: "rgba(34, 211, 238, 0.2)",
+    accent: "rgba(34, 211, 238, 0.16)",
   },
   {
     id: "mobile",
-    title: "Diseño mobile-first",
-    desc: "La experiencia se prioriza en celular, donde llega la mayoría de tus clientes.",
+    title: "Pensada para el celu",
+    desc: "La mayoría entra desde el teléfono. Por eso diseño primero para pantalla chica.",
     cta: "Ver enfoque mobile",
     icon: HiOutlineDevicePhoneMobile,
-    accent: "rgba(167, 139, 250, 0.2)",
+    accent: "rgba(125, 211, 252, 0.16)",
   },
   {
     id: "mantenimiento",
     title: "Mantenimiento",
-    desc: "Actualizaciones, soporte y mejoras continuas para que tu web siga rindiendo.",
+    desc: "Actualizaciones, arreglos y mejoras para que la web siga andando bien.",
     cta: "Hablar de soporte",
     icon: HiOutlineWrenchScrewdriver,
-    accent: "rgba(255, 255, 255, 0.12)",
+    accent: "rgba(255, 255, 255, 0.1)",
   },
 ];
 
-function ServiceProduct({ service, index }: { service: Service; index: number }) {
+function ServiceCard({ service, index }: { service: Service; index: number }) {
   const Icon = service.icon;
   const href =
     service.id === "whatsapp"
       ? WHATSAPP_URL
-      : whatsappUrl(`Hola Agustin, me interesa el servicio: ${service.title}.`);
+      : whatsappUrl(`Hola Agustín, me interesa: ${service.title}.`);
+  const isWide = index === 0;
 
   return (
-    <MotionReveal variant="left" delay={index * 30}>
-      <ExternalLink href={href} className="service-product focus-ring group relative block rounded-[var(--radius-xl)]" showHint={false}>
+    <Reveal variant="up" delay={index * 40} className={isWide ? "services-cell services-cell--wide" : "services-cell"}>
+      <ExternalLink
+        href={href}
+        className={`services-card focus-ring group ${isWide ? "services-card--wide" : ""}`}
+        showHint={false}
+      >
         <span
-          className="service-product-glow"
-          style={{ background: `radial-gradient(circle, ${service.accent} 0%, transparent 68%)` }}
+          className="services-card-glow"
+          style={{ background: `radial-gradient(circle at 20% 20%, ${service.accent}, transparent 70%)` }}
           aria-hidden
         />
 
-        <div className="service-product-row relative">
-          <div className="service-product-icon">
-            <Icon className="h-6 w-6" aria-hidden />
-          </div>
-
-          <div className="min-w-0">
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="font-display text-[length:var(--text-xs)] font-semibold tabular-nums tracking-[0.14em] text-[var(--accent)]" aria-hidden>
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 className="font-display text-[length:var(--text-xl)] font-bold tracking-tight text-[var(--foreground)] transition-colors duration-300 group-hover:text-[var(--accent-bright)] sm:text-[length:var(--text-2xl)]">
-                {service.title}
-              </h3>
-            </div>
-            <p className="mt-3 max-w-xl text-[length:var(--text-base)] leading-relaxed text-[var(--foreground-muted)]">
-              {service.desc}
-            </p>
-          </div>
-
-          <span className="service-product-cta inline-flex items-center gap-2 text-[length:var(--text-sm)] font-semibold">
-            {service.cta}
-            <span className="sr-only"> (se abre en una pestaña nueva)</span>
-            <HiArrowUpRight
-              className="h-4 w-4 shrink-0 transition-transform duration-300 ease-[var(--ease-out)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              aria-hidden
-            />
+        <div className="services-card-top">
+          <span className="services-card-icon">
+            <Icon className="h-5 w-5" aria-hidden />
+          </span>
+          <span className="services-card-num" aria-hidden>
+            {String(index + 1).padStart(2, "0")}
           </span>
         </div>
+
+        <h3 className="services-card-title">{service.title}</h3>
+        <p className="services-card-desc">{service.desc}</p>
+
+        <span className="services-card-cta">
+          {service.cta}
+          <span className="sr-only"> (se abre en una pestaña nueva)</span>
+          <HiArrowUpRight className="h-4 w-4" aria-hidden />
+        </span>
       </ExternalLink>
-    </MotionReveal>
+    </Reveal>
   );
 }
 
@@ -122,15 +114,15 @@ export function Services() {
         <SectionHeader
           align="left"
           label="Servicios"
-          title="Productos para convertir mejor"
-          description="Cada servicio está pensado como una pieza clara del sistema: menos fricción, más consultas reales."
+          title="Lo que puedo armarte"
+          description="Cada pieza suma al mismo objetivo: que te escriban más y mejor."
           titleClassName="text-[clamp(2rem,5vw,3.25rem)]"
-          className="mb-0"
+          className="mb-0 max-w-xl"
         />
 
-        <div className="mt-16 rounded-[var(--radius-2xl)] border border-[var(--card-border)] bg-[var(--surface-1)] p-2 lg:mt-20">
+        <div className="services-grid mt-14 lg:mt-20">
           {SERVICES.map((service, index) => (
-            <ServiceProduct key={service.id} service={service} index={index} />
+            <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </div>
       </div>

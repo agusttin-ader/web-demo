@@ -39,7 +39,7 @@ export function Footer() {
               </span>
             </a>
             <p className="mt-5 max-w-sm text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
-              Landing pages claras y rapidas para negocios que quieren mas consultas.
+              Landings claras y rápidas para negocios que quieren más consultas.
             </p>
 
             <ul className="mt-6 flex items-center gap-3" aria-label="Redes sociales">
@@ -77,21 +77,21 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <span className="block text-[var(--muted)]">Ubicacion</span>
+                <span className="block text-[var(--muted)]">Ubicación</span>
                 <p className="mt-1 text-[var(--foreground)]">Buenos Aires, Argentina</p>
               </li>
               <li>
                 <span className="block text-[var(--muted)]">Disponibilidad</span>
                 <p className="mt-1 inline-flex items-center gap-2 text-[var(--foreground)]">
                   <span className="footer-dot" aria-hidden />
-                  Disponible para proyectos
+                  Tomando proyectos
                 </p>
               </li>
             </ul>
           </div>
 
           <div>
-            <h2 className="eyebrow-muted tracking-[0.14em]">Links rapidos</h2>
+            <h2 className="eyebrow-muted tracking-[0.14em]">Links rápidos</h2>
             <nav className="mt-5" aria-label="Enlaces del pie de página">
               <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
                 {QUICK_LINKS.map(({ id, label }) => (

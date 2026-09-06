@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export type RevealVariant = "up" | "fade" | "left" | "right";
+export type RevealVariant = "up" | "fade" | "left" | "right" | "scale";
 
 type RevealProps = {
   children: React.ReactNode;

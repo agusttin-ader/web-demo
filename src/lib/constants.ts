@@ -4,7 +4,7 @@ export const EMAIL = "agusttin.dev@gmail.com";
 export const INSTAGRAM_URL = "https://www.instagram.com/agustinader.dev/";
 
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  "Hola Agustin, quiero mejorar mi web para recibir mas consultas."
+  "Hola Agustín, quiero una web que me traiga más consultas."
 )}`;
 
 export function whatsappUrl(message: string) {
@@ -15,6 +15,7 @@ export const NAV_ITEMS = [
   { id: "beneficios", label: "Beneficios" },
   { id: "proyecto-real", label: "Proyectos" },
   { id: "servicios", label: "Servicios" },
+  { id: "planes", label: "Planes" },
   { id: "contacto", label: "Contacto" },
 ] as const;
 
@@ -34,13 +35,13 @@ export const CLIENTS = ["La Guarida Instrumentos", "Alo Patagonia", "Dra. Karla 
 
 export const CERTIFICATIONS = [
   { title: "Frontend moderno", meta: "Next.js · React · TypeScript" },
-  { title: "UI orientada a conversion", meta: "Jerarquia · CTA · claridad" },
-  { title: "Integracion WhatsApp", meta: "Flujo de contacto directo" },
-  { title: "Performance web", meta: "Carga rapida · mobile-first" },
+  { title: "Webs que convierten", meta: "Orden · botones claros · lectura fácil" },
+  { title: "WhatsApp integrado", meta: "Contacto directo, sin vueltas" },
+  { title: "Sitios rápidos", meta: "Carga liviana · pensados para el celu" },
 ] as const;
 
 export const CERTIFICATIONS_SHORT = [
   { title: "Frontend moderno", meta: "Next.js · React" },
-  { title: "Conversion UX", meta: "CTA · claridad" },
-  { title: "WhatsApp flows", meta: "Contacto directo" },
+  { title: "Webs que convierten", meta: "Claridad · contacto fácil" },
+  { title: "WhatsApp integrado", meta: "Un click y te escriben" },
 ] as const;

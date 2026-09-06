@@ -21,7 +21,7 @@ export async function sendBudgetRequest(
   if (honeypot) {
     return {
       success: true,
-      message: "Mensaje enviado. Te responderé a la brevedad.",
+      message: "Listo, te escribo pronto.",
     };
   }
 
@@ -43,7 +43,7 @@ export async function sendBudgetRequest(
   if (!name || !email || !message) {
     return {
       success: false,
-      message: "Por favor completá nombre, email y mensaje.",
+      message: "Completá nombre, mail y mensaje, porfa.",
     };
   }
 
@@ -51,7 +51,7 @@ export async function sendBudgetRequest(
   if (!emailRegex.test(email)) {
     return {
       success: false,
-      message: "Por favor ingresá un email válido.",
+      message: "Poné un mail válido, porfa.",
     };
   }
 
@@ -59,7 +59,7 @@ export async function sendBudgetRequest(
     console.error("RESEND_API_KEY no está configurada.");
     return {
       success: false,
-      message: "Error de configuración. Por favor contactame por WhatsApp o email.",
+      message: "Algo falló del lado técnico. Escribime por WhatsApp o mail directo.",
     };
   }
 
@@ -89,13 +89,13 @@ export async function sendBudgetRequest(
     console.error("Resend error:", error);
     return {
       success: false,
-      message: "No pude enviar el mensaje. Por favor probá por WhatsApp o email directo.",
+      message: "No pude enviarlo. Probá por WhatsApp o mail directo.",
     };
   }
 
   return {
     success: true,
-    message: "Mensaje enviado. Te responderé a la brevedad.",
+    message: "Listo, te escribo pronto.",
   };
 }
 

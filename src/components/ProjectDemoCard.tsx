@@ -17,7 +17,7 @@ export function ProjectDemoCard({ project }: ProjectDemoCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <p className="eyebrow-muted tracking-[0.12em]">Ejemplo interactivo</p>
+        <p className="eyebrow-muted tracking-[0.12em]">Ejemplo en vivo</p>
         <h3 className="mt-2 font-display text-[length:var(--text-xl)] font-bold tracking-tight text-[var(--foreground)]">
           {project.title}
         </h3>

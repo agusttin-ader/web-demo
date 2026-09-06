@@ -1,14 +1,12 @@
-"use client";
-
 import Image from "next/image";
-import { MotionReveal } from "@/components/motion/MotionReveal";
+import { Reveal } from "@/components/Reveal";
 import { CERTIFICATIONS } from "@/lib/constants";
 
 const STATS = [
-  { value: "2+", label: "Años de experiencia" },
-  { value: "2+", label: "Proyectos en producción" },
-  { value: "100%", label: "Enfoque mobile-first" },
-  { value: "24h", label: "Tiempo de respuesta" },
+  { value: "2+", label: "Años laburando en esto" },
+  { value: "2+", label: "Sitios en producción" },
+  { value: "100%", label: "Pensado para el celu" },
+  { value: "24h", label: "Te respondo en" },
 ];
 
 const TIMELINE = [
@@ -16,19 +14,19 @@ const TIMELINE = [
     id: "2024-inicio",
     year: "2024",
     title: "Inicio freelance",
-    desc: "Primeros encargos enfocados en webs claras para negocios locales.",
+    desc: "Primeros trabajos para negocios locales que necesitaban una web clara, sin complicarse.",
   },
   {
     id: "2025-produccion",
     year: "2025",
     title: "Proyectos en producción",
-    desc: "Sitios reales publicados, con foco en contacto directo y conversión.",
+    desc: "Sitios reales online, con foco en que la gente pueda contactarte fácil.",
   },
   {
     id: "2026-hoy",
     year: "2026",
     title: "Hoy",
-    desc: "Landings, WhatsApp y performance alineados para generar más consultas.",
+    desc: "Landings, WhatsApp y sitios rápidos — todo apuntando a más consultas.",
   },
 ] as const;
 
@@ -37,7 +35,7 @@ export function About() {
     <section id="sobre-mi" className="section-shell">
       <div className="cq w-full">
         <div className="grid gap-14 border-b border-[var(--section-divider)] pb-20 lg:grid-cols-[1fr_1.1fr] lg:gap-24 lg:pb-28">
-          <MotionReveal variant="up">
+          <Reveal variant="up">
             <p className="eyebrow tracking-[0.18em]">Sobre mí</p>
             <h2 className="mt-6 max-w-[12ch] break-words font-display text-[clamp(2.125rem,8vw,4.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-[var(--foreground)]">
               Agustín <span className="text-gradient">Ader</span>
@@ -45,25 +43,24 @@ export function About() {
             <p className="mt-4 text-[length:var(--text-sm)] font-medium tracking-wide text-[var(--muted)]">
               Desarrollador web freelance · Argentina
             </p>
-          </MotionReveal>
+          </Reveal>
 
-          <MotionReveal variant="right" delay={100} className="flex flex-col justify-end">
+          <Reveal variant="right" delay={100} className="flex flex-col justify-end">
             <p className="max-w-xl text-[length:var(--text-xl)] leading-relaxed text-[var(--foreground-muted)]">
-              Trabajo con negocios reales que necesitan resultados, no solo una web linda. Mi enfoque es simple: que el
-              cliente entienda rápido, consulte y convierta.
+              Trabajo con negocios que necesitan resultados, no solo una web linda. La idea es simple:
+              que entiendan qué hacés, te escriban y listo.
             </p>
             <p className="mt-8 max-w-md text-[length:var(--text-base)] leading-relaxed text-[var(--muted)]">
-              Sin tecnicismos innecesarios. Sin ruido. Solo estructura clara, diseño premium y un camino directo a la
-              acción.
+              Sin tecnicismos de más. Te armo una web clara, que se vea bien y que lleve directo al contacto.
             </p>
-          </MotionReveal>
+          </Reveal>
         </div>
 
         <div className="mt-16 grid gap-12 lg:mt-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <MotionReveal variant="scale">
+          <Reveal variant="scale">
             <figure className="relative">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--card-border)] bg-[var(--surface-1)] shadow-[0_24px_80px_rgba(139,92,246,0.12)]">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_30%,rgba(139,92,246,0.15),transparent_65%)]" />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--card-border)] bg-[var(--surface-1)] shadow-[0_24px_80px_rgba(94,234,184,0.1)]">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_30%,rgba(94,234,184,0.12),transparent_65%)]" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-8">
                   <Image
                     src="/new-logo-transparent.webp"
@@ -78,7 +75,7 @@ export function About() {
                     <p className="font-display text-[length:var(--text-lg)] font-bold text-[var(--foreground)]">
                       Agustín Ader
                     </p>
-                    <p className="mt-1 text-[length:var(--text-sm)] text-[var(--muted)]">Landing pages · Conversión</p>
+                    <p className="mt-1 text-[length:var(--text-sm)] text-[var(--muted)]">Landings · más consultas</p>
                   </figcaption>
                 </div>
               </div>
@@ -94,10 +91,10 @@ export function About() {
                 </p>
               </div>
             </figure>
-          </MotionReveal>
+          </Reveal>
 
           <div className="flex flex-col justify-center">
-            <MotionReveal variant="left" delay={80}>
+            <Reveal variant="left" delay={80}>
               <p className="eyebrow-muted">En números</p>
               <dl className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 min-[390px]:gap-x-8 min-[390px]:gap-y-10">
                 {STATS.map((stat) => (
@@ -112,55 +109,54 @@ export function About() {
                   </div>
                 ))}
               </dl>
-            </MotionReveal>
+            </Reveal>
           </div>
         </div>
 
         <div className="mt-24 border-t border-[var(--section-divider)] pt-16 lg:mt-32 lg:pt-24">
-          <MotionReveal variant="up">
-            <p className="eyebrow-muted">Timeline</p>
+          <Reveal variant="up">
+            <p className="eyebrow-muted">Recorrido</p>
             <h3 className="mt-4 max-w-md font-display text-[length:var(--text-3xl)] font-bold text-[var(--foreground)]">
-              Un recorrido enfocado en resultados
+              Cómo llegué hasta acá
             </h3>
-          </MotionReveal>
+          </Reveal>
 
-          <ol className="mt-14 space-y-0 lg:mt-20">
+          <ol className="timeline mt-14 lg:mt-20">
             {TIMELINE.map((item, i) => (
-              <li key={item.id} className="border-t border-[var(--section-divider)]">
-                <MotionReveal variant="left" delay={i * 80} className="grid gap-4 py-8 sm:grid-cols-[7rem_1fr] sm:gap-10 lg:grid-cols-[8rem_1fr_1.2fr] lg:gap-16 lg:py-10">
-                  <p className="font-display text-[length:var(--text-lg)] font-bold text-[var(--accent)]">
-                    {item.year}
-                  </p>
-                  <h4 className="font-display text-[length:var(--text-xl)] font-bold text-[var(--foreground)]">
-                    {item.title}
-                  </h4>
-                  <p className="text-[length:var(--text-base)] leading-relaxed text-[var(--foreground-muted)] sm:col-span-2 lg:col-span-1">
-                    {item.desc}
-                  </p>
-                </MotionReveal>
+              <li key={item.id} className="timeline-item">
+                <Reveal variant="left" delay={i * 80} className="timeline-row">
+                  <div className="timeline-marker" aria-hidden>
+                    <span className="timeline-dot" />
+                  </div>
+                  <div className="timeline-body glass-card rounded-[var(--radius-xl)] p-6 sm:p-8">
+                    <p className="timeline-year">{item.year}</p>
+                    <h4 className="timeline-title">{item.title}</h4>
+                    <p className="timeline-desc">{item.desc}</p>
+                  </div>
+                </Reveal>
               </li>
             ))}
           </ol>
         </div>
 
         <div className="mt-24 border-t border-[var(--section-divider)] pt-16 lg:mt-32 lg:pt-24">
-          <MotionReveal variant="up">
-            <p className="eyebrow-muted">Certificaciones & foco</p>
+          <Reveal variant="up">
+            <p className="eyebrow-muted">Formación y foco</p>
             <h3 className="mt-4 max-w-lg font-display text-[length:var(--text-3xl)] font-bold text-[var(--foreground)]">
-              Especialización práctica
+              En qué me especializo
             </h3>
-          </MotionReveal>
+          </Reveal>
 
           <ul className="mt-14 grid gap-4 sm:grid-cols-2">
             {CERTIFICATIONS.map((cert, i) => (
-              <MotionReveal key={cert.title} variant="scale" delay={i * 60}>
+              <Reveal key={cert.title} variant="scale" delay={i * 60}>
                 <li className="glass-card h-full rounded-[var(--radius-xl)] p-8">
                   <p className="font-display text-[length:var(--text-lg)] font-bold text-[var(--foreground)]">
                     {cert.title}
                   </p>
                   <p className="mt-2 text-[length:var(--text-sm)] text-[var(--muted)]">{cert.meta}</p>
                 </li>
-              </MotionReveal>
+              </Reveal>
             ))}
           </ul>
         </div>

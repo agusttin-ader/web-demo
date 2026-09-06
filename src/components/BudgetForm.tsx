@@ -43,12 +43,12 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
       aria-describedby={hintId}
     >
       <div>
-        <p className="eyebrow">Propuesta</p>
+        <p className="eyebrow">Contacto</p>
         <h3 className="mt-4 font-display text-[length:var(--text-2xl)] font-semibold tracking-tight text-[var(--foreground)] sm:text-[length:var(--text-3xl)]">
-          Pedí tu propuesta
+          Contame tu proyecto
         </h3>
         <p id={hintId} className="mt-3 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)] sm:text-[length:var(--text-base)]">
-          Nombre, email y objetivo. En menos de un minuto queda listo.
+          Nombre, mail y qué necesitás. En un minuto lo tenés listo.
         </p>
       </div>
 
@@ -68,7 +68,7 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
             : "sr-only"
         }
       >
-        {state.message || (isPending ? "Enviando solicitud…" : "")}
+        {state.message || (isPending ? "Enviando…" : "")}
       </p>
 
       <div className="hp-field" aria-hidden="true">
@@ -166,7 +166,7 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
           aria-required="true"
           aria-invalid={hasError || undefined}
           aria-describedby={hasStatus ? statusId : undefined}
-          placeholder="Alcance, plazos y cualquier referencia relevante"
+          placeholder="Contame qué necesitás, plazos, rubro… lo que sirva"
           className={`${fieldClass} min-h-[100px] resize-y`}
           disabled={isPending || hasSuccess}
         />
@@ -177,7 +177,7 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
         disabled={isPending || hasSuccess}
         className="btn-primary focus-ring mt-1 w-full disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {hasSuccess ? "Mensaje enviado" : isPending ? "Enviando solicitud…" : "Solicitar propuesta"}
+        {hasSuccess ? "Listo, te leo pronto" : isPending ? "Enviando…" : "Enviar mensaje"}
       </button>
     </form>
   );

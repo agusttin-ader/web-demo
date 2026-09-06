@@ -1,43 +1,43 @@
 export const MARQUEE_ITEMS = [
-  "Mas consultas",
-  "Menos friccion",
-  "WhatsApp integrado",
-  "Mobile-first",
-  "Conversion real",
-  "Diseno claro",
-  "Carga rapida",
+  "Más consultas",
+  "Menos vueltas",
+  "WhatsApp a un click",
+  "Pensada para el celu",
+  "Consultas de verdad",
+  "Diseño claro",
+  "Carga al toque",
   "Canal propio",
 ] as const;
 
 export const BENEFITS = [
   {
-    title: "Mas consultas reales",
-    desc: "Cada seccion guia al visitante hacia el contacto, sin distracciones.",
+    title: "Más consultas de verdad",
+    desc: "Cada parte de la web empuja al visitante a escribirte, sin marearlo con info de más.",
     span: "cq-benefit-wide",
     accent: true,
   },
   {
     title: "Menos tiempo en WhatsApp",
-    desc: "La web responde lo basico. Vos atendes lo que importa.",
+    desc: "La web responde lo básico. Vos atendés cuando ya tiene sentido.",
     span: "",
     accent: false,
   },
   {
-    title: "Imagen profesional",
-    desc: "Una presencia digital que transmite confianza desde el primer segundo.",
+    title: "Te ves profesional",
+    desc: "Una web que transmite confianza desde el primer segundo, no una plantilla genérica.",
     span: "",
     accent: false,
   },
   {
     title: "Canal propio",
-    desc: "Dejas de depender solo de Instagram o redes que no controlas.",
+    desc: "Dejás de depender solo de Instagram o de algoritmos que no controlás.",
     span: "cq-benefit-wide",
     accent: false,
   },
 ] as const;
 
 export const PROBLEM_POINTS = [
-  "Respondes lo mismo una y otra vez por WhatsApp",
-  "La web no explica ni guia al cliente",
-  "Perdes consultas por falta de claridad",
+  "Respondés lo mismo una y otra vez por WhatsApp",
+  "La web no explica bien qué hacés ni a quién le hablás",
+  "Se te escapan consultas porque nadie entiende cómo contactarte",
 ] as const;
