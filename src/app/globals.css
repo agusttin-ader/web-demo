@@ -2343,6 +2343,84 @@ button:disabled,
   contain: layout paint;
 }
 
+/* ——— FAQ (SEO + UX) ——— */
+.faq-section {
+  border-top: 1px solid var(--section-divider);
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.faq-item {
+  overflow: hidden;
+}
+.faq-details > summary {
+  list-style: none;
+}
+.faq-details > summary::-webkit-details-marker {
+  display: none;
+}
+.faq-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.125rem 1.25rem;
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+.faq-summary:hover {
+  color: var(--accent-bright);
+}
+.faq-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.75rem;
+  height: 1.5px;
+  background: var(--muted);
+  transform: translate(-50%, -50%);
+  transition:
+    transform var(--duration) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+.faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.faq-details[open] .faq-icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 0;
+}
+.faq-details[open] .faq-summary {
+  color: var(--accent-bright);
+}
+.faq-details[open] .faq-icon::before {
+  background: var(--accent);
+}
+.faq-answer {
+  padding: 0 1.25rem 1.25rem;
+}
+.faq-answer p {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--foreground-muted);
+}
+
 /* FAB + contacto: safe area */
 .whatsapp-fab-shell {
   position: fixed;

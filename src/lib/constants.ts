@@ -23,8 +23,7 @@ export const TECH_STACK = [
   "Next.js",
   "React",
   "TypeScript",
-  "Tailwind",
-  "Framer Motion",
+  "Tailwind CSS",
   "Vercel",
 ] as const;
 

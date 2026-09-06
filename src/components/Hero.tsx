@@ -85,8 +85,8 @@ export function Hero() {
 
           <Reveal variant="up" delay={120}>
             <p className="mt-10 max-w-md text-[length:var(--text-lg)] leading-relaxed text-[var(--foreground-muted)]">
-              Diseño para el celu, carga rápida y WhatsApp a mano — para negocios que quieren que la web labure de
-              verdad.
+              Desarrollo web y programación de páginas web para el celu: carga rápida, diseño claro y WhatsApp a mano —
+              para negocios que quieren que la web labure de verdad.
             </p>
           </Reveal>
 

@@ -16,16 +16,14 @@ import { Services } from "@/components/Services";
 import { Skills } from "@/components/Skills";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { PROBLEM_POINTS } from "@/data/site-content";
-import { siteMetadata } from "@/lib/seo";
+import { homeMetadata } from "@/lib/seo";
+import { SeoFaq } from "@/components/SeoFaq";
 
 const Contact = dynamic(() => import("@/components/Contact").then((m) => m.Contact), {
   loading: () => <div className="section-shell min-h-[24rem]" aria-hidden />,
 });
 
-export const metadata: Metadata = {
-  ...siteMetadata,
-  alternates: { canonical: "/" },
-};
+export const metadata: Metadata = homeMetadata;
 
 export default function Home() {
   return (
@@ -76,6 +74,7 @@ export default function Home() {
         <Plans />
         <About />
         <Skills />
+        <SeoFaq />
         <CtaBanner />
         <Contact />
         <Footer />

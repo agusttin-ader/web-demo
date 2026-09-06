@@ -6,6 +6,7 @@ import { EMAIL, INSTAGRAM_URL, NAV_ITEMS, WHATSAPP_URL } from "@/lib/constants";
 
 const QUICK_LINKS = [
   ...NAV_ITEMS,
+  { id: "preguntas-frecuentes", label: "FAQ" },
   { id: "sobre-mi", label: "Sobre mi" },
   { id: "skills", label: "Skills" },
 ] as const;
@@ -39,7 +40,8 @@ export function Footer() {
               </span>
             </a>
             <p className="mt-5 max-w-sm text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
-              Landings claras y rápidas para negocios que quieren más consultas.
+              Desarrollo web, páginas web y programación para negocios en Argentina. Landings rápidas con WhatsApp
+              integrado.
             </p>
 
             <ul className="mt-6 flex items-center gap-3" aria-label="Redes sociales">
