@@ -2167,14 +2167,11 @@ button:disabled,
   }
 }
 
-/* ~480+: problem 2-col before full 3-col */
-@container section (min-width: 480px) {
+/* ~600+: problem 3-col (3 cards en fila) */
+@container section (min-width: 600px) {
   .cq-grid-problem {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
-  }
-  .cq-grid-problem > :last-child:nth-child(odd) {
-    grid-column: 1 / -1;
   }
 }
 
@@ -2208,10 +2205,6 @@ button:disabled,
   .cq-grid-portfolio {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 3rem;
-  }
-  .cq-grid-problem {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
   }
   .cq-certs-row {
     grid-template-columns: repeat(3, minmax(0, 1fr));
