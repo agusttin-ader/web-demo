@@ -1,62 +1,35 @@
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
-import { CERTIFICATIONS } from "@/lib/constants";
+import { getDictionary } from "@/i18n/get-dictionary";
 
-const STATS = [
-  { value: "2+", label: "Años laburando en esto" },
-  { value: "2+", label: "Sitios en producción" },
-  { value: "100%", label: "Pensado para el celu" },
-  { value: "24h", label: "Te respondo en" },
-];
+export async function About() {
+  const t = await getDictionary();
 
-const TIMELINE = [
-  {
-    id: "2024-inicio",
-    year: "2024",
-    title: "Inicio freelance",
-    desc: "Primeros trabajos para negocios locales que necesitaban una web clara, sin complicarse.",
-  },
-  {
-    id: "2025-produccion",
-    year: "2025",
-    title: "Proyectos en producción",
-    desc: "Sitios reales online, con foco en que la gente pueda contactarte fácil.",
-  },
-  {
-    id: "2026-hoy",
-    year: "2026",
-    title: "Hoy",
-    desc: "Landings, WhatsApp y sitios rápidos — todo apuntando a más consultas.",
-  },
-] as const;
-
-export function About() {
   return (
     <section id="sobre-mi" className="section-shell">
       <div className="cq w-full">
-        <div className="grid gap-14 border-b border-[var(--section-divider)] pb-20 lg:grid-cols-[1fr_1.1fr] lg:gap-24 lg:pb-28">
+        <div className="grid gap-14 border-b border-[var(--section-divider)] pb-20 md:grid-cols-2 md:gap-16 lg:gap-24 lg:pb-28">
           <Reveal variant="up">
-            <p className="eyebrow tracking-[0.18em]">Sobre mí</p>
+            <p className="eyebrow tracking-[0.18em]">{t.about.label}</p>
             <h2 className="mt-6 max-w-[12ch] break-words font-display text-[clamp(2.125rem,8vw,4.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-[var(--foreground)]">
               Agustín <span className="text-gradient">Ader</span>
             </h2>
             <p className="mt-4 text-[length:var(--text-sm)] font-medium tracking-wide text-[var(--muted)]">
-              Desarrollador web freelance · Argentina
+              {t.about.role}
             </p>
           </Reveal>
 
           <Reveal variant="right" delay={100} className="flex flex-col justify-end">
             <p className="max-w-xl text-[length:var(--text-xl)] leading-relaxed text-[var(--foreground-muted)]">
-              Trabajo con negocios que necesitan resultados, no solo una web linda. La idea es simple:
-              que entiendan qué hacés, te escriban y listo.
+              {t.about.body}
             </p>
             <p className="mt-8 max-w-md text-[length:var(--text-base)] leading-relaxed text-[var(--muted)]">
-              Sin tecnicismos de más. Te armo una web clara, que se vea bien y que lleve directo al contacto.
+              {t.about.bodyAlt}
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-12 lg:mt-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <div className="mt-16 grid gap-12 md:grid-cols-2 md:gap-16 lg:mt-24 lg:gap-20">
           <Reveal variant="scale">
             <figure className="relative">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--card-border)] bg-[var(--surface-1)] shadow-[0_24px_80px_rgba(94,234,184,0.1)]">
@@ -64,7 +37,7 @@ export function About() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-8">
                   <Image
                     src="/new-logo-transparent.webp"
-                    alt="Agustín Ader — desarrollador web freelance en Argentina"
+                    alt={t.about.photoAlt}
                     width={144}
                     height={144}
                     className="h-28 w-28 object-contain sm:h-36 sm:w-36"
@@ -75,19 +48,19 @@ export function About() {
                     <p className="font-display text-[length:var(--text-lg)] font-bold text-[var(--foreground)]">
                       Agustín Ader
                     </p>
-                    <p className="mt-1 text-[length:var(--text-sm)] text-[var(--muted)]">Landings · más consultas</p>
+                    <p className="mt-1 text-[length:var(--text-sm)] text-[var(--muted)]">{t.about.photoCaption}</p>
                   </figcaption>
                 </div>
               </div>
-              <div className="mt-6 flex items-baseline justify-between border-t border-[var(--section-divider)] pt-6">
+              <div className="mt-6 flex flex-col gap-4 border-t border-[var(--section-divider)] pt-6 sm:flex-row sm:items-baseline sm:justify-between">
                 <div>
                   <p className="font-display text-[clamp(3rem,6vw,4.5rem)] font-bold leading-none tracking-tight text-gradient">
                     2+
                   </p>
-                  <p className="mt-2 text-[length:var(--text-sm)] text-[var(--muted)]">años de experiencia</p>
+                  <p className="mt-2 text-[length:var(--text-sm)] text-[var(--muted)]">{t.about.years}</p>
                 </div>
                 <p className="max-w-[12ch] text-right text-[length:var(--text-xs)] uppercase tracking-[0.14em] text-[var(--foreground-muted)]">
-                  Freelance desde 2024
+                  {t.about.freelanceSince}
                 </p>
               </div>
             </figure>
@@ -95,9 +68,9 @@ export function About() {
 
           <div className="flex flex-col justify-center">
             <Reveal variant="left" delay={80}>
-              <p className="eyebrow-muted">En números</p>
-              <dl className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 min-[390px]:gap-x-8 min-[390px]:gap-y-10">
-                {STATS.map((stat) => (
+              <p className="eyebrow-muted">{t.about.numbers}</p>
+              <dl className="mt-8 grid grid-cols-1 gap-x-4 gap-y-8 min-[390px]:grid-cols-2 min-[390px]:gap-x-8 min-[390px]:gap-y-10">
+                {t.about.stats.map((stat) => (
                   <div key={stat.label} className="glass-card rounded-[var(--radius-xl)] p-5">
                     <dt className="sr-only">{stat.label}</dt>
                     <dd>
@@ -115,14 +88,14 @@ export function About() {
 
         <div className="mt-24 border-t border-[var(--section-divider)] pt-16 lg:mt-32 lg:pt-24">
           <Reveal variant="up">
-            <p className="eyebrow-muted">Recorrido</p>
+            <p className="eyebrow-muted">{t.about.timelineLabel}</p>
             <h3 className="mt-4 max-w-md font-display text-[length:var(--text-3xl)] font-bold text-[var(--foreground)]">
-              Cómo llegué hasta acá
+              {t.about.timelineTitle}
             </h3>
           </Reveal>
 
           <ol className="timeline mt-14 lg:mt-20">
-            {TIMELINE.map((item, i) => (
+            {t.about.timeline.map((item, i) => (
               <li key={item.id} className="timeline-item">
                 <Reveal variant="left" delay={i * 80} className="timeline-row">
                   <div className="timeline-marker" aria-hidden>
@@ -141,14 +114,14 @@ export function About() {
 
         <div className="mt-24 border-t border-[var(--section-divider)] pt-16 lg:mt-32 lg:pt-24">
           <Reveal variant="up">
-            <p className="eyebrow-muted">Formación y foco</p>
+            <p className="eyebrow-muted">{t.about.focusLabel}</p>
             <h3 className="mt-4 max-w-lg font-display text-[length:var(--text-3xl)] font-bold text-[var(--foreground)]">
-              En qué me especializo
+              {t.about.focusTitle}
             </h3>
           </Reveal>
 
           <ul className="mt-14 grid gap-4 sm:grid-cols-2">
-            {CERTIFICATIONS.map((cert, i) => (
+            {t.about.certs.map((cert, i) => (
               <Reveal key={cert.title} variant="scale" delay={i * 60}>
                 <li className="glass-card h-full rounded-[var(--radius-xl)] p-8">
                   <p className="font-display text-[length:var(--text-lg)] font-bold text-[var(--foreground)]">

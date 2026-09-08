@@ -1,14 +1,12 @@
 import { BudgetForm } from "@/components/BudgetForm";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { getDictionary } from "@/i18n/get-dictionary";
+import { whatsappUrl } from "@/lib/constants";
 
-const PROMISES = [
-  { title: "Te respondo en 24 hs", desc: "Con una propuesta clara, sin vueltas." },
-  { title: "Sin compromiso", desc: "Contame qué necesitás y vemos si encaja." },
-  { title: "Pensado para consultas", desc: "La web hecha para que te escriban, no solo para mirar." },
-] as const;
+export async function Contact() {
+  const t = await getDictionary();
 
-export function Contact() {
   return (
     <section
       id="contacto"
@@ -19,25 +17,25 @@ export function Contact() {
         <div className="cq mx-auto max-w-5xl">
           <Reveal variant="up">
             <div className="max-w-lg">
-              <p className="eyebrow">Contacto</p>
+              <p className="eyebrow">{t.contact.label}</p>
               <h2
                 id="contacto-heading"
                 className="mt-8 font-display text-[clamp(2.25rem,5.5vw,3.75rem)] font-bold leading-[1.02] tracking-[-0.04em] text-[var(--foreground)]"
               >
-                Contame tu <span className="text-gradient">proyecto</span>
+                {t.contact.titleBefore} <span className="text-gradient">{t.contact.titleAccent}</span>
               </h2>
               <p className="mt-8 max-w-md text-[length:var(--text-lg)] leading-relaxed text-[var(--foreground-muted)]">
-                Completá el formulario o escribime por WhatsApp si preferís ir más directo.
+                {t.contact.body}
               </p>
             </div>
           </Reveal>
 
-          <div className="mt-16 grid items-start gap-16 lg:mt-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-24">
+          <div className="mt-16 grid items-start gap-12 md:gap-16 lg:mt-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-24">
             <Reveal variant="left" className="order-2 lg:order-1">
               <aside className="flex flex-col gap-16 lg:sticky lg:top-[calc(var(--header-offset)+1.5rem)] lg:pt-1">
                 <ul className="space-y-6">
-                  {PROMISES.map((item) => (
-                    <li key={item.title} className="glass-card max-w-xs rounded-[var(--radius-xl)] p-6">
+                  {t.contact.promises.map((item) => (
+                    <li key={item.title} className="glass-card w-full rounded-[var(--radius-xl)] p-6 lg:max-w-xs">
                       <p className="font-display text-[length:var(--text-xl)] font-semibold text-[var(--foreground)]">
                         {item.title}
                       </p>
@@ -49,11 +47,14 @@ export function Contact() {
                 </ul>
 
                 <div className="border-t border-[var(--section-divider)] pt-10">
-                  <p className="text-[length:var(--text-sm)] text-[var(--muted)]">
-                    ¿Querés respuesta al toque?
-                  </p>
-                  <WhatsAppButton variant="ghost" magnetic={false} className="mt-6 w-full sm:w-auto">
-                    Escribirme por WhatsApp
+                  <p className="text-[length:var(--text-sm)] text-[var(--muted)]">{t.contact.whatsappPrompt}</p>
+                  <WhatsAppButton
+                    variant="ghost"
+                    magnetic={false}
+                    className="mt-6 w-full sm:w-auto"
+                    href={whatsappUrl(t.whatsapp.defaultMessage)}
+                  >
+                    {t.contact.whatsappCta}
                   </WhatsAppButton>
                 </div>
               </aside>

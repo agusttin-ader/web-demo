@@ -1,7 +1,8 @@
-import { MARQUEE_ITEMS } from "@/data/site-content";
+import { getDictionary } from "@/i18n/get-dictionary";
 
-export function Marquee() {
-  const items = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
+export async function Marquee() {
+  const t = await getDictionary();
+  const items = [...t.marquee, ...t.marquee];
 
   return (
     <div className="marquee-section border-y border-[var(--section-divider)] py-5 sm:py-6" aria-hidden>

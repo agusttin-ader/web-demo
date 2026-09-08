@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getDictionary } from "@/i18n/get-dictionary";
 
 export const metadata: Metadata = {
   title: "Página no encontrada",
   robots: { index: false, follow: false },
 };
 
-export default function NotFound() {
+export default async function NotFound() {
+  const t = await getDictionary();
+
   return (
     <main
       id="contenido"
@@ -19,13 +22,13 @@ export default function NotFound() {
           id="not-found-heading"
           className="mt-4 font-display text-[clamp(2rem,6vw,3.25rem)] font-bold tracking-tight text-[var(--foreground)]"
         >
-          Esta pagina no existe
+          {t.notFound.title}
         </h1>
         <p className="mt-4 text-[length:var(--text-base)] leading-relaxed text-[var(--foreground-muted)]">
-          El enlace puede estar desactualizado. Volve al inicio para ver proyectos y contactarme.
+          {t.notFound.body}
         </p>
         <Link href="/" className="btn-primary focus-ring mt-8 inline-flex">
-          Volver al inicio
+          {t.notFound.cta}
         </Link>
       </div>
     </main>

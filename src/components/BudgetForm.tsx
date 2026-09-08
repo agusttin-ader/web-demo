@@ -2,6 +2,7 @@
 
 import { useActionState, useEffect, useId, useRef } from "react";
 import { sendBudgetRequest, type BudgetFormState } from "@/app/actions/send-budget-request";
+import { useI18n } from "@/i18n/I18nProvider";
 
 const initialState: BudgetFormState = {
   success: false,
@@ -16,6 +17,7 @@ type BudgetFormProps = {
 };
 
 export function BudgetForm({ featured = false }: BudgetFormProps) {
+  const { t } = useI18n();
   const [state, formAction, isPending] = useActionState(sendBudgetRequest, initialState);
   const formId = useId();
   const statusId = `${formId}-status`;
@@ -43,12 +45,12 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
       aria-describedby={hintId}
     >
       <div>
-        <p className="eyebrow">Contacto</p>
+        <p className="eyebrow">{t.form.label}</p>
         <h3 className="mt-4 font-display text-[length:var(--text-2xl)] font-semibold tracking-tight text-[var(--foreground)] sm:text-[length:var(--text-3xl)]">
-          Contame tu proyecto
+          {t.form.title}
         </h3>
         <p id={hintId} className="mt-3 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)] sm:text-[length:var(--text-base)]">
-          Nombre, mail y qué necesitás. En un minuto lo tenés listo.
+          {t.form.hint}
         </p>
       </div>
 
@@ -68,11 +70,11 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
             : "sr-only"
         }
       >
-        {state.message || (isPending ? "Enviando…" : "")}
+        {state.message || (isPending ? t.form.sending : "")}
       </p>
 
       <div className="hp-field" aria-hidden="true">
-        <label htmlFor={`${formId}-company`}>Empresa</label>
+        <label htmlFor={`${formId}-company`}>{t.form.honeypot}</label>
         <input
           id={`${formId}-company`}
           name="company"
@@ -85,11 +87,11 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
 
       <div>
         <label htmlFor={`${formId}-name`} className="mb-2 block text-[length:var(--text-sm)] font-medium text-[var(--foreground)]">
-          Nombre y apellido{" "}
+          {t.form.name}{" "}
           <span className="text-[var(--danger)]" aria-hidden>
             *
           </span>
-          <span className="sr-only">(obligatorio)</span>
+          <span className="sr-only">{t.form.required}</span>
         </label>
         <input
           id={`${formId}-name`}
@@ -100,7 +102,7 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
           aria-required="true"
           aria-invalid={hasError || undefined}
           aria-describedby={hasStatus ? statusId : undefined}
-          placeholder="Ej: Agustín Ader"
+          placeholder={t.form.namePlaceholder}
           maxLength={120}
           className={fieldClass}
           disabled={isPending || hasSuccess}
@@ -109,11 +111,11 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
 
       <div>
         <label htmlFor={`${formId}-email`} className="mb-2 block text-[length:var(--text-sm)] font-medium text-[var(--foreground)]">
-          Email{" "}
+          {t.form.email}{" "}
           <span className="text-[var(--danger)]" aria-hidden>
             *
           </span>
-          <span className="sr-only">(obligatorio)</span>
+          <span className="sr-only">{t.form.required}</span>
         </label>
         <input
           id={`${formId}-email`}
@@ -125,7 +127,7 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
           aria-required="true"
           aria-invalid={hasError || undefined}
           aria-describedby={hasStatus ? statusId : undefined}
-          placeholder="tu@email.com"
+          placeholder={t.form.emailPlaceholder}
           maxLength={254}
           className={fieldClass}
           disabled={isPending || hasSuccess}
@@ -134,7 +136,7 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
 
       <div>
         <label htmlFor={`${formId}-phone`} className="mb-2 block text-[length:var(--text-sm)] font-medium text-[var(--foreground)]">
-          Teléfono de contacto <span className="font-normal text-[var(--muted)]">(opcional)</span>
+          {t.form.phone} <span className="font-normal text-[var(--muted)]">{t.form.optional}</span>
         </label>
         <input
           id={`${formId}-phone`}
@@ -142,7 +144,7 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
           type="tel"
           autoComplete="tel"
           inputMode="tel"
-          placeholder="+54 9 11 1234-5678"
+          placeholder={t.form.phonePlaceholder}
           maxLength={30}
           className={fieldClass}
           disabled={isPending || hasSuccess}
@@ -151,11 +153,11 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
 
       <div>
         <label htmlFor={`${formId}-message`} className="mb-2 block text-[length:var(--text-sm)] font-medium text-[var(--foreground)]">
-          Objetivo del proyecto{" "}
+          {t.form.message}{" "}
           <span className="text-[var(--danger)]" aria-hidden>
             *
           </span>
-          <span className="sr-only">(obligatorio)</span>
+          <span className="sr-only">{t.form.required}</span>
         </label>
         <textarea
           id={`${formId}-message`}
@@ -166,7 +168,7 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
           aria-required="true"
           aria-invalid={hasError || undefined}
           aria-describedby={hasStatus ? statusId : undefined}
-          placeholder="Contame qué necesitás, plazos, rubro… lo que sirva"
+          placeholder={t.form.messagePlaceholder}
           className={`${fieldClass} min-h-[100px] resize-y`}
           disabled={isPending || hasSuccess}
         />
@@ -177,7 +179,7 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
         disabled={isPending || hasSuccess}
         className="btn-primary focus-ring mt-1 w-full disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {hasSuccess ? "Listo, te leo pronto" : isPending ? "Enviando…" : "Enviar mensaje"}
+        {hasSuccess ? t.form.submitDone : isPending ? t.form.sending : t.form.submit}
       </button>
     </form>
   );

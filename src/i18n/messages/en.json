@@ -1,0 +1,418 @@
+{
+  "common": {
+    "skipToContent": "Skip to main content",
+    "externalNewTab": "(opens in a new tab)",
+    "mainAria": "Main content",
+    "techAria": "Technologies",
+    "socialAria": "Social media"
+  },
+  "locale": {
+    "label": "Language",
+    "switchTo": "Switch language to {name}"
+  },
+  "nav": {
+    "ariaMain": "Main sections",
+    "ariaMobile": "Mobile navigation",
+    "menuTitle": "Navigation menu",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "logoAria": "Agustín Ader, go to the top",
+    "whatsappAria": "Contact on WhatsApp",
+    "whatsappCta": "WhatsApp",
+    "whatsappMobile": "Message me on WhatsApp",
+    "items": {
+      "beneficios": "Benefits",
+      "proyecto-real": "Work",
+      "servicios": "Services",
+      "planes": "Plans",
+      "contacto": "Contact"
+    }
+  },
+  "whatsapp": {
+    "defaultMessage": "Hi Agustín, I want a website that brings in more inquiries.",
+    "fabAria": "Open WhatsApp chat"
+  },
+  "hero": {
+    "eyebrow": "Web development · Argentina",
+    "titleBefore": "Landing pages that",
+    "titleAccent": "turn",
+    "titleAfter": "visits into inquiries",
+    "body": "Web development and landing pages built for mobile: fast load, clear design and WhatsApp one tap away — for businesses that want their site to actually work.",
+    "ctaProjects": "See work",
+    "ctaWhatsapp": "Chat on WhatsApp"
+  },
+  "marquee": [
+    "More inquiries",
+    "Less back and forth",
+    "WhatsApp in one tap",
+    "Built for mobile",
+    "Real inquiries",
+    "Clear design",
+    "Loads instantly",
+    "Your own channel"
+  ],
+  "problem": {
+    "label": "The problem",
+    "title": "You get traffic, but not inquiries",
+    "description": "You spend time answering the same WhatsApp questions and the site doesn't help. A clear landing page turns the first click into a conversation.",
+    "points": [
+      "You answer the same questions over and over on WhatsApp",
+      "The site doesn't explain what you do or who it's for",
+      "Inquiries slip away because nobody knows how to reach you"
+    ],
+    "closing": "Less back and forth, more inquiries.",
+    "closingAccent": "That's the job."
+  },
+  "benefits": {
+    "label": "Benefits",
+    "title": "What changes when the site is done right",
+    "items": [
+      {
+        "title": "More real inquiries",
+        "desc": "Every section nudges visitors to write you, without burying them in extra info."
+      },
+      {
+        "title": "Less time on WhatsApp",
+        "desc": "The site covers the basics. You jump in when the conversation actually matters."
+      },
+      {
+        "title": "You look professional",
+        "desc": "A site that builds trust from the first second — not a generic template."
+      },
+      {
+        "title": "Your own channel",
+        "desc": "Stop relying only on Instagram or algorithms you don't control."
+      }
+    ]
+  },
+  "portfolio": {
+    "label": "Portfolio",
+    "title": "Work that's already live",
+    "description": "Real client sites plus a demo so you can see how I work. For each one: the problem, what I built, and what changed.",
+    "inProduction": "Live",
+    "activeSites": "{count} live sites with real clients",
+    "demo": "Demo",
+    "demoHint": "Ready to adapt to your industry",
+    "featuredCase": "Featured case",
+    "problem": "Problem",
+    "solution": "Solution",
+    "result": "Result",
+    "technologies": "Stack",
+    "viewSite": "View site",
+    "viewDemo": "View demo",
+    "privateRepo": "Private repository",
+    "liveExample": "Live example",
+    "requestDemoAccess": "Request demo access",
+    "viewSiteAria": "View {title} site",
+    "mediaAria": "Visual identity of {title}"
+  },
+  "projects": {
+    "alo-patagonia": {
+      "description": "Tourism site to plan Patagonia trips with direct WhatsApp inquiries.",
+      "imageAlt": "Alo Patagonia website: Patagonia trips with clear itineraries and WhatsApp contact",
+      "problem": "Travelers couldn't find clear itineraries or an easy way to ask and book.",
+      "solution": "A site with organized destinations, a clear message and WhatsApp ready to close the chat.",
+      "result": "Clearer offer, instant contact and a site built for people browsing on their phone."
+    },
+    "la-guarida": {
+      "description": "A site to present the shop properly so people can inquire directly, without relying only on Instagram.",
+      "imageAlt": "La Guarida Instrumentos landing page: visual catalog of musical instruments and direct contact",
+      "problem": "They depended on social posts and scattered messages. The offer wasn't clear and inquiries were getting lost.",
+      "solution": "A landing with a visual catalog, a clear mobile layout and direct contact.",
+      "result": "Their own live site, a stronger presentation and a channel to receive inquiries."
+    },
+    "dra-karla-armijos": {
+      "description": "Live landing for ENT care: rhinology and sleep-related breathing disorders.",
+      "imageAlt": "Dr. Karla Armijos site: rhinology and sleep-related breathing disorders",
+      "problem": "Without a site of her own, patients couldn't find clear info or how to get in touch.",
+      "solution": "A landing with a direct message, medical identity and a base ready to grow.",
+      "result": "Her own channel at drakarmijos.com while the full site is being built."
+    },
+    "dr-lopez-moris": {
+      "description": "Medical demo with services, background, cases, reviews and contact via WhatsApp or form.",
+      "imageAlt": "Dr. Carlos López Moris demo: rhinology, nasal surgery and appointments in Buenos Aires",
+      "problem": "A doctor needs to build trust, show their track record and make booking easy.",
+      "solution": "A demo with services, training, cases, FAQ, gallery and clear buttons to WhatsApp and a form.",
+      "result": "A base ready to adapt for clinics and health specialists."
+    }
+  },
+  "overview": {
+    "label": "Overview",
+    "title": "At a glance",
+    "description": "Experience, tools, clients and whether I'm taking work — all in one place.",
+    "experience": "Experience",
+    "experienceBody": "years building clear landings for local businesses.",
+    "experienceMeta": "Freelance · Argentina · 2024—now",
+    "tech": "Tech",
+    "techTitle": "The stack I work with",
+    "clients": "Clients",
+    "availability": "Availability",
+    "available": "Taking projects",
+    "availableBody": "I have room for new projects this month.",
+    "certs": "Focus",
+    "contact": "Contact",
+    "ctaTitle": "Let's talk about your site",
+    "ctaBody": "Tell me about your business on WhatsApp and we'll figure out next steps.",
+    "ctaAction": "Write now",
+    "certsItems": [
+      { "title": "Modern frontend", "meta": "Next.js · React" },
+      { "title": "Sites that convert", "meta": "Clarity · easy contact" },
+      { "title": "WhatsApp built in", "meta": "One tap and they write you" }
+    ]
+  },
+  "services": {
+    "label": "Services",
+    "title": "What I can build for you",
+    "description": "Every piece serves the same goal: more inquiries, and better ones.",
+    "whatsappInterest": "Hi Agustín, I'm interested in: {title}.",
+    "items": {
+      "landing": {
+        "title": "A landing that converts",
+        "desc": "I organize the info so it's understood fast and visitors know what to do — no extra loops.",
+        "cta": "I want a landing"
+      },
+      "whatsapp": {
+        "title": "WhatsApp built in",
+        "desc": "One tap and they message you with the text already written. Fewer steps, more inquiries.",
+        "cta": "Add WhatsApp"
+      },
+      "forms": {
+        "title": "Simple forms",
+        "desc": "Only the fields you need. No endless forms that scare people off.",
+        "cta": "Build a form"
+      },
+      "mobile": {
+        "title": "Built for mobile",
+        "desc": "Most people arrive on their phone. That's why I design small-screen first.",
+        "cta": "See the mobile approach"
+      },
+      "mantenimiento": {
+        "title": "Maintenance",
+        "desc": "Updates, fixes and improvements so the site keeps running well.",
+        "cta": "Talk about support"
+      }
+    }
+  },
+  "plans": {
+    "label": "Plans",
+    "title": "Plans and pricing",
+    "description": "Prices in USD, no fine print. If you need something extra, we'll quote it separately. I reply within 24 hours.",
+    "delivery": "Delivery: {time}",
+    "featuredBadge": "Most chosen",
+    "demoBadge": "Try it first",
+    "addonsNote": "Domain, copywriting, advanced SEO, blog, another language and monthly maintenance are extra — I'll quote them with no fuss.",
+    "noteLink": "Write me and we'll sort it out",
+    "items": {
+      "essential": {
+        "name": "Essential",
+        "tagline": "To get started and start getting inquiries",
+        "delivery": "7 to 10 business days",
+        "cta": "I want Essential",
+        "whatsappMessage": "Hi Agustín, I'm interested in the Essential plan (USD 320). I want a landing for my business.",
+        "features": [
+          "A one-page landing (up to 5 sections)",
+          "Designed for mobile",
+          "WhatsApp button with a ready-made message",
+          "Basic SEO (title, description, social)",
+          "I publish it and connect your domain",
+          "1 round of revisions included"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "tagline": "When you want to go a step further",
+        "delivery": "2 to 3 weeks",
+        "cta": "I want Premium",
+        "whatsappMessage": "Hi Agustín, I'm interested in the Premium plan (USD 520). I want a more complete landing for my business.",
+        "features": [
+          "Everything in Essential",
+          "Contact form that lands in your inbox",
+          "Animations and a more polished design",
+          "An extra section: FAQ, gallery or testimonials",
+          "Data to help Google find you",
+          "2 rounds of revisions included",
+          "30 days of support after launch"
+        ]
+      },
+      "demo": {
+        "name": "Custom demo",
+        "tagline": "See how your site would look before you decide",
+        "priceNote": "If we move forward with a plan, I deduct it",
+        "delivery": "3 to 5 business days",
+        "cta": "Request a demo",
+        "whatsappMessage": "Hi Agustín, I'm interested in the custom demo (USD 79). My business is: ",
+        "features": [
+          "Preview with your logo and colors",
+          "Hero + 2 sample sections",
+          "A live link to share",
+          "The USD 79 is deducted if you hire Essential or Premium"
+        ]
+      }
+    }
+  },
+  "about": {
+    "label": "About me",
+    "role": "Freelance web developer · Argentina",
+    "body": "I work with businesses that need results, not just a pretty site. The idea is simple: they understand what you do, they write you, done.",
+    "bodyAlt": "No extra jargon. I build a clear site that looks good and leads straight to contact.",
+    "photoAlt": "Agustín Ader — freelance web developer in Argentina",
+    "photoCaption": "Landings · more inquiries",
+    "years": "years of experience",
+    "freelanceSince": "Freelance since 2024",
+    "numbers": "In numbers",
+    "timelineLabel": "Path",
+    "timelineTitle": "How I got here",
+    "focusLabel": "Focus",
+    "focusTitle": "What I specialize in",
+    "stats": [
+      { "value": "2+", "label": "Years doing this" },
+      { "value": "2+", "label": "Sites in production" },
+      { "value": "100%", "label": "Built for mobile" },
+      { "value": "24h", "label": "I reply within" }
+    ],
+    "timeline": [
+      {
+        "id": "2024-inicio",
+        "year": "2024",
+        "title": "Freelance start",
+        "desc": "First projects for local businesses that needed a clear site, without the extra complexity."
+      },
+      {
+        "id": "2025-produccion",
+        "year": "2025",
+        "title": "Live projects",
+        "desc": "Real sites online, focused on making it easy for people to reach you."
+      },
+      {
+        "id": "2026-hoy",
+        "year": "2026",
+        "title": "Today",
+        "desc": "Landings, WhatsApp and fast sites — all aimed at more inquiries."
+      }
+    ],
+    "certs": [
+      { "title": "Modern frontend", "meta": "Next.js · React · TypeScript" },
+      { "title": "Sites that convert", "meta": "Order · clear buttons · easy reading" },
+      { "title": "WhatsApp built in", "meta": "Direct contact, no extra steps" },
+      { "title": "Fast sites", "meta": "Light load · designed for mobile" }
+    ]
+  },
+  "skills": {
+    "label": "Stack",
+    "title": "What I work with",
+    "description": "Tools I use to ship sites that are fast, clear and easy to write to.",
+    "items": {
+      "Next.js": "Fast sites and SEO",
+      "React": "Interactive interfaces",
+      "TypeScript": "More solid code",
+      "Tailwind CSS": "Consistent design",
+      "Framer Motion": "Smooth motion",
+      "Vercel": "Publish and hosting"
+    }
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Web development, websites and programming",
+    "description": "Straight answers on pricing, timelines and what working with me on your site includes.",
+    "items": [
+      {
+        "question": "What's included in a website for my business?",
+        "answer": "Mobile-first design, Next.js and React development, organized copy, a WhatsApp button with a ready-made message, basic SEO (title and description) and going live with your domain connected. Depending on the plan, we add a form, FAQ, animations and structured data so Google can find you more easily."
+      },
+      {
+        "question": "How much does a website or landing page cost in Argentina?",
+        "answer": "Plans start at USD 320 (Essential) and USD 520 (Premium). You can also request a custom demo for USD 79, deducted if you hire a plan. I'll send a clear quote on WhatsApp in under 24 hours, no fine print."
+      },
+      {
+        "question": "Do you do web design, development, or both?",
+        "answer": "Both. I design the structure and the mobile-first experience; I build the site with TypeScript, Tailwind and solid performance practices. You don't just get a mockup: it goes live, loads fast and is ready to receive inquiries."
+      },
+      {
+        "question": "Do you only work in Buenos Aires or across Argentina?",
+        "answer": "I work 100% remotely with clients across the country — Buenos Aires, Córdoba, Rosario, Patagonia and everywhere in between. Meetings and follow-up happen on WhatsApp or video call."
+      },
+      {
+        "question": "How long does a website take?",
+        "answer": "Essential is delivered in 7 to 10 business days; Premium in 2 to 3 weeks. The custom demo takes 3 to 5 days. Timelines start once we have logo, copy and references."
+      },
+      {
+        "question": "Does the site include SEO to show up on Google?",
+        "answer": "Yes. Every plan includes basic technical SEO: titles, meta description, Open Graph, sitemap, robots.txt and structured data. Premium adds advanced schema, an indexable FAQ and optimization for searches like web development, website and services in your field."
+      },
+      {
+        "question": "What technologies do you use?",
+        "answer": "Next.js, React, TypeScript and Tailwind CSS, deployed on Vercel. I chose this stack because it loads fast, scales well and Google indexes it cleanly — ideal for landings and business websites."
+      }
+    ]
+  },
+  "cta": {
+    "label": "Next step",
+    "titleBefore": "Let's make your site",
+    "titleAccent": "bring in inquiries",
+    "body": "Start with the form — I'll send a clear proposal and we'll figure out the next step.",
+    "ctaProposal": "Request a proposal",
+    "ctaWhatsapp": "Chat on WhatsApp"
+  },
+  "contact": {
+    "label": "Contact",
+    "titleBefore": "Tell me about your",
+    "titleAccent": "project",
+    "body": "Fill in the form or message me on WhatsApp if you'd rather go straight to it.",
+    "whatsappPrompt": "Want a faster reply?",
+    "whatsappCta": "Message me on WhatsApp",
+    "promises": [
+      { "title": "I reply within 24 hours", "desc": "With a clear proposal, no extra loops." },
+      { "title": "No commitment", "desc": "Tell me what you need and we'll see if it's a fit." },
+      { "title": "Built for inquiries", "desc": "A site made so people write you, not just look around." }
+    ]
+  },
+  "form": {
+    "label": "Contact",
+    "title": "Tell me about your project",
+    "hint": "Name, email and what you need. It takes about a minute.",
+    "sending": "Sending…",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone number",
+    "optional": "(optional)",
+    "message": "Project goal",
+    "required": "(required)",
+    "namePlaceholder": "e.g. Agustín Ader",
+    "emailPlaceholder": "you@email.com",
+    "phonePlaceholder": "+54 9 11 1234-5678",
+    "messagePlaceholder": "Tell me what you need, timelines, industry… whatever helps",
+    "submit": "Send message",
+    "submitDone": "Done, I'll read it soon",
+    "honeypot": "Company",
+    "errors": {
+      "required": "Please fill in name, email and message.",
+      "email": "Please enter a valid email.",
+      "config": "Something failed on my side. Write me on WhatsApp or email instead.",
+      "send": "I couldn't send it. Try WhatsApp or email."
+    },
+    "success": "Done, I'll write you soon."
+  },
+  "footer": {
+    "blurb": "Web development, landing pages and programming for businesses in Argentina. Fast sites with WhatsApp built in.",
+    "contact": "Contact",
+    "email": "Email",
+    "location": "Location",
+    "locationValue": "Buenos Aires, Argentina",
+    "availability": "Availability",
+    "available": "Taking projects",
+    "quickLinks": "Quick links",
+    "quickAria": "Footer links",
+    "instagramAria": "Agustín Ader on Instagram",
+    "whatsappAria": "Agustín Ader on WhatsApp",
+    "rights": "© {year} Agustin Ader. All rights reserved.",
+    "credit": "Design & development — personal portfolio",
+    "faq": "FAQ",
+    "about": "About",
+    "skills": "Skills"
+  },
+  "notFound": {
+    "title": "This page doesn't exist",
+    "body": "The link may be outdated. Head back home to see projects and get in touch.",
+    "cta": "Back to home"
+  }
+}

@@ -2,23 +2,26 @@ import { HiArrowUpRight } from "react-icons/hi2";
 import { ExternalLink } from "@/components/ExternalLink";
 import { ProjectMedia } from "@/components/ProjectMedia";
 import type { Project } from "@/data/projects";
+import { interpolate } from "@/i18n/format";
+import type { PortfolioCopy } from "@/i18n/get-dictionary";
 
 type ProjectRowProps = {
   project: Project;
+  copy: PortfolioCopy;
 };
 
-export function ProjectRow({ project }: ProjectRowProps) {
+export function ProjectRow({ project, copy }: ProjectRowProps) {
   const liveUrl = project.demo ?? project.link;
 
   return (
     <article className="project-row group">
       <div className="project-row-media shrink-0 overflow-hidden rounded-[var(--radius-md)]">
-        <ProjectMedia project={project} variant="row" />
+        <ProjectMedia project={project} variant="row" copy={copy} />
       </div>
 
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="project-badge project-badge-live">En producción</span>
+          <span className="project-badge project-badge-live">{copy.inProduction}</span>
           <span className="text-[length:var(--text-xs)] text-[var(--muted)]">{project.stack}</span>
         </div>
         <h3 className="mt-2 font-display text-[length:var(--text-lg)] font-bold tracking-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--accent-bright)]">
@@ -33,7 +36,7 @@ export function ProjectRow({ project }: ProjectRowProps) {
         <ExternalLink
           href={liveUrl}
           className="project-row-link focus-ring"
-          aria-label={`Ver sitio de ${project.title}`}
+          aria-label={interpolate(copy.viewSiteAria, { title: project.title })}
           showHint={false}
         >
           <HiArrowUpRight className="h-4 w-4" aria-hidden />

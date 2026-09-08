@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+import { getDictionary } from "@/i18n/get-dictionary";
 import { EMAIL } from "@/lib/constants";
 
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Portfolio <onboarding@resend.dev>";
@@ -16,12 +17,14 @@ export async function sendBudgetRequest(
   _prev: BudgetFormState,
   formData: FormData
 ): Promise<BudgetFormState> {
+  const t = await getDictionary();
+
   // Honeypot — bots that fill hidden fields get a silent success.
   const honeypot = String(formData.get("company") ?? "").trim();
   if (honeypot) {
     return {
       success: true,
-      message: "Listo, te escribo pronto.",
+      message: t.form.success,
     };
   }
 
@@ -43,7 +46,7 @@ export async function sendBudgetRequest(
   if (!name || !email || !message) {
     return {
       success: false,
-      message: "Completá nombre, mail y mensaje, porfa.",
+      message: t.form.errors.required,
     };
   }
 
@@ -51,7 +54,7 @@ export async function sendBudgetRequest(
   if (!emailRegex.test(email)) {
     return {
       success: false,
-      message: "Poné un mail válido, porfa.",
+      message: t.form.errors.email,
     };
   }
 
@@ -59,7 +62,7 @@ export async function sendBudgetRequest(
     console.error("RESEND_API_KEY no está configurada.");
     return {
       success: false,
-      message: "Algo falló del lado técnico. Escribime por WhatsApp o mail directo.",
+      message: t.form.errors.config,
     };
   }
 
@@ -89,13 +92,13 @@ export async function sendBudgetRequest(
     console.error("Resend error:", error);
     return {
       success: false,
-      message: "No pude enviarlo. Probá por WhatsApp o mail directo.",
+      message: t.form.errors.send,
     };
   }
 
   return {
     success: true,
-    message: "Listo, te escribo pronto.",
+    message: t.form.success,
   };
 }
 

@@ -142,3 +142,23 @@ export function getProductionProjects(): Project[] {
 export function getDemoProjects(): Project[] {
   return projects.filter((p) => p.type === "demo");
 }
+
+export function withProjectCopy(
+  project: Project,
+  copy: {
+    description: string;
+    imageAlt: string;
+    problem: string;
+    solution: string;
+    result: string;
+  }
+): Project {
+  return {
+    ...project,
+    description: copy.description,
+    imageAlt: copy.imageAlt,
+    problem: copy.problem,
+    solution: copy.solution,
+    result: copy.result,
+  };
+}

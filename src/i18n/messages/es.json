@@ -1,0 +1,418 @@
+{
+  "common": {
+    "skipToContent": "Saltar al contenido principal",
+    "externalNewTab": "(se abre en una pestaña nueva)",
+    "mainAria": "Contenido principal",
+    "techAria": "Tecnologías",
+    "socialAria": "Redes sociales"
+  },
+  "locale": {
+    "label": "Idioma",
+    "switchTo": "Cambiar idioma a {name}"
+  },
+  "nav": {
+    "ariaMain": "Secciones principales",
+    "ariaMobile": "Navegación móvil",
+    "menuTitle": "Menú de navegación",
+    "openMenu": "Abrir menú de navegación",
+    "closeMenu": "Cerrar menú de navegación",
+    "logoAria": "Agustín Ader, ir al inicio",
+    "whatsappAria": "Contactar por WhatsApp",
+    "whatsappCta": "WhatsApp",
+    "whatsappMobile": "Escribirme por WhatsApp",
+    "items": {
+      "beneficios": "Beneficios",
+      "proyecto-real": "Proyectos",
+      "servicios": "Servicios",
+      "planes": "Planes",
+      "contacto": "Contacto"
+    }
+  },
+  "whatsapp": {
+    "defaultMessage": "Hola Agustín, quiero una web que me traiga más consultas.",
+    "fabAria": "Abrir chat de WhatsApp"
+  },
+  "hero": {
+    "eyebrow": "Desarrollo web · Argentina",
+    "titleBefore": "Landing pages que",
+    "titleAccent": "convierten",
+    "titleAfter": "visitas en consultas",
+    "body": "Desarrollo web y programación de páginas web para el celu: carga rápida, diseño claro y WhatsApp a mano — para negocios que quieren que la web labure de verdad.",
+    "ctaProjects": "Ver proyectos",
+    "ctaWhatsapp": "Hablar por WhatsApp"
+  },
+  "marquee": [
+    "Más consultas",
+    "Menos vueltas",
+    "WhatsApp a un click",
+    "Pensada para el celu",
+    "Consultas de verdad",
+    "Diseño claro",
+    "Carga al toque",
+    "Canal propio"
+  ],
+  "problem": {
+    "label": "El problema",
+    "title": "Tenés tráfico, pero no consultas",
+    "description": "Perdés tiempo respondiendo lo mismo por WhatsApp y la web no ayuda. Una landing clara ordena el contacto desde el primer click.",
+    "points": [
+      "Respondés lo mismo una y otra vez por WhatsApp",
+      "La web no explica bien qué hacés ni a quién le hablás",
+      "Se te escapan consultas porque nadie entiende cómo contactarte"
+    ],
+    "closing": "Menos vueltas, más consultas.",
+    "closingAccent": "Para eso laburo."
+  },
+  "benefits": {
+    "label": "Beneficios",
+    "title": "Qué cambia cuando la web está bien hecha",
+    "items": [
+      {
+        "title": "Más consultas de verdad",
+        "desc": "Cada parte de la web empuja al visitante a escribirte, sin marearlo con info de más."
+      },
+      {
+        "title": "Menos tiempo en WhatsApp",
+        "desc": "La web responde lo básico. Vos atendés cuando ya tiene sentido."
+      },
+      {
+        "title": "Te ves profesional",
+        "desc": "Una web que transmite confianza desde el primer segundo, no una plantilla genérica."
+      },
+      {
+        "title": "Canal propio",
+        "desc": "Dejás de depender solo de Instagram o de algoritmos que no controlás."
+      }
+    ]
+  },
+  "portfolio": {
+    "label": "Portfolio",
+    "title": "Trabajos que ya están online",
+    "description": "Sitios reales con clientes y un demo para que veas cómo trabajo. En cada uno: qué había, qué hice y qué pasó.",
+    "inProduction": "En producción",
+    "activeSites": "{count} sitios activos con clientes reales",
+    "demo": "Demo",
+    "demoHint": "Funcionalidad lista para adaptar a tu rubro",
+    "featuredCase": "Caso destacado",
+    "problem": "Problema",
+    "solution": "Solución",
+    "result": "Resultado",
+    "technologies": "Tecnologías",
+    "viewSite": "Ver sitio",
+    "viewDemo": "Ver demo",
+    "privateRepo": "Repositorio privado",
+    "liveExample": "Ejemplo en vivo",
+    "requestDemoAccess": "Pedir acceso al demo",
+    "viewSiteAria": "Ver sitio de {title}",
+    "mediaAria": "Identidad visual de {title}"
+  },
+  "projects": {
+    "alo-patagonia": {
+      "description": "Web de turismo para coordinar viajes por la Patagonia con consultas directas por WhatsApp.",
+      "imageAlt": "Sitio web de Alo Patagonia: viajes por la Patagonia con itinerarios claros y consulta por WhatsApp",
+      "problem": "Los viajeros no encontraban itinerarios claros ni una forma simple de consultar y reservar.",
+      "solution": "Web con destinos ordenados, mensaje claro y WhatsApp a mano para cerrar la charla.",
+      "result": "Oferta más clara, contacto al toque y una web pensada para quien entra desde el celu."
+    },
+    "la-guarida": {
+      "description": "Web para mostrar mejor el negocio y que la gente consulte directo, sin depender solo de Instagram.",
+      "imageAlt": "Landing page de La Guarida Instrumentos: catálogo visual de instrumentos musicales y contacto directo",
+      "problem": "Dependían de redes y mensajes sueltos. No se entendía bien la oferta y se perdían consultas.",
+      "solution": "Landing con catálogo visual, orden claro en el celu y contacto directo.",
+      "result": "Web propia online, mejor presentación y un canal para recibir consultas."
+    },
+    "dra-karla-armijos": {
+      "description": "Landing en producción para otorrinolaringología: rinología y trastornos respiratorios del sueño.",
+      "imageAlt": "Sitio de la Dra. Karla Armijos: rinología y trastornos respiratorios del sueño",
+      "problem": "Sin web propia, los pacientes no encontraban info clara ni cómo consultar.",
+      "solution": "Landing con mensaje directo, identidad médica y base lista para crecer.",
+      "result": "Canal propio en drakarmijos.com mientras se desarrolla el sitio completo."
+    },
+    "dr-lopez-moris": {
+      "description": "Demo médico con servicios, formación, casos, reseñas y contacto por WhatsApp o formulario.",
+      "imageAlt": "Demo del Dr. Carlos López Moris: rinología, cirugía nasal y turnos en Buenos Aires",
+      "problem": "Un médico necesita transmitir confianza, mostrar trayectoria y que pedir turno sea fácil.",
+      "solution": "Demo con servicios, formación, casos, FAQ, galería y botones claros a WhatsApp y formulario.",
+      "result": "Base lista para adaptar a consultorios y especialistas de salud."
+    }
+  },
+  "overview": {
+    "label": "Resumen",
+    "title": "De un vistazo",
+    "description": "Experiencia, herramientas, clientes y si estoy tomando laburo — todo junto.",
+    "experience": "Experiencia",
+    "experienceBody": "años haciendo landings claras para negocios de acá.",
+    "experienceMeta": "Freelance · Argentina · 2024—hoy",
+    "tech": "Tecnologías",
+    "techTitle": "Stack con el que laburo",
+    "clients": "Clientes",
+    "availability": "Disponibilidad",
+    "available": "Tomando proyectos",
+    "availableBody": "Tengo lugar para proyectos nuevos este mes.",
+    "certs": "Certificaciones",
+    "contact": "Contacto",
+    "ctaTitle": "Hablemos de tu web",
+    "ctaBody": "Contame tu negocio por WhatsApp y vemos cómo seguir.",
+    "ctaAction": "Escribir ahora",
+    "certsItems": [
+      { "title": "Frontend moderno", "meta": "Next.js · React" },
+      { "title": "Webs que convierten", "meta": "Claridad · contacto fácil" },
+      { "title": "WhatsApp integrado", "meta": "Un click y te escriben" }
+    ]
+  },
+  "services": {
+    "label": "Servicios",
+    "title": "Lo que puedo armarte",
+    "description": "Cada pieza suma al mismo objetivo: que te escriban más y mejor.",
+    "whatsappInterest": "Hola Agustín, me interesa: {title}.",
+    "items": {
+      "landing": {
+        "title": "Landing que convierte",
+        "desc": "Ordeno la info para que se entienda rápido y el visitante sepa qué hacer — sin dar vueltas.",
+        "cta": "Quiero una landing"
+      },
+      "whatsapp": {
+        "title": "WhatsApp integrado",
+        "desc": "Un click y ya te escriben con el mensaje armado. Menos pasos, más consultas.",
+        "cta": "Sumar WhatsApp"
+      },
+      "forms": {
+        "title": "Formularios simples",
+        "desc": "Solo los datos que necesitás. Sin formularios eternos que espantan a la gente.",
+        "cta": "Armar formulario"
+      },
+      "mobile": {
+        "title": "Pensada para el celu",
+        "desc": "La mayoría entra desde el teléfono. Por eso diseño primero para pantalla chica.",
+        "cta": "Ver enfoque mobile"
+      },
+      "mantenimiento": {
+        "title": "Mantenimiento",
+        "desc": "Actualizaciones, arreglos y mejoras para que la web siga andando bien.",
+        "cta": "Hablar de soporte"
+      }
+    }
+  },
+  "plans": {
+    "label": "Planes",
+    "title": "Planes y precios",
+    "description": "Valores en USD, sin letra chica. Si necesitás algo extra, lo vemos aparte. Te respondo en 24 hs.",
+    "delivery": "Entrega: {time}",
+    "featuredBadge": "Más elegido",
+    "demoBadge": "Para probar",
+    "addonsNote": "Dominio, textos, SEO avanzado, blog, otro idioma y mantenimiento mensual van aparte — te los cotizo sin drama.",
+    "noteLink": "Escribime y lo vemos juntos",
+    "items": {
+      "essential": {
+        "name": "Essential",
+        "tagline": "Para arrancar y recibir consultas",
+        "delivery": "7 a 10 días hábiles",
+        "cta": "Quiero Essential",
+        "whatsappMessage": "Hola Agustín, me interesa el plan Essential (USD 320). Quiero una landing para mi negocio.",
+        "features": [
+          "Una landing de una sola página (hasta 5 secciones)",
+          "Diseño pensado para el celu",
+          "Botón de WhatsApp con mensaje listo",
+          "SEO base (título, descripción, redes)",
+          "La subo online y conecto tu dominio",
+          "1 ronda de cambios incluida"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "tagline": "Cuando querés ir un paso más allá",
+        "delivery": "2 a 3 semanas",
+        "cta": "Quiero Premium",
+        "whatsappMessage": "Hola Agustín, me interesa el plan Premium (USD 520). Quiero una landing más completa para mi negocio.",
+        "features": [
+          "Todo lo del Essential",
+          "Formulario de contacto que te llega al mail",
+          "Animaciones y diseño más trabajado",
+          "Una sección extra: FAQ, galería o testimonios",
+          "Datos para que Google te encuentre mejor",
+          "2 rondas de cambios incluidas",
+          "30 días de soporte después de publicar"
+        ]
+      },
+      "demo": {
+        "name": "Demo a medida",
+        "tagline": "Mirá cómo quedaría tu web antes de decidir",
+        "priceNote": "Si avanzamos con un plan, te lo descuento",
+        "delivery": "3 a 5 días hábiles",
+        "cta": "Pedir demo",
+        "whatsappMessage": "Hola Agustín, me interesa la demo a medida (USD 79). Mi negocio es: ",
+        "features": [
+          "Preview con tu logo y colores",
+          "Hero + 2 secciones de ejemplo",
+          "Link en vivo para compartir",
+          "Los USD 79 se descuentan al contratar Essential o Premium"
+        ]
+      }
+    }
+  },
+  "about": {
+    "label": "Sobre mí",
+    "role": "Desarrollador web freelance · Argentina",
+    "body": "Trabajo con negocios que necesitan resultados, no solo una web linda. La idea es simple: que entiendan qué hacés, te escriban y listo.",
+    "bodyAlt": "Sin tecnicismos de más. Te armo una web clara, que se vea bien y que lleve directo al contacto.",
+    "photoAlt": "Agustín Ader — desarrollador web freelance en Argentina",
+    "photoCaption": "Landings · más consultas",
+    "years": "años de experiencia",
+    "freelanceSince": "Freelance desde 2024",
+    "numbers": "En números",
+    "timelineLabel": "Recorrido",
+    "timelineTitle": "Cómo llegué hasta acá",
+    "focusLabel": "Formación y foco",
+    "focusTitle": "En qué me especializo",
+    "stats": [
+      { "value": "2+", "label": "Años laburando en esto" },
+      { "value": "2+", "label": "Sitios en producción" },
+      { "value": "100%", "label": "Pensado para el celu" },
+      { "value": "24h", "label": "Te respondo en" }
+    ],
+    "timeline": [
+      {
+        "id": "2024-inicio",
+        "year": "2024",
+        "title": "Inicio freelance",
+        "desc": "Primeros trabajos para negocios locales que necesitaban una web clara, sin complicarse."
+      },
+      {
+        "id": "2025-produccion",
+        "year": "2025",
+        "title": "Proyectos en producción",
+        "desc": "Sitios reales online, con foco en que la gente pueda contactarte fácil."
+      },
+      {
+        "id": "2026-hoy",
+        "year": "2026",
+        "title": "Hoy",
+        "desc": "Landings, WhatsApp y sitios rápidos — todo apuntando a más consultas."
+      }
+    ],
+    "certs": [
+      { "title": "Frontend moderno", "meta": "Next.js · React · TypeScript" },
+      { "title": "Webs que convierten", "meta": "Orden · botones claros · lectura fácil" },
+      { "title": "WhatsApp integrado", "meta": "Contacto directo, sin vueltas" },
+      { "title": "Sitios rápidos", "meta": "Carga liviana · pensados para el celu" }
+    ]
+  },
+  "skills": {
+    "label": "Stack",
+    "title": "Con qué laburo",
+    "description": "Herramientas que uso para entregar sitios rápidos, claros y que inviten a escribirte.",
+    "items": {
+      "Next.js": "Sitios rápidos y SEO",
+      "React": "Interfaces interactivas",
+      "TypeScript": "Código más sólido",
+      "Tailwind CSS": "Diseño consistente",
+      "Framer Motion": "Animaciones suaves",
+      "Vercel": "Publicación y hosting"
+    }
+  },
+  "faq": {
+    "label": "Preguntas frecuentes",
+    "title": "Desarrollo web, páginas web y programación",
+    "description": "Respuestas directas sobre precios, plazos y qué incluye trabajar conmigo en tu página web.",
+    "items": [
+      {
+        "question": "¿Qué incluye el desarrollo web de una página para mi negocio?",
+        "answer": "Incluye diseño pensado para el celu, programación con Next.js y React, textos ordenados, botón de WhatsApp con mensaje listo, SEO base (título y descripción) y publicación online con tu dominio conectado. Según el plan, sumamos formulario, FAQ, animaciones y datos estructurados para que Google te encuentre mejor."
+      },
+      {
+        "question": "¿Cuánto cuesta una página web o landing en Argentina?",
+        "answer": "Los planes arrancan en USD 320 (Essential) y USD 520 (Premium). También podés pedir una demo a medida por USD 79, que se descuenta si contratás un plan. Te paso presupuesto claro por WhatsApp en menos de 24 horas, sin letra chica."
+      },
+      {
+        "question": "¿Hacés diseño web, programación o las dos cosas?",
+        "answer": "Las dos. Diseño la estructura y la experiencia en mobile-first; programo la web con TypeScript, Tailwind y buenas prácticas de performance. No te entrego solo un mockup: queda online, rápida y lista para recibir consultas."
+      },
+      {
+        "question": "¿Trabajás solo en Buenos Aires o en todo Argentina?",
+        "answer": "Trabajo 100% remoto con clientes de todo el país — Buenos Aires, Córdoba, Rosario, Patagonia y el interior. La reunión y el seguimiento son por WhatsApp o videollamada."
+      },
+      {
+        "question": "¿Cuánto tarda el desarrollo de una página web?",
+        "answer": "El plan Essential se entrega en 7 a 10 días hábiles; el Premium, en 2 a 3 semanas. La demo a medida tarda entre 3 y 5 días. Los tiempos arrancan cuando tenemos logo, textos y referencias."
+      },
+      {
+        "question": "¿La web incluye SEO para aparecer en Google?",
+        "answer": "Sí. Todos los planes incluyen SEO técnico base: títulos, meta descripción, Open Graph, sitemap, robots.txt y datos estructurados. En Premium sumamos schema avanzado, FAQ indexable y optimización orientada a búsquedas como desarrollo web, página web y servicios de tu rubro."
+      },
+      {
+        "question": "¿Qué tecnologías usás para programar las webs?",
+        "answer": "Next.js, React, TypeScript y Tailwind CSS, desplegadas en Vercel. Elegí este stack porque carga rápido, escala bien y Google lo indexa sin problemas — ideal para landings y páginas web de negocios."
+      }
+    ]
+  },
+  "cta": {
+    "label": "Próximo paso",
+    "titleBefore": "Hagamos que tu web",
+    "titleAccent": "genere consultas",
+    "body": "Empezá por el formulario — te mando una propuesta clara y vemos el siguiente paso.",
+    "ctaProposal": "Pedir propuesta",
+    "ctaWhatsapp": "Hablar por WhatsApp"
+  },
+  "contact": {
+    "label": "Contacto",
+    "titleBefore": "Contame tu",
+    "titleAccent": "proyecto",
+    "body": "Completá el formulario o escribime por WhatsApp si preferís ir más directo.",
+    "whatsappPrompt": "¿Querés respuesta al toque?",
+    "whatsappCta": "Escribirme por WhatsApp",
+    "promises": [
+      { "title": "Te respondo en 24 hs", "desc": "Con una propuesta clara, sin vueltas." },
+      { "title": "Sin compromiso", "desc": "Contame qué necesitás y vemos si encaja." },
+      { "title": "Pensado para consultas", "desc": "La web hecha para que te escriban, no solo para mirar." }
+    ]
+  },
+  "form": {
+    "label": "Contacto",
+    "title": "Contame tu proyecto",
+    "hint": "Nombre, mail y qué necesitás. En un minuto lo tenés listo.",
+    "sending": "Enviando…",
+    "name": "Nombre y apellido",
+    "email": "Email",
+    "phone": "Teléfono de contacto",
+    "optional": "(opcional)",
+    "message": "Objetivo del proyecto",
+    "required": "(obligatorio)",
+    "namePlaceholder": "Ej: Agustín Ader",
+    "emailPlaceholder": "tu@email.com",
+    "phonePlaceholder": "+54 9 11 1234-5678",
+    "messagePlaceholder": "Contame qué necesitás, plazos, rubro… lo que sirva",
+    "submit": "Enviar mensaje",
+    "submitDone": "Listo, te leo pronto",
+    "honeypot": "Empresa",
+    "errors": {
+      "required": "Completá nombre, mail y mensaje, porfa.",
+      "email": "Poné un mail válido, porfa.",
+      "config": "Algo falló del lado técnico. Escribime por WhatsApp o mail directo.",
+      "send": "No pude enviarlo. Probá por WhatsApp o mail directo."
+    },
+    "success": "Listo, te escribo pronto."
+  },
+  "footer": {
+    "blurb": "Desarrollo web, páginas web y programación para negocios en Argentina. Landings rápidas con WhatsApp integrado.",
+    "contact": "Contacto",
+    "email": "Email",
+    "location": "Ubicación",
+    "locationValue": "Buenos Aires, Argentina",
+    "availability": "Disponibilidad",
+    "available": "Tomando proyectos",
+    "quickLinks": "Links rápidos",
+    "quickAria": "Enlaces del pie de página",
+    "instagramAria": "Instagram de Agustín Ader",
+    "whatsappAria": "WhatsApp de Agustín Ader",
+    "rights": "© {year} Agustin Ader. Todos los derechos reservados.",
+    "credit": "Diseño & desarrollo — portfolio personal",
+    "faq": "FAQ",
+    "about": "Sobre mi",
+    "skills": "Skills"
+  },
+  "notFound": {
+    "title": "Esta pagina no existe",
+    "body": "El enlace puede estar desactualizado. Volve al inicio para ver proyectos y contactarme.",
+    "cta": "Volver al inicio"
+  }
+}

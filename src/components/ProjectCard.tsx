@@ -3,28 +3,30 @@ import { ExternalLink } from "@/components/ExternalLink";
 import { IconExternal } from "@/components/icons";
 import { ProjectMedia } from "@/components/ProjectMedia";
 import type { Project } from "@/data/projects";
+import type { PortfolioCopy } from "@/i18n/get-dictionary";
 
 type ProjectCardProps = {
   project: Project;
+  copy: PortfolioCopy;
   priority?: boolean;
 };
 
-export function ProjectCard({ project, priority = false }: ProjectCardProps) {
+export function ProjectCard({ project, copy, priority = false }: ProjectCardProps) {
   const demoUrl = project.demo ?? project.link;
   const technologies = project.technologies?.length ? project.technologies : project.tags ?? [];
-  const badgeLabel = project.type === "demo" ? "Demo" : "En producción";
+  const badgeLabel = project.type === "demo" ? copy.demo : copy.inProduction;
   const badgeClass = project.type === "demo" ? "project-badge-demo" : "project-badge-live";
 
   return (
     <article className="apple-card group relative flex h-full flex-col overflow-hidden">
       <div className="apple-card-media relative overflow-hidden">
-        <ProjectMedia project={project} variant="featured" priority={priority} showStack />
+        <ProjectMedia project={project} variant="featured" priority={priority} showStack copy={copy} />
       </div>
 
       <div className="flex flex-1 flex-col px-4 pb-6 pt-5 sm:px-8 sm:pb-8 sm:pt-7">
         <div className="flex flex-wrap items-center gap-2">
           <span className={`project-badge ${badgeClass}`}>{badgeLabel}</span>
-          <p className="eyebrow-muted tracking-[0.14em]">Caso destacado</p>
+          <p className="eyebrow-muted tracking-[0.14em]">{copy.featuredCase}</p>
         </div>
         <h3 className="mt-3 font-display text-[clamp(1.5rem,3vw,1.85rem)] font-bold tracking-tight text-[var(--foreground)]">
           {project.title}
@@ -33,20 +35,20 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
 
         <dl className="mt-6 space-y-4 border-t border-[var(--section-divider)] pt-5">
           <div>
-            <dt className="eyebrow-muted tracking-[0.12em]">Problema</dt>
+            <dt className="eyebrow-muted tracking-[0.12em]">{copy.problem}</dt>
             <dd className="mt-1.5 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
               {project.problem}
             </dd>
           </div>
           <div>
-            <dt className="eyebrow-muted tracking-[0.12em]">Solución</dt>
+            <dt className="eyebrow-muted tracking-[0.12em]">{copy.solution}</dt>
             <dd className="mt-1.5 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
               {project.solution}
             </dd>
           </div>
           <div>
             <dt className="text-[length:var(--text-xs)] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
-              Resultado
+              {copy.result}
             </dt>
             <dd className="mt-1.5 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground)]">
               {project.result}
@@ -56,7 +58,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
 
         {technologies.length ? (
           <div className="mt-6">
-            <p className="eyebrow-muted tracking-[0.12em]">Tecnologías</p>
+            <p className="eyebrow-muted tracking-[0.12em]">{copy.technologies}</p>
             <ul className="mt-3 flex flex-wrap gap-2">
               {technologies.map((tech) => (
                 <li
@@ -73,7 +75,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
         <div className="mt-auto flex flex-wrap gap-3 pt-7">
           {demoUrl ? (
             <ExternalLink href={demoUrl} className="apple-card-btn apple-card-btn-primary focus-ring">
-              {project.type === "demo" ? "Ver demo" : "Ver sitio"}
+              {project.type === "demo" ? copy.viewDemo : copy.viewSite}
               <IconExternal className="mi-icon mi-icon-external h-3 w-3 opacity-70" aria-hidden />
             </ExternalLink>
           ) : null}
@@ -84,7 +86,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
               GitHub
             </ExternalLink>
           ) : (
-            <p className="text-[length:var(--text-sm)] text-[var(--muted)]">Repositorio privado</p>
+            <p className="text-[length:var(--text-sm)] text-[var(--muted)]">{copy.privateRepo}</p>
           )}
         </div>
       </div>

@@ -2,22 +2,24 @@ import { HiArrowUpRight } from "react-icons/hi2";
 import { ExternalLink } from "@/components/ExternalLink";
 import { ProjectMedia } from "@/components/ProjectMedia";
 import type { Project } from "@/data/projects";
+import type { PortfolioCopy } from "@/i18n/get-dictionary";
 
 type ProjectDemoCardProps = {
   project: Project;
+  copy: PortfolioCopy;
 };
 
-export function ProjectDemoCard({ project }: ProjectDemoCardProps) {
+export function ProjectDemoCard({ project, copy }: ProjectDemoCardProps) {
   const liveUrl = project.demo ?? project.link;
 
   return (
     <article className="project-demo group relative flex h-full flex-col overflow-hidden">
       <div className="project-demo-media relative overflow-hidden">
-        <ProjectMedia project={project} variant="demo" showDemoBadge />
+        <ProjectMedia project={project} variant="demo" showDemoBadge copy={copy} />
       </div>
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <p className="eyebrow-muted tracking-[0.12em]">Ejemplo en vivo</p>
+        <p className="eyebrow-muted tracking-[0.12em]">{copy.liveExample}</p>
         <h3 className="mt-2 font-display text-[length:var(--text-xl)] font-bold tracking-tight text-[var(--foreground)]">
           {project.title}
         </h3>
@@ -39,12 +41,12 @@ export function ProjectDemoCard({ project }: ProjectDemoCardProps) {
         <div className="mt-auto pt-5">
           {liveUrl ? (
             <ExternalLink href={liveUrl} className="apple-card-btn apple-card-btn-ghost focus-ring w-full sm:w-auto">
-              Ver demo
+              {copy.viewDemo}
               <HiArrowUpRight className="h-3.5 w-3.5 opacity-70" aria-hidden />
             </ExternalLink>
           ) : (
             <a href="#contacto" className="apple-card-btn apple-card-btn-ghost focus-ring w-full sm:w-auto">
-              Pedir acceso al demo
+              {copy.requestDemoAccess}
               <HiArrowUpRight className="h-3.5 w-3.5 opacity-70" aria-hidden />
             </a>
           )}

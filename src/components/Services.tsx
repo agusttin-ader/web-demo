@@ -10,66 +10,35 @@ import {
 import { ExternalLink } from "@/components/ExternalLink";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
-import { WHATSAPP_URL, whatsappUrl } from "@/lib/constants";
+import { interpolate } from "@/i18n/format";
+import { getDictionary } from "@/i18n/get-dictionary";
+import { whatsappUrl } from "@/lib/constants";
 
-type Service = {
-  id: string;
+const SERVICE_META = [
+  { id: "landing", icon: HiOutlineCursorArrowRays, accent: "rgba(94, 234, 184, 0.2)" },
+  { id: "whatsapp", icon: HiOutlineChatBubbleLeftRight, accent: "rgba(37, 211, 102, 0.18)" },
+  { id: "forms", icon: HiOutlineDocumentText, accent: "rgba(34, 211, 238, 0.16)" },
+  { id: "mobile", icon: HiOutlineDevicePhoneMobile, accent: "rgba(125, 211, 252, 0.16)" },
+  { id: "mantenimiento", icon: HiOutlineWrenchScrewdriver, accent: "rgba(255, 255, 255, 0.1)" },
+] as const;
+
+function ServiceCard({
+  title,
+  desc,
+  cta,
+  icon: Icon,
+  accent,
+  index,
+  href,
+}: {
   title: string;
   desc: string;
   cta: string;
   icon: IconType;
   accent: string;
-};
-
-const SERVICES: Service[] = [
-  {
-    id: "landing",
-    title: "Landing que convierte",
-    desc: "Ordeno la info para que se entienda rápido y el visitante sepa qué hacer — sin dar vueltas.",
-    cta: "Quiero una landing",
-    icon: HiOutlineCursorArrowRays,
-    accent: "rgba(94, 234, 184, 0.2)",
-  },
-  {
-    id: "whatsapp",
-    title: "WhatsApp integrado",
-    desc: "Un click y ya te escriben con el mensaje armado. Menos pasos, más consultas.",
-    cta: "Sumar WhatsApp",
-    icon: HiOutlineChatBubbleLeftRight,
-    accent: "rgba(37, 211, 102, 0.18)",
-  },
-  {
-    id: "forms",
-    title: "Formularios simples",
-    desc: "Solo los datos que necesitás. Sin formularios eternos que espantan a la gente.",
-    cta: "Armar formulario",
-    icon: HiOutlineDocumentText,
-    accent: "rgba(34, 211, 238, 0.16)",
-  },
-  {
-    id: "mobile",
-    title: "Pensada para el celu",
-    desc: "La mayoría entra desde el teléfono. Por eso diseño primero para pantalla chica.",
-    cta: "Ver enfoque mobile",
-    icon: HiOutlineDevicePhoneMobile,
-    accent: "rgba(125, 211, 252, 0.16)",
-  },
-  {
-    id: "mantenimiento",
-    title: "Mantenimiento",
-    desc: "Actualizaciones, arreglos y mejoras para que la web siga andando bien.",
-    cta: "Hablar de soporte",
-    icon: HiOutlineWrenchScrewdriver,
-    accent: "rgba(255, 255, 255, 0.1)",
-  },
-];
-
-function ServiceCard({ service, index }: { service: Service; index: number }) {
-  const Icon = service.icon;
-  const href =
-    service.id === "whatsapp"
-      ? WHATSAPP_URL
-      : whatsappUrl(`Hola Agustín, me interesa: ${service.title}.`);
+  index: number;
+  href: string;
+}) {
   const isWide = index === 0;
 
   return (
@@ -81,7 +50,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       >
         <span
           className="services-card-glow"
-          style={{ background: `radial-gradient(circle at 20% 20%, ${service.accent}, transparent 70%)` }}
+          style={{ background: `radial-gradient(circle at 20% 20%, ${accent}, transparent 70%)` }}
           aria-hidden
         />
 
@@ -94,12 +63,11 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           </span>
         </div>
 
-        <h3 className="services-card-title">{service.title}</h3>
-        <p className="services-card-desc">{service.desc}</p>
+        <h3 className="services-card-title">{title}</h3>
+        <p className="services-card-desc">{desc}</p>
 
         <span className="services-card-cta">
-          {service.cta}
-          <span className="sr-only"> (se abre en una pestaña nueva)</span>
+          {cta}
           <HiArrowUpRight className="h-4 w-4" aria-hidden />
         </span>
       </ExternalLink>
@@ -107,23 +75,42 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   );
 }
 
-export function Services() {
+export async function Services() {
+  const t = await getDictionary();
+  const defaultWhatsapp = whatsappUrl(t.whatsapp.defaultMessage);
+
   return (
     <section id="servicios" className="section-shell">
       <div className="cq w-full">
         <SectionHeader
           align="left"
-          label="Servicios"
-          title="Lo que puedo armarte"
-          description="Cada pieza suma al mismo objetivo: que te escriban más y mejor."
+          label={t.services.label}
+          title={t.services.title}
+          description={t.services.description}
           titleClassName="text-[clamp(2rem,5vw,3.25rem)]"
           className="mb-0 max-w-xl"
         />
 
         <div className="services-grid mt-14 lg:mt-20">
-          {SERVICES.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
-          ))}
+          {SERVICE_META.map((meta, index) => {
+            const copy = t.services.items[meta.id];
+            const href =
+              meta.id === "whatsapp"
+                ? defaultWhatsapp
+                : whatsappUrl(interpolate(t.services.whatsappInterest, { title: copy.title }));
+            return (
+              <ServiceCard
+                key={meta.id}
+                title={copy.title}
+                desc={copy.desc}
+                cta={copy.cta}
+                icon={meta.icon}
+                accent={meta.accent}
+                index={index}
+                href={href}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

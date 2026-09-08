@@ -2,41 +2,44 @@ import { HiCheck, HiArrowUpRight } from "react-icons/hi2";
 import { ExternalLink } from "@/components/ExternalLink";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
-import { PLAN_ADDONS_NOTE, PLANS } from "@/data/plans";
+import { interpolate } from "@/i18n/format";
+import { getDictionary } from "@/i18n/get-dictionary";
+import { PLANS } from "@/data/plans";
 import { whatsappUrl } from "@/lib/constants";
 
-export function Plans() {
+export async function Plans() {
+  const t = await getDictionary();
   const [essential, premium, demo] = PLANS;
 
   return (
     <section id="planes" className="section-shell">
       <div className="cq mx-auto max-w-6xl">
         <SectionHeader
-          label="Planes"
-          title="Planes y precios"
-          description="Valores en USD, sin letra chica. Si necesitás algo extra, lo vemos aparte. Te respondo en 24 hs."
+          label={t.plans.label}
+          title={t.plans.title}
+          description={t.plans.description}
           titleClassName="text-[clamp(2rem,5vw,3.25rem)]"
         />
 
         <div className="plans-showcase mt-14 lg:mt-20">
           <Reveal variant="up" delay={0}>
-            <PlanCard plan={essential} />
+            <PlanCard plan={essential} copy={t.plans} featured={false} />
           </Reveal>
 
-          <Reveal variant="scale" delay={60}>
-            <PlanCard plan={premium} featured />
+          <Reveal variant="up" delay={60}>
+            <PlanCard plan={premium} copy={t.plans} featured />
           </Reveal>
 
           <Reveal variant="up" delay={120}>
-            <PlanCard plan={demo} compact />
+            <PlanCard plan={demo} copy={t.plans} compact />
           </Reveal>
         </div>
 
-        <Reveal variant="fade" delay={200}>
-          <p className="mx-auto mt-12 max-w-2xl text-center text-[length:var(--text-sm)] leading-relaxed text-[var(--muted)]">
-            {PLAN_ADDONS_NOTE}{" "}
-            <a href="#contacto" className="link-brand text-[var(--foreground-muted)]">
-              Escribime y lo vemos juntos
+        <Reveal variant="fade" delay={200} className="plans-note-wrap">
+          <p className="plans-note">
+            {t.plans.addonsNote}{" "}
+            <a href="#contacto" className="link-brand">
+              {t.plans.noteLink}
             </a>
             .
           </p>
@@ -48,13 +51,17 @@ export function Plans() {
 
 function PlanCard({
   plan,
+  copy,
   featured = false,
   compact = false,
 }: {
   plan: (typeof PLANS)[number];
+  copy: Awaited<ReturnType<typeof getDictionary>>["plans"];
   featured?: boolean;
   compact?: boolean;
 }) {
+  const item = copy.items[plan.id];
+
   return (
     <article
       className={[
@@ -66,14 +73,14 @@ function PlanCard({
         .join(" ")}
     >
       {featured ? (
-        <span className="plan-badge">Más elegido</span>
+        <span className="plan-badge">{copy.featuredBadge}</span>
       ) : compact ? (
-        <span className="plan-badge plan-badge--muted">Para probar</span>
+        <span className="plan-badge plan-badge--muted">{copy.demoBadge}</span>
       ) : null}
 
-      <p className="eyebrow-muted">{plan.name}</p>
+      <p className="eyebrow-muted">{item.name}</p>
       <h3 className="mt-2 font-display text-[length:var(--text-xl)] font-bold text-[var(--foreground)]">
-        {plan.tagline}
+        {item.tagline}
       </h3>
 
       <div className="mt-6 flex items-end gap-2">
@@ -81,13 +88,15 @@ function PlanCard({
           USD {plan.priceUsd}
         </p>
       </div>
-      {plan.priceNote ? (
-        <p className="mt-2 text-[length:var(--text-sm)] text-[var(--accent-bright)]">{plan.priceNote}</p>
+      {"priceNote" in item && item.priceNote ? (
+        <p className="mt-2 text-[length:var(--text-sm)] text-[var(--accent-bright)]">{item.priceNote}</p>
       ) : null}
-      <p className="mt-3 text-[length:var(--text-sm)] text-[var(--muted)]">Entrega: {plan.delivery}</p>
+      <p className="mt-3 text-[length:var(--text-sm)] text-[var(--muted)]">
+        {interpolate(copy.delivery, { time: item.delivery })}
+      </p>
 
       <ul className={`mt-7 flex flex-1 flex-col gap-2.5 ${compact ? "sm:grid sm:grid-cols-2 sm:gap-x-4" : ""}`}>
-        {plan.features.map((feature) => (
+        {item.features.map((feature) => (
           <li key={feature} className="flex gap-2.5 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
             <HiCheck className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" aria-hidden />
             <span>{feature}</span>
@@ -96,14 +105,14 @@ function PlanCard({
       </ul>
 
       <ExternalLink
-        href={whatsappUrl(plan.whatsappMessage)}
+        href={whatsappUrl(item.whatsappMessage)}
         className={`focus-ring mt-8 inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius-full)] px-6 py-3.5 text-[length:var(--text-sm)] font-semibold transition-colors ${
           featured
             ? "btn-primary"
             : "border border-[var(--card-border)] bg-[var(--surface-2)] text-[var(--foreground)] hover:border-[var(--accent)]/40"
         }`}
       >
-        {plan.cta}
+        {item.cta}
         <HiArrowUpRight className="h-4 w-4" aria-hidden />
       </ExternalLink>
     </article>

@@ -1,20 +1,22 @@
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
-import { SEO_FAQ } from "@/data/seo-content";
+import { getDictionary } from "@/i18n/get-dictionary";
 
-export function SeoFaq() {
+export async function SeoFaq() {
+  const t = await getDictionary();
+
   return (
     <section id="preguntas-frecuentes" className="section-shell faq-section" aria-labelledby="faq-heading">
       <div className="cq mx-auto max-w-3xl">
         <SectionHeader
-          label="Preguntas frecuentes"
-          title="Desarrollo web, páginas web y programación"
+          label={t.faq.label}
+          title={t.faq.title}
           id="faq-heading"
-          description="Respuestas directas sobre precios, plazos y qué incluye trabajar conmigo en tu página web."
+          description={t.faq.description}
         />
 
         <div className="faq-list mt-12">
-          {SEO_FAQ.map((item, index) => (
+          {t.faq.items.map((item, index) => (
             <Reveal key={item.question} variant="up" delay={index * 40}>
               <div className="faq-item glass-card rounded-[var(--radius-xl)]">
                 <details className="faq-details group">

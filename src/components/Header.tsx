@@ -4,13 +4,17 @@ import { useState, useEffect, useRef, useId } from "react";
 import Image from "next/image";
 import { ExternalLink } from "@/components/ExternalLink";
 import { IconArrowRight, IconWhatsApp } from "@/components/icons";
-import { NAV_ITEMS, WHATSAPP_URL } from "@/lib/constants";
+import { LocaleSwitcher } from "@/components/LocaleSwitcher";
+import { useI18n } from "@/i18n/I18nProvider";
+import { NAV_ITEMS, whatsappUrl } from "@/lib/constants";
 
 const SECTION_IDS = ["hero", ...NAV_ITEMS.map((item) => item.id)] as const;
 const FOCUSABLE =
   'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
 export function Header() {
+  const { t } = useI18n();
+  const whatsappHref = whatsappUrl(t.whatsapp.defaultMessage);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [navHidden, setNavHidden] = useState(false);
@@ -74,12 +78,13 @@ export function Header() {
   }, []);
 
   useEffect(() => {
+    if (!open) return;
+
     const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = open ? "hidden" : "";
-    document.body.dataset.navOpen = open ? "true" : "";
-    if (open) {
-      window.requestAnimationFrame(() => firstMenuItemRef.current?.focus());
-    }
+    document.body.style.overflow = "hidden";
+    document.body.dataset.navOpen = "true";
+    window.requestAnimationFrame(() => firstMenuItemRef.current?.focus());
+
     return () => {
       document.body.style.overflow = previousOverflow;
       delete document.body.dataset.navOpen;
@@ -139,7 +144,7 @@ export function Header() {
     <>
       <header
         className={[
-          "site-header pt-[env(safe-area-inset-top)]",
+          "site-header",
           atHero ? "is-at-hero" : "is-past-hero",
           scrolled ? "is-scrolled" : "",
           open ? "is-menu-open" : "",
@@ -157,7 +162,7 @@ export function Header() {
               scrollTo("hero");
             }}
             className="nav-logo focus-ring min-w-0 shrink"
-            aria-label="Agustín Ader, ir al inicio"
+            aria-label={t.nav.logoAria}
           >
             <Image
               src="/new-logo-transparent.webp"
@@ -173,9 +178,9 @@ export function Header() {
             </span>
           </a>
 
-          <nav className="hidden items-center gap-0.5 md:flex" aria-label="Secciones principales">
+          <nav className="nav-desktop hidden items-center gap-0.5 lg:flex" aria-label={t.nav.ariaMain}>
             <ul className="flex items-center gap-0.5">
-              {NAV_ITEMS.map(({ id, label }) => {
+              {NAV_ITEMS.map(({ id }) => {
                 const isActive = activeId === id;
                 return (
                   <li key={id}>
@@ -188,27 +193,31 @@ export function Header() {
                       className={`nav-link focus-ring ${isActive ? "is-active" : ""}`}
                       aria-current={isActive ? "location" : undefined}
                     >
-                      {label}
+                      {t.nav.items[id]}
                     </a>
                   </li>
                 );
               })}
             </ul>
-            <ExternalLink href={WHATSAPP_URL} className="nav-cta focus-ring ml-3">
-              WhatsApp
+            <div className="ml-3">
+              <LocaleSwitcher />
+            </div>
+            <ExternalLink href={whatsappHref} className="nav-cta focus-ring ml-3">
+              {t.nav.whatsappCta}
               <IconArrowRight className="h-3 w-3 opacity-70" aria-hidden />
             </ExternalLink>
           </nav>
 
-          <div className="nav-mobile-actions flex shrink-0 items-center gap-1.5 sm:gap-2 md:hidden">
+          <div className="nav-mobile-actions flex shrink-0 items-center gap-1 sm:gap-1.5 lg:hidden">
+            <LocaleSwitcher compact />
             <ExternalLink
-              href={WHATSAPP_URL}
+              href={whatsappHref}
               className="nav-cta nav-cta--icon focus-ring"
-              aria-label="Contactar por WhatsApp"
+              aria-label={t.nav.whatsappAria}
             >
               <IconWhatsApp className="h-3.5 w-3.5" aria-hidden />
               <span className="nav-cta-label" aria-hidden>
-                WhatsApp
+                {t.nav.whatsappCta}
               </span>
             </ExternalLink>
             <button
@@ -219,7 +228,7 @@ export function Header() {
               aria-expanded={open}
               aria-controls={menuId}
               aria-haspopup="dialog"
-              aria-label={open ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+              aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             >
               <span className="relative h-3.5 w-5" aria-hidden>
                 <span
@@ -246,7 +255,7 @@ export function Header() {
       <div
         ref={panelRef}
         id={menuId}
-        className={`nav-mobile-panel fixed inset-x-0 bottom-0 z-[45] flex flex-col px-[var(--container-inline)] pb-[calc(env(safe-area-inset-bottom)+1.5rem)] transition-[opacity,visibility] duration-300 md:hidden ${
+        className={`nav-mobile-panel fixed inset-x-0 bottom-0 z-[45] flex flex-col px-[var(--container-inline)] pb-[calc(env(safe-area-inset-bottom)+1.5rem)] transition-[opacity,visibility] duration-300 lg:hidden ${
           open
             ? "is-open pointer-events-auto visible opacity-100"
             : "pointer-events-none invisible opacity-0"
@@ -257,12 +266,12 @@ export function Header() {
         inert={!open ? true : undefined}
       >
         <h2 id={titleId} className="sr-only">
-          Menú de navegación
+          {t.nav.menuTitle}
         </h2>
 
-        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto pt-[var(--space-1)]" aria-label="Navegación móvil">
+        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto pt-[var(--space-1)]" aria-label={t.nav.ariaMobile}>
           <ul className="flex flex-col gap-0.5">
-            {NAV_ITEMS.map(({ id, label }, index) => {
+            {NAV_ITEMS.map(({ id }, index) => {
               const isActive = activeId === id;
               return (
                 <li key={id}>
@@ -278,7 +287,7 @@ export function Header() {
                     aria-current={isActive ? "location" : undefined}
                     tabIndex={open ? 0 : -1}
                   >
-                    <span>{label}</span>
+                    <span>{t.nav.items[id]}</span>
                     <IconArrowRight className="h-4 w-4 opacity-40" aria-hidden />
                   </a>
                 </li>
@@ -288,7 +297,7 @@ export function Header() {
         </nav>
 
         <ExternalLink
-          href={WHATSAPP_URL}
+          href={whatsappHref}
           className="nav-cta focus-ring mt-auto w-full !min-h-12 !text-[length:var(--text-sm)]"
           onClick={() => setOpen(false)}
           tabIndex={open ? 0 : -1}
@@ -300,7 +309,7 @@ export function Header() {
           }}
         >
           <IconWhatsApp className="h-4 w-4" aria-hidden />
-          Escribirme por WhatsApp
+          {t.nav.whatsappMobile}
         </ExternalLink>
       </div>
     </>
