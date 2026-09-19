@@ -1,6 +1,6 @@
 import {
   getDemoProjects,
-  getFeaturedProject,
+  getFeaturedProjects,
   getProductionProjects,
   withProjectCopy,
 } from "@/data/projects";
@@ -14,17 +14,20 @@ import { getDictionary, getProjectCopy } from "@/i18n/get-dictionary";
 
 export async function Portfolio() {
   const t = await getDictionary();
-  const featuredBase = getFeaturedProject();
+  const featuredBases = getFeaturedProjects();
   const productionRestBase = getProductionProjects();
   const demosBase = getDemoProjects();
 
-  if (!featuredBase) return null;
+  if (!featuredBases.length) return null;
 
-  const featured = withProjectCopy(featuredBase, getProjectCopy(t, featuredBase.id));
+  const featured = featuredBases.map((project) =>
+    withProjectCopy(project, getProjectCopy(t, project.id))
+  );
   const productionRest = productionRestBase.map((project) =>
     withProjectCopy(project, getProjectCopy(t, project.id))
   );
   const demos = demosBase.map((project) => withProjectCopy(project, getProjectCopy(t, project.id)));
+  const liveCount = featured.length + productionRest.length;
 
   return (
     <section id="proyecto-real" className="section-shell">
@@ -36,9 +39,13 @@ export async function Portfolio() {
         />
 
         <div className="portfolio-showcase mt-14 lg:mt-20">
-          <Reveal variant="left" className="portfolio-showcase-featured">
-            <ProjectCard project={featured} copy={t.portfolio} priority />
-          </Reveal>
+          <div className="portfolio-showcase-featured">
+            {featured.map((project, index) => (
+              <Reveal key={project.id} variant="left" delay={index * 50}>
+                <ProjectCard project={project} copy={t.portfolio} priority={index === 0} />
+              </Reveal>
+            ))}
+          </div>
 
           <div className="portfolio-showcase-side">
             {productionRest.length > 0 ? (
@@ -47,7 +54,7 @@ export async function Portfolio() {
                   <div className="portfolio-side-header">
                     <p className="eyebrow-muted tracking-[0.12em]">{t.portfolio.inProduction}</p>
                     <p className="mt-1 text-[length:var(--text-sm)] text-[var(--muted)]">
-                      {interpolate(t.portfolio.activeSites, { count: productionRest.length + 1 })}
+                      {interpolate(t.portfolio.activeSites, { count: liveCount })}
                     </p>
                   </div>
                   <ul className="portfolio-row-list">

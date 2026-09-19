@@ -30,7 +30,12 @@ export const TECH_STACK = [
 /** Stack mostrado en overview / bento. */
 export const OVERVIEW_TECH = TECH_STACK;
 
-export const CLIENTS = ["La Guarida Instrumentos", "Alo Patagonia", "Dra. Karla Armijos"] as const;
+export const CLIENTS = [
+  "Rhinoscopy",
+  "Alo Patagonia",
+  "La Guarida Instrumentos",
+  "Dra. Karla Armijos",
+] as const;
 
 export const CERTIFICATIONS = [
   { title: "Frontend moderno", meta: "Next.js · React · TypeScript" },

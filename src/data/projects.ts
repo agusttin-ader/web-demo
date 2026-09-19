@@ -3,7 +3,13 @@
  */
 export type ProjectType = "production" | "demo";
 
-export type ProjectMediaTheme = "patagonia" | "guarida" | "medical" | "medical-demo" | "neutral";
+export type ProjectMediaTheme =
+  | "patagonia"
+  | "guarida"
+  | "medical"
+  | "medical-demo"
+  | "rhinoscopy"
+  | "neutral";
 
 export interface Project {
   id: string;
@@ -36,6 +42,30 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "rhinoscopy",
+    title: "Rhinoscopy",
+    client: "Rhinoscopy",
+    description:
+      "Plataforma de formación en otorrinolaringología, rinología y rinoscopia: congreso, webinars y certificados.",
+    image: "/images/logos/rhinoscopy.png",
+    logo: "/images/logos/rhinoscopy.png",
+    mediaTheme: "rhinoscopy",
+    imageAlt:
+      "Sitio de Rhinoscopy: formación en rinología, Rhinoscopy Meet, webinars y certificados",
+    stack: "Next.js · Educación médica · ES/EN/PT",
+    problem:
+      "La comunidad de rinología dependía de Instagram para el congreso, los webinars y los certificados.",
+    solution:
+      "Sitio completo con Meet 2026, speakers, galería, webinars, certificados descargables y contacto.",
+    result:
+      "Hub educativo regional en rhinoscopy.com.ar, con congreso, contenido clínico y canal propio.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "i18n", "Vercel"],
+    type: "production",
+    featured: true,
+    demo: "https://www.rhinoscopy.com.ar/",
+    link: "https://www.rhinoscopy.com.ar/",
+  },
+  {
     id: "alo-patagonia",
     title: "Alo Patagonia",
     client: "Alo Patagonia",
@@ -55,7 +85,6 @@ export const projects: Project[] = [
       "Oferta más clara, contacto al toque y una web pensada para quien entra desde el celu.",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "WhatsApp"],
     type: "production",
-    featured: true,
     demo: "https://www.alopatagonia.com/",
     link: "https://www.alopatagonia.com/",
   },
@@ -130,13 +159,20 @@ export const projects: Project[] = [
   },
 ];
 
+export function getFeaturedProjects(): Project[] {
+  const featured = projects.filter((p) => p.featured && p.type === "production");
+  if (featured.length) return featured;
+  const fallback = projects.find((p) => p.type === "production");
+  return fallback ? [fallback] : [];
+}
+
 export function getFeaturedProject(): Project | undefined {
-  return projects.find((p) => p.featured) ?? projects.find((p) => p.type === "production");
+  return getFeaturedProjects()[0];
 }
 
 export function getProductionProjects(): Project[] {
-  const featured = getFeaturedProject();
-  return projects.filter((p) => p.type === "production" && p.id !== featured?.id);
+  const featuredIds = new Set(getFeaturedProjects().map((p) => p.id));
+  return projects.filter((p) => p.type === "production" && !featuredIds.has(p.id));
 }
 
 export function getDemoProjects(): Project[] {

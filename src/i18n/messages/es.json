@@ -107,6 +107,13 @@
     "mediaAria": "Identidad visual de {title}"
   },
   "projects": {
+    "rhinoscopy": {
+      "description": "Plataforma de formación en otorrinolaringología, rinología y rinoscopia: congreso, webinars y certificados.",
+      "imageAlt": "Sitio de Rhinoscopy: formación en rinología, Rhinoscopy Meet, webinars y certificados",
+      "problem": "La comunidad de rinología dependía de Instagram para el congreso, los webinars y los certificados.",
+      "solution": "Sitio completo con Meet 2026, speakers, galería, webinars, certificados descargables y contacto.",
+      "result": "Hub educativo regional en rhinoscopy.com.ar, con congreso, contenido clínico y canal propio."
+    },
     "alo-patagonia": {
       "description": "Web de turismo para coordinar viajes por la Patagonia con consultas directas por WhatsApp.",
       "imageAlt": "Sitio web de Alo Patagonia: viajes por la Patagonia con itinerarios claros y consulta por WhatsApp",

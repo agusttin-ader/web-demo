@@ -38,7 +38,7 @@ export function BudgetForm({ featured = false }: BudgetFormProps) {
       className={
         featured
           ? "budget-form budget-form--featured flex w-full flex-col gap-6 sm:gap-7"
-          : "budget-form flex w-full flex-col gap-6 rounded-[var(--radius-xl)] border border-[var(--card-border)] bg-[var(--background-elevated)] p-6 sm:gap-7 sm:p-8"
+          : "budget-form flex w-full flex-col gap-6 rounded-[var(--radius-xl)] bg-[var(--background-elevated)] p-6 sm:gap-7 sm:p-8"
       }
       noValidate={false}
       aria-busy={isPending}

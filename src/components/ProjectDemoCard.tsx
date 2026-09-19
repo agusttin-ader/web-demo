@@ -27,11 +27,11 @@ export function ProjectDemoCard({ project, copy }: ProjectDemoCardProps) {
           {project.description}
         </p>
 
-        <ul className="mt-4 flex flex-wrap gap-2">
+        <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1">
           {project.technologies.slice(0, 4).map((tech) => (
             <li
               key={tech}
-              className="rounded-full border border-[var(--card-border)] bg-[var(--surface-2)] px-2.5 py-1 text-[length:var(--text-xs)] font-medium text-[var(--muted)]"
+              className="text-[length:var(--text-xs)] font-medium text-[var(--muted)]"
             >
               {tech}
             </li>

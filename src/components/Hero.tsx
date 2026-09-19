@@ -67,9 +67,7 @@ export async function Hero() {
                 {i > 0 ? (
                   <span className="h-1 w-1 rounded-full bg-[var(--accent)]/50" aria-hidden />
                 ) : null}
-                <span className="rounded-full border border-[var(--card-border)] bg-[var(--surface-1)] px-3 py-1.5">
-                  {tech}
-                </span>
+                <span>{tech}</span>
               </li>
             ))}
           </ul>

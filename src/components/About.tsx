@@ -32,7 +32,7 @@ export async function About() {
         <div className="mt-16 grid gap-12 md:grid-cols-2 md:gap-16 lg:mt-24 lg:gap-20">
           <Reveal variant="scale">
             <figure className="relative">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--card-border)] bg-[var(--surface-1)] shadow-[0_24px_80px_rgba(94,234,184,0.1)]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-2xl)] bg-[var(--surface-1)] shadow-[0_24px_80px_rgba(94,234,184,0.1)]">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_30%,rgba(94,234,184,0.12),transparent_65%)]" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-8">
                   <Image
@@ -52,7 +52,7 @@ export async function About() {
                   </figcaption>
                 </div>
               </div>
-              <div className="mt-6 flex flex-col gap-4 border-t border-[var(--section-divider)] pt-6 sm:flex-row sm:items-baseline sm:justify-between">
+              <div className="mt-6 flex flex-col gap-4 pt-2 sm:flex-row sm:items-baseline sm:justify-between">
                 <div>
                   <p className="font-display text-[clamp(3rem,6vw,4.5rem)] font-bold leading-none tracking-tight text-gradient">
                     2+

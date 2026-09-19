@@ -65,7 +65,7 @@ export async function BentoGrid() {
               <p className="mt-4 font-display text-[length:var(--text-xl)] font-bold text-[var(--foreground)]">
                 {t.overview.techTitle}
               </p>
-              <ul className="mt-5 flex flex-wrap gap-2">
+              <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
                 {OVERVIEW_TECH.map((tech) => (
                   <li key={tech} className="bento-chip">
                     {tech}
@@ -101,7 +101,7 @@ export async function BentoGrid() {
                 <span className="eyebrow-muted tracking-[0.14em]">{t.overview.availability}</span>
               </div>
               <div className="mt-6">
-                <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(37,211,102,0.35)] bg-[rgba(37,211,102,0.08)] px-3 py-1.5 text-[length:var(--text-xs)] font-semibold uppercase tracking-[0.12em] text-[#4ade80]">
+                <span className="inline-flex items-center gap-2 text-[length:var(--text-xs)] font-semibold uppercase tracking-[0.12em] text-[#4ade80]">
                   <span className="bento-pulse" aria-hidden />
                   {t.overview.available}
                 </span>

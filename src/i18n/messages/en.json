@@ -107,6 +107,13 @@
     "mediaAria": "Visual identity of {title}"
   },
   "projects": {
+    "rhinoscopy": {
+      "description": "Medical education platform for ENT, rhinology and rhinoscopy: congress, webinars and certificates.",
+      "imageAlt": "Rhinoscopy site: rhinology training, Rhinoscopy Meet, webinars and certificates",
+      "problem": "The rhinology community relied on Instagram for the congress, webinars and certificates.",
+      "solution": "A full site with Meet 2026, speakers, gallery, webinars, downloadable certificates and contact.",
+      "result": "A regional education hub at rhinoscopy.com.ar, with congress, clinical content and its own channel."
+    },
     "alo-patagonia": {
       "description": "Tourism site to plan Patagonia trips with direct WhatsApp inquiries.",
       "imageAlt": "Alo Patagonia website: Patagonia trips with clear itineraries and WhatsApp contact",

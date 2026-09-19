@@ -33,7 +33,7 @@ export function ProjectCard({ project, copy, priority = false }: ProjectCardProp
         </h3>
         <p className="mt-1 text-[length:var(--text-sm)] text-[var(--foreground-muted)]">{project.client}</p>
 
-        <dl className="mt-6 space-y-4 border-t border-[var(--section-divider)] pt-5">
+        <dl className="mt-6 space-y-4 pt-1">
           <div>
             <dt className="eyebrow-muted tracking-[0.12em]">{copy.problem}</dt>
             <dd className="mt-1.5 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
@@ -59,11 +59,11 @@ export function ProjectCard({ project, copy, priority = false }: ProjectCardProp
         {technologies.length ? (
           <div className="mt-6">
             <p className="eyebrow-muted tracking-[0.12em]">{copy.technologies}</p>
-            <ul className="mt-3 flex flex-wrap gap-2">
+            <ul className="mt-3 flex flex-wrap gap-x-3 gap-y-1.5">
               {technologies.map((tech) => (
                 <li
                   key={tech}
-                  className="rounded-full border border-[var(--card-border)] bg-[var(--surface-2)] px-3 py-1 text-[length:var(--text-xs)] font-medium text-[var(--foreground-muted)] transition-colors duration-300 group-hover:border-[var(--card-border-hover)] group-hover:text-[var(--foreground)]"
+                  className="text-[length:var(--text-xs)] font-medium text-[var(--foreground-muted)] transition-colors duration-300 group-hover:text-[var(--foreground)]"
                 >
                   {tech}
                 </li>
