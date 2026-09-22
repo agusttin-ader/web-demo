@@ -199,15 +199,6 @@ export function Header() {
         </div>
       </header>
 
-      {!open ? null : (
-        <button
-          type="button"
-          className="site-header__backdrop"
-          aria-label={t.nav.closeMenu}
-          onClick={() => setOpen(false)}
-        />
-      )}
-
       <div
         ref={panelRef}
         id={MOBILE_MENU_ID}
@@ -245,6 +236,16 @@ export function Header() {
             })}
           </ul>
         </nav>
+
+        <div className="site-header__panel-brand" aria-hidden>
+          <Image
+            src={BRAND_LOGO_SRC}
+            alt=""
+            width={160}
+            height={160}
+            sizes="(max-width: 1023px) 28vw, 0px"
+          />
+        </div>
 
         <ExternalLink
           href={whatsappHref}
