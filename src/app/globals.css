@@ -424,6 +424,7 @@ a:hover {
     width: 2rem;
     height: 2rem;
     object-fit: contain;
+    border-radius: var(--radius-sm);
   }
 
   .site-header__logo-text {

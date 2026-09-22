@@ -1695,6 +1695,10 @@
     color: var(--color-on-dark);
   }
 
+  .site-footer__logo-link img {
+    border-radius: var(--radius-sm);
+  }
+
   .site-footer__logo-link:hover {
     text-decoration: none;
     color: var(--color-on-dark);

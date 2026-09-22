@@ -4,7 +4,7 @@ import { ExternalLink } from "@/components/ExternalLink";
 import { IconWhatsApp } from "@/components/icons";
 import { interpolate } from "@/i18n/format";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { EMAIL, INSTAGRAM_URL, LINKEDIN_URL, NAV_ITEMS, whatsappUrl } from "@/lib/constants";
+import { BRAND_LOGO_SRC, EMAIL, INSTAGRAM_URL, LINKEDIN_URL, NAV_ITEMS, whatsappUrl } from "@/lib/constants";
 import { DS_CLASS } from "@/lib/design-system";
 
 export async function Footer() {
@@ -31,7 +31,7 @@ export async function Footer() {
         <div className="site-footer__grid">
           <div className="site-footer__brand">
             <a href="#hero" className="site-footer__logo-link">
-              <Image src="/new-logo-transparent.webp" alt="" width={40} height={40} loading="lazy" />
+              <Image src={BRAND_LOGO_SRC} alt="" width={40} height={40} loading="lazy" />
               <span>Agustin Ader</span>
             </a>
             <p>{t.footer.blurb}</p>

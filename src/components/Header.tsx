@@ -6,7 +6,7 @@ import { ExternalLink } from "@/components/ExternalLink";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { useI18n } from "@/i18n/I18nProvider";
 import { DS_CLASS } from "@/lib/design-system";
-import { NAV_ITEMS, whatsappUrl } from "@/lib/constants";
+import { BRAND_LOGO_SRC, NAV_ITEMS, whatsappUrl } from "@/lib/constants";
 
 const SECTION_IDS = ["hero", ...NAV_ITEMS] as const;
 const FOCUSABLE =
@@ -138,7 +138,7 @@ export function Header() {
               }}
               aria-label={t.nav.logoAria}
             >
-              <Image src="/new-logo-transparent.webp" alt="" width={72} height={72} priority sizes="32px" />
+              <Image src={BRAND_LOGO_SRC} alt="" width={64} height={64} priority sizes="32px" />
               <span className="site-header__logo-text">Agustin Ader</span>
             </a>
           </div>

@@ -4,6 +4,9 @@ export const EMAIL = "agusttin.dev@gmail.com";
 export const INSTAGRAM_URL = "https://www.instagram.com/agustinader.dev/";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/agustin-franco-ader-165770259/";
 
+/** Isotipo (A geométrica azul) — header, footer, schema. */
+export const BRAND_LOGO_SRC = "/images/logo-mark.png";
+
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   "Hola Agustín, quiero una web que me traiga más consultas."
 )}`;

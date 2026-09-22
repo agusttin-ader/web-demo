@@ -9,6 +9,7 @@ import {
 import {
   EMAIL,
   INSTAGRAM_URL,
+  BRAND_LOGO_SRC,
   LINKEDIN_URL,
   PHONE_E164,
   WHATSAPP_NUMBER,
@@ -38,7 +39,7 @@ export const OG_IMAGE = {
   type: "image/png",
 } as const;
 
-export const LOGO_URL = `${SITE_URL}/new-logo-transparent.webp`;
+export const LOGO_URL = `${SITE_URL}${BRAND_LOGO_SRC}`;
 export { EMAIL, INSTAGRAM_URL, PHONE_E164 };
 export const WHATSAPP_PROFILE = `https://wa.me/${WHATSAPP_NUMBER}`;
 
