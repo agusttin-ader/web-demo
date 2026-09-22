@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode, PointerEvent } from "react";
 import { useRef, useState } from "react";
+import { useMobileMotion } from "@/hooks/useMobileMotion";
 
 type MagneticProps = {
   children: ReactNode;
@@ -12,10 +13,11 @@ type MagneticProps = {
 
 export function Magnetic({ children, className, strength = 0.22 }: MagneticProps) {
   const reduceMotion = useReducedMotion();
+  const mobileMotion = useMobileMotion();
   const ref = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
-  if (reduceMotion) {
+  if (reduceMotion || mobileMotion) {
     return className ? <div className={className}>{children}</div> : <>{children}</>;
   }
 

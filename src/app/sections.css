@@ -1910,4 +1910,10 @@
     transform-origin: 0% 50%;
     pointer-events: none;
   }
+
+  @media (min-width: 1024px) {
+    .scroll-progress {
+      display: none;
+    }
+  }
 }

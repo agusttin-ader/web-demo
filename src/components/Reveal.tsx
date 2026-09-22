@@ -2,7 +2,13 @@
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
-import { MOTION_DURATION, MOTION_EASE, MOTION_VIEWPORT } from "@/lib/motion";
+import { useMobileMotion } from "@/hooks/useMobileMotion";
+import {
+  MOBILE_MOTION_DURATION,
+  MOBILE_MOTION_EASE,
+  MOBILE_MOTION_VIEWPORT,
+  MOBILE_REVEAL_VARIANTS,
+} from "@/lib/motion";
 
 export type RevealVariant = "up" | "fade";
 
@@ -15,17 +21,6 @@ type RevealProps = {
   delay?: number;
 };
 
-const VARIANTS: Record<RevealVariant, Variants> = {
-  up: {
-    hidden: { opacity: 0, y: 22 },
-    visible: { opacity: 1, y: 0 },
-  },
-  fade: {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  },
-};
-
 export function Reveal({
   children,
   className,
@@ -34,28 +29,31 @@ export function Reveal({
   delay = 0,
 }: RevealProps) {
   const reduceMotion = useReducedMotion();
+  const mobileMotion = useMobileMotion();
 
-  if (reduceMotion) {
+  if (reduceMotion || !mobileMotion) {
     return className ? <div className={className}>{children}</div> : <>{children}</>;
   }
 
+  const variants = MOBILE_REVEAL_VARIANTS[variant] as Variants;
+
   const transition = {
-    duration: MOTION_DURATION,
-    ease: MOTION_EASE,
+    duration: MOBILE_MOTION_DURATION,
+    ease: MOBILE_MOTION_EASE,
     delay: delay / 1000,
   };
 
   return (
     <motion.div
       className={className}
-      variants={VARIANTS[variant]}
+      variants={variants}
       transition={transition}
       {...(initialVisible
         ? { initial: "hidden", animate: "visible" }
         : {
             initial: "hidden",
             whileInView: "visible",
-            viewport: MOTION_VIEWPORT,
+            viewport: MOBILE_MOTION_VIEWPORT,
           })}
     >
       {children}

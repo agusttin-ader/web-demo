@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type CSSProperties } from "react";
 import Image from "next/image";
 import { ExternalLink } from "@/components/ExternalLink";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
@@ -217,7 +217,7 @@ export function Header() {
             {NAV_ITEMS.map((id, index) => {
               const isActive = activeId === id;
               return (
-                <li key={id}>
+                <li key={id} style={{ "--menu-i": index } as CSSProperties}>
                   <a
                     ref={index === 0 ? firstMenuItemRef : undefined}
                     href={`#${id}`}

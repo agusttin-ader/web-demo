@@ -1,0 +1,99 @@
+/* Premium mobile motion — CSS only, gated by MobileMotionRoot + reduced motion */
+
+@media (max-width: 1023px) {
+  html[data-motion="mobile"] .site-header__panel {
+    animation: m-menu-shell 0.44s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  html[data-motion="mobile"] .site-header__panel-link {
+    animation: m-menu-link 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.045s * var(--menu-i, 0) + 0.06s);
+  }
+
+  html[data-motion="mobile"] .site-header__panel-brand {
+    animation: m-menu-brand 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both;
+  }
+
+  html[data-motion="mobile"] .site-header__panel-cta {
+    animation: m-menu-cta 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+  }
+
+  html[data-motion="mobile"] body[data-nav-open="true"] .site-header__panel-brand img {
+    animation: m-brand-float 5s ease-in-out 0.8s infinite;
+  }
+
+  html[data-motion="mobile"] .ds-btn:active:not(:disabled) {
+    transform: scale(0.985);
+    transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html[data-motion="mobile"] .trust-bar__logo img {
+    transition:
+      transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes m-menu-shell {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes m-menu-link {
+  from {
+    opacity: 0;
+    transform: translate3d(-10px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes m-menu-brand {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes m-menu-cta {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes m-brand-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-motion="mobile"] .site-header__panel,
+  html[data-motion="mobile"] .site-header__panel-link,
+  html[data-motion="mobile"] .site-header__panel-brand,
+  html[data-motion="mobile"] .site-header__panel-cta,
+  html[data-motion="mobile"] body[data-nav-open="true"] .site-header__panel-brand img {
+    animation: none !important;
+  }
+}

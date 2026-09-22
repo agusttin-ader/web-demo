@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { MobileMotionRoot } from "@/components/MobileMotionRoot";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollToTopOnLoad } from "@/components/ScrollToTopOnLoad";
 import { LOCALE_HTML_LANG } from "@/i18n/config";
@@ -51,6 +52,7 @@ export default async function RootLayout({
             {messages.common.skipToContent}
           </a>
           <ScrollToTopOnLoad />
+          <MobileMotionRoot />
           <ScrollProgress />
           <Header />
           {children}
