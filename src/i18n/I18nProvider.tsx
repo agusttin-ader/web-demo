@@ -93,20 +93,10 @@ export function I18nProvider({
     [locale, messages, setLocale, isPending, isTranslating]
   );
 
-  const pageClass = [
-    "locale-page",
-    phase !== "idle" ? `locale-page--${phase}` : "",
-    isPending ? "locale-page--loading" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-
   return (
     <I18nContext.Provider value={value}>
-      <div className={pageClass} aria-busy={isTranslating}>
-        <div key={locale} className="locale-page__content">
-          {children}
-        </div>
+      <div aria-busy={isTranslating}>
+        <div key={locale}>{children}</div>
       </div>
     </I18nContext.Provider>
   );

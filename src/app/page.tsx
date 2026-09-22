@@ -6,7 +6,7 @@ import { Contact } from "@/components/Contact";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
-import { Marquee } from "@/components/Marquee";
+import { TrustBar } from "@/components/TrustBar";
 import { Portfolio } from "@/components/Portfolio";
 import { Problem } from "@/components/Problem";
 import { Plans } from "@/components/Plans";
@@ -24,15 +24,11 @@ export default async function Home() {
 
   return (
     <>
-      <main id="contenido" className="site-shell relative z-10" aria-label={t.common.mainAria}>
+      <main id="contenido" aria-label={t.common.mainAria}>
         <Hero />
-
-        <Marquee />
-
+        <TrustBar />
         <Problem />
-
         <Benefits />
-
         <Portfolio />
         <BentoGrid />
         <Services />

@@ -1,9 +1,10 @@
 import { FaGithub } from "react-icons/fa6";
 import { ExternalLink } from "@/components/ExternalLink";
-import { IconExternal } from "@/components/icons";
 import { ProjectMedia } from "@/components/ProjectMedia";
 import type { Project } from "@/data/projects";
 import type { PortfolioCopy } from "@/i18n/get-dictionary";
+import { Reveal } from "@/components/Reveal";
+import { DS_CLASS } from "@/lib/design-system";
 
 type ProjectCardProps = {
   project: Project;
@@ -15,81 +16,53 @@ export function ProjectCard({ project, copy, priority = false }: ProjectCardProp
   const demoUrl = project.demo ?? project.link;
   const technologies = project.technologies?.length ? project.technologies : project.tags ?? [];
   const badgeLabel = project.type === "demo" ? copy.demo : copy.inProduction;
-  const badgeClass = project.type === "demo" ? "project-badge-demo" : "project-badge-live";
 
   return (
-    <article className="apple-card group relative flex h-full flex-col overflow-hidden">
-      <div className="apple-card-media relative overflow-hidden">
-        <ProjectMedia project={project} variant="featured" priority={priority} showStack copy={copy} />
-      </div>
+    <Reveal variant="up">
+      <article className="project-card project-card--case">
+        <div className="project-card__intro">
+          <ProjectMedia project={project} variant="featured" priority={priority} showStack copy={copy} />
 
-      <div className="flex flex-1 flex-col px-4 pb-6 pt-5 sm:px-8 sm:pb-8 sm:pt-7">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className={`project-badge ${badgeClass}`}>{badgeLabel}</span>
-          <p className="eyebrow-muted tracking-[0.14em]">{copy.featuredCase}</p>
+          <div className="project-card__identity">
+            <div className="project-card__badges">
+              <span className={DS_CLASS.tagAccent}>{badgeLabel}</span>
+              <span className={DS_CLASS.tag}>{copy.featuredCase}</span>
+            </div>
+
+            <h3>{project.title}</h3>
+            <p className="project-card__description">{project.description}</p>
+          </div>
         </div>
-        <h3 className="mt-3 font-display text-[clamp(1.5rem,3vw,1.85rem)] font-bold tracking-tight text-[var(--foreground)]">
-          {project.title}
-        </h3>
-        <p className="mt-1 text-[length:var(--text-sm)] text-[var(--foreground-muted)]">{project.client}</p>
-
-        <dl className="mt-6 space-y-4 pt-1">
-          <div>
-            <dt className="eyebrow-muted tracking-[0.12em]">{copy.problem}</dt>
-            <dd className="mt-1.5 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
-              {project.problem}
-            </dd>
-          </div>
-          <div>
-            <dt className="eyebrow-muted tracking-[0.12em]">{copy.solution}</dt>
-            <dd className="mt-1.5 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
-              {project.solution}
-            </dd>
-          </div>
-          <div>
-            <dt className="text-[length:var(--text-xs)] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
-              {copy.result}
-            </dt>
-            <dd className="mt-1.5 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground)]">
-              {project.result}
-            </dd>
-          </div>
-        </dl>
 
         {technologies.length ? (
-          <div className="mt-6">
-            <p className="eyebrow-muted tracking-[0.12em]">{copy.technologies}</p>
-            <ul className="mt-3 flex flex-wrap gap-x-3 gap-y-1.5">
+          <div className="project-card__tech">
+            <p className="project-card__meta">{copy.technologies}</p>
+            <ul>
               {technologies.map((tech) => (
-                <li
-                  key={tech}
-                  className="text-[length:var(--text-xs)] font-medium text-[var(--foreground-muted)] transition-colors duration-300 group-hover:text-[var(--foreground)]"
-                >
-                  {tech}
+                <li key={tech}>
+                  <span className={DS_CLASS.tag}>{tech}</span>
                 </li>
               ))}
             </ul>
           </div>
         ) : null}
 
-        <div className="mt-auto flex flex-wrap gap-3 pt-7">
+        <div className="project-card__actions">
           {demoUrl ? (
-            <ExternalLink href={demoUrl} className="apple-card-btn apple-card-btn-primary focus-ring">
+            <ExternalLink href={demoUrl} className={DS_CLASS.btnPrimary}>
               {project.type === "demo" ? copy.viewDemo : copy.viewSite}
-              <IconExternal className="mi-icon mi-icon-external h-3 w-3 opacity-70" aria-hidden />
             </ExternalLink>
           ) : null}
-
           {project.github ? (
-            <ExternalLink href={project.github} className="apple-card-btn apple-card-btn-ghost focus-ring">
-              <FaGithub className="h-3.5 w-3.5" aria-hidden />
+            <ExternalLink href={project.github} className={DS_CLASS.btnOutline}>
+              <FaGithub aria-hidden />
               GitHub
             </ExternalLink>
           ) : (
-            <p className="text-[length:var(--text-sm)] text-[var(--muted)]">{copy.privateRepo}</p>
+            <p className="project-card__meta">{copy.privateRepo}</p>
           )}
         </div>
-      </div>
-    </article>
+      </article>
+    </Reveal>
   );
 }

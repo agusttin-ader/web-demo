@@ -2,6 +2,7 @@ export const PHONE_E164 = "+5491168696491";
 export const WHATSAPP_NUMBER = "5491168696491";
 export const EMAIL = "agusttin.dev@gmail.com";
 export const INSTAGRAM_URL = "https://www.instagram.com/agustinader.dev/";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/agustin-franco-ader-165770259/";
 
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   "Hola Agustín, quiero una web que me traiga más consultas."
@@ -12,12 +13,14 @@ export function whatsappUrl(message: string) {
 }
 
 export const NAV_ITEMS = [
-  { id: "beneficios", label: "Beneficios" },
-  { id: "proyecto-real", label: "Proyectos" },
-  { id: "servicios", label: "Servicios" },
-  { id: "planes", label: "Planes" },
-  { id: "contacto", label: "Contacto" },
+  "beneficios",
+  "proyecto-real",
+  "servicios",
+  "planes",
+  "contacto",
 ] as const;
+
+export type NavItemId = (typeof NAV_ITEMS)[number];
 
 export const TECH_STACK = [
   "Next.js",
@@ -27,25 +30,9 @@ export const TECH_STACK = [
   "Vercel",
 ] as const;
 
-/** Stack mostrado en overview / bento. */
-export const OVERVIEW_TECH = TECH_STACK;
-
-export const CLIENTS = [
-  "Rhinoscopy",
-  "Alo Patagonia",
-  "La Guarida Instrumentos",
-  "Dra. Karla Armijos",
-] as const;
-
-export const CERTIFICATIONS = [
-  { title: "Frontend moderno", meta: "Next.js · React · TypeScript" },
-  { title: "Webs que convierten", meta: "Orden · botones claros · lectura fácil" },
-  { title: "WhatsApp integrado", meta: "Contacto directo, sin vueltas" },
-  { title: "Sitios rápidos", meta: "Carga liviana · pensados para el celu" },
-] as const;
-
-export const CERTIFICATIONS_SHORT = [
-  { title: "Frontend moderno", meta: "Next.js · React" },
-  { title: "Webs que convierten", meta: "Claridad · contacto fácil" },
-  { title: "WhatsApp integrado", meta: "Un click y te escriben" },
+export const TRUST_LOGOS = [
+  { id: "rhinoscopy", src: "/images/logos/rhinoscopy-circle.png", alt: "Rhinoscopy" },
+  { id: "alo-patagonia", src: "/images/logos/alopatagonia-brand.png", alt: "Alo Patagonia" },
+  { id: "la-guarida", src: "/images/logos/laguarida.png", alt: "La Guarida Instrumentos" },
+  { id: "dra-karla-armijos", src: "/images/logos/drakarmijos.png", alt: "Dra. Karla Armijos" },
 ] as const;

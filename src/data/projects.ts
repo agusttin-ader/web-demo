@@ -48,7 +48,7 @@ export const projects: Project[] = [
     description:
       "Plataforma de formación en otorrinolaringología, rinología y rinoscopia: congreso, webinars y certificados.",
     image: "/images/logos/rhinoscopy.png",
-    logo: "/images/logos/rhinoscopy.png",
+    logo: "/images/logos/rhinoscopy-circle.png",
     mediaTheme: "rhinoscopy",
     imageAlt:
       "Sitio de Rhinoscopy: formación en rinología, Rhinoscopy Meet, webinars y certificados",
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     description:
       "Web de turismo para coordinar viajes por la Patagonia con consultas directas por WhatsApp.",
     image: "/images/alopatagonia-home.webp",
-    logo: "/images/logos/alopatagonia.png",
+    logo: "/images/logos/alopatagonia-brand.png",
     mediaTheme: "patagonia",
     imageAlt:
       "Sitio web de Alo Patagonia: viajes por la Patagonia con itinerarios claros y consulta por WhatsApp",

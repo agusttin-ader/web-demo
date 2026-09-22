@@ -1,8 +1,9 @@
-import { HiArrowUpRight } from "react-icons/hi2";
 import { ExternalLink } from "@/components/ExternalLink";
 import { ProjectMedia } from "@/components/ProjectMedia";
 import type { Project } from "@/data/projects";
 import type { PortfolioCopy } from "@/i18n/get-dictionary";
+import { Reveal } from "@/components/Reveal";
+import { DS_CLASS } from "@/lib/design-system";
 
 type ProjectDemoCardProps = {
   project: Project;
@@ -13,45 +14,30 @@ export function ProjectDemoCard({ project, copy }: ProjectDemoCardProps) {
   const liveUrl = project.demo ?? project.link;
 
   return (
-    <article className="project-demo group relative flex h-full flex-col overflow-hidden">
-      <div className="project-demo-media relative overflow-hidden">
-        <ProjectMedia project={project} variant="demo" showDemoBadge copy={copy} />
-      </div>
-
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <p className="eyebrow-muted tracking-[0.12em]">{copy.liveExample}</p>
-        <h3 className="mt-2 font-display text-[length:var(--text-xl)] font-bold tracking-tight text-[var(--foreground)]">
-          {project.title}
-        </h3>
-        <p className="mt-3 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
-          {project.description}
-        </p>
-
-        <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1">
-          {project.technologies.slice(0, 4).map((tech) => (
-            <li
-              key={tech}
-              className="text-[length:var(--text-xs)] font-medium text-[var(--muted)]"
-            >
-              {tech}
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-auto pt-5">
-          {liveUrl ? (
-            <ExternalLink href={liveUrl} className="apple-card-btn apple-card-btn-ghost focus-ring w-full sm:w-auto">
-              {copy.viewDemo}
-              <HiArrowUpRight className="h-3.5 w-3.5 opacity-70" aria-hidden />
-            </ExternalLink>
-          ) : (
-            <a href="#contacto" className="apple-card-btn apple-card-btn-ghost focus-ring w-full sm:w-auto">
-              {copy.requestDemoAccess}
-              <HiArrowUpRight className="h-3.5 w-3.5 opacity-70" aria-hidden />
-            </a>
-          )}
-        </div>
-      </div>
+    <Reveal variant="up">
+    <article className={`project-demo-card ${DS_CLASS.card}`}>
+      <ProjectMedia project={project} variant="demo" showDemoBadge copy={copy} />
+      <p className="project-card__meta">{copy.liveExample}</p>
+      <h3>{project.title}</h3>
+      <p className="project-card__description">{project.description}</p>
+      <p className="project-card__meta">{project.stack}</p>
+      <ul>
+        {project.technologies.slice(0, 4).map((tech) => (
+          <li key={tech}>
+            <span className={DS_CLASS.tag}>{tech}</span>
+          </li>
+        ))}
+      </ul>
+      {liveUrl ? (
+        <ExternalLink href={liveUrl} className={DS_CLASS.btnPrimary}>
+          {copy.viewDemo}
+        </ExternalLink>
+      ) : (
+        <a href="#contacto" className={DS_CLASS.btnOutline}>
+          {copy.requestDemoAccess}
+        </a>
+      )}
     </article>
+    </Reveal>
   );
 }

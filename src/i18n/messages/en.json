@@ -41,16 +41,6 @@
     "ctaProjects": "See work",
     "ctaWhatsapp": "Chat on WhatsApp"
   },
-  "marquee": [
-    "More inquiries",
-    "Less back and forth",
-    "WhatsApp in one tap",
-    "Built for mobile",
-    "Real inquiries",
-    "Clear design",
-    "Loads instantly",
-    "Your own channel"
-  ],
   "problem": {
     "label": "The problem",
     "title": "You get traffic, but not inquiries",
@@ -205,6 +195,8 @@
     "title": "Plans and pricing",
     "description": "Prices in USD, no fine print. If you need something extra, we'll quote it separately. I reply within 24 hours.",
     "delivery": "Delivery: {time}",
+    "priceFrom": "From USD {amount}",
+    "priceFixed": "USD {amount}",
     "featuredBadge": "Most chosen",
     "demoBadge": "Try it first",
     "addonsNote": "Domain, copywriting, advanced SEO, blog, another language and monthly maintenance are extra — I'll quote them with no fuss.",
@@ -215,7 +207,7 @@
         "tagline": "To get started and start getting inquiries",
         "delivery": "7 to 10 business days",
         "cta": "I want Essential",
-        "whatsappMessage": "Hi Agustín, I'm interested in the Essential plan (USD 320). I want a landing for my business.",
+        "whatsappMessage": "Hi Agustín, I'm interested in the Essential plan (from USD 320). I want a landing for my business.",
         "features": [
           "A one-page landing (up to 5 sections)",
           "Designed for mobile",
@@ -230,7 +222,7 @@
         "tagline": "When you want to go a step further",
         "delivery": "2 to 3 weeks",
         "cta": "I want Premium",
-        "whatsappMessage": "Hi Agustín, I'm interested in the Premium plan (USD 520). I want a more complete landing for my business.",
+        "whatsappMessage": "Hi Agustín, I'm interested in the Premium plan (from USD 520). I want a more complete landing for my business.",
         "features": [
           "Everything in Essential",
           "Contact form that lands in your inbox",
@@ -328,7 +320,7 @@
       },
       {
         "question": "How much does a website or landing page cost in Argentina?",
-        "answer": "Plans start at USD 320 (Essential) and USD 520 (Premium). You can also request a custom demo for USD 79, deducted if you hire a plan. I'll send a clear quote on WhatsApp in under 24 hours, no fine print."
+        "answer": "Essential and Premium start from USD 320 and USD 520, depending on scope. You can also request a custom demo for USD 79, deducted if you hire a plan. I'll send a clear quote on WhatsApp in under 24 hours, no fine print."
       },
       {
         "question": "Do you do web design, development, or both?",
@@ -410,6 +402,7 @@
     "quickLinks": "Quick links",
     "quickAria": "Footer links",
     "instagramAria": "Agustín Ader on Instagram",
+    "linkedinAria": "Agustín Ader on LinkedIn",
     "whatsappAria": "Agustín Ader on WhatsApp",
     "rights": "© {year} Agustin Ader. All rights reserved.",
     "credit": "Design & development — personal portfolio",

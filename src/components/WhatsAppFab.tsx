@@ -1,20 +1,27 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { ExternalLink } from "@/components/ExternalLink";
 import { IconWhatsApp } from "@/components/icons";
-import { getDictionary } from "@/i18n/get-dictionary";
+import { useI18n } from "@/i18n/I18nProvider";
 import { whatsappUrl } from "@/lib/constants";
+import { MOTION_DURATION, MOTION_EASE } from "@/lib/motion";
 
-export async function WhatsAppFab() {
-  const t = await getDictionary();
+export function WhatsAppFab() {
+  const { t } = useI18n();
+  const reduceMotion = useReducedMotion();
+  const href = whatsappUrl(t.whatsapp.defaultMessage);
 
   return (
-    <div className="whatsapp-fab-shell">
-      <ExternalLink
-        href={whatsappUrl(t.whatsapp.defaultMessage)}
-        aria-label={t.whatsapp.fabAria}
-        className="whatsapp-fab focus-ring inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-md)] transition-[transform,box-shadow] duration-200 ease-[var(--ease-out)] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(37,211,102,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] sm:h-14 sm:w-14"
-      >
-        <IconWhatsApp className="h-6 w-6" aria-hidden />
+    <motion.div
+      className="whatsapp-fab"
+      initial={reduceMotion ? false : { opacity: 0, scale: 0.85, y: 12 }}
+      animate={reduceMotion ? undefined : { opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: MOTION_DURATION, ease: MOTION_EASE, delay: 0.35 }}
+    >
+      <ExternalLink href={href} aria-label={t.whatsapp.fabAria} showHint={false}>
+        <IconWhatsApp aria-hidden />
       </ExternalLink>
-    </div>
+    </motion.div>
   );
 }

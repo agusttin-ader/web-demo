@@ -41,16 +41,6 @@
     "ctaProjects": "Ver proyectos",
     "ctaWhatsapp": "Hablar por WhatsApp"
   },
-  "marquee": [
-    "Más consultas",
-    "Menos vueltas",
-    "WhatsApp a un click",
-    "Pensada para el celu",
-    "Consultas de verdad",
-    "Diseño claro",
-    "Carga al toque",
-    "Canal propio"
-  ],
   "problem": {
     "label": "El problema",
     "title": "Tenés tráfico, pero no consultas",
@@ -205,6 +195,8 @@
     "title": "Planes y precios",
     "description": "Valores en USD, sin letra chica. Si necesitás algo extra, lo vemos aparte. Te respondo en 24 hs.",
     "delivery": "Entrega: {time}",
+    "priceFrom": "Desde USD {amount}",
+    "priceFixed": "USD {amount}",
     "featuredBadge": "Más elegido",
     "demoBadge": "Para probar",
     "addonsNote": "Dominio, textos, SEO avanzado, blog, otro idioma y mantenimiento mensual van aparte — te los cotizo sin drama.",
@@ -215,7 +207,7 @@
         "tagline": "Para arrancar y recibir consultas",
         "delivery": "7 a 10 días hábiles",
         "cta": "Quiero Essential",
-        "whatsappMessage": "Hola Agustín, me interesa el plan Essential (USD 320). Quiero una landing para mi negocio.",
+        "whatsappMessage": "Hola Agustín, me interesa el plan Essential (desde USD 320). Quiero una landing para mi negocio.",
         "features": [
           "Una landing de una sola página (hasta 5 secciones)",
           "Diseño pensado para el celu",
@@ -230,7 +222,7 @@
         "tagline": "Cuando querés ir un paso más allá",
         "delivery": "2 a 3 semanas",
         "cta": "Quiero Premium",
-        "whatsappMessage": "Hola Agustín, me interesa el plan Premium (USD 520). Quiero una landing más completa para mi negocio.",
+        "whatsappMessage": "Hola Agustín, me interesa el plan Premium (desde USD 520). Quiero una landing más completa para mi negocio.",
         "features": [
           "Todo lo del Essential",
           "Formulario de contacto que te llega al mail",
@@ -306,7 +298,7 @@
   },
   "skills": {
     "label": "Stack",
-    "title": "Con qué laburo",
+    "title": "Con qué trabajo",
     "description": "Herramientas que uso para entregar sitios rápidos, claros y que inviten a escribirte.",
     "items": {
       "Next.js": "Sitios rápidos y SEO",
@@ -328,7 +320,7 @@
       },
       {
         "question": "¿Cuánto cuesta una página web o landing en Argentina?",
-        "answer": "Los planes arrancan en USD 320 (Essential) y USD 520 (Premium). También podés pedir una demo a medida por USD 79, que se descuenta si contratás un plan. Te paso presupuesto claro por WhatsApp en menos de 24 horas, sin letra chica."
+        "answer": "Essential y Premium arrancan desde USD 320 y desde USD 520, según alcance. También podés pedir una demo a medida por USD 79, que se descuenta si contratás un plan. Te paso presupuesto claro por WhatsApp en menos de 24 horas, sin letra chica."
       },
       {
         "question": "¿Hacés diseño web, programación o las dos cosas?",
@@ -410,6 +402,7 @@
     "quickLinks": "Links rápidos",
     "quickAria": "Enlaces del pie de página",
     "instagramAria": "Instagram de Agustín Ader",
+    "linkedinAria": "LinkedIn de Agustín Ader",
     "whatsappAria": "WhatsApp de Agustín Ader",
     "rights": "© {year} Agustin Ader. Todos los derechos reservados.",
     "credit": "Diseño & desarrollo — portfolio personal",

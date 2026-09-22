@@ -11,26 +11,10 @@ export function IconWhatsApp({ className, ...rest }: IconProps) {
   );
 }
 
-export function IconArrowRight({ className, ...rest }: IconProps) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className={className} aria-hidden="true" {...rest}>
-      <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 export function IconExternal({ className, ...rest }: IconProps) {
   return (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" className={className} aria-hidden="true" {...rest}>
       <path d="M4.5 11.5 11.5 4.5M7 4.5h4.5V9" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export function IconComments({ className, "aria-hidden": ariaHidden = true, ...rest }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden={ariaHidden} {...rest}>
-      <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
     </svg>
   );
 }

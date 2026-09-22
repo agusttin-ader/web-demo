@@ -9,6 +9,7 @@ import {
 import {
   EMAIL,
   INSTAGRAM_URL,
+  LINKEDIN_URL,
   PHONE_E164,
   WHATSAPP_NUMBER,
 } from "@/lib/constants";
@@ -245,7 +246,7 @@ export function buildJsonLd() {
         telephone: PHONE_E164,
         jobTitle: "Desarrollador web freelance",
         description: DEFAULT_DESCRIPTION,
-        sameAs: [INSTAGRAM_URL, WHATSAPP_PROFILE],
+        sameAs: [LINKEDIN_URL, INSTAGRAM_URL, WHATSAPP_PROFILE],
         knowsAbout: [
           "Desarrollo web",
           "Programación web",
@@ -406,7 +407,7 @@ export function buildJsonLd() {
             url: WHATSAPP_PROFILE,
           },
         ],
-        sameAs: [INSTAGRAM_URL, WHATSAPP_PROFILE],
+        sameAs: [LINKEDIN_URL, INSTAGRAM_URL, WHATSAPP_PROFILE],
       },
       {
         "@type": "OfferCatalog",

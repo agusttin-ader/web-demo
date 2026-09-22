@@ -1,9 +1,9 @@
-import { HiArrowUpRight } from "react-icons/hi2";
 import { ExternalLink } from "@/components/ExternalLink";
 import { ProjectMedia } from "@/components/ProjectMedia";
 import type { Project } from "@/data/projects";
 import { interpolate } from "@/i18n/format";
 import type { PortfolioCopy } from "@/i18n/get-dictionary";
+import { Reveal } from "@/components/Reveal";
 
 type ProjectRowProps = {
   project: Project;
@@ -14,34 +14,26 @@ export function ProjectRow({ project, copy }: ProjectRowProps) {
   const liveUrl = project.demo ?? project.link;
 
   return (
-    <article className="project-row group">
-      <div className="project-row-media shrink-0 overflow-hidden rounded-[var(--radius-md)]">
+    <Reveal variant="up">
+      <article className="project-row project-row--list">
         <ProjectMedia project={project} variant="row" copy={copy} />
-      </div>
-
-      <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="project-badge project-badge-live">{copy.inProduction}</span>
-          <span className="text-[length:var(--text-xs)] text-[var(--muted)]">{project.stack}</span>
+        <div className="project-row__main">
+          <p className="project-row__label">{copy.inProduction}</p>
+          <h3>{project.title}</h3>
+          <p className="project-card__description">{project.description}</p>
+          <p className="project-card__meta">{project.stack}</p>
         </div>
-        <h3 className="mt-2 font-display text-[length:var(--text-lg)] font-bold tracking-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--accent-bright)]">
-          {project.title}
-        </h3>
-        <p className="mt-1.5 line-clamp-2 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
-          {project.result}
-        </p>
-      </div>
-
-      {liveUrl ? (
-        <ExternalLink
-          href={liveUrl}
-          className="project-row-link focus-ring"
-          aria-label={interpolate(copy.viewSiteAria, { title: project.title })}
-          showHint={false}
-        >
-          <HiArrowUpRight className="h-4 w-4" aria-hidden />
-        </ExternalLink>
-      ) : null}
-    </article>
+        {liveUrl ? (
+          <ExternalLink
+            href={liveUrl}
+            showHint={false}
+            className="project-row__cta"
+            aria-label={interpolate(copy.viewSiteAria, { title: project.title })}
+          >
+            {copy.viewSite}
+          </ExternalLink>
+        ) : null}
+      </article>
+    </Reveal>
   );
 }

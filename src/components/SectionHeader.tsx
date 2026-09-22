@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Reveal } from "@/components/Reveal";
+import { DS_CLASS } from "@/lib/design-system";
 
 type SectionHeaderProps = {
   label: string;
@@ -9,37 +10,29 @@ type SectionHeaderProps = {
   className?: string;
   titleClassName?: string;
   id?: string;
+  eyebrowMuted?: boolean;
 };
 
 export function SectionHeader({
   label,
   title,
   description,
-  align = "center",
-  className = "",
-  titleClassName = "",
   id,
+  align = "left",
+  className = "",
 }: SectionHeaderProps) {
-  const centered = align === "center";
+  const alignClass = align === "center" ? "ds-section-header--center" : "";
 
   return (
-    <Reveal variant="up" className={`mb-[var(--space-8)] max-w-2xl ${centered ? "mx-auto text-center" : "text-left"} ${className}`.trim()}>
-      <p className="eyebrow">{label}</p>
-      <h2
-        id={id}
-        className={`mt-6 font-display text-[length:var(--text-3xl)] font-bold tracking-[-0.03em] text-[var(--foreground)] ${titleClassName}`.trim()}
-      >
-        {title}
-      </h2>
-      {description ? (
-        <p
-          className={`mt-6 max-w-xl text-[length:var(--text-base)] leading-relaxed text-[var(--foreground-muted)] ${
-            centered ? "mx-auto" : ""
-          }`}
-        >
-          {description}
+    <Reveal variant="up">
+      <header className={`ds-section-header ${alignClass} ${className}`.trim()}>
+        <p className={DS_CLASS.eyebrow}>
+          <span className={DS_CLASS.eyebrowDot} aria-hidden />
+          {label}
         </p>
-      ) : null}
+        <h2 id={id}>{title}</h2>
+        {description ? <p className={`ds-section-header__desc ${DS_CLASS.proseMuted}`}>{description}</p> : null}
+      </header>
     </Reveal>
   );
 }

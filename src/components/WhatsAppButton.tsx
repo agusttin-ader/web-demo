@@ -19,28 +19,16 @@ export function WhatsAppButton({
   href = WHATSAPP_URL,
   className = "",
   magnetic = false,
-  strength = 0.2,
-  variant = "primary",
   showIcon = true,
 }: WhatsAppButtonProps) {
-  const btnClass = variant === "primary" ? "btn-primary" : "btn-ghost";
   const link = (
-    <ExternalLink href={href} className={`${btnClass} focus-ring ${className}`.trim()}>
-      {showIcon ? (
-        <IconWhatsApp
-          className={`h-4 w-4 ${variant === "ghost" ? "text-[#25D366]" : ""}`.trim()}
-          aria-hidden
-        />
-      ) : null}
+    <ExternalLink href={href} showHint={false} className={className}>
+      {showIcon ? <IconWhatsApp aria-hidden /> : null}
       {children}
     </ExternalLink>
   );
 
   if (!magnetic) return link;
 
-  return (
-    <Magnetic className="w-full sm:w-auto" strength={strength}>
-      {link}
-    </Magnetic>
-  );
+  return <Magnetic>{link}</Magnetic>;
 }

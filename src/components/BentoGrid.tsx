@@ -1,161 +1,107 @@
-import type { ReactNode } from "react";
-import {
-  HiOutlineBriefcase,
-  HiOutlineCpuChip,
-  HiOutlineBuildingOffice2,
-  HiOutlineAcademicCap,
-  HiOutlineSignal,
-  HiArrowUpRight,
-} from "react-icons/hi2";
+import Image from "next/image";
 import { ExternalLink } from "@/components/ExternalLink";
-import { IconWhatsApp } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { CLIENTS, OVERVIEW_TECH, whatsappUrl } from "@/lib/constants";
-
-function BentoCell({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
-  return (
-    <Reveal className={`bento-cell ${className}`} variant="scale" delay={delay}>
-      {children}
-    </Reveal>
-  );
-}
+import { TECH_STACK, TRUST_LOGOS, whatsappUrl } from "@/lib/constants";
+import { DS_CLASS } from "@/lib/design-system";
 
 export async function BentoGrid() {
   const t = await getDictionary();
+  const stats = t.about.stats;
 
   return (
-    <section id="overview" className="section-shell">
-      <div className="cq w-full">
-        <SectionHeader
-          align="left"
-          label={t.overview.label}
-          title={t.overview.title}
-          description={t.overview.description}
-          className="mb-0 max-w-xl"
-        />
+    <section id="overview" className={`overview ${DS_CLASS.sectionLight}`}>
+      <div className={DS_CLASS.container}>
+        <div className="overview__layout">
+          <aside className="overview__aside">
+            <SectionHeader
+              label={t.overview.label}
+              title={t.overview.title}
+              description={t.overview.description}
+            />
 
-        <div className="cq-grid-bento mt-14 sm:mt-16">
-          <BentoCell className="bento-cell-accent cq-bento-experience relative" delay={0}>
-            <div className="bento-cell-glow" aria-hidden />
-            <div className="relative flex h-full flex-col justify-between p-5 sm:p-7 lg:p-8">
-              <div className="flex items-center gap-2 text-[var(--muted)]">
-                <HiOutlineBriefcase className="h-4 w-4 shrink-0" aria-hidden />
-                <span className="eyebrow-muted tracking-[0.14em]">{t.overview.experience}</span>
+            <Reveal variant="up" delay={80}>
+              <div className="overview__availability">
+                <p className="overview__block-label">{t.overview.availability}</p>
+                <p className="overview__highlight">{t.overview.available}</p>
+                <p className="overview__muted">{t.overview.availableBody}</p>
               </div>
-              <div className="min-w-0">
-                <p className="font-display text-[clamp(3.25rem,12vw,6.5rem)] font-bold leading-none tracking-tight text-gradient">
-                  2+
-                </p>
-                <p className="mt-3 max-w-xs text-[length:var(--text-lg)] text-[var(--foreground-muted)]">
-                  {t.overview.experienceBody}
-                </p>
-                <p className="mt-4 text-[length:var(--text-sm)] text-[var(--muted)]">{t.overview.experienceMeta}</p>
-              </div>
-            </div>
-          </BentoCell>
+            </Reveal>
 
-          <BentoCell className="cq-span-2" delay={80}>
-            <div className="flex h-full flex-col p-5 sm:p-7">
-              <div className="flex items-center gap-2 text-[var(--muted)]">
-                <HiOutlineCpuChip className="h-4 w-4 shrink-0" aria-hidden />
-                <span className="eyebrow-muted tracking-[0.14em]">{t.overview.tech}</span>
-              </div>
-              <p className="mt-4 font-display text-[length:var(--text-xl)] font-bold text-[var(--foreground)]">
-                {t.overview.techTitle}
-              </p>
-              <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
-                {OVERVIEW_TECH.map((tech) => (
-                  <li key={tech} className="bento-chip">
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </BentoCell>
-
-          <BentoCell delay={120}>
-            <div className="flex h-full flex-col p-5 sm:p-6">
-              <div className="flex items-center gap-2 text-[var(--muted)]">
-                <HiOutlineBuildingOffice2 className="h-4 w-4 shrink-0" aria-hidden />
-                <span className="eyebrow-muted tracking-[0.14em]">{t.overview.clients}</span>
-              </div>
-              <p className="mt-5 font-display text-[length:var(--text-2xl)] font-bold text-[var(--foreground)]">
-                2+
-              </p>
-              <ul className="mt-4 space-y-2">
-                {CLIENTS.map((client) => (
-                  <li key={client} className="break-words text-[length:var(--text-sm)] text-[var(--foreground-muted)]">
-                    {client}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </BentoCell>
-
-          <BentoCell delay={160}>
-            <div className="flex h-full flex-col justify-between p-5 sm:p-6">
-              <div className="flex items-center gap-2 text-[var(--muted)]">
-                <HiOutlineSignal className="h-4 w-4 shrink-0" aria-hidden />
-                <span className="eyebrow-muted tracking-[0.14em]">{t.overview.availability}</span>
-              </div>
-              <div className="mt-6">
-                <span className="inline-flex items-center gap-2 text-[length:var(--text-xs)] font-semibold uppercase tracking-[0.12em] text-[#4ade80]">
-                  <span className="bento-pulse" aria-hidden />
-                  {t.overview.available}
-                </span>
-                <p className="mt-4 text-[length:var(--text-sm)] leading-relaxed text-[var(--foreground-muted)]">
-                  {t.overview.availableBody}
-                </p>
-              </div>
-            </div>
-          </BentoCell>
-
-          <BentoCell className="cq-span-2" delay={200}>
-            <div className="flex h-full flex-col p-5 sm:p-7">
-              <div className="flex items-center gap-2 text-[var(--muted)]">
-                <HiOutlineAcademicCap className="h-4 w-4 shrink-0" aria-hidden />
-                <span className="eyebrow-muted tracking-[0.14em]">{t.overview.certs}</span>
-              </div>
-              <ul className="cq-certs-row mt-5 grid gap-4">
-                {t.overview.certsItems.map((cert) => (
-                  <li key={cert.title} className="cq-cert-item min-w-0">
-                    <p className="font-display text-[length:var(--text-sm)] font-bold text-[var(--foreground)]">
-                      {cert.title}
-                    </p>
-                    <p className="mt-1 text-[length:var(--text-xs)] text-[var(--muted)]">{cert.meta}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </BentoCell>
-
-          <BentoCell className="bento-cell-cta cq-span-2" delay={240}>
-            <ExternalLink
-              href={whatsappUrl(t.whatsapp.defaultMessage)}
-              className="focus-ring relative flex h-full flex-col justify-between rounded-[inherit] p-5 sm:p-7"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <span className="text-[length:var(--text-xs)] font-semibold uppercase tracking-[0.14em] text-[var(--btn-primary-text)]/80">
-                  {t.overview.contact}
-                </span>
-                <HiArrowUpRight className="h-4 w-4 shrink-0 text-[var(--btn-primary-text)]/80" aria-hidden />
-              </div>
-              <div className="mt-8 min-w-0">
-                <p className="font-display text-[length:var(--text-2xl)] font-bold tracking-tight text-[var(--btn-primary-text)] sm:text-[length:var(--text-3xl)]">
-                  {t.overview.ctaTitle}
-                </p>
-                <p className="mt-2 max-w-sm text-[length:var(--text-sm)] text-[var(--btn-primary-text)]/80">
-                  {t.overview.ctaBody}
-                </p>
-                <span className="mt-6 inline-flex items-center gap-2 text-[length:var(--text-sm)] font-semibold text-[var(--btn-primary-text)]">
-                  <IconWhatsApp className="h-4 w-4" aria-hidden />
+            <Reveal variant="up" delay={140}>
+              <div className="overview__cta">
+                <p className="overview__block-label">{t.overview.contact}</p>
+                <h3 className="overview__cta-title">{t.overview.ctaTitle}</h3>
+                <p className="overview__muted">{t.overview.ctaBody}</p>
+                <ExternalLink href={whatsappUrl(t.whatsapp.defaultMessage)} className={DS_CLASS.btnPrimary}>
                   {t.overview.ctaAction}
-                </span>
+                </ExternalLink>
               </div>
-            </ExternalLink>
-          </BentoCell>
+            </Reveal>
+          </aside>
+
+          <div className="overview__main">
+            <dl className="overview__kpis">
+              {stats.map((stat, index) => (
+                <div key={stat.label} className="overview__kpi">
+                  <Reveal variant="fade" delay={index * 40}>
+                    <dt>{stat.label}</dt>
+                    <dd>{stat.value}</dd>
+                  </Reveal>
+                </div>
+              ))}
+            </dl>
+
+            <Reveal variant="up">
+              <section className="overview__block">
+                <p className="overview__block-label">{t.overview.tech}</p>
+                <h3 className="overview__block-title">{t.overview.techTitle}</h3>
+                <ul className="overview__tags">
+                  {TECH_STACK.map((tech) => (
+                    <li key={tech}>
+                      <span className={DS_CLASS.tag}>{tech}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </Reveal>
+
+            <Reveal variant="up" delay={60}>
+              <section className="overview__block">
+                <p className="overview__block-label">{t.overview.clients}</p>
+                <ul className="overview__logos" aria-label={t.overview.clients}>
+                  {TRUST_LOGOS.map((logo) => (
+                    <li key={logo.id}>
+                      <Image src={logo.src} alt={logo.alt} width={120} height={40} />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </Reveal>
+
+            <Reveal variant="up" delay={100}>
+              <section className="overview__block">
+                <p className="overview__block-label">{t.overview.experience}</p>
+                <p className="overview__body">{t.overview.experienceBody}</p>
+                <p className="overview__muted">{t.overview.experienceMeta}</p>
+              </section>
+            </Reveal>
+
+            <Reveal variant="up" delay={120}>
+              <section className="overview__block">
+                <p className="overview__block-label">{t.overview.certs}</p>
+                <ul className="overview__certs">
+                  {t.overview.certsItems.map((cert) => (
+                    <li key={cert.title}>
+                      <p className="overview__cert-title">{cert.title}</p>
+                      <p className="overview__muted">{cert.meta}</p>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

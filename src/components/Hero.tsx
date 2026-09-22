@@ -1,79 +1,68 @@
-import { IconArrowRight } from "@/components/icons";
-import { HeroMockups } from "@/components/HeroMockups";
+import { ExternalLink } from "@/components/ExternalLink";
 import { Reveal } from "@/components/Reveal";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { DS_CLASS } from "@/lib/design-system";
 import { TECH_STACK, whatsappUrl } from "@/lib/constants";
 
 export async function Hero() {
   const t = await getDictionary();
 
   return (
-    <section
-      id="hero"
-      className="hero-stage relative min-h-[100dvh] overflow-x-clip overflow-y-visible pt-[calc(var(--header-offset)+0.25rem)]"
-      aria-labelledby="hero-heading"
-    >
-      <div className="hero-mesh" aria-hidden />
+    <section id="hero" className={`hero ${DS_CLASS.sectionLight}`} aria-labelledby="hero-heading">
+      <div className={DS_CLASS.container}>
+        <div className="hero__grid">
+          <div className="hero__main">
+            <Reveal variant="fade" initialVisible delay={0}>
+              <p className={DS_CLASS.eyebrow}>
+                <span className={DS_CLASS.eyebrowDot} aria-hidden />
+                {t.hero.eyebrow}
+              </p>
+            </Reveal>
 
-      <div className="site-container relative z-10 grid min-h-[calc(100dvh-6rem)] items-center gap-10 pb-20 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-10 lg:gap-20 lg:pb-32">
-        <div className="min-w-0 max-w-2xl">
-          <Reveal variant="up">
-            <p className="eyebrow mb-8">{t.hero.eyebrow}</p>
-          </Reveal>
+            <Reveal variant="up" initialVisible delay={60}>
+              <h1 id="hero-heading" className="hero__title">
+                {t.hero.titleBefore}
+                <br />
+                <span className="text-accent">{t.hero.titleAccent}</span>
+                <br />
+                <span className="text-muted">{t.hero.titleAfter}</span>
+              </h1>
+            </Reveal>
+          </div>
 
-          <Reveal variant="up" delay={60}>
-            <h1
-              id="hero-heading"
-              className="max-w-[14ch] font-display text-[length:var(--text-hero)] font-bold leading-[0.95] tracking-[-0.04em] text-[var(--foreground)]"
-            >
-              {t.hero.titleBefore}
-              <br />
-              <span className="text-gradient">{t.hero.titleAccent}</span>
-              <br />
-              {t.hero.titleAfter}
-            </h1>
-          </Reveal>
+          <div className="hero__aside">
+            <div className="hero__panel">
+              <Reveal variant="up" initialVisible delay={120}>
+                <p className={`hero__lead ${DS_CLASS.proseMuted}`}>{t.hero.body}</p>
+              </Reveal>
 
-          <Reveal variant="up" delay={120}>
-            <p className="mt-10 max-w-md text-[length:var(--text-lg)] leading-relaxed text-[var(--foreground-muted)]">
-              {t.hero.body}
-            </p>
-          </Reveal>
+              <Reveal variant="up" initialVisible delay={180}>
+                <div className="hero__actions">
+                  <a href="#proyecto-real" className={DS_CLASS.btnPrimary}>
+                    {t.hero.ctaProjects}
+                  </a>
+                  <ExternalLink
+                    href={whatsappUrl(t.whatsapp.defaultMessage)}
+                    className={DS_CLASS.btnOutline}
+                    showHint={false}
+                  >
+                    {t.hero.ctaWhatsapp}
+                  </ExternalLink>
+                </div>
+              </Reveal>
 
-          <Reveal variant="up" delay={160}>
-            <div className="mt-12 flex w-full flex-col gap-4 sm:max-w-none sm:flex-row sm:items-center">
-              <a href="#proyecto-real" className="btn-primary focus-ring w-full sm:w-auto">
-                {t.hero.ctaProjects}
-                <IconArrowRight className="mi-icon mi-icon-right h-4 w-4" aria-hidden />
-              </a>
-              <WhatsAppButton
-                variant="ghost"
-                magnetic={false}
-                className="w-full sm:w-auto"
-                href={whatsappUrl(t.whatsapp.defaultMessage)}
-              >
-                {t.hero.ctaWhatsapp}
-              </WhatsAppButton>
+              <Reveal variant="fade" initialVisible delay={240}>
+                <ul className="hero__stack" aria-label={t.common.techAria}>
+                  {TECH_STACK.map((tech) => (
+                    <li key={tech}>
+                      <span className={DS_CLASS.tag}>{tech}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
             </div>
-          </Reveal>
-
-          <ul className="mt-16 flex flex-wrap items-center gap-x-5 gap-y-3" aria-label={t.common.techAria}>
-            {TECH_STACK.map((tech, i) => (
-              <li
-                key={tech}
-                className="flex items-center gap-3 text-[length:var(--text-xs)] font-medium tracking-wide text-[var(--muted)]"
-              >
-                {i > 0 ? (
-                  <span className="h-1 w-1 rounded-full bg-[var(--accent)]/50" aria-hidden />
-                ) : null}
-                <span>{tech}</span>
-              </li>
-            ))}
-          </ul>
+          </div>
         </div>
-
-        <HeroMockups />
       </div>
     </section>
   );

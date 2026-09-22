@@ -30,7 +30,7 @@ export const PLANS: Plan[] = [
     ],
     cta: "Quiero Essential",
     whatsappMessage:
-      "Hola Agustín, me interesa el plan Essential (USD 320). Quiero una landing para mi negocio.",
+      "Hola Agustín, me interesa el plan Essential (desde USD 320). Quiero una landing para mi negocio.",
   },
   {
     id: "premium",
@@ -50,7 +50,7 @@ export const PLANS: Plan[] = [
     ],
     cta: "Quiero Premium",
     whatsappMessage:
-      "Hola Agustín, me interesa el plan Premium (USD 520). Quiero una landing más completa para mi negocio.",
+      "Hola Agustín, me interesa el plan Premium (desde USD 520). Quiero una landing más completa para mi negocio.",
   },
   {
     id: "demo",
@@ -69,6 +69,3 @@ export const PLANS: Plan[] = [
     whatsappMessage: "Hola Agustín, me interesa la demo a medida (USD 79). Mi negocio es: ",
   },
 ];
-
-export const PLAN_ADDONS_NOTE =
-  "Dominio, textos, SEO avanzado, blog, otro idioma y mantenimiento mensual van aparte — te los cotizo sin drama.";
