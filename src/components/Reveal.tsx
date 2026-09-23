@@ -1,14 +1,9 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import { useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { useMobileMotion } from "@/hooks/useMobileMotion";
-import {
-  MOBILE_MOTION_DURATION,
-  MOBILE_MOTION_EASE,
-  MOBILE_MOTION_VIEWPORT,
-  MOBILE_REVEAL_VARIANTS,
-} from "@/lib/motion";
+import { observeReveal } from "@/lib/reveal-observer";
 
 export type RevealVariant = "up" | "fade";
 
@@ -30,33 +25,42 @@ export function Reveal({
 }: RevealProps) {
   const reduceMotion = useReducedMotion();
   const mobileMotion = useMobileMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const [revealed, setRevealed] = useState(initialVisible);
 
-  if (reduceMotion || !mobileMotion) {
+  const motionOn = mobileMotion && !reduceMotion;
+
+  useEffect(() => {
+    if (!motionOn) return;
+
+    if (initialVisible) {
+      setRevealed(true);
+      return;
+    }
+
+    const node = ref.current;
+    if (!node) return;
+
+    return observeReveal(node, () => setRevealed(true));
+  }, [motionOn, initialVisible]);
+
+  if (!motionOn) {
     return className ? <div className={className}>{children}</div> : <>{children}</>;
   }
 
-  const variants = MOBILE_REVEAL_VARIANTS[variant] as Variants;
-
-  const transition = {
-    duration: MOBILE_MOTION_DURATION,
-    ease: MOBILE_MOTION_EASE,
-    delay: delay / 1000,
-  };
+  const style = {
+    "--m-reveal-delay": `${Math.min(delay, 280)}ms`,
+  } as CSSProperties;
 
   return (
-    <motion.div
+    <div
+      ref={ref}
       className={className}
-      variants={variants}
-      transition={transition}
-      {...(initialVisible
-        ? { initial: "hidden", animate: "visible" }
-        : {
-            initial: "hidden",
-            whileInView: "visible",
-            viewport: MOBILE_MOTION_VIEWPORT,
-          })}
+      data-m-reveal={variant}
+      data-m-reveal-in={revealed ? "" : undefined}
+      style={style}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
