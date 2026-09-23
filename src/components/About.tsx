@@ -35,7 +35,7 @@ export async function About() {
                 alt={t.about.photoAlt}
                 width={480}
                 height={640}
-                sizes="(min-width: 1024px) 22rem, 70vw"
+                sizes="(min-width: 1024px) 22rem, 100vw"
                 className="about__photo"
                 loading="lazy"
               />

@@ -1391,6 +1391,13 @@
     background-color: var(--color-accent);
   }
 
+  .about__media {
+    --about-photo-inset: var(--space-4);
+    width: calc(100vw - 2 * var(--about-photo-inset));
+    max-width: calc(100vw - 2 * var(--about-photo-inset));
+    margin-inline: calc(50% - 50vw + var(--about-photo-inset));
+  }
+
   .about__figure {
     margin: 0;
     text-align: center;
@@ -1398,8 +1405,8 @@
 
   .about__photo {
     display: block;
-    width: min(100%, 17.5rem);
-    margin-inline: auto;
+    width: 100%;
+    margin-inline: 0;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: 72% 35%;
@@ -1407,9 +1414,17 @@
   }
 
   @media (min-width: 1024px) {
+    .about__media {
+      width: auto;
+      max-width: none;
+      margin-inline: 0;
+    }
+
     .about__photo {
       width: 100%;
       max-width: 20rem;
+      margin-inline: auto;
+      border: 1px solid var(--section-border);
     }
   }
 
