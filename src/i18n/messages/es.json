@@ -34,10 +34,14 @@
   },
   "hero": {
     "eyebrow": "Desarrollo web · Argentina",
-    "titleBefore": "Landing pages que",
-    "titleAccent": "convierten",
-    "titleAfter": "visitas en consultas",
-    "body": "Desarrollo web y programación de páginas web para el celu: carga rápida, diseño claro y WhatsApp a mano — para negocios que quieren que la web labure de verdad.",
+    "titleLines": [
+      { "text": "Landing pages", "variant": "default" },
+      { "text": "que", "variant": "default" },
+      { "text": "convierten", "variant": "accent" },
+      { "text": "visitas en", "variant": "muted" },
+      { "text": "consultas", "variant": "muted" }
+    ],
+    "body": "Diseño y código para el celu: carga rápida, mensaje claro y WhatsApp a un toque — para negocios que quieren una web que trabaje de verdad.",
     "ctaProjects": "Ver proyectos",
     "ctaWhatsapp": "Hablar por WhatsApp"
   },
@@ -51,7 +55,7 @@
       "Se te escapan consultas porque nadie entiende cómo contactarte"
     ],
     "closing": "Menos vueltas, más consultas.",
-    "closingAccent": "Para eso laburo."
+    "closingAccent": "Para eso trabajo."
   },
   "benefits": {
     "label": "Beneficios",
@@ -78,7 +82,7 @@
   "portfolio": {
     "label": "Portfolio",
     "title": "Trabajos que ya están online",
-    "description": "Sitios reales con clientes y un demo para que veas cómo trabajo. En cada uno: qué había, qué hice y qué pasó.",
+    "description": "Sitios reales con clientes y un demo para que veas cómo trabajo.",
     "inProduction": "En producción",
     "activeSites": "{count} sitios activos con clientes reales",
     "demo": "Demo",
@@ -136,12 +140,12 @@
   "overview": {
     "label": "Resumen",
     "title": "De un vistazo",
-    "description": "Experiencia, herramientas, clientes y si estoy tomando laburo — todo junto.",
+    "description": "Experiencia, herramientas, clientes y si estoy tomando proyectos — todo junto.",
     "experience": "Experiencia",
-    "experienceBody": "años haciendo landings claras para negocios de acá.",
+    "experienceBody": "2+ años haciendo landings claras para negocios de acá.",
     "experienceMeta": "Freelance · Argentina · 2024—hoy",
     "tech": "Tecnologías",
-    "techTitle": "Stack con el que laburo",
+    "techTitle": "Stack con el que trabajo",
     "clients": "Clientes",
     "availability": "Disponibilidad",
     "available": "Tomando proyectos",
@@ -151,6 +155,12 @@
     "ctaTitle": "Hablemos de tu web",
     "ctaBody": "Contame tu negocio por WhatsApp y vemos cómo seguir.",
     "ctaAction": "Escribir ahora",
+    "stats": [
+      { "value": "2+", "label": "Años de experiencia" },
+      { "value": "4+", "label": "Proyectos publicados" },
+      { "value": "100%", "label": "Diseño mobile-first" },
+      { "value": "24h", "label": "Primera respuesta" }
+    ],
     "certsItems": [
       { "title": "Frontend moderno", "meta": "Next.js · React" },
       { "title": "Webs que convierten", "meta": "Claridad · contacto fácil" },
@@ -252,22 +262,26 @@
   "about": {
     "label": "Sobre mí",
     "role": "Desarrollador web freelance · Argentina",
-    "body": "Trabajo con negocios que necesitan resultados, no solo una web linda. La idea es simple: que entiendan qué hacés, te escriban y listo.",
-    "bodyAlt": "Sin tecnicismos de más. Te armo una web clara, que se vea bien y que lleve directo al contacto.",
+    "body": "Trabajo con negocios y profesionales que necesitan una web alineada a un objetivo concreto: que entiendan qué ofrecés y te contacten sin dar vueltas.",
+    "bodyAlt": "Me ocupo del diseño y del desarrollo en el mismo proceso: estructura clara, lectura cómoda en el celular y tiempos de carga cuidados. Trabajo con Next.js, React y TypeScript para entregar sitios rápidos, estables y listos para crecer.",
+    "bodyExtra": "Cada proyecto arranca con alcance y plazos definidos. Te acompaño con comunicación directa y avances concretos — sin agencia de por medio ni sorpresas en el presupuesto.",
+    "highlights": [
+      "Landings y sitios para pymes, servicios y marcas personales",
+      "Proyectos remotos con clientes de todo Argentina",
+      "Entrega online en tu dominio, lista para usar"
+    ],
     "photoAlt": "Agustín Ader — desarrollador web freelance en Argentina",
     "photoCaption": "Landings · más consultas",
-    "years": "años de experiencia",
-    "freelanceSince": "Freelance desde 2024",
     "numbers": "En números",
     "timelineLabel": "Recorrido",
     "timelineTitle": "Cómo llegué hasta acá",
     "focusLabel": "Formación y foco",
     "focusTitle": "En qué me especializo",
     "stats": [
-      { "value": "2+", "label": "Años laburando en esto" },
-      { "value": "2+", "label": "Sitios en producción" },
-      { "value": "100%", "label": "Pensado para el celu" },
-      { "value": "24h", "label": "Te respondo en" }
+      { "value": "2+", "label": "Años de experiencia" },
+      { "value": "4+", "label": "Proyectos publicados" },
+      { "value": "100%", "label": "Diseño mobile-first" },
+      { "value": "24h", "label": "Primera respuesta" }
     ],
     "timeline": [
       {
@@ -311,8 +325,8 @@
   },
   "faq": {
     "label": "Preguntas frecuentes",
-    "title": "Desarrollo web, páginas web y programación",
-    "description": "Respuestas directas sobre precios, plazos y qué incluye trabajar conmigo en tu página web.",
+    "title": "Dudas frecuentes",
+    "description": "Precios, plazos y qué incluye cada plan.",
     "items": [
       {
         "question": "¿Qué incluye el desarrollo web de una página para mi negocio?",

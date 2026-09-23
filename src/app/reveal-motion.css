@@ -1,0 +1,113 @@
+/* Site-wide reveal: alternado izquierda / derecha, suave y según velocidad de scroll */
+
+:root {
+  --reveal-duration: 1.45s;
+  --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-distance: 1rem;
+  --reveal-fade-distance: 0.65rem;
+  --hero-line-duration: 1.55s;
+  --hero-line-stagger: 0.22s;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --reveal-distance: 1.1rem;
+    --hero-line-duration: 1.45s;
+  }
+}
+
+[data-m-reveal]:not([data-m-reveal-in]) {
+  opacity: 0;
+}
+
+[data-m-reveal-in] {
+  animation-duration: var(--m-reveal-duration, var(--reveal-duration));
+  animation-timing-function: var(--reveal-ease);
+  animation-fill-mode: both;
+  animation-delay: var(--m-reveal-delay, 0ms);
+}
+
+[data-m-reveal-from="left"][data-m-reveal-in] {
+  animation-name: ds-reveal-from-left;
+}
+
+[data-m-reveal-from="right"][data-m-reveal-in] {
+  animation-name: ds-reveal-from-right;
+}
+
+[data-m-reveal="fade"][data-m-reveal-from="left"][data-m-reveal-in] {
+  animation-name: ds-reveal-fade-left;
+}
+
+[data-m-reveal="fade"][data-m-reveal-from="right"][data-m-reveal-in] {
+  animation-name: ds-reveal-fade-right;
+}
+
+@keyframes ds-reveal-from-left {
+  from {
+    opacity: 0;
+    transform: translate3d(calc(var(--reveal-distance) * -1), 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes ds-reveal-from-right {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--reveal-distance), 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes ds-reveal-fade-left {
+  from {
+    opacity: 0;
+    transform: translate3d(calc(var(--reveal-fade-distance) * -1), 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes ds-reveal-fade-right {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--reveal-fade-distance), 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.whatsapp-fab--enter {
+  animation: ds-fab-enter var(--reveal-duration) var(--reveal-ease) 0.55s both;
+}
+
+@keyframes ds-fab-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--reveal-distance), 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-m-reveal],
+  [data-m-reveal-in],
+  .whatsapp-fab--enter {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

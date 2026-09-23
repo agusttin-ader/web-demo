@@ -1,11 +1,11 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { useEffect, useRef } from "react";
 import { useMobileMotion } from "@/hooks/useMobileMotion";
 
 export function ScrollProgress() {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
   const mobileMotion = useMobileMotion();
   const barRef = useRef<HTMLDivElement>(null);
 

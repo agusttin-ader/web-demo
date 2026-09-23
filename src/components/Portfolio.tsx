@@ -40,7 +40,7 @@ export async function Portfolio() {
           />
         </div>
 
-        <div className="portfolio__featured">
+        <div className="portfolio__showcase">
           {featured.map((project, index) => (
             <ProjectCard key={project.id} project={project} copy={t.portfolio} priority={index === 0} />
           ))}

@@ -17,7 +17,13 @@ export async function TrustBar() {
         <ul className="trust-bar__logos">
           {TRUST_LOGOS.map((logo) => (
             <li key={logo.id}>
-              <Image src={logo.src} alt={logo.alt} width={120} height={40} />
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={200}
+                height={72}
+                sizes="(max-width: 1023px) 42vw, 160px"
+              />
             </li>
           ))}
         </ul>

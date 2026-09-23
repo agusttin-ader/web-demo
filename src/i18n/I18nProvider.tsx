@@ -62,10 +62,14 @@ export function I18nProvider({
     if (!pendingLocaleRef.current || pendingLocaleRef.current !== locale) return;
 
     pendingLocaleRef.current = null;
-    setPhase("entering");
 
-    if (enterTimerRef.current) window.clearTimeout(enterTimerRef.current);
-    enterTimerRef.current = window.setTimeout(() => setPhase("idle"), ENTER_MS);
+    const frame = window.requestAnimationFrame(() => {
+      setPhase("entering");
+      if (enterTimerRef.current) window.clearTimeout(enterTimerRef.current);
+      enterTimerRef.current = window.setTimeout(() => setPhase("idle"), ENTER_MS);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, [locale]);
 
   const setLocale = useCallback(

@@ -34,10 +34,14 @@
   },
   "hero": {
     "eyebrow": "Web development · Argentina",
-    "titleBefore": "Landing pages that",
-    "titleAccent": "turn",
-    "titleAfter": "visits into inquiries",
-    "body": "Web development and landing pages built for mobile: fast load, clear design and WhatsApp one tap away — for businesses that want their site to actually work.",
+    "titleLines": [
+      { "text": "Landing pages", "variant": "default" },
+      { "text": "that", "variant": "default" },
+      { "text": "turn", "variant": "accent" },
+      { "text": "visits into", "variant": "muted" },
+      { "text": "inquiries", "variant": "muted" }
+    ],
+    "body": "Design and code built for mobile: fast load, clear message and WhatsApp one tap away — for businesses that want a site that actually works.",
     "ctaProjects": "See work",
     "ctaWhatsapp": "Chat on WhatsApp"
   },
@@ -78,7 +82,7 @@
   "portfolio": {
     "label": "Portfolio",
     "title": "Work that's already live",
-    "description": "Real client sites plus a demo so you can see how I work. For each one: the problem, what I built, and what changed.",
+    "description": "Real client sites plus a demo so you can see how I work.",
     "inProduction": "Live",
     "activeSites": "{count} live sites with real clients",
     "demo": "Demo",
@@ -138,7 +142,7 @@
     "title": "At a glance",
     "description": "Experience, tools, clients and whether I'm taking work — all in one place.",
     "experience": "Experience",
-    "experienceBody": "years building clear landings for local businesses.",
+    "experienceBody": "2+ years building clear landings for local businesses.",
     "experienceMeta": "Freelance · Argentina · 2024—now",
     "tech": "Tech",
     "techTitle": "The stack I work with",
@@ -151,6 +155,12 @@
     "ctaTitle": "Let's talk about your site",
     "ctaBody": "Tell me about your business on WhatsApp and we'll figure out next steps.",
     "ctaAction": "Write now",
+    "stats": [
+      { "value": "2+", "label": "Years of experience" },
+      { "value": "4+", "label": "Projects shipped" },
+      { "value": "100%", "label": "Mobile-first design" },
+      { "value": "24h", "label": "First reply" }
+    ],
     "certsItems": [
       { "title": "Modern frontend", "meta": "Next.js · React" },
       { "title": "Sites that convert", "meta": "Clarity · easy contact" },
@@ -252,22 +262,26 @@
   "about": {
     "label": "About me",
     "role": "Freelance web developer · Argentina",
-    "body": "I work with businesses that need results, not just a pretty site. The idea is simple: they understand what you do, they write you, done.",
-    "bodyAlt": "No extra jargon. I build a clear site that looks good and leads straight to contact.",
+    "body": "I work with businesses and professionals who need a site tied to a clear goal: visitors understand what you offer and reach out without friction.",
+    "bodyAlt": "I handle design and development in one flow: clear structure, comfortable reading on mobile and attention to load times. I use Next.js, React and TypeScript to ship fast, stable sites that are ready to grow.",
+    "bodyExtra": "Every project starts with defined scope and timelines. You get direct communication and tangible progress — no agency layer and no budget surprises.",
+    "highlights": [
+      "Landings and sites for SMBs, services and personal brands",
+      "Remote projects with clients across Argentina",
+      "Live delivery on your domain, ready to use"
+    ],
     "photoAlt": "Agustín Ader — freelance web developer in Argentina",
     "photoCaption": "Landings · more inquiries",
-    "years": "years of experience",
-    "freelanceSince": "Freelance since 2024",
     "numbers": "In numbers",
     "timelineLabel": "Path",
     "timelineTitle": "How I got here",
     "focusLabel": "Focus",
     "focusTitle": "What I specialize in",
     "stats": [
-      { "value": "2+", "label": "Years doing this" },
-      { "value": "2+", "label": "Sites in production" },
-      { "value": "100%", "label": "Built for mobile" },
-      { "value": "24h", "label": "I reply within" }
+      { "value": "2+", "label": "Years of experience" },
+      { "value": "4+", "label": "Projects shipped" },
+      { "value": "100%", "label": "Mobile-first design" },
+      { "value": "24h", "label": "First reply" }
     ],
     "timeline": [
       {
@@ -311,8 +325,8 @@
   },
   "faq": {
     "label": "FAQ",
-    "title": "Web development, websites and programming",
-    "description": "Straight answers on pricing, timelines and what working with me on your site includes.",
+    "title": "Common questions",
+    "description": "Pricing, timelines and what each plan includes.",
     "items": [
       {
         "question": "What's included in a website for my business?",

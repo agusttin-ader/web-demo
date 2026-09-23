@@ -34,10 +34,14 @@
   },
   "hero": {
     "eyebrow": "Desenvolvimento web · Argentina",
-    "titleBefore": "Landing pages que",
-    "titleAccent": "convertem",
-    "titleAfter": "visitas em consultas",
-    "body": "Desenvolvimento web e programação de páginas para o celular: carga rápida, design claro e WhatsApp à mão — para negócios que querem que o site trabalhe de verdade.",
+    "titleLines": [
+      { "text": "Landing pages", "variant": "default" },
+      { "text": "que", "variant": "default" },
+      { "text": "convertem", "variant": "accent" },
+      { "text": "visitas em", "variant": "muted" },
+      { "text": "consultas", "variant": "muted" }
+    ],
+    "body": "Design e código para o celular: carga rápida, mensagem clara e WhatsApp à mão — para negócios que querem um site que trabalhe de verdade.",
     "ctaProjects": "Ver projetos",
     "ctaWhatsapp": "Falar no WhatsApp"
   },
@@ -78,7 +82,7 @@
   "portfolio": {
     "label": "Portfólio",
     "title": "Trabalhos que já estão no ar",
-    "description": "Sites reais com clientes e um demo para você ver como eu trabalho. Em cada um: o que tinha, o que fiz e o que mudou.",
+    "description": "Sites reais com clientes e um demo para você ver como eu trabalho.",
     "inProduction": "No ar",
     "activeSites": "{count} sites ativos com clientes reais",
     "demo": "Demo",
@@ -138,7 +142,7 @@
     "title": "De relance",
     "description": "Experiência, ferramentas, clientes e se estou pegando trabalho — tudo junto.",
     "experience": "Experiência",
-    "experienceBody": "anos fazendo landings claras para negócios daqui.",
+    "experienceBody": "2+ anos fazendo landings claras para negócios daqui.",
     "experienceMeta": "Freelance · Argentina · 2024—hoje",
     "tech": "Tecnologias",
     "techTitle": "Stack com o qual eu trabalho",
@@ -151,6 +155,12 @@
     "ctaTitle": "Vamos falar do seu site",
     "ctaBody": "Me conta do seu negócio no WhatsApp e vemos como seguir.",
     "ctaAction": "Escrever agora",
+    "stats": [
+      { "value": "2+", "label": "Anos de experiência" },
+      { "value": "4+", "label": "Projetos publicados" },
+      { "value": "100%", "label": "Design mobile-first" },
+      { "value": "24h", "label": "Primeira resposta" }
+    ],
     "certsItems": [
       { "title": "Frontend moderno", "meta": "Next.js · React" },
       { "title": "Sites que convertem", "meta": "Clareza · contato fácil" },
@@ -252,22 +262,26 @@
   "about": {
     "label": "Sobre mim",
     "role": "Desenvolvedor web freelance · Argentina",
-    "body": "Trabalho com negócios que precisam de resultado, não só de um site bonito. A ideia é simples: entenderem o que você faz, te escreverem e pronto.",
-    "bodyAlt": "Sem tecnicismo demais. Eu monto um site claro, que fique bem e leve direto ao contato.",
+    "body": "Trabalho com negócios e profissionais que precisam de um site alinhado a um objetivo claro: entender o que você oferece e te contactar sem rodeio.",
+    "bodyAlt": "Cuido do design e do desenvolvimento no mesmo processo: estrutura clara, leitura confortável no celular e performance em dia. Uso Next.js, React e TypeScript para entregar sites rápidos, estáveis e prontos para crescer.",
+    "bodyExtra": "Cada projeto começa com escopo e prazos definidos. Acompanho com comunicação direta e avanços concretos — sem agência no meio e sem surpresas no orçamento.",
+    "highlights": [
+      "Landings e sites para PMEs, serviços e marcas pessoais",
+      "Projetos remotos com clientes de toda a Argentina",
+      "Entrega online no seu domínio, pronta para usar"
+    ],
     "photoAlt": "Agustín Ader — desenvolvedor web freelance na Argentina",
     "photoCaption": "Landings · mais consultas",
-    "years": "anos de experiência",
-    "freelanceSince": "Freelance desde 2024",
     "numbers": "Em números",
     "timelineLabel": "Percurso",
     "timelineTitle": "Como cheguei até aqui",
     "focusLabel": "Formação e foco",
     "focusTitle": "No que eu me especializo",
     "stats": [
-      { "value": "2+", "label": "Anos nisso" },
-      { "value": "2+", "label": "Sites no ar" },
-      { "value": "100%", "label": "Pensado para o celular" },
-      { "value": "24h", "label": "Respondo em" }
+      { "value": "2+", "label": "Anos de experiência" },
+      { "value": "4+", "label": "Projetos publicados" },
+      { "value": "100%", "label": "Design mobile-first" },
+      { "value": "24h", "label": "Primeira resposta" }
     ],
     "timeline": [
       {
@@ -311,8 +325,8 @@
   },
   "faq": {
     "label": "Perguntas frequentes",
-    "title": "Desenvolvimento web, páginas e programação",
-    "description": "Respostas diretas sobre preços, prazos e o que inclui trabalhar comigo no seu site.",
+    "title": "Dúvidas frequentes",
+    "description": "Preços, prazos e o que cada plano inclui.",
     "items": [
       {
         "question": "O que inclui o desenvolvimento de uma página para o meu negócio?",

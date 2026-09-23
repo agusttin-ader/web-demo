@@ -16,7 +16,7 @@ export async function Footer() {
     ...NAV_ITEMS.map((id) => ({ id, label: t.nav.items[id] })),
     { id: "preguntas-frecuentes", label: t.footer.faq },
     { id: "sobre-mi", label: t.footer.about },
-    { id: "skills", label: t.footer.skills },
+    { id: "overview", label: t.overview.title },
   ] as const;
 
   const socialLinks = [

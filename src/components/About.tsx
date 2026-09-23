@@ -14,15 +14,21 @@ export async function About() {
           <aside className="about__aside">
             <SectionHeader label={t.about.label} title="Agustín Ader" description={t.about.role} />
 
-            <Reveal variant="up" delay={60}>
+            <Reveal variant="fade">
               <div className="about__copy">
                 <p>{t.about.body}</p>
-                <p className="about__muted">{t.about.bodyAlt}</p>
+                <p>{t.about.bodyAlt}</p>
+                <p className="about__muted">{t.about.bodyExtra}</p>
+                <ul className="about__highlights">
+                  {t.about.highlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
             </Reveal>
           </aside>
 
-          <Reveal variant="up" delay={80} className="about__media">
+          <Reveal variant="fade" className="about__media">
             <figure className="about__figure">
               <Image
                 src="/about.jpeg"
@@ -45,49 +51,43 @@ export async function About() {
           <div className="about__numbers">
             <p className="about__block-label">{t.about.numbers}</p>
             <dl className="about__stats">
-              {t.about.stats.map((stat, index) => (
+              {t.about.stats.map((stat) => (
                 <div key={stat.label} className="about__stat">
-                  <Reveal variant="fade" delay={index * 40}>
-                    <dt>{stat.label}</dt>
-                    <dd>{stat.value}</dd>
-                  </Reveal>
+                  <dt>{stat.label}</dt>
+                  <dd>{stat.value}</dd>
                 </div>
               ))}
             </dl>
           </div>
         </Reveal>
 
-        <Reveal variant="up">
+        <Reveal variant="fade">
           <section className="about__timeline" aria-labelledby="about-timeline-title">
             <p className="about__block-label">{t.about.timelineLabel}</p>
             <h3 id="about-timeline-title">{t.about.timelineTitle}</h3>
             <ol className="about__timeline-list">
-              {t.about.timeline.map((item, index) => (
+              {t.about.timeline.map((item) => (
                 <li key={item.id}>
-                  <Reveal variant="up" delay={index * 60}>
-                    <span className="about__timeline-year">{item.year}</span>
-                    <div className="about__timeline-body">
-                      <h4>{item.title}</h4>
-                      <p className="about__muted">{item.desc}</p>
-                    </div>
-                  </Reveal>
+                  <span className="about__timeline-year">{item.year}</span>
+                  <div className="about__timeline-body">
+                    <h4>{item.title}</h4>
+                    <p className="about__muted">{item.desc}</p>
+                  </div>
                 </li>
               ))}
             </ol>
           </section>
         </Reveal>
 
-        <Reveal variant="up" delay={80}>
+        <Reveal variant="fade">
           <section className="about__certs" aria-labelledby="about-focus-title">
             <p className="about__block-label">{t.about.focusLabel}</p>
             <h3 id="about-focus-title">{t.about.focusTitle}</h3>
             <ul className="about__certs-grid">
-              {t.about.certs.map((cert, index) => (
+              {t.about.certs.map((cert) => (
                 <li key={cert.title}>
-                  <Reveal variant="up" delay={index * 50}>
-                    <p className="about__cert-title">{cert.title}</p>
-                    <p className="about__muted">{cert.meta}</p>
-                  </Reveal>
+                  <p className="about__cert-title">{cert.title}</p>
+                  <p className="about__muted">{cert.meta}</p>
                 </li>
               ))}
             </ul>

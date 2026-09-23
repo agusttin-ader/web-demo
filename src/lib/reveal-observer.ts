@@ -1,4 +1,4 @@
-/** One shared IntersectionObserver for all mobile reveals (lighter than per-node motion). */
+/** One shared IntersectionObserver for scroll reveals (mobile). */
 
 const ROOT_MARGIN = "0px 0px -6% 0px";
 const THRESHOLD = 0.12;

@@ -18,7 +18,6 @@ export function ProjectRow({ project, copy }: ProjectRowProps) {
       <article className="project-row project-row--list">
         <ProjectMedia project={project} variant="row" copy={copy} />
         <div className="project-row__main">
-          <p className="project-row__label">{copy.inProduction}</p>
           <h3>{project.title}</h3>
           <p className="project-card__description">{project.description}</p>
           <p className="project-card__meta">{project.stack}</p>
