@@ -1723,26 +1723,28 @@
     background: transparent;
   }
 
-  .faq__item summary {
+  .faq__trigger {
+    width: 100%;
+    margin: 0;
     padding: var(--space-5) 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
     font-size: var(--text-base);
     font-weight: 600;
     line-height: 1.45;
     letter-spacing: var(--tracking-tight);
     color: var(--color-on-dark);
+    text-align: left;
     cursor: pointer;
-    list-style: none;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: var(--space-4);
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .faq__item summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq__item summary::after {
+  .faq__trigger::after {
     content: "+";
     flex-shrink: 0;
     margin-top: 0.1em;
@@ -1750,14 +1752,60 @@
     font-weight: 500;
     color: var(--color-accent);
     line-height: 1;
+    transition: transform var(--duration-fast) var(--ease-out);
   }
 
-  .faq__item[open] summary::after {
+  .faq__item--open .faq__trigger::after {
     content: "−";
+  }
+
+  .faq__trigger:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  .faq__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq__panel[data-open="true"] {
+    grid-template-rows: 1fr;
+  }
+
+  .faq__panel[data-motion="reduce"] {
+    transition: none;
+  }
+
+  .faq__panel-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .faq__panel[data-open="true"] .faq__answer {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 
   .faq__answer {
     padding: 0 0 var(--space-5);
+    opacity: 0;
+    transform: translate3d(0, -0.35rem, 0);
+    transition:
+      opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq__panel[data-motion="reduce"] .faq__answer {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .faq__panel[data-open="false"][data-motion="reduce"] .faq__answer {
+    opacity: 0;
   }
 
   .faq__answer p {

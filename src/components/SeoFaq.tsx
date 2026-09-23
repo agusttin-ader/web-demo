@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/Reveal";
+import { FaqList } from "@/components/FaqList";
 import { SectionHeader } from "@/components/SectionHeader";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { DS_CLASS } from "@/lib/design-system";
@@ -19,18 +19,7 @@ export async function SeoFaq() {
             />
           </div>
 
-          <div className="faq__list">
-            {t.faq.items.map((item, index) => (
-              <Reveal key={item.question} variant="up" delay={index * 45}>
-                <details className="faq__item">
-                  <summary>{item.question}</summary>
-                  <div className="faq__answer faq-answer">
-                    <p>{item.answer}</p>
-                  </div>
-                </details>
-              </Reveal>
-            ))}
-          </div>
+          <FaqList items={t.faq.items} />
         </div>
       </div>
     </section>
