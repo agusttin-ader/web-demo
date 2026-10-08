@@ -7,6 +7,7 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Portfolio } from "@/components/Portfolio";
+import { Plans } from "@/components/Plans";
 import { Problem } from "@/components/Problem";
 import { Services } from "@/components/Services";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
@@ -29,6 +30,7 @@ export default async function Home() {
         <Portfolio />
         <BentoGrid />
         <Services />
+        <Plans />
         <About />
         <SeoFaq />
         <CtaBanner />

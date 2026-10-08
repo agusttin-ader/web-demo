@@ -19,6 +19,7 @@ export const NAV_ITEMS = [
   "beneficios",
   "proyecto-real",
   "servicios",
+  "planes",
   "contacto",
 ] as const;
 

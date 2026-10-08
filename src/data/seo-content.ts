@@ -8,7 +8,7 @@ export const SEO_FAQ = [
   {
     question: "¿Cuánto cuesta una página web o landing en Argentina?",
     answer:
-      "Depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
+      "Una landing arranca desde USD 350 (Essential) y una más completa desde USD 550 (Premium). El precio final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
   },
   {
     question: "¿Hacés diseño web, programación o las dos cosas?",
