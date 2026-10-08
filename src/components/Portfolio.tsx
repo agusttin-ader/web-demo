@@ -1,63 +1,71 @@
 import {
+  getAllProductionProjects,
   getDemoProjects,
   getFeaturedProjects,
   getProductionProjects,
   withProjectCopy,
 } from "@/data/projects";
-import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectDemoCard } from "@/components/ProjectDemoCard";
-import { ProjectRow } from "@/components/ProjectRow";
+import { ProjectProductionCard } from "@/components/ProjectProductionCard";
+import { ExternalLink } from "@/components/ExternalLink";
+import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { interpolate } from "@/i18n/format";
 import { getDictionary, getProjectCopy } from "@/i18n/get-dictionary";
 import { DS_CLASS } from "@/lib/design-system";
+import { whatsappUrl } from "@/lib/constants";
 
 export async function Portfolio() {
   const t = await getDictionary();
   const featuredBases = getFeaturedProjects();
-  const productionRestBase = getProductionProjects();
+  const restBases = getProductionProjects();
   const demosBase = getDemoProjects();
+  const liveCount = getAllProductionProjects().length;
 
-  if (!featuredBases.length) return null;
+  if (!featuredBases.length && !restBases.length) return null;
 
-  const featured = featuredBases.map((project) =>
-    withProjectCopy(project, getProjectCopy(t, project.id))
-  );
-  const productionRest = productionRestBase.map((project) =>
+  const spotlightBase = featuredBases[0];
+  const spotlight = spotlightBase
+    ? withProjectCopy(spotlightBase, getProjectCopy(t, spotlightBase.id))
+    : null;
+  const productionRest = restBases.map((project) =>
     withProjectCopy(project, getProjectCopy(t, project.id))
   );
   const demos = demosBase.map((project) => withProjectCopy(project, getProjectCopy(t, project.id)));
-  const liveCount = featured.length + productionRest.length;
 
   return (
     <section id="proyecto-real" className={`portfolio ${DS_CLASS.sectionDark}`}>
       <div className={DS_CLASS.container}>
-        <div className="portfolio__header">
+        <header className="portfolio__head">
           <SectionHeader
             label={t.portfolio.label}
             title={t.portfolio.title}
             description={t.portfolio.description}
           />
-        </div>
+          <p className="portfolio__live-meta">
+            {interpolate(t.portfolio.activeSites, { count: liveCount })}
+          </p>
+        </header>
 
-        <div className="portfolio__showcase">
-          {featured.map((project, index) => (
-            <ProjectCard key={project.id} project={project} copy={t.portfolio} priority={index === 0} />
-          ))}
-        </div>
+        {spotlight ? (
+          <div className="portfolio__featured">
+            <ProjectProductionCard
+              project={spotlight}
+              copy={t.portfolio}
+              index={0}
+              variant="featured"
+            />
+          </div>
+        ) : null}
 
         {productionRest.length > 0 ? (
-          <div className="portfolio__block">
-            <p className="portfolio__block-title">{t.portfolio.inProduction}</p>
-            <p className="portfolio__block-meta">{interpolate(t.portfolio.activeSites, { count: liveCount })}</p>
-            <ul className="portfolio__production-list">
-              {productionRest.map((project) => (
-                <li key={project.id}>
-                  <ProjectRow project={project} copy={t.portfolio} />
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="portfolio__production-grid">
+            {productionRest.map((project, index) => (
+              <li key={project.id}>
+                <ProjectProductionCard project={project} copy={t.portfolio} index={index + 1} />
+              </li>
+            ))}
+          </ul>
         ) : null}
 
         {demos.length > 0 ? (
@@ -71,6 +79,26 @@ export async function Portfolio() {
             </div>
           </div>
         ) : null}
+
+        <Reveal variant="up" className="portfolio__nudge">
+          <p className="portfolio__nudge-lead">
+            {t.portfolio.nudge.lead}{" "}
+            <span className="portfolio__nudge-accent">{t.portfolio.nudge.accent}</span>
+          </p>
+          <p className="portfolio__nudge-body">{t.portfolio.nudge.body}</p>
+          <div className="portfolio__nudge-actions">
+            <ExternalLink
+              href={whatsappUrl(t.whatsapp.defaultMessage)}
+              className={DS_CLASS.btnPrimary}
+              showHint={false}
+            >
+              {t.portfolio.nudge.ctaWhatsapp}
+            </ExternalLink>
+            <a href="#servicios" className={DS_CLASS.btnOutline}>
+              {t.portfolio.nudge.ctaServices}
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

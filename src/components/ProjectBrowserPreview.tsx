@@ -55,7 +55,7 @@ export function ProjectBrowserPreview({ project, copy, priority = false }: Proje
               alt=""
               width={200}
               height={200}
-              className="project-browser__logo"
+              className={`project-browser__logo${project.logoOnDark ? " project-browser__logo--on-dark" : ""}${project.logoInvert ? " project-browser__logo--invert" : ""}`}
               priority={priority}
             />
           </div>

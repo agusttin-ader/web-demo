@@ -8,7 +8,6 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Portfolio } from "@/components/Portfolio";
 import { Problem } from "@/components/Problem";
-import { Plans } from "@/components/Plans";
 import { Services } from "@/components/Services";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { homeMetadata } from "@/lib/seo";
@@ -30,7 +29,6 @@ export default async function Home() {
         <Portfolio />
         <BentoGrid />
         <Services />
-        <Plans />
         <About />
         <SeoFaq />
         <CtaBanner />

@@ -24,10 +24,16 @@ export function ProjectMedia({
   showDemoBadge = false,
 }: ProjectMediaProps) {
   const size = variant === "row" ? 72 : 160;
+  const logoModifiers = [
+    project.logoOnDark ? "project-media--logo-on-dark" : "",
+    project.logoInvert ? "project-media--logo-invert" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div
-      className={`project-media project-media--${project.mediaTheme} project-media--${variant}`}
+      className={`project-media project-media--${project.mediaTheme} project-media--${variant}${logoModifiers ? ` ${logoModifiers}` : ""}`}
       role="img"
       aria-label={project.imageAlt ?? interpolate(copy.mediaAria, { title: project.title })}
     >

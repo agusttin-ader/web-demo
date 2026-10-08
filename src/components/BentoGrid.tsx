@@ -1,9 +1,9 @@
-import Image from "next/image";
+import { ClientLogos } from "@/components/ClientLogos";
 import { ExternalLink } from "@/components/ExternalLink";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { TECH_STACK, TRUST_LOGOS, whatsappUrl } from "@/lib/constants";
+import { TECH_STACK, whatsappUrl } from "@/lib/constants";
 import { DS_CLASS } from "@/lib/design-system";
 
 export async function BentoGrid() {
@@ -65,13 +65,11 @@ export async function BentoGrid() {
 
             <section className="overview__block">
               <p className="overview__block-label">{t.overview.clients}</p>
-              <ul className="overview__logos" aria-label={t.overview.clients}>
-                {TRUST_LOGOS.map((logo) => (
-                  <li key={logo.id}>
-                    <Image src={logo.src} alt={logo.alt} width={120} height={40} />
-                  </li>
-                ))}
-              </ul>
+              <ClientLogos
+                listClassName="overview__logos client-logos"
+                imageSizes="120px"
+                ariaLabel={t.overview.clients}
+              />
             </section>
 
             <section className="overview__block">

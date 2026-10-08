@@ -82,7 +82,7 @@
   "portfolio": {
     "label": "Portfolio",
     "title": "Work that's already live",
-    "description": "Real client sites plus a demo so you can see how I work.",
+    "description": "Real work in healthcare, travel and instruments — clients already online.",
     "inProduction": "Live",
     "activeSites": "{count} live sites with real clients",
     "demo": "Demo",
@@ -98,7 +98,14 @@
     "liveExample": "Live example",
     "requestDemoAccess": "Request demo access",
     "viewSiteAria": "View {title} site",
-    "mediaAria": "Visual identity of {title}"
+    "mediaAria": "Visual identity of {title}",
+    "nudge": {
+      "lead": "If you picture your business with a site like these,",
+      "accent": "the first step is a message.",
+      "body": "Tell me what you do on WhatsApp — no runaround. I'll reply within 24 hours with clear scope and timing.",
+      "ctaWhatsapp": "Chat on WhatsApp",
+      "ctaServices": "What's included"
+    }
   },
   "projects": {
     "rhinoscopy": {
@@ -130,11 +137,11 @@
       "result": "Her own channel at drakarmijos.com while the full site is being built."
     },
     "dr-lopez-moris": {
-      "description": "Medical demo with services, background, cases, reviews and contact via WhatsApp or form.",
-      "imageAlt": "Dr. Carlos López Moris demo: rhinology, nasal surgery and appointments in Buenos Aires",
-      "problem": "A doctor needs to build trust, show their track record and make booking easy.",
-      "solution": "A demo with services, training, cases, FAQ, gallery and clear buttons to WhatsApp and a form.",
-      "result": "A base ready to adapt for clinics and health specialists."
+      "description": "Live site for rhinology and nasal surgery: services, background, cases, reviews and appointments in Buenos Aires.",
+      "imageAlt": "Dr. Carlos López Moris site: rhinology, nasal surgery and appointments in Buenos Aires",
+      "problem": "Without a site of his own, patients couldn't find clear info or a simple way to book.",
+      "solution": "A site with services, training, cases, FAQ, gallery and contact via WhatsApp and form.",
+      "result": "His own channel at drlopezmoris.com for inquiries and appointments."
     }
   },
   "overview": {
@@ -326,15 +333,15 @@
   "faq": {
     "label": "FAQ",
     "title": "Common questions",
-    "description": "Pricing, timelines and what each plan includes.",
+    "description": "Timelines, scope and what working together looks like.",
     "items": [
       {
         "question": "What's included in a website for my business?",
-        "answer": "Mobile-first design, Next.js and React development, organized copy, a WhatsApp button with a ready-made message, basic SEO (title and description) and going live with your domain connected. Depending on the plan, we add a form, FAQ, animations and structured data so Google can find you more easily."
+        "answer": "Mobile-first design, Next.js and React development, organized copy, a WhatsApp button with a ready-made message, basic SEO (title and description) and going live with your domain connected. Depending on what you need, we add a form, FAQ, animations and structured data so Google can find you more easily."
       },
       {
         "question": "How much does a website or landing page cost in Argentina?",
-        "answer": "Essential and Premium start from USD 320 and USD 520, depending on scope. You can also request a custom demo for USD 79, deducted if you hire a plan. I'll send a clear quote on WhatsApp in under 24 hours, no fine print."
+        "answer": "It depends on scope: number of sections, whether you need a form, multiple pages or extra content. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print."
       },
       {
         "question": "Do you do web design, development, or both?",
@@ -346,11 +353,11 @@
       },
       {
         "question": "How long does a website take?",
-        "answer": "Essential is delivered in 7 to 10 business days; Premium in 2 to 3 weeks. The custom demo takes 3 to 5 days. Timelines start once we have logo, copy and references."
+        "answer": "A focused landing is usually 7 to 15 business days; more complete projects, 2 to 3 weeks. Timelines start once we have logo, copy and clear references."
       },
       {
         "question": "Does the site include SEO to show up on Google?",
-        "answer": "Yes. Every plan includes basic technical SEO: titles, meta description, Open Graph, sitemap, robots.txt and structured data. Premium adds advanced schema, an indexable FAQ and optimization for searches like web development, website and services in your field."
+        "answer": "Yes. I include basic technical SEO: titles, meta description, Open Graph, sitemap, robots.txt and structured data. When the project calls for it, we add an indexable FAQ and optimization for searches like web development, website and services in your field."
       },
       {
         "question": "What technologies do you use?",
@@ -362,8 +369,8 @@
     "label": "Next step",
     "titleBefore": "Let's make your site",
     "titleAccent": "bring in inquiries",
-    "body": "Start with the form — I'll send a clear proposal and we'll figure out the next step.",
-    "ctaProposal": "Request a proposal",
+    "body": "Send me a WhatsApp with your idea. I'll reply within 24 hours. If you'd rather write it all down, the form is below.",
+    "ctaProposal": "Use the form",
     "ctaWhatsapp": "Chat on WhatsApp"
   },
   "contact": {

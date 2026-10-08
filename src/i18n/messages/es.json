@@ -82,7 +82,7 @@
   "portfolio": {
     "label": "Portfolio",
     "title": "Trabajos que ya están online",
-    "description": "Sitios reales con clientes y un demo para que veas cómo trabajo.",
+    "description": "Proyectos reales en salud, turismo e instrumentación — con clientes que ya están online.",
     "inProduction": "En producción",
     "activeSites": "{count} sitios activos con clientes reales",
     "demo": "Demo",
@@ -98,7 +98,14 @@
     "liveExample": "Ejemplo en vivo",
     "requestDemoAccess": "Pedir acceso al demo",
     "viewSiteAria": "Ver sitio de {title}",
-    "mediaAria": "Identidad visual de {title}"
+    "mediaAria": "Identidad visual de {title}",
+    "nudge": {
+      "lead": "Si te imaginás tu negocio con una web así,",
+      "accent": "el primer paso es un mensaje.",
+      "body": "Contame qué hacés por WhatsApp — sin vueltas. Te respondo en 24 h con alcance y plazos claros.",
+      "ctaWhatsapp": "Hablar por WhatsApp",
+      "ctaServices": "Qué incluye el trabajo"
+    }
   },
   "projects": {
     "rhinoscopy": {
@@ -130,11 +137,11 @@
       "result": "Canal propio en drakarmijos.com mientras se desarrolla el sitio completo."
     },
     "dr-lopez-moris": {
-      "description": "Demo médico con servicios, formación, casos, reseñas y contacto por WhatsApp o formulario.",
-      "imageAlt": "Demo del Dr. Carlos López Moris: rinología, cirugía nasal y turnos en Buenos Aires",
-      "problem": "Un médico necesita transmitir confianza, mostrar trayectoria y que pedir turno sea fácil.",
-      "solution": "Demo con servicios, formación, casos, FAQ, galería y botones claros a WhatsApp y formulario.",
-      "result": "Base lista para adaptar a consultorios y especialistas de salud."
+      "description": "Sitio en producción para rinología y cirugía nasal: servicios, formación, casos, reseñas y turnos en Buenos Aires.",
+      "imageAlt": "Sitio del Dr. Carlos López Moris: rinología, cirugía nasal y turnos en Buenos Aires",
+      "problem": "Sin web propia, los pacientes no encontraban info clara ni un camino simple para pedir turno.",
+      "solution": "Sitio con servicios, formación, casos, FAQ, galería y contacto por WhatsApp y formulario.",
+      "result": "Canal propio en drlopezmoris.com para consultas y turnos."
     }
   },
   "overview": {
@@ -326,15 +333,15 @@
   "faq": {
     "label": "Preguntas frecuentes",
     "title": "Dudas frecuentes",
-    "description": "Precios, plazos y qué incluye cada plan.",
+    "description": "Plazos, alcance y qué incluye trabajar juntos.",
     "items": [
       {
         "question": "¿Qué incluye el desarrollo web de una página para mi negocio?",
-        "answer": "Incluye diseño pensado para el celu, programación con Next.js y React, textos ordenados, botón de WhatsApp con mensaje listo, SEO base (título y descripción) y publicación online con tu dominio conectado. Según el plan, sumamos formulario, FAQ, animaciones y datos estructurados para que Google te encuentre mejor."
+        "answer": "Incluye diseño pensado para el celu, programación con Next.js y React, textos ordenados, botón de WhatsApp con mensaje listo, SEO base (título y descripción) y publicación online con tu dominio conectado. Según lo que necesites, sumamos formulario, FAQ, animaciones y datos estructurados para que Google te encuentre mejor."
       },
       {
         "question": "¿Cuánto cuesta una página web o landing en Argentina?",
-        "answer": "Essential y Premium arrancan desde USD 320 y desde USD 520, según alcance. También podés pedir una demo a medida por USD 79, que se descuenta si contratás un plan. Te paso presupuesto claro por WhatsApp en menos de 24 horas, sin letra chica."
+        "answer": "Depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica."
       },
       {
         "question": "¿Hacés diseño web, programación o las dos cosas?",
@@ -346,11 +353,11 @@
       },
       {
         "question": "¿Cuánto tarda el desarrollo de una página web?",
-        "answer": "El plan Essential se entrega en 7 a 10 días hábiles; el Premium, en 2 a 3 semanas. La demo a medida tarda entre 3 y 5 días. Los tiempos arrancan cuando tenemos logo, textos y referencias."
+        "answer": "Una landing enfocada suele estar entre 7 y 15 días hábiles; proyectos más completos, entre 2 y 3 semanas. Los plazos arrancan cuando tenemos logo, textos y referencias claras."
       },
       {
         "question": "¿La web incluye SEO para aparecer en Google?",
-        "answer": "Sí. Todos los planes incluyen SEO técnico base: títulos, meta descripción, Open Graph, sitemap, robots.txt y datos estructurados. En Premium sumamos schema avanzado, FAQ indexable y optimización orientada a búsquedas como desarrollo web, página web y servicios de tu rubro."
+        "answer": "Sí. Incluyo SEO técnico base: títulos, meta descripción, Open Graph, sitemap, robots.txt y datos estructurados. Si el proyecto lo pide, sumamos FAQ indexable y optimización orientada a búsquedas como desarrollo web, página web y servicios de tu rubro."
       },
       {
         "question": "¿Qué tecnologías usás para programar las webs?",
@@ -362,8 +369,8 @@
     "label": "Próximo paso",
     "titleBefore": "Hagamos que tu web",
     "titleAccent": "genere consultas",
-    "body": "Empezá por el formulario — te mando una propuesta clara y vemos el siguiente paso.",
-    "ctaProposal": "Pedir propuesta",
+    "body": "Mandame un mensaje por WhatsApp con tu idea. Te respondo en 24 h. Si preferís dejar todo escrito, el formulario está abajo.",
+    "ctaProposal": "Completar formulario",
     "ctaWhatsapp": "Hablar por WhatsApp"
   },
   "contact": {

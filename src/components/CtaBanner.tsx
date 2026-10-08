@@ -22,17 +22,17 @@ export async function CtaBanner() {
           </h2>
           <p className={DS_CLASS.proseMuted}>{t.cta.body}</p>
           <div className="cta-banner__actions">
-            <a href="#contacto" className={DS_CLASS.btnPrimary}>
-              {t.cta.ctaProposal}
-            </a>
             <WhatsAppButton
               magnetic={false}
               href={whatsappUrl(t.whatsapp.defaultMessage)}
-              className={DS_CLASS.btnOutline}
+              className={DS_CLASS.btnPrimary}
               showIcon={false}
             >
               {t.cta.ctaWhatsapp}
             </WhatsAppButton>
+            <a href="#contacto" className={DS_CLASS.btnOutline}>
+              {t.cta.ctaProposal}
+            </a>
           </div>
         </Reveal>
       </div>

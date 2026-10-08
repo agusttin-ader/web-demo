@@ -3,12 +3,12 @@ export const SEO_FAQ = [
   {
     question: "¿Qué incluye el desarrollo web de una página para mi negocio?",
     answer:
-      "Incluye diseño pensado para el celu, programación con Next.js y React, textos ordenados, botón de WhatsApp con mensaje listo, SEO base (título y descripción) y publicación online con tu dominio conectado. Según el plan, sumamos formulario, FAQ, animaciones y datos estructurados para que Google te encuentre mejor.",
+      "Incluye diseño pensado para el celu, programación con Next.js y React, textos ordenados, botón de WhatsApp con mensaje listo, SEO base (título y descripción) y publicación online con tu dominio conectado. Según lo que necesites, sumamos formulario, FAQ, animaciones y datos estructurados para que Google te encuentre mejor.",
   },
   {
     question: "¿Cuánto cuesta una página web o landing en Argentina?",
     answer:
-      "Los planes arrancan en USD 320 (Essential) y USD 520 (Premium). También podés pedir una demo a medida por USD 79, que se descuenta si contratás un plan. Te paso presupuesto claro por WhatsApp en menos de 24 horas, sin letra chica.",
+      "Depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
   },
   {
     question: "¿Hacés diseño web, programación o las dos cosas?",
@@ -23,12 +23,12 @@ export const SEO_FAQ = [
   {
     question: "¿Cuánto tarda el desarrollo de una página web?",
     answer:
-      "El plan Essential se entrega en 7 a 10 días hábiles; el Premium, en 2 a 3 semanas. La demo a medida tarda entre 3 y 5 días. Los tiempos arrancan cuando tenemos logo, textos y referencias.",
+      "Una landing enfocada suele estar entre 7 y 15 días hábiles; proyectos más completos, entre 2 y 3 semanas. Los plazos arrancan cuando tenemos logo, textos y referencias claras.",
   },
   {
     question: "¿La web incluye SEO para aparecer en Google?",
     answer:
-      "Sí. Todos los planes incluyen SEO técnico base: títulos, meta descripción, Open Graph, sitemap, robots.txt y datos estructurados. En Premium sumamos schema avanzado, FAQ indexable y optimización orientada a búsquedas como desarrollo web, página web y servicios de tu rubro.",
+      "Sí. Incluyo SEO técnico base: títulos, meta descripción, Open Graph, sitemap, robots.txt y datos estructurados. Si el proyecto lo pide, sumamos FAQ indexable y optimización orientada a búsquedas como desarrollo web, página web y servicios de tu rubro.",
   },
   {
     question: "¿Qué tecnologías usás para programar las webs?",

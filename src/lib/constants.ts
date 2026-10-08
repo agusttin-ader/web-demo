@@ -19,7 +19,6 @@ export const NAV_ITEMS = [
   "beneficios",
   "proyecto-real",
   "servicios",
-  "planes",
   "contacto",
 ] as const;
 
@@ -33,9 +32,45 @@ export const TECH_STACK = [
   "Vercel",
 ] as const;
 
-export const TRUST_LOGOS = [
-  { id: "rhinoscopy", src: "/images/logos/rhinoscopy-circle.png", alt: "Rhinoscopy" },
-  { id: "alo-patagonia", src: "/images/logos/alopatagonia-brand.png", alt: "Alo Patagonia" },
-  { id: "la-guarida", src: "/images/logos/laguarida.png", alt: "La Guarida Instrumentos" },
-  { id: "dra-karla-armijos", src: "/images/logos/drakarmijos.png", alt: "Dra. Karla Armijos" },
-] as const;
+export type TrustLogo = {
+  id: string;
+  src: string;
+  alt: string;
+  href: string;
+  /** Logo blanco en PNG — en superficies claras se muestra en negro vía CSS */
+  trustMonoOnLight?: boolean;
+};
+
+export const TRUST_LOGOS: readonly TrustLogo[] = [
+  {
+    id: "rhinoscopy",
+    src: "/images/logos/rhinoscopy-logo-hero-sombra.png",
+    alt: "Rhinoscopy",
+    href: "https://www.rhinoscopy.com.ar/",
+  },
+  {
+    id: "alo-patagonia",
+    src: "/images/logos/alopatagonia-dark.png",
+    alt: "Alo Patagonia",
+    href: "https://www.alopatagonia.com/",
+  },
+  {
+    id: "la-guarida",
+    src: "/images/logos/laguarida.png",
+    alt: "La Guarida Instrumentos",
+    href: "https://www.laguaridainstrumentos.com/",
+  },
+  {
+    id: "dra-karla-armijos",
+    src: "/images/logos/karmijos-dark.png",
+    alt: "Dra. Karla Armijos",
+    href: "https://www.drakarmijos.com/",
+  },
+  {
+    id: "dr-lopez-moris",
+    src: "/images/logos/lopezmoris.png",
+    alt: "Dr. Carlos López Moris",
+    href: "https://drlopezmoris.com/",
+    trustMonoOnLight: true,
+  },
+];

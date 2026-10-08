@@ -30,16 +30,16 @@ export async function Hero() {
 
             <Reveal variant="up" initialVisible delay={180}>
               <div className="hero__actions">
-                <a href="#proyecto-real" className={DS_CLASS.btnPrimary}>
-                  {t.hero.ctaProjects}
-                </a>
                 <ExternalLink
                   href={whatsappUrl(t.whatsapp.defaultMessage)}
-                  className={DS_CLASS.btnOutline}
+                  className={DS_CLASS.btnPrimary}
                   showHint={false}
                 >
                   {t.hero.ctaWhatsapp}
                 </ExternalLink>
+                <a href="#proyecto-real" className={DS_CLASS.btnOutline}>
+                  {t.hero.ctaProjects}
+                </a>
               </div>
             </Reveal>
 

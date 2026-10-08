@@ -20,6 +20,14 @@ export interface Project {
   image: string;
   logo: string;
   mediaTheme: ProjectMediaTheme;
+  /** Logo oscuro sobre PNG transparente — monocromo blanco en portfolio */
+  logoOnDark?: boolean;
+  /** Logo oscuro sobre fondo claro en el PNG — invertir colores en cards oscuras */
+  logoInvert?: boolean;
+  /** Logo a color sobre oscuro — mix-blend screen (p. ej. sello circular) */
+  logoScreenBlend?: boolean;
+  /** Logo blanco vectorial/PNG — sin screen y render nítido */
+  logoCrisp?: boolean;
   /** SEO-friendly image alt when provided */
   imageAlt?: string;
   stack: string;
@@ -47,8 +55,8 @@ export const projects: Project[] = [
     client: "Rhinoscopy",
     description:
       "Plataforma de formación en otorrinolaringología, rinología y rinoscopia: congreso, webinars y certificados.",
-    image: "/images/logos/rhinoscopy.png",
-    logo: "/images/logos/rhinoscopy-circle.png",
+    image: "/images/logos/rhinoscopy-logo-hero-sombra.png",
+    logo: "/images/logos/rhinoscopy-logo-hero-sombra.png",
     mediaTheme: "rhinoscopy",
     imageAlt:
       "Sitio de Rhinoscopy: formación en rinología, Rhinoscopy Meet, webinars y certificados",
@@ -72,7 +80,7 @@ export const projects: Project[] = [
     description:
       "Web de turismo para coordinar viajes por la Patagonia con consultas directas por WhatsApp.",
     image: "/images/alopatagonia-home.webp",
-    logo: "/images/logos/alopatagonia-brand.png",
+    logo: "/images/logos/alopatagonia.png",
     mediaTheme: "patagonia",
     imageAlt:
       "Sitio web de Alo Patagonia: viajes por la Patagonia con itinerarios claros y consulta por WhatsApp",
@@ -118,7 +126,8 @@ export const projects: Project[] = [
     description:
       "Landing en producción para otorrinolaringología: rinología y trastornos respiratorios del sueño.",
     image: "/images/drakarmijos-home.png",
-    logo: "/images/logos/drakarmijos.png",
+    logo: "/images/logos/karmijos.png",
+    logoScreenBlend: true,
     mediaTheme: "medical",
     imageAlt:
       "Sitio de la Dra. Karla Armijos: rinología y trastornos respiratorios del sueño",
@@ -137,25 +146,26 @@ export const projects: Project[] = [
   {
     id: "dr-lopez-moris",
     title: "Dr. Carlos López Moris",
-    client: "Proyecto demo",
+    client: "Dr. Carlos López Moris",
     description:
-      "Demo médico con servicios, formación, casos, reseñas y contacto por WhatsApp o formulario.",
+      "Sitio en producción para rinología y cirugía nasal: servicios, formación, casos, reseñas y turnos en Buenos Aires.",
     image: "/images/drlopezmoris-home.jpg",
-    logo: "/images/logos/drlopezmoris.png",
-    mediaTheme: "medical-demo",
+    logo: "/images/logos/lopezmoris.png",
+    logoCrisp: true,
+    mediaTheme: "medical",
     imageAlt:
-      "Demo del Dr. Carlos López Moris: rinología, cirugía nasal y turnos en Buenos Aires",
+      "Sitio del Dr. Carlos López Moris: rinología, cirugía nasal y turnos en Buenos Aires",
     stack: "Next.js · Rinología · Consultas",
     problem:
-      "Un médico necesita transmitir confianza, mostrar trayectoria y que pedir turno sea fácil.",
+      "Sin web propia, los pacientes no encontraban info clara ni un camino simple para pedir turno.",
     solution:
-      "Demo con servicios, formación, casos, FAQ, galería y botones claros a WhatsApp y formulario.",
+      "Sitio con servicios, formación, casos, FAQ, galería y contacto por WhatsApp y formulario.",
     result:
-      "Base lista para adaptar a consultorios y especialistas de salud.",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "WhatsApp"],
-    type: "demo",
-    demo: "https://drlopezmoris-seven.vercel.app/",
-    link: "https://drlopezmoris-seven.vercel.app/",
+      "Canal propio en drlopezmoris.com para consultas y turnos.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "WhatsApp", "Vercel"],
+    type: "production",
+    demo: "https://drlopezmoris.com/",
+    link: "https://drlopezmoris.com/",
   },
 ];
 
@@ -173,6 +183,14 @@ export function getFeaturedProject(): Project | undefined {
 export function getProductionProjects(): Project[] {
   const featuredIds = new Set(getFeaturedProjects().map((p) => p.id));
   return projects.filter((p) => p.type === "production" && !featuredIds.has(p.id));
+}
+
+/** Todos los clientes en producción (destacados primero, mismo orden que en `projects`). */
+export function getAllProductionProjects(): Project[] {
+  const featuredIds = new Set(getFeaturedProjects().map((p) => p.id));
+  const featured = projects.filter((p) => p.type === "production" && featuredIds.has(p.id));
+  const rest = projects.filter((p) => p.type === "production" && !featuredIds.has(p.id));
+  return [...featured, ...rest];
 }
 
 export function getDemoProjects(): Project[] {

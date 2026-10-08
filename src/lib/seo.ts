@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { projects } from "@/data/projects";
-import { PLANS } from "@/data/plans";
 import {
   SEO_FAQ,
   SEO_PRIMARY_KEYWORDS,
@@ -184,37 +183,6 @@ function buildFaqEntities() {
   }));
 }
 
-function buildOfferCatalog() {
-  return PLANS.map((plan) => ({
-    "@type": "Offer" as const,
-    "@id": `${SITE_URL}/#offer-${plan.id}`,
-    name: `${plan.name} — ${plan.tagline}`,
-    description: plan.features.join(". "),
-    price: String(plan.priceUsd),
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
-    url: `${SITE_URL}/#planes`,
-    validFrom: SITE_LAST_MODIFIED,
-    itemOffered: {
-      "@type": "Service" as const,
-      name: `Desarrollo web — ${plan.name}`,
-      description: plan.tagline,
-      provider: { "@id": `${SITE_URL}/#person` },
-      areaServed: SEO_SERVICE_AREAS.map((area) => ({
-        "@type": "Place" as const,
-        name: area,
-      })),
-      serviceType: [
-        "Desarrollo web",
-        "Página web",
-        "Programación web",
-        "Diseño web",
-        "Landing page",
-      ],
-    },
-  }));
-}
-
 export function buildJsonLd() {
   const projectEntities = projects.map((project, index) => ({
     "@type": "CreativeWork",
@@ -230,7 +198,6 @@ export function buildJsonLd() {
   }));
 
   const faqEntities = buildFaqEntities();
-  const offers = buildOfferCatalog();
 
   return {
     "@context": "https://schema.org",
@@ -391,12 +358,6 @@ export function buildJsonLd() {
           "SEO técnico",
           "Integración WhatsApp",
         ],
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          "@id": `${SITE_URL}/#offers`,
-          name: "Planes de desarrollo web",
-          itemListElement: offers,
-        },
         contactPoint: [
           {
             "@type": "ContactPoint",
@@ -409,12 +370,6 @@ export function buildJsonLd() {
           },
         ],
         sameAs: [LINKEDIN_URL, INSTAGRAM_URL, WHATSAPP_PROFILE],
-      },
-      {
-        "@type": "OfferCatalog",
-        "@id": `${SITE_URL}/#offers`,
-        name: "Planes de páginas web",
-        itemListElement: offers,
       },
       {
         "@type": "ItemList",

@@ -82,7 +82,7 @@
   "portfolio": {
     "label": "Portfólio",
     "title": "Trabalhos que já estão no ar",
-    "description": "Sites reais com clientes e um demo para você ver como eu trabalho.",
+    "description": "Projetos reais em saúde, turismo e instrumentação — com clientes já no ar.",
     "inProduction": "No ar",
     "activeSites": "{count} sites ativos com clientes reais",
     "demo": "Demo",
@@ -98,7 +98,14 @@
     "liveExample": "Exemplo ao vivo",
     "requestDemoAccess": "Pedir acesso ao demo",
     "viewSiteAria": "Ver site de {title}",
-    "mediaAria": "Identidade visual de {title}"
+    "mediaAria": "Identidade visual de {title}",
+    "nudge": {
+      "lead": "Se você imagina o seu negócio com um site assim,",
+      "accent": "o primeiro passo é uma mensagem.",
+      "body": "Me conta o que você faz no WhatsApp — sem enrolação. Respondo em 24 h com escopo e prazos claros.",
+      "ctaWhatsapp": "Falar no WhatsApp",
+      "ctaServices": "O que inclui o trabalho"
+    }
   },
   "projects": {
     "rhinoscopy": {
@@ -130,11 +137,11 @@
       "result": "Canal próprio em drakarmijos.com enquanto o site completo é desenvolvido."
     },
     "dr-lopez-moris": {
-      "description": "Demo médico com serviços, formação, casos, avaliações e contato por WhatsApp ou formulário.",
-      "imageAlt": "Demo do Dr. Carlos López Moris: rinologia, cirurgia nasal e consultas em Buenos Aires",
-      "problem": "Um médico precisa transmitir confiança, mostrar trajetória e facilitar o agendamento.",
-      "solution": "Demo com serviços, formação, casos, FAQ, galeria e botões claros para WhatsApp e formulário.",
-      "result": "Base pronta para adaptar a consultórios e especialistas de saúde."
+      "description": "Site no ar para rinologia e cirurgia nasal: serviços, formação, casos, avaliações e consultas em Buenos Aires.",
+      "imageAlt": "Site do Dr. Carlos López Moris: rinologia, cirurgia nasal e consultas em Buenos Aires",
+      "problem": "Sem site próprio, os pacientes não encontravam informação clara nem um caminho simples para agendar.",
+      "solution": "Site com serviços, formação, casos, FAQ, galeria e contato por WhatsApp e formulário.",
+      "result": "Canal próprio em drlopezmoris.com para consultas e agendamentos."
     }
   },
   "overview": {
@@ -326,15 +333,15 @@
   "faq": {
     "label": "Perguntas frequentes",
     "title": "Dúvidas frequentes",
-    "description": "Preços, prazos e o que cada plano inclui.",
+    "description": "Prazos, escopo e o que inclui trabalhar juntos.",
     "items": [
       {
         "question": "O que inclui o desenvolvimento de uma página para o meu negócio?",
-        "answer": "Inclui design pensado para o celular, programação com Next.js e React, textos organizados, botão de WhatsApp com mensagem pronta, SEO base (título e descrição) e publicação online com o seu domínio conectado. Conforme o plano, somamos formulário, FAQ, animações e dados estruturados para o Google te encontrar melhor."
+        "answer": "Inclui design pensado para o celular, programação com Next.js e React, textos organizados, botão de WhatsApp com mensagem pronta, SEO base (título e descrição) e publicação online com o seu domínio conectado. Conforme o que você precisa, somamos formulário, FAQ, animações e dados estruturados para o Google te encontrar melhor."
       },
       {
         "question": "Quanto custa um site ou landing na Argentina?",
-        "answer": "Essential e Premium começam a partir de USD 320 e USD 520, conforme o escopo. Você também pode pedir uma demo sob medida por USD 79, que é descontada se contratar um plano. Eu mando um orçamento claro no WhatsApp em menos de 24 horas, sem letra miúda."
+        "answer": "Depende do escopo: quantidade de seções, se precisa de formulário, várias páginas ou conteúdo extra. Me conta seu negócio no WhatsApp e mando um orçamento claro em menos de 24 horas, sem letra miúda."
       },
       {
         "question": "Você faz design, programação ou as duas coisas?",
@@ -346,11 +353,11 @@
       },
       {
         "question": "Quanto tempo leva o desenvolvimento de um site?",
-        "answer": "O plano Essential é entregue em 7 a 10 dias úteis; o Premium, em 2 a 3 semanas. A demo sob medida leva de 3 a 5 dias. Os prazos começam quando temos logo, textos e referências."
+        "answer": "Uma landing focada costuma levar de 7 a 15 dias úteis; projetos mais completos, de 2 a 3 semanas. Os prazos começam quando temos logo, textos e referências claras."
       },
       {
         "question": "O site inclui SEO para aparecer no Google?",
-        "answer": "Sim. Todos os planos incluem SEO técnico base: títulos, meta description, Open Graph, sitemap, robots.txt e dados estruturados. No Premium somamos schema avançado, FAQ indexável e otimização para buscas como desenvolvimento web, página web e serviços do seu ramo."
+        "answer": "Sim. Incluo SEO técnico base: títulos, meta description, Open Graph, sitemap, robots.txt e dados estruturados. Se o projeto pedir, somamos FAQ indexável e otimização para buscas como desenvolvimento web, página web e serviços do seu ramo."
       },
       {
         "question": "Que tecnologias você usa para programar os sites?",
@@ -362,8 +369,8 @@
     "label": "Próximo passo",
     "titleBefore": "Vamos fazer o seu site",
     "titleAccent": "gerar consultas",
-    "body": "Comece pelo formulário — eu mando uma proposta clara e vemos o próximo passo.",
-    "ctaProposal": "Pedir proposta",
+    "body": "Mande uma mensagem no WhatsApp com a sua ideia. Respondo em 24 h. Se preferir deixar tudo escrito, o formulário está abaixo.",
+    "ctaProposal": "Completar formulário",
     "ctaWhatsapp": "Falar no WhatsApp"
   },
   "contact": {
