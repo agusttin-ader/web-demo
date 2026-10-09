@@ -214,6 +214,8 @@
     "delivery": "Entrega: {time}",
     "priceFrom": "A partir de USD {amount}",
     "priceFixed": "USD {amount}",
+    "priceFree": "Gratuita",
+    "paymentNote": "Forma de pagamento: 50% ao iniciar o projeto e os outros 50% ao concluir.",
     "featuredBadge": "Mais escolhido",
     "demoBadge": "Para testar",
     "addonsNote": "Domínio, textos, SEO avançado, blog, outro idioma e manutenção mensal ficam à parte — eu orço sem drama.",
@@ -224,7 +226,7 @@
         "tagline": "Para começar e receber consultas",
         "delivery": "7 a 10 dias úteis",
         "cta": "Quero Essential",
-        "whatsappMessage": "Oi Agustín, tenho interesse no plano Essential (a partir de USD 350). Quero uma landing para o meu negócio.",
+        "whatsappMessage": "Oi Agustín, tenho interesse no plano Essential (a partir de USD 300). Quero uma landing para o meu negócio.",
         "features": [
           "Uma landing de uma só página (até 5 seções)",
           "Design pensado para o celular",
@@ -239,7 +241,7 @@
         "tagline": "Quando você quer ir um passo além",
         "delivery": "2 a 3 semanas",
         "cta": "Quero Premium",
-        "whatsappMessage": "Oi Agustín, tenho interesse no plano Premium (a partir de USD 550). Quero uma landing mais completa para o meu negócio.",
+        "whatsappMessage": "Oi Agustín, tenho interesse no plano Premium (a partir de USD 500). Quero uma landing mais completa para o meu negócio.",
         "features": [
           "Tudo do Essential",
           "Formulário de contato que chega no seu e-mail",
@@ -253,15 +255,14 @@
       "demo": {
         "name": "Demo sob medida",
         "tagline": "Veja como ficaria o seu site antes de decidir",
-        "priceNote": "Se avançarmos com um plano, eu desconto",
         "delivery": "3 a 5 dias úteis",
         "cta": "Pedir demo",
-        "whatsappMessage": "Oi Agustín, tenho interesse na demo sob medida (USD 79). Meu negócio é: ",
+        "whatsappMessage": "Oi Agustín, tenho interesse na demo sob medida gratuita. Meu negócio é: ",
         "features": [
           "Preview com o seu logo e cores",
           "Hero + 2 seções de exemplo",
           "Link ao vivo para compartilhar",
-          "Os USD 79 são descontados ao contratar Essential ou Premium"
+          "Sem custo e sem compromisso"
         ]
       }
     }
@@ -341,7 +342,7 @@
       },
       {
         "question": "Quanto custa um site ou landing na Argentina?",
-        "answer": "Uma landing começa a partir de USD 350 (Essential) e uma mais completa a partir de USD 550 (Premium). O preço final depende do escopo: quantidade de seções, se precisa de formulário, várias páginas ou conteúdo extra. Me conta seu negócio no WhatsApp e mando um orçamento claro em menos de 24 horas, sem letra miúda."
+        "answer": "Uma landing começa a partir de USD 300 (Essential) e uma mais completa a partir de USD 500 (Premium). A demo sob medida é gratuita. O preço final depende do escopo: quantidade de seções, se precisa de formulário, várias páginas ou conteúdo extra. O pagamento é 50% ao iniciar o projeto e 50% ao concluir. Me conta seu negócio no WhatsApp e mando um orçamento claro em menos de 24 horas, sem letra miúda."
       },
       {
         "question": "Você faz design, programação ou as duas coisas?",

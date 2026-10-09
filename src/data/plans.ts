@@ -18,7 +18,7 @@ export const PLANS: Plan[] = [
     id: "essential",
     name: "Essential",
     tagline: "Para arrancar y recibir consultas",
-    priceUsd: 350,
+    priceUsd: 300,
     delivery: "7 a 10 días hábiles",
     features: [
       "Una landing de una sola página (hasta 5 secciones)",
@@ -30,13 +30,13 @@ export const PLANS: Plan[] = [
     ],
     cta: "Quiero Essential",
     whatsappMessage:
-      "Hola Agustín, me interesa el plan Essential (desde USD 350). Quiero una landing para mi negocio.",
+      "Hola Agustín, me interesa el plan Essential (desde USD 300). Quiero una landing para mi negocio.",
   },
   {
     id: "premium",
     name: "Premium",
     tagline: "Cuando querés ir un paso más allá",
-    priceUsd: 550,
+    priceUsd: 500,
     featured: true,
     delivery: "2 a 3 semanas",
     features: [
@@ -50,22 +50,21 @@ export const PLANS: Plan[] = [
     ],
     cta: "Quiero Premium",
     whatsappMessage:
-      "Hola Agustín, me interesa el plan Premium (desde USD 550). Quiero una landing más completa para mi negocio.",
+      "Hola Agustín, me interesa el plan Premium (desde USD 500). Quiero una landing más completa para mi negocio.",
   },
   {
     id: "demo",
     name: "Demo a medida",
     tagline: "Mirá cómo quedaría tu web antes de decidir",
-    priceUsd: 79,
-    priceNote: "Si avanzamos con un plan, te lo descuento",
+    priceUsd: 0,
     delivery: "3 a 5 días hábiles",
     features: [
       "Preview con tu logo y colores",
       "Hero + 2 secciones de ejemplo",
       "Link en vivo para compartir",
-      "Los USD 79 se descuentan al contratar Essential o Premium",
+      "Sin costo ni compromiso",
     ],
     cta: "Pedir demo",
-    whatsappMessage: "Hola Agustín, me interesa la demo a medida (USD 79). Mi negocio es: ",
+    whatsappMessage: "Hola Agustín, me interesa la demo a medida gratuita. Mi negocio es: ",
   },
 ];

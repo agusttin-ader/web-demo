@@ -40,6 +40,7 @@ export async function Plans() {
           })}
         </div>
 
+        <p className="plans__footnote">{t.plans.paymentNote}</p>
         <p className="plans__footnote">
           {t.plans.addonsNote}{" "}
           <a href="#contacto">{t.plans.noteLink}</a>.
@@ -64,7 +65,7 @@ function PlanCard({
   const cardClass = `plan-card${featured ? " plan-card--featured" : ""}`;
   const priceLabel =
     plan.id === "demo"
-      ? interpolate(copy.priceFixed, { amount: plan.priceUsd })
+      ? copy.priceFree
       : interpolate(copy.priceFrom, { amount: plan.priceUsd });
 
   return (
@@ -77,7 +78,6 @@ function PlanCard({
       <p className="plan-card__name">{item.name}</p>
       <h3>{item.tagline}</h3>
       <p className="plan-card__price">{priceLabel}</p>
-      {"priceNote" in item && item.priceNote ? <p className="plan-card__note">{item.priceNote}</p> : null}
       <p className="plan-card__delivery">{interpolate(copy.delivery, { time: item.delivery })}</p>
 
       <ul>

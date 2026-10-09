@@ -214,6 +214,8 @@
     "delivery": "Entrega: {time}",
     "priceFrom": "Desde USD {amount}",
     "priceFixed": "USD {amount}",
+    "priceFree": "Gratuita",
+    "paymentNote": "Forma de pago: 50% al iniciar el proyecto y el otro 50% al terminar.",
     "featuredBadge": "Más elegido",
     "demoBadge": "Para probar",
     "addonsNote": "Dominio, textos, SEO avanzado, blog, otro idioma y mantenimiento mensual van aparte — te los cotizo sin drama.",
@@ -224,7 +226,7 @@
         "tagline": "Para arrancar y recibir consultas",
         "delivery": "7 a 10 días hábiles",
         "cta": "Quiero Essential",
-        "whatsappMessage": "Hola Agustín, me interesa el plan Essential (desde USD 350). Quiero una landing para mi negocio.",
+        "whatsappMessage": "Hola Agustín, me interesa el plan Essential (desde USD 300). Quiero una landing para mi negocio.",
         "features": [
           "Una landing de una sola página (hasta 5 secciones)",
           "Diseño pensado para el celu",
@@ -239,7 +241,7 @@
         "tagline": "Cuando querés ir un paso más allá",
         "delivery": "2 a 3 semanas",
         "cta": "Quiero Premium",
-        "whatsappMessage": "Hola Agustín, me interesa el plan Premium (desde USD 550). Quiero una landing más completa para mi negocio.",
+        "whatsappMessage": "Hola Agustín, me interesa el plan Premium (desde USD 500). Quiero una landing más completa para mi negocio.",
         "features": [
           "Todo lo del Essential",
           "Formulario de contacto que te llega al mail",
@@ -253,15 +255,14 @@
       "demo": {
         "name": "Demo a medida",
         "tagline": "Mirá cómo quedaría tu web antes de decidir",
-        "priceNote": "Si avanzamos con un plan, te lo descuento",
         "delivery": "3 a 5 días hábiles",
         "cta": "Pedir demo",
-        "whatsappMessage": "Hola Agustín, me interesa la demo a medida (USD 79). Mi negocio es: ",
+        "whatsappMessage": "Hola Agustín, me interesa la demo a medida gratuita. Mi negocio es: ",
         "features": [
           "Preview con tu logo y colores",
           "Hero + 2 secciones de ejemplo",
           "Link en vivo para compartir",
-          "Los USD 79 se descuentan al contratar Essential o Premium"
+          "Sin costo ni compromiso"
         ]
       }
     }
@@ -341,7 +342,7 @@
       },
       {
         "question": "¿Cuánto cuesta una página web o landing en Argentina?",
-        "answer": "Una landing arranca desde USD 350 (Essential) y una más completa desde USD 550 (Premium). El precio final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica."
+        "answer": "Una landing arranca desde USD 300 (Essential) y una más completa desde USD 500 (Premium). La demo a medida es gratuita. El precio final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica."
       },
       {
         "question": "¿Hacés diseño web, programación o las dos cosas?",
