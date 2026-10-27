@@ -217,7 +217,7 @@ const PRODUCTION_GRID_ORDER = [
 export function getProductionProjects(): Project[] {
   const featuredIds = new Set(getFeaturedProjects().map((p) => p.id));
   const rest = projects.filter((p) => p.type === "production" && !featuredIds.has(p.id));
-  const rank = new Map(PRODUCTION_GRID_ORDER.map((id, index) => [id, index]));
+  const rank = new Map<string, number>(PRODUCTION_GRID_ORDER.map((id, index) => [id, index]));
   return [...rest].sort((a, b) => (rank.get(a.id) ?? 99) - (rank.get(b.id) ?? 99));
 }
 
