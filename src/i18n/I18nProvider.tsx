@@ -99,9 +99,7 @@ export function I18nProvider({
 
   return (
     <I18nContext.Provider value={value}>
-      <div aria-busy={isTranslating}>
-        <div key={locale}>{children}</div>
-      </div>
+      <div aria-busy={isTranslating ? true : undefined}>{children}</div>
     </I18nContext.Provider>
   );
 }

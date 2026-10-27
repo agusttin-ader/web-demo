@@ -9,6 +9,7 @@ export type ProjectMediaTheme =
   | "medical"
   | "medical-demo"
   | "rhinoscopy"
+  | "chinski"
   | "neutral";
 
 export interface Project {
@@ -50,6 +51,31 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "dr-chinski",
+    title: "Dr. Chinski Rinoplastia",
+    client: "Dres. Luis y Hernán Chinski",
+    description:
+      "Sitio de rinoplastia estética, funcional y reparadora: casos, equipo, turnos y consulta en Buenos Aires.",
+    image: "/images/logos/chinski.png",
+    logo: "/images/logos/chinski.png",
+    logoCrisp: true,
+    mediaTheme: "chinski",
+    imageAlt:
+      "Sitio de Dr. Chinski Rinoplastia: cirugía de nariz, casos antes y después y turnos en Buenos Aires",
+    stack: "Next.js · Rinoplastia · ES/EN/PT",
+    problem:
+      "El consultorio necesitaba un canal propio, claro y premium, para explicar la cirugía y convertir visitas en consultas.",
+    solution:
+      "Sitio completo con casos, equipo, técnica ultrasónica, testimonios, FAQ y caminos de turno por WhatsApp y formulario.",
+    result:
+      "Hub clínico en rinoplastia.com.ar, con identidad propia, contenido en tres idiomas y consulta directa.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "i18n", "Vercel"],
+    type: "production",
+    featured: true,
+    demo: "https://rinoplastia.com.ar/",
+    link: "https://rinoplastia.com.ar/",
+  },
+  {
     id: "rhinoscopy",
     title: "Rhinoscopy",
     client: "Rhinoscopy",
@@ -69,7 +95,6 @@ export const projects: Project[] = [
       "Hub educativo regional en rhinoscopy.com.ar, con congreso, contenido clínico y canal propio.",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "i18n", "Vercel"],
     type: "production",
-    featured: true,
     demo: "https://www.rhinoscopy.com.ar/",
     link: "https://www.rhinoscopy.com.ar/",
   },
@@ -180,9 +205,20 @@ export function getFeaturedProject(): Project | undefined {
   return getFeaturedProjects()[0];
 }
 
+/** Orden de la grilla (izq → der, arr → abj). La Guarida queda última, con el arte a su derecha. */
+const PRODUCTION_GRID_ORDER = [
+  "alo-patagonia",
+  "rhinoscopy",
+  "dr-lopez-moris",
+  "dra-karla-armijos",
+  "la-guarida",
+] as const;
+
 export function getProductionProjects(): Project[] {
   const featuredIds = new Set(getFeaturedProjects().map((p) => p.id));
-  return projects.filter((p) => p.type === "production" && !featuredIds.has(p.id));
+  const rest = projects.filter((p) => p.type === "production" && !featuredIds.has(p.id));
+  const rank = new Map(PRODUCTION_GRID_ORDER.map((id, index) => [id, index]));
+  return [...rest].sort((a, b) => (rank.get(a.id) ?? 99) - (rank.get(b.id) ?? 99));
 }
 
 /** Todos los clientes en producción (destacados primero, mismo orden que en `projects`). */

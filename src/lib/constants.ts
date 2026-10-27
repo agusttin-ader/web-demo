@@ -40,9 +40,19 @@ export type TrustLogo = {
   href: string;
   /** Logo blanco en PNG — en superficies claras se muestra en negro vía CSS */
   trustMonoOnLight?: boolean;
+  width?: number;
+  height?: number;
 };
 
 export const TRUST_LOGOS: readonly TrustLogo[] = [
+  {
+    id: "dr-chinski",
+    src: "/images/logos/chinski.png",
+    alt: "Dr. Chinski Rinoplastia",
+    href: "https://rinoplastia.com.ar/",
+    width: 54,
+    height: 100,
+  },
   {
     id: "rhinoscopy",
     src: "/images/logos/rhinoscopy-logo-hero-sombra.png",

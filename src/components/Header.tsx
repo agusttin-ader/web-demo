@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ExternalLink } from "@/components/ExternalLink";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { useI18n } from "@/i18n/I18nProvider";
@@ -33,6 +34,8 @@ const MOBILE_MENU_TITLE_ID = "site-mobile-menu-title";
 
 export function Header() {
   const { t } = useI18n();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const prefersReducedMotion = usePrefersReducedMotion();
   const whatsappHref = whatsappUrl(t.whatsapp.defaultMessage);
   const [open, setOpen] = useState(false);
@@ -218,6 +221,7 @@ export function Header() {
     const el = document.getElementById(id);
     if (!el) {
       setOpen(false);
+      window.location.assign(`/#${id}`);
       return;
     }
 
@@ -245,9 +249,10 @@ export function Header() {
         <div className={`site-header__bar ${DS_CLASS.container}`}>
           <div className="site-header__start">
             <a
-              href="#hero"
+              href="/"
               className="site-header__logo"
               onClick={(e) => {
+                if (!isHome) return;
                 e.preventDefault();
                 scrollTo("hero");
               }}
@@ -265,7 +270,7 @@ export function Header() {
                 return (
                   <li key={id}>
                     <a
-                      href={`#${id}`}
+                      href={isHome ? `#${id}` : `/#${id}`}
                       className="site-header__nav-link"
                       onClick={(e) => {
                         e.preventDefault();
@@ -342,7 +347,7 @@ export function Header() {
                 <li key={id}>
                   <a
                     ref={index === 0 ? firstMenuItemRef : undefined}
-                    href={`#${id}`}
+                    href={isHome ? `#${id}` : `/#${id}`}
                     className="site-header__panel-link"
                     onClick={(e) => {
                       e.preventDefault();

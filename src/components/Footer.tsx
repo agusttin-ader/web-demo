@@ -13,10 +13,23 @@ export async function Footer() {
   const whatsappHref = whatsappUrl(t.whatsapp.defaultMessage);
 
   const quickLinks = [
-    ...NAV_ITEMS.map((id) => ({ id, label: t.nav.items[id] })),
-    { id: "preguntas-frecuentes", label: t.footer.faq },
-    { id: "sobre-mi", label: t.footer.about },
-    { id: "overview", label: t.overview.title },
+    ...NAV_ITEMS.map((id) => ({ href: `/#${id}`, label: t.nav.items[id] })),
+    { href: "/#preguntas-frecuentes", label: t.footer.faq },
+    { href: "/#sobre-mi", label: t.footer.about },
+    { href: "/#overview", label: t.overview.title },
+  ] as const;
+
+  const seoLinks = [
+    { href: "/desarrollo-web", label: t.footer.seoWebDev },
+    { href: "/pagina-web", label: t.footer.seoWebsite },
+    { href: "/landing-page", label: t.footer.seoLanding },
+    { href: "/desarrollador-web-freelance", label: t.footer.seoFreelance },
+    { href: "/sitio-web-para-medicos", label: t.footer.seoMedicos },
+    { href: "/sitio-web-turismo", label: t.footer.seoTurismo },
+    { href: "/desarrollo-web-buenos-aires", label: t.footer.seoBuenosAires },
+    { href: "/pagina-web-whatsapp", label: t.footer.seoWhatsapp },
+    { href: "/sitio-web-multiidioma", label: t.footer.seoI18n },
+    { href: "/pagina-web-comercio", label: t.footer.seoShop },
   ] as const;
 
   const socialLinks = [
@@ -30,7 +43,7 @@ export async function Footer() {
       <div className={DS_CLASS.container}>
         <div className="site-footer__grid">
           <div className="site-footer__brand">
-            <a href="#hero" className="site-footer__logo-link">
+            <a href="/" className="site-footer__logo-link">
               <Image src={BRAND_LOGO_SRC} alt="" width={40} height={40} loading="lazy" />
               <span>Agustin Ader</span>
             </a>
@@ -74,9 +87,22 @@ export async function Footer() {
             <h2>{t.footer.quickLinks}</h2>
             <nav aria-label={t.footer.quickAria}>
               <ul>
-                {quickLinks.map(({ id, label }) => (
-                  <li key={id}>
-                    <a href={`#${id}`}>{label}</a>
+                {quickLinks.map(({ href, label }) => (
+                  <li key={href}>
+                    <a href={href}>{label}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          <div className="site-footer__links site-footer__links--seo">
+            <h2>{t.footer.seoHeading}</h2>
+            <nav aria-label={t.footer.seoAria}>
+              <ul>
+                {seoLinks.map(({ href, label }) => (
+                  <li key={href}>
+                    <a href={href}>{label}</a>
                   </li>
                 ))}
               </ul>

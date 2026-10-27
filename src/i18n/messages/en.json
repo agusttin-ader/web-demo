@@ -43,7 +43,17 @@
     ],
     "body": "Design and code built for mobile: fast load, clear message and WhatsApp one tap away — for businesses that want a site that actually works.",
     "ctaProjects": "See work",
-    "ctaWhatsapp": "Chat on WhatsApp"
+    "ctaWhatsapp": "Chat on WhatsApp",
+    "promoKicker": "−25%",
+    "promoLine": "Your site costs less this year",
+    "promoUntil": "through 1 January",
+    "promoCta": "See plans",
+    "promoOfferKicker": "Offer through 1 January",
+    "promoOfferTitle": "Your landing, 25% off",
+    "promoPriceEssential": "Essential USD {amount}",
+    "promoPricePremium": "Premium USD {amount}",
+    "promoPriceWas": "USD {amount}",
+    "promoAria": "25% off Essential and Premium through 1 January 2027. Essential from USD 225, Premium from USD 375. See plans."
   },
   "problem": {
     "label": "The problem",
@@ -108,6 +118,13 @@
     }
   },
   "projects": {
+    "dr-chinski": {
+      "description": "Site for aesthetic, functional and revision rhinoplasty: cases, the team, appointments and consults in Buenos Aires.",
+      "imageAlt": "Dr. Chinski Rhinoplasty site: nose surgery, before-and-after cases and appointments in Buenos Aires",
+      "problem": "The practice needed its own clear, premium channel to explain the surgery and turn visits into consults.",
+      "solution": "A full site with cases, the team, ultrasonic technique, testimonials, FAQ and booking paths via WhatsApp and form.",
+      "result": "A clinical hub at rinoplastia.com.ar, with its own identity, content in three languages and direct consults."
+    },
     "rhinoscopy": {
       "description": "Medical education platform for ENT, rhinology and rhinoscopy: congress, webinars and certificates.",
       "imageAlt": "Rhinoscopy site: rhinology training, Rhinoscopy Meet, webinars and certificates",
@@ -164,7 +181,7 @@
     "ctaAction": "Write now",
     "stats": [
       { "value": "2+", "label": "Years of experience" },
-      { "value": "4+", "label": "Projects shipped" },
+      { "value": "6+", "label": "Projects shipped" },
       { "value": "100%", "label": "Mobile-first design" },
       { "value": "24h", "label": "First reply" }
     ],
@@ -215,6 +232,9 @@
     "priceFrom": "From USD {amount}",
     "priceFixed": "USD {amount}",
     "priceFree": "Free",
+    "discountBadge": "−{percent}%",
+    "promoUntil": "Until 1 Jan 2027",
+    "promoNote": "25% off is valid from 27 Oct 2026 through 1 Jan 2027 inclusive.",
     "paymentNote": "Payment: 50% when the project starts and the other 50% when it's finished.",
     "featuredBadge": "Most chosen",
     "demoBadge": "Try it first",
@@ -227,6 +247,7 @@
         "delivery": "7 to 10 business days",
         "cta": "I want Essential",
         "whatsappMessage": "Hi Agustín, I'm interested in the Essential plan (from USD 300). I want a landing for my business.",
+        "whatsappMessagePromo": "Hi Agustín, I'm interested in the Essential plan with 25% off (from USD 225, was USD 300, promo until 1 Jan 2027). I want a landing for my business.",
         "features": [
           "A one-page landing (up to 5 sections)",
           "Designed for mobile",
@@ -242,6 +263,7 @@
         "delivery": "2 to 3 weeks",
         "cta": "I want Premium",
         "whatsappMessage": "Hi Agustín, I'm interested in the Premium plan (from USD 500). I want a more complete landing for my business.",
+        "whatsappMessagePromo": "Hi Agustín, I'm interested in the Premium plan with 25% off (from USD 375, was USD 500, promo until 1 Jan 2027). I want a more complete landing for my business.",
         "features": [
           "Everything in Essential",
           "Contact form that lands in your inbox",
@@ -287,7 +309,7 @@
     "focusTitle": "What I specialize in",
     "stats": [
       { "value": "2+", "label": "Years of experience" },
-      { "value": "4+", "label": "Projects shipped" },
+      { "value": "6+", "label": "Projects shipped" },
       { "value": "100%", "label": "Mobile-first design" },
       { "value": "24h", "label": "First reply" }
     ],
@@ -337,12 +359,21 @@
     "description": "Timelines, scope and what working together looks like.",
     "items": [
       {
+        "question": "What does web development for a business in Argentina actually mean?",
+        "answer": "It means designing and building a page or landing that explains your service, loads fast on mobile and gets the visitor to write you on WhatsApp. Not a tutorial and not a 40-page site: a website built to get inquiries."
+      },
+      {
+        "question": "How much does web development for a landing cost in Argentina?",
+        "answer": "Essential from USD 300 and Premium from USD 500. Through 1 January 2027 there's 25% off (USD 225 and USD 375). The custom demo is free. Payment is 50% at kickoff and 50% at delivery."
+      },
+      {
         "question": "What's included in a website for my business?",
         "answer": "Mobile-first design, Next.js and React development, organized copy, a WhatsApp button with a ready-made message, basic SEO (title and description) and going live with your domain connected. Depending on what you need, we add a form, FAQ, animations and structured data so Google can find you more easily."
       },
       {
         "question": "How much does a website or landing page cost in Argentina?",
-        "answer": "A landing starts from USD 300 (Essential) and a more complete one from USD 500 (Premium). The custom demo is free. The final price depends on scope: number of sections, whether you need a form, multiple pages or extra content. Payment is 50% when the project starts and 50% when it's finished. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print."
+        "answer": "Essential starts at USD 300 and Premium at USD 500. The custom demo is free. The final price depends on scope: number of sections, whether you need a form, multiple pages or extra content. Payment is 50% when the project starts and 50% when it's finished. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print.",
+        "answerPromo": "From 27 Oct 2026 through 1 Jan 2027 inclusive, Essential and Premium are 25% off: from USD 225 (was USD 300) and from USD 375 (was USD 500). The custom demo is free. The final price depends on scope: number of sections, whether you need a form, multiple pages or extra content. Payment is 50% when the project starts and 50% when it's finished. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print."
       },
       {
         "question": "Do you do web design, development, or both?",
@@ -430,7 +461,40 @@
     "credit": "Design & development — personal portfolio",
     "faq": "FAQ",
     "about": "About",
-    "skills": "Skills"
+    "skills": "Skills",
+    "seoHeading": "Services",
+    "seoAria": "Service pages",
+    "seoWebDev": "Web development",
+    "seoWebsite": "Website",
+    "seoLanding": "Landing page",
+    "seoFreelance": "Freelance developer",
+    "seoMedicos": "Doctors & clinics",
+    "seoTurismo": "Travel",
+    "seoBuenosAires": "Buenos Aires",
+    "seoWhatsapp": "Web with WhatsApp",
+    "seoI18n": "Multilingual",
+    "seoShop": "Shops"
+  },
+  "seoHub": {
+    "label": "Services",
+    "title": "Web development, sites and landings",
+    "body": "Live landings and sites, grouped by what you sell. You open a real project, not a generic index.",
+    "go": "View",
+    "aria": "More about web development",
+    "nicheTitle": "By industry",
+    "nicheAria": "Sites by industry",
+    "items": {
+      "webDev": "Freelance web development in Argentina for businesses that want more inquiries.",
+      "website": "A clear website, published, with WhatsApp, ready for your domain.",
+      "landing": "A landing page with one goal: the visitor writes to you.",
+      "freelance": "You talk directly with the person who designs and codes. Quote in 24h.",
+      "medicos": "Clinic sites: Chinski, López Moris, Armijos and Rhinoscopy.",
+      "turismo": "Travel site with clear destinations. Alo Patagonia.",
+      "buenosAires": "Freelance in Buenos Aires, remote with clients nationwide.",
+      "whatsapp": "The visitor writes to you with the message already filled in.",
+      "i18n": "A site in Spanish, English and Portuguese — like Chinski and Rhinoscopy.",
+      "shop": "Catalog and WhatsApp so you don’t live on Instagram alone. La Guarida."
+    }
   },
   "notFound": {
     "title": "This page doesn't exist",

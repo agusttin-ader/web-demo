@@ -5,6 +5,7 @@ import {
   getProductionProjects,
   withProjectCopy,
 } from "@/data/projects";
+import { PortfolioArtPanel } from "@/components/PortfolioArtPanel";
 import { ProjectDemoCard } from "@/components/ProjectDemoCard";
 import { ProjectProductionCard } from "@/components/ProjectProductionCard";
 import { ExternalLink } from "@/components/ExternalLink";
@@ -65,6 +66,9 @@ export async function Portfolio() {
                 <ProjectProductionCard project={project} copy={t.portfolio} index={index + 1} />
               </li>
             ))}
+            <li className="portfolio__production-grid-art">
+              <PortfolioArtPanel delay={(productionRest.length + 1) * 70} />
+            </li>
           </ul>
         ) : null}
 

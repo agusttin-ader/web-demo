@@ -33,8 +33,8 @@ export function ClientLogos({
               <Image
                 src={logo.src}
                 alt=""
-                width={200}
-                height={72}
+                width={logo.width ?? 200}
+                height={logo.height ?? 72}
                 sizes={imageSizes}
                 className={imageMaxClass}
               />

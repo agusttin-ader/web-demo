@@ -20,6 +20,7 @@ function ProductionCardStage({ project, priority = false }: { project: Project; 
     project.logoScreenBlend ? "production-card__logo--medical" : "",
     project.logoCrisp ? "production-card__logo--crisp" : "",
     project.mediaTheme === "rhinoscopy" ? "production-card__logo--rhinoscopy" : "",
+    project.mediaTheme === "chinski" ? "production-card__logo--chinski" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -33,9 +34,9 @@ function ProductionCardStage({ project, priority = false }: { project: Project; 
         <Image
           src={project.logo}
           alt=""
-          width={project.logoCrisp ? 512 : 256}
-          height={project.logoCrisp ? 512 : 256}
-          sizes={project.logoCrisp ? "7rem" : "(min-width: 1180px) 7rem, 6.5rem"}
+          width={project.logoCrisp ? 1024 : 256}
+          height={project.logoCrisp ? 1024 : 256}
+          sizes={project.logoCrisp ? "(min-width: 900px) 16rem, 8rem" : "(min-width: 1180px) 7rem, 6.5rem"}
           className={logoClass}
           loading={priority ? "eager" : "lazy"}
           priority={priority}

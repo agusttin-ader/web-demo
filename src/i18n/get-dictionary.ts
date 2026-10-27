@@ -1,6 +1,13 @@
 import { cache } from "react";
 import { cookies, headers } from "next/headers";
-import { LOCALE_COOKIE, countryFromHeaders, resolveLocale, type Locale } from "@/i18n/config";
+import {
+  DEFAULT_LOCALE,
+  LOCALE_COOKIE,
+  countryFromHeaders,
+  isCrawler,
+  resolveLocale,
+  type Locale,
+} from "@/i18n/config";
 import es from "@/i18n/messages/es.json";
 import en from "@/i18n/messages/en.json";
 import pt from "@/i18n/messages/pt.json";
@@ -18,6 +25,10 @@ const dictionaries: Record<Locale, Dictionary> = {
 export const getLocale = cache(async (): Promise<Locale> => {
   const cookieStore = await cookies();
   const headerStore = await headers();
+
+  if (isCrawler(headerStore.get("user-agent"))) {
+    return DEFAULT_LOCALE;
+  }
 
   return resolveLocale({
     cookie: cookieStore.get(LOCALE_COOKIE)?.value,

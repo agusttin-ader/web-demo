@@ -1,16 +1,6 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  type CSSProperties,
-  type ReactNode,
-} from "react";
-import { useIsClientHydrated } from "@/hooks/useIsClientHydrated";
-import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { useEffect, useId, useMemo, useRef, type ReactNode } from "react";
 import { observeReveal } from "@/lib/reveal-observer";
 import { applyScrollPaceToElement } from "@/lib/scroll-pace";
 
@@ -45,56 +35,30 @@ export function Reveal({
   variant = "up",
   delay = 0,
 }: RevealProps) {
-  const hydrated = useIsClientHydrated();
-  const reduceMotion = usePrefersReducedMotion();
   const reactId = useId();
   const from = useMemo(() => revealDirectionFromId(reactId), [reactId]);
   const ref = useRef<HTMLDivElement>(null);
-
-  const motionActive = hydrated && !reduceMotion;
   const motionVariant = variant === "fade" ? "fade" : "up";
 
-  const runReveal = useCallback(
-    (node: HTMLDivElement) => {
-      markRevealed(node, delay);
-    },
-    [delay]
-  );
-
   useEffect(() => {
-    if (!motionActive) return;
-
     const node = ref.current;
     if (!node) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    node.setAttribute("data-m-reveal", motionVariant);
+    node.setAttribute("data-m-reveal-from", from);
+    node.style.setProperty("--m-reveal-delay", `${Math.min(delay, 640)}ms`);
 
     if (initialVisible) {
-      runReveal(node);
+      markRevealed(node, delay);
       return;
     }
 
-    return observeReveal(node, () => runReveal(node));
-  }, [motionActive, initialVisible, runReveal]);
-
-  const style = motionActive
-    ? ({ "--m-reveal-delay": `${Math.min(delay, 640)}ms` } as CSSProperties)
-    : undefined;
-
-  if (!motionActive) {
-    return (
-      <div className={className}>
-        {children}
-      </div>
-    );
-  }
+    return observeReveal(node, () => markRevealed(node, delay));
+  }, [delay, from, initialVisible, motionVariant]);
 
   return (
-    <div
-      ref={ref}
-      className={className}
-      data-m-reveal={motionVariant}
-      data-m-reveal-from={from}
-      style={style}
-    >
+    <div ref={ref} className={className}>
       {children}
     </div>
   );

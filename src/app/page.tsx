@@ -13,6 +13,8 @@ import { Services } from "@/components/Services";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { homeMetadata } from "@/lib/seo";
 import { SeoFaq } from "@/components/SeoFaq";
+import { SeoHub } from "@/components/SeoHub";
+import { HomeJsonLd } from "@/components/JsonLd";
 import { getDictionary, getLocale } from "@/i18n/get-dictionary";
 
 export const metadata: Metadata = homeMetadata;
@@ -23,6 +25,7 @@ export default async function Home() {
 
   return (
     <>
+      <HomeJsonLd />
       <main id="contenido" aria-label={t.common.mainAria}>
         <Hero />
         <Problem />
@@ -33,6 +36,7 @@ export default async function Home() {
         <Plans />
         <About />
         <SeoFaq />
+        <SeoHub />
         <CtaBanner />
         <Contact />
         <Footer />

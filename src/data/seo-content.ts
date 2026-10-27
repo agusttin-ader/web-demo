@@ -1,6 +1,16 @@
 /** Contenido SEO on-page + FAQ (es-AR). Una sola fuente para HTML y JSON-LD. */
 export const SEO_FAQ = [
   {
+    question: "¿Qué es el desarrollo web para un negocio en Argentina?",
+    answer:
+      "Es diseñar y programar una página o landing que explique tu servicio, cargue rápido en el celular y lleve al visitante a escribirte por WhatsApp. No es un tutorial ni un sitio de 40 páginas: es una web hecha para conseguir consultas.",
+  },
+  {
+    question: "¿Cuánto cuesta el desarrollo web de una landing en Argentina?",
+    answer:
+      "Essential desde USD 300 y Premium desde USD 500. Hasta el 1 de enero de 2027 hay 25% off (USD 225 y USD 375). La demo a medida es gratuita. El pago es 50% al iniciar y 50% al terminar.",
+  },
+  {
     question: "¿Qué incluye el desarrollo web de una página para mi negocio?",
     answer:
       "Incluye diseño pensado para el celu, programación con Next.js y React, textos ordenados, botón de WhatsApp con mensaje listo, SEO base (título y descripción) y publicación online con tu dominio conectado. Según lo que necesites, sumamos formulario, FAQ, animaciones y datos estructurados para que Google te encuentre mejor.",
@@ -8,7 +18,9 @@ export const SEO_FAQ = [
   {
     question: "¿Cuánto cuesta una página web o landing en Argentina?",
     answer:
-      "Una landing arranca desde USD 300 (Essential) y una más completa desde USD 500 (Premium). La demo a medida es gratuita. El precio final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
+      "Essential desde USD 300 y Premium desde USD 500. La demo a medida es gratuita. El precio final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
+    answerPromo:
+      "Del 27/10/2026 al 01/01/2027 inclusive, Essential y Premium tienen 25% de descuento: desde USD 225 (antes USD 300) y desde USD 375 (antes USD 500). La demo a medida es gratuita. El precio final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
   },
   {
     question: "¿Hacés diseño web, programación o las dos cosas?",
@@ -48,6 +60,7 @@ export const SEO_SERVICE_AREAS = [
 export const SEO_PRIMARY_KEYWORDS = [
   "desarrollo web",
   "desarrollo web argentina",
+  "desarrollo web buenos aires",
   "desarrollo web freelance",
   "página web",
   "pagina web",

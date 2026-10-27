@@ -1,19 +1,15 @@
 "use client";
 
-import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { useEffect, useRef } from "react";
-import { useMobileMotion } from "@/hooks/useMobileMotion";
 
+/** Always in the DOM so SSR and hydration match. CSS hides it on desktop. */
 export function ScrollProgress() {
-  const reduceMotion = usePrefersReducedMotion();
-  const mobileMotion = useMobileMotion();
   const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (reduceMotion || !mobileMotion) return;
-
     const bar = barRef.current;
     if (!bar) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let frame = 0;
 
@@ -38,9 +34,7 @@ export function ScrollProgress() {
       window.removeEventListener("resize", onScroll);
       if (frame) window.cancelAnimationFrame(frame);
     };
-  }, [reduceMotion, mobileMotion]);
-
-  if (reduceMotion || !mobileMotion) return null;
+  }, []);
 
   return <div ref={barRef} className="scroll-progress" style={{ transform: "scaleX(0)" }} aria-hidden />;
 }

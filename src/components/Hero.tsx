@@ -1,4 +1,5 @@
 import { ExternalLink } from "@/components/ExternalLink";
+import { HeroPromoBar, HeroPromoOffer } from "@/components/HeroPromo";
 import { HeroTitle, type HeroTitleLine } from "@/components/HeroTitle";
 import { Reveal } from "@/components/Reveal";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -10,7 +11,9 @@ export async function Hero() {
 
   return (
     <section id="hero" className="hero ds-section--light" aria-labelledby="hero-heading">
-      <div className={DS_CLASS.container}>
+      <HeroPromoBar copy={t.hero} />
+
+      <div className={`hero__body ${DS_CLASS.container}`}>
         <div className="hero__grid">
           <div className="hero__main">
             <Reveal variant="fade" initialVisible delay={0}>
@@ -27,6 +30,8 @@ export async function Hero() {
             <Reveal variant="up" initialVisible delay={120}>
               <p className={`hero__lead ${DS_CLASS.proseMuted}`}>{t.hero.body}</p>
             </Reveal>
+
+            <HeroPromoOffer copy={t.hero} />
 
             <Reveal variant="up" initialVisible delay={180}>
               <div className="hero__actions">

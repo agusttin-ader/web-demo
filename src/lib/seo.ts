@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { projects } from "@/data/projects";
+import { isPlanPromoActive, PLAN_PROMO, PLANS, resolvePlanPricing } from "@/data/plans";
 import {
   SEO_FAQ,
   SEO_PRIMARY_KEYWORDS,
   SEO_SERVICE_AREAS,
 } from "@/data/seo-content";
+import { SEO_LANDING_PAGES, type SeoLandingPage } from "@/data/seo-pages";
 import {
   EMAIL,
   INSTAGRAM_URL,
@@ -19,13 +21,13 @@ export const SITE_NAME = "Agustín Ader";
 export const SITE_TAGLINE = "Desarrollo web y páginas web en Argentina";
 
 export const DEFAULT_TITLE =
-  "Desarrollo Web y Páginas Web en Argentina | Programación — Agustín Ader";
+  "Desarrollo Web en Argentina | Freelance · Landings y Páginas Web";
 export const DEFAULT_DESCRIPTION =
-  "Desarrollo web, programación y diseño de páginas web para negocios en Argentina. Landings rápidas, mobile-first y WhatsApp integrado. Presupuesto en 24 hs.";
+  "Desarrollador web freelance en Argentina. Landings y páginas web rápidas, mobile-first, con SEO y WhatsApp. Essential desde USD 225. Presupuesto en 24 hs.";
 
-export const OG_TITLE = "Desarrollo Web · Páginas Web · Programación | Agustín Ader";
+export const OG_TITLE = "Desarrollo Web en Argentina | Agustín Ader";
 export const OG_DESCRIPTION =
-  "Freelance de desarrollo web en Argentina. Creo páginas web claras, rápidas y optimizadas para Google y WhatsApp.";
+  "Freelance de desarrollo web en Buenos Aires. Landings y páginas web que convierten visitas en consultas. Presupuesto claro en 24 hs.";
 
 export const TWITTER_TITLE = DEFAULT_TITLE;
 export const TWITTER_DESCRIPTION = DEFAULT_DESCRIPTION;
@@ -43,7 +45,7 @@ export { EMAIL, INSTAGRAM_URL, PHONE_E164 };
 export const WHATSAPP_PROFILE = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 /** Fecha de última actualización del sitio (sitemap + schema). */
-export const SITE_LAST_MODIFIED = "2026-03-08";
+export const SITE_LAST_MODIFIED = "2026-10-27";
 
 export function absoluteUrl(path = "/"): string {
   if (path.startsWith("http")) return path;
@@ -54,14 +56,31 @@ export function absoluteUrl(path = "/"): string {
 const KEYWORDS = [
   ...SEO_PRIMARY_KEYWORDS,
   "desarrollo web buenos aires",
+  "desarrollo web argentina precio",
+  "desarrollador web buenos aires",
+  "desarrollador web freelance argentina",
+  "página web para negocios",
+  "pagina web para negocios",
+  "crear pagina web argentina",
+  "cuanto cuesta una pagina web",
   "freelance programación web",
   "landing page argentina",
+  "landing page para conseguir clientes",
   "desarrollador next.js",
   "sitio web para pymes",
   "web whatsapp integrado",
   "seo técnico páginas web",
   "presupuesto página web",
   "programador web freelance argentina",
+  "sitio web para médicos",
+  "pagina web para medicos",
+  "sitio web rinoplastia",
+  "sitio web turismo argentina",
+  "pagina web turismo",
+  "desarrollo web buenos aires freelance",
+  "pagina web con whatsapp",
+  "sitio web multiidioma",
+  "pagina web para comercios",
 ];
 
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -90,6 +109,7 @@ export const siteMetadata: Metadata = {
     languages: {
       "es-AR": "/",
       es: "/",
+      "x-default": "/",
     },
   },
   robots: {
@@ -162,6 +182,7 @@ export const homeMetadata: Metadata = {
     languages: {
       "es-AR": "/",
       es: "/",
+      "x-default": "/",
     },
   },
   openGraph: {
@@ -173,14 +194,35 @@ export const homeMetadata: Metadata = {
 };
 
 function buildFaqEntities() {
+  const promoActive = isPlanPromoActive();
   return SEO_FAQ.map((item) => ({
     "@type": "Question" as const,
     name: item.question,
     acceptedAnswer: {
       "@type": "Answer" as const,
-      text: item.answer,
+      text: promoActive && "answerPromo" in item && item.answerPromo ? item.answerPromo : item.answer,
     },
   }));
+}
+
+function buildPlanOffers() {
+  const promoActive = isPlanPromoActive();
+  return PLANS.map((plan) => {
+    const pricing = resolvePlanPricing(plan, promoActive);
+    return {
+      "@type": "Offer" as const,
+      "@id": `${SITE_URL}/#offer-${plan.id}`,
+      name: `Plan ${plan.name}`,
+      description: plan.tagline,
+      url: `${SITE_URL}/#planes`,
+      price: String(pricing.priceUsd),
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      ...(promoActive && pricing.discountPercent
+        ? { priceValidUntil: PLAN_PROMO.end }
+        : {}),
+    };
+  });
 }
 
 export function buildJsonLd() {
@@ -213,6 +255,7 @@ export function buildJsonLd() {
         email: `mailto:${EMAIL}`,
         telephone: PHONE_E164,
         jobTitle: "Desarrollador web freelance",
+        knowsLanguage: ["es-AR", "en", "pt-BR"],
         description: DEFAULT_DESCRIPTION,
         sameAs: [LINKEDIN_URL, INSTAGRAM_URL, WHATSAPP_PROFILE],
         knowsAbout: [
@@ -283,6 +326,12 @@ export function buildJsonLd() {
           { "@type": "Thing", name: "Páginas web" },
           { "@type": "Thing", name: "Programación web" },
         ],
+        hasPart: SEO_LANDING_PAGES.map((page) => ({
+          "@type": "WebPage" as const,
+          "@id": `${SITE_URL}/${page.slug}#webpage`,
+          url: `${SITE_URL}/${page.slug}`,
+          name: page.title,
+        })),
         potentialAction: {
           "@type": "CommunicateAction",
           target: WHATSAPP_PROFILE,
@@ -335,20 +384,39 @@ export function buildJsonLd() {
         mainEntity: faqEntities,
       },
       {
-        "@type": "ProfessionalService",
+        "@type": ["ProfessionalService", "LocalBusiness"],
         "@id": `${SITE_URL}/#service`,
         name: `${SITE_NAME} — Desarrollo web y páginas web`,
-        alternateName: "Agustín Ader desarrollo web freelance",
+        alternateName: [
+          "Agustín Ader desarrollo web freelance",
+          "Desarrollo web Argentina",
+        ],
         description:
           "Servicio de desarrollo web, programación y diseño de páginas web para negocios en Argentina. Landings optimizadas para Google y WhatsApp.",
         url: SITE_URL,
         image: { "@id": `${SITE_URL}/#primaryimage` },
         logo: { "@id": `${SITE_URL}/#logo` },
         provider: { "@id": `${SITE_URL}/#person` },
+        founder: { "@id": `${SITE_URL}/#person` },
+        priceRange: "USD 0–500",
+        currenciesAccepted: "USD",
+        paymentAccepted: "Transferencia bancaria, USD",
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: -34.6037,
+          longitude: -58.3816,
+        },
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Buenos Aires",
+          addressRegion: "Buenos Aires",
+          addressCountry: "AR",
+        },
         areaServed: SEO_SERVICE_AREAS.map((area) => ({
           "@type": "AdministrativeArea",
           name: area,
         })),
+        knowsLanguage: ["es-AR", "en", "pt-BR"],
         serviceType: [
           "Desarrollo web",
           "Programación web",
@@ -358,13 +426,18 @@ export function buildJsonLd() {
           "SEO técnico",
           "Integración WhatsApp",
         ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Planes de desarrollo web",
+          itemListElement: buildPlanOffers(),
+        },
         contactPoint: [
           {
             "@type": "ContactPoint",
-            contactType: "customer service",
+            contactType: "sales",
             email: EMAIL,
             telephone: PHONE_E164,
-            availableLanguage: ["Spanish", "es"],
+            availableLanguage: ["Spanish", "English", "Portuguese"],
             areaServed: "AR",
             url: WHATSAPP_PROFILE,
           },
@@ -383,6 +456,120 @@ export function buildJsonLd() {
           item,
         })),
       },
+    ],
+  };
+}
+
+const SITE_GRAPH_IDS = [
+  `${SITE_URL}/#person`,
+  `${SITE_URL}/#logo`,
+  `${SITE_URL}/#primaryimage`,
+  `${SITE_URL}/#website`,
+  `${SITE_URL}/#service`,
+];
+
+export function buildSiteJsonLd() {
+  const full = buildJsonLd();
+  return {
+    "@context": "https://schema.org",
+    "@graph": full["@graph"].filter((node) =>
+      SITE_GRAPH_IDS.includes((node as { "@id"?: string })["@id"] ?? ""),
+    ),
+  };
+}
+
+export function buildHomeJsonLd() {
+  const full = buildJsonLd();
+  return {
+    "@context": "https://schema.org",
+    "@graph": full["@graph"].filter(
+      (node) => !SITE_GRAPH_IDS.includes((node as { "@id"?: string })["@id"] ?? ""),
+    ),
+  };
+}
+
+export function buildLandingJsonLd(page: SeoLandingPage) {
+  const url = `${SITE_URL}/${page.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: page.title,
+        description: page.description,
+        inLanguage: "es-AR",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        about: { "@type": "Thing", name: page.keyword },
+        primaryImageOfPage: { "@id": `${SITE_URL}/#primaryimage` },
+        breadcrumb: { "@id": `${url}#breadcrumb` },
+        dateModified: SITE_LAST_MODIFIED,
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", ".seo-page__lead"],
+        },
+        mainEntity: { "@id": `${url}#service` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Inicio",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: page.label,
+            item: url,
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        url,
+        inLanguage: "es-AR",
+        isPartOf: { "@id": `${url}#webpage` },
+        mainEntity: page.faqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: page.h1,
+        serviceType: page.keyword,
+        provider: { "@id": `${SITE_URL}/#person` },
+        areaServed: { "@type": "Country", name: "Argentina" },
+        url,
+      },
+      ...(page.cases?.length
+        ? [
+            {
+              "@type": "ItemList" as const,
+              "@id": `${url}#cases`,
+              name: "Trabajos reales",
+              numberOfItems: page.cases.length,
+              itemListElement: page.cases.map((item, index) => ({
+                "@type": "ListItem" as const,
+                position: index + 1,
+                url: item.href,
+                name: item.name,
+                description: item.summary,
+              })),
+            },
+          ]
+        : []),
     ],
   };
 }

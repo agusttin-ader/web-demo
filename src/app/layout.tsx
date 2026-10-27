@@ -44,6 +44,7 @@ export default async function RootLayout({
     <html lang={LOCALE_HTML_LANG[locale]} suppressHydrationWarning>
       <head>
         <link rel="dns-prefetch" href="https://wa.me" />
+        <link rel="preconnect" href="https://wa.me" crossOrigin="anonymous" />
         <JsonLd />
       </head>
       <body className={`${plusJakarta.variable} font-sans antialiased`}>

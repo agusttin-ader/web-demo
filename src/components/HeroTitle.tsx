@@ -1,8 +1,6 @@
 "use client";
 
-import { useIsClientHydrated } from "@/hooks/useIsClientHydrated";
-import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
-import type { CSSProperties } from "react";
+import { useEffect, useRef } from "react";
 
 export type HeroTitleLine = {
   text: string;
@@ -15,14 +13,23 @@ type HeroTitleProps = {
 };
 
 export function HeroTitle({ id, lines }: HeroTitleProps) {
-  const hydrated = useIsClientHydrated();
-  const reduceMotion = usePrefersReducedMotion();
-  const animate = hydrated && !reduceMotion;
+  const ref = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    node.classList.add("hero__title--animate");
+    node.querySelectorAll<HTMLElement>(".hero__title-line").forEach((el, index) => {
+      if (index % 2 === 1) el.classList.add("hero__title-line--from-right");
+      el.style.setProperty("--line-i", String(index));
+    });
+  }, [lines]);
 
   return (
-    <h1 id={id} className={`hero__title${animate ? " hero__title--animate" : ""}`}>
+    <h1 ref={ref} id={id} className="hero__title">
       {lines.map((line, index) => {
-        const fromRight = index % 2 === 1;
         const variantClass =
           line.variant === "accent"
             ? "text-accent"
@@ -33,14 +40,7 @@ export function HeroTitle({ id, lines }: HeroTitleProps) {
         return (
           <span
             key={`${line.text}-${index}`}
-            className={[
-              "hero__title-line",
-              variantClass,
-              animate && fromRight ? "hero__title-line--from-right" : "",
-            ]
-              .filter(Boolean)
-              .join(" ")}
-            style={animate ? ({ "--line-i": index } as CSSProperties) : undefined}
+            className={["hero__title-line", variantClass].filter(Boolean).join(" ")}
           >
             {line.text}
           </span>

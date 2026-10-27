@@ -24,6 +24,13 @@ export const COUNTRY_LOCALE: Record<string, Locale> = {
   BR: "pt",
 };
 
+const CRAWLER_UA =
+  /googlebot|bingbot|yandex|duckduckbot|baiduspider|twitterbot|facebookexternalhit|linkedinbot|slurp|applebot|semrush|ahrefs|mj12bot|dotbot|gptbot|claudebot|perplexity|bytespider/i;
+
+export function isCrawler(userAgent: string | null | undefined): boolean {
+  return !!userAgent && CRAWLER_UA.test(userAgent);
+}
+
 export function isLocale(value: string | undefined | null): value is Locale {
   return LOCALES.includes(value as Locale);
 }
