@@ -44,16 +44,16 @@
     "body": "Design and code built for mobile: fast load, clear message and WhatsApp one tap away — for businesses that want a site that actually works.",
     "ctaProjects": "See work",
     "ctaWhatsapp": "Chat on WhatsApp",
-    "promoKicker": "−25%",
+    "promoKicker": "−15%",
     "promoLine": "Your site costs less this year",
     "promoUntil": "through 1 January",
     "promoCta": "See plans",
     "promoOfferKicker": "Offer through 1 January",
-    "promoOfferTitle": "Your landing, 25% off",
+    "promoOfferTitle": "Your landing, 15% off",
     "promoPriceEssential": "Essential USD {amount}",
     "promoPricePremium": "Premium USD {amount}",
     "promoPriceWas": "USD {amount}",
-    "promoAria": "25% off Essential and Premium through 1 January 2027. Essential from USD 225, Premium from USD 375. See plans."
+    "promoAria": "15% off Essential and Premium through 1 January 2027. Essential from USD 298, Premium from USD 425. See plans."
   },
   "problem": {
     "label": "The problem",
@@ -234,7 +234,7 @@
     "priceFree": "Free",
     "discountBadge": "−{percent}%",
     "promoUntil": "Until 1 Jan 2027",
-    "promoNote": "25% off is valid from 27 Oct 2026 through 1 Jan 2027 inclusive.",
+    "promoNote": "15% off is valid from 27 Oct 2026 through 1 Jan 2027 inclusive.",
     "paymentNote": "Payment: 50% when the project starts and the other 50% when it's finished.",
     "featuredBadge": "Most chosen",
     "demoBadge": "Try it first",
@@ -246,8 +246,8 @@
         "tagline": "To get started and start getting inquiries",
         "delivery": "7 to 10 business days",
         "cta": "I want Essential",
-        "whatsappMessage": "Hi Agustín, I'm interested in the Essential plan (from USD 300). I want a landing for my business.",
-        "whatsappMessagePromo": "Hi Agustín, I'm interested in the Essential plan with 25% off (from USD 225, was USD 300, promo until 1 Jan 2027). I want a landing for my business.",
+        "whatsappMessage": "Hi Agustín, I'm interested in the Essential plan (from USD 350). I want a landing for my business.",
+        "whatsappMessagePromo": "Hi Agustín, I'm interested in the Essential plan with 15% off (from USD 298, was USD 350, promo until 1 Jan 2027). I want a landing for my business.",
         "features": [
           "A one-page landing (up to 5 sections)",
           "Designed for mobile",
@@ -263,7 +263,7 @@
         "delivery": "2 to 3 weeks",
         "cta": "I want Premium",
         "whatsappMessage": "Hi Agustín, I'm interested in the Premium plan (from USD 500). I want a more complete landing for my business.",
-        "whatsappMessagePromo": "Hi Agustín, I'm interested in the Premium plan with 25% off (from USD 375, was USD 500, promo until 1 Jan 2027). I want a more complete landing for my business.",
+        "whatsappMessagePromo": "Hi Agustín, I'm interested in the Premium plan with 15% off (from USD 425, was USD 500, promo until 1 Jan 2027). I want a more complete landing for my business.",
         "features": [
           "Everything in Essential",
           "Contact form that lands in your inbox",
@@ -364,7 +364,7 @@
       },
       {
         "question": "How much does web development for a landing cost in Argentina?",
-        "answer": "Essential from USD 300 and Premium from USD 500. Through 1 January 2027 there's 25% off (USD 225 and USD 375). The custom demo is free. Payment is 50% at kickoff and 50% at delivery."
+        "answer": "Essential from USD 350 and Premium from USD 500. Through 1 January 2027 there's 15% off (USD 298 and USD 425). The custom demo is free. Payment is 50% at kickoff and 50% at delivery."
       },
       {
         "question": "What's included in a website for my business?",
@@ -372,8 +372,8 @@
       },
       {
         "question": "How much does a website or landing page cost in Argentina?",
-        "answer": "Essential starts at USD 300 and Premium at USD 500. The custom demo is free. The final price depends on scope: number of sections, whether you need a form, multiple pages or extra content. Payment is 50% when the project starts and 50% when it's finished. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print.",
-        "answerPromo": "From 27 Oct 2026 through 1 Jan 2027 inclusive, Essential and Premium are 25% off: from USD 225 (was USD 300) and from USD 375 (was USD 500). The custom demo is free. The final price depends on scope: number of sections, whether you need a form, multiple pages or extra content. Payment is 50% when the project starts and 50% when it's finished. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print."
+        "answer": "Essential starts at USD 350 and Premium at USD 500. The custom demo is free. The final price depends on scope: number of sections, whether you need a form, multiple pages or extra content. Payment is 50% when the project starts and 50% when it's finished. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print.",
+        "answerPromo": "From 27 Oct 2026 through 1 Jan 2027 inclusive, Essential and Premium are 15% off: from USD 298 (was USD 350) and from USD 425 (was USD 500). The custom demo is free. The final price depends on scope: number of sections, whether you need a form, multiple pages or extra content. Payment is 50% when the project starts and 50% when it's finished. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print."
       },
       {
         "question": "Do you do web design, development, or both?",

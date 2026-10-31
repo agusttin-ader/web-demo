@@ -23,7 +23,7 @@ export const SITE_TAGLINE = "Desarrollo web y páginas web en Argentina";
 export const DEFAULT_TITLE =
   "Desarrollo Web en Argentina | Freelance · Landings y Páginas Web";
 export const DEFAULT_DESCRIPTION =
-  "Desarrollador web freelance en Argentina. Landings y páginas web rápidas, mobile-first, con SEO y WhatsApp. Essential desde USD 225. Presupuesto en 24 hs.";
+  "Desarrollador web freelance en Argentina. Landings y páginas web rápidas, mobile-first, con SEO y WhatsApp. Essential desde USD 298. Presupuesto en 24 hs.";
 
 export const OG_TITLE = "Desarrollo Web en Argentina | Agustín Ader";
 export const OG_DESCRIPTION =

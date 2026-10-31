@@ -44,16 +44,16 @@
     "body": "Design e código para o celular: carga rápida, mensagem clara e WhatsApp à mão — para negócios que querem um site que trabalhe de verdade.",
     "ctaProjects": "Ver projetos",
     "ctaWhatsapp": "Falar no WhatsApp",
-    "promoKicker": "−25%",
+    "promoKicker": "−15%",
     "promoLine": "Este ano seu site sai menos",
     "promoUntil": "até 1 de janeiro",
     "promoCta": "Ver planos",
     "promoOfferKicker": "Promo até 1 de janeiro",
-    "promoOfferTitle": "Sua landing, 25% off",
+    "promoOfferTitle": "Sua landing, 15% off",
     "promoPriceEssential": "Essential USD {amount}",
     "promoPricePremium": "Premium USD {amount}",
     "promoPriceWas": "USD {amount}",
-    "promoAria": "25% off em Essential e Premium até 1 de janeiro de 2027. Essential a partir de USD 225, Premium a partir de USD 375. Ver planos."
+    "promoAria": "15% off em Essential e Premium até 1 de janeiro de 2027. Essential a partir de USD 298, Premium a partir de USD 425. Ver planos."
   },
   "problem": {
     "label": "O problema",
@@ -234,7 +234,7 @@
     "priceFree": "Gratuita",
     "discountBadge": "−{percent}%",
     "promoUntil": "Até 01/01/2027",
-    "promoNote": "Promoção de 25% válida de 27/10/2026 a 01/01/2027 inclusive.",
+    "promoNote": "Promoção de 15% válida de 27/10/2026 a 01/01/2027 inclusive.",
     "paymentNote": "Forma de pagamento: 50% ao iniciar o projeto e os outros 50% ao concluir.",
     "featuredBadge": "Mais escolhido",
     "demoBadge": "Para testar",
@@ -246,8 +246,8 @@
         "tagline": "Para começar e receber consultas",
         "delivery": "7 a 10 dias úteis",
         "cta": "Quero Essential",
-        "whatsappMessage": "Oi Agustín, tenho interesse no plano Essential (a partir de USD 300). Quero uma landing para o meu negócio.",
-        "whatsappMessagePromo": "Oi Agustín, tenho interesse no plano Essential com 25% off (a partir de USD 225, antes USD 300, promoção até 01/01/2027). Quero uma landing para o meu negócio.",
+        "whatsappMessage": "Oi Agustín, tenho interesse no plano Essential (a partir de USD 350). Quero uma landing para o meu negócio.",
+        "whatsappMessagePromo": "Oi Agustín, tenho interesse no plano Essential com 15% off (a partir de USD 298, antes USD 350, promoção até 01/01/2027). Quero uma landing para o meu negócio.",
         "features": [
           "Uma landing de uma só página (até 5 seções)",
           "Design pensado para o celular",
@@ -263,7 +263,7 @@
         "delivery": "2 a 3 semanas",
         "cta": "Quero Premium",
         "whatsappMessage": "Oi Agustín, tenho interesse no plano Premium (a partir de USD 500). Quero uma landing mais completa para o meu negócio.",
-        "whatsappMessagePromo": "Oi Agustín, tenho interesse no plano Premium com 25% off (a partir de USD 375, antes USD 500, promoção até 01/01/2027). Quero uma landing mais completa para o meu negócio.",
+        "whatsappMessagePromo": "Oi Agustín, tenho interesse no plano Premium com 15% off (a partir de USD 425, antes USD 500, promoção até 01/01/2027). Quero uma landing mais completa para o meu negócio.",
         "features": [
           "Tudo do Essential",
           "Formulário de contato que chega no seu e-mail",
@@ -364,7 +364,7 @@
       },
       {
         "question": "Quanto custa o desenvolvimento web de uma landing na Argentina?",
-        "answer": "Essential a partir de USD 300 e Premium a partir de USD 500. Até 1 de janeiro de 2027 há 25% off (USD 225 e USD 375). A demo sob medida é gratuita. O pagamento é 50% ao iniciar e 50% ao concluir."
+        "answer": "Essential a partir de USD 350 e Premium a partir de USD 500. Até 1 de janeiro de 2027 há 15% off (USD 298 e USD 425). A demo sob medida é gratuita. O pagamento é 50% ao iniciar e 50% ao concluir."
       },
       {
         "question": "O que inclui o desenvolvimento de uma página para o meu negócio?",
@@ -372,8 +372,8 @@
       },
       {
         "question": "Quanto custa um site ou landing na Argentina?",
-        "answer": "Essential a partir de USD 300 e Premium a partir de USD 500. A demo sob medida é gratuita. O preço final depende do escopo: quantidade de seções, se precisa de formulário, várias páginas ou conteúdo extra. O pagamento é 50% ao iniciar o projeto e 50% ao concluir. Me conta seu negócio no WhatsApp e mando um orçamento claro em menos de 24 horas, sem letra miúda.",
-        "answerPromo": "De 27/10/2026 a 01/01/2027 inclusive, Essential e Premium têm 25% de desconto: a partir de USD 225 (antes USD 300) e a partir de USD 375 (antes USD 500). A demo sob medida é gratuita. O preço final depende do escopo: quantidade de seções, se precisa de formulário, várias páginas ou conteúdo extra. O pagamento é 50% ao iniciar o projeto e 50% ao concluir. Me conta seu negócio no WhatsApp e mando um orçamento claro em menos de 24 horas, sem letra miúda."
+        "answer": "Essential a partir de USD 350 e Premium a partir de USD 500. A demo sob medida é gratuita. O preço final depende do escopo: quantidade de seções, se precisa de formulário, várias páginas ou conteúdo extra. O pagamento é 50% ao iniciar o projeto e 50% ao concluir. Me conta seu negócio no WhatsApp e mando um orçamento claro em menos de 24 horas, sem letra miúda.",
+        "answerPromo": "De 27/10/2026 a 01/01/2027 inclusive, Essential e Premium têm 15% de desconto: a partir de USD 298 (antes USD 350) e a partir de USD 425 (antes USD 500). A demo sob medida é gratuita. O preço final depende do escopo: quantidade de seções, se precisa de formulário, várias páginas ou conteúdo extra. O pagamento é 50% ao iniciar o projeto e 50% ao concluir. Me conta seu negócio no WhatsApp e mando um orçamento claro em menos de 24 horas, sem letra miúda."
       },
       {
         "question": "Você faz design, programação ou as duas coisas?",

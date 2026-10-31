@@ -72,7 +72,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
     slug: "desarrollo-web",
     title: "Desarrollo Web en Argentina | Freelance para negocios",
     description:
-      "Desarrollo web freelance en Argentina: landings y páginas web rápidas, mobile-first y con WhatsApp. Essential desde USD 225. Presupuesto en 24 hs.",
+      "Desarrollo web freelance en Argentina: landings y páginas web rápidas, mobile-first y con WhatsApp. Essential desde USD 298. Presupuesto en 24 hs.",
     keyword: "desarrollo web",
     label: "Desarrollo web",
     h1: "Desarrollo web en Argentina para conseguir más consultas",
@@ -117,7 +117,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         title: "Cuánto cuesta el desarrollo web",
         paragraphs: [
-          "Essential parte de USD 300 (USD 225 con la promo vigente hasta el 1 de enero de 2027) y Premium de USD 500 (USD 375 en promo). La demo a medida es gratuita. El pago es 50% al iniciar y 50% al terminar.",
+          "Essential parte de USD 350 (USD 298 con la promo vigente hasta el 1 de enero de 2027) y Premium de USD 500 (USD 425 en promo). La demo a medida es gratuita. El pago es 50% al iniciar y 50% al terminar.",
           "Si el alcance crece —más páginas, blog, otro idioma, SEO avanzado— lo cotizo aparte, sin letra chica. Pedime un presupuesto y te respondo en menos de 24 horas.",
         ],
       },
@@ -185,7 +185,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         question: "¿Cuánto sale una página web en Argentina?",
         answer:
-          "Una landing Essential parte de USD 300 y Premium de USD 500. Hay 25% off hasta el 1 de enero de 2027 (USD 225 y USD 375). Un sitio completo como el de un consultorio o una operadora de turismo se cotiza aparte, según páginas, idiomas y contenido.",
+          "Una landing Essential parte de USD 350 y Premium de USD 500. Hay 15% off hasta el 1 de enero de 2027 (USD 298 y USD 425). Un sitio completo como el de un consultorio o una operadora de turismo se cotiza aparte, según páginas, idiomas y contenido.",
       },
       {
         question: "¿Me conviene una página web o solo Instagram?",
@@ -204,7 +204,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
     slug: "landing-page",
     title: "Landing Page que convierte visitas en consultas | Argentina",
     description:
-      "Landing page en Argentina para conseguir consultas: mobile-first, mensaje claro y WhatsApp a un toque. Essential desde USD 225. Presupuesto en 24 hs.",
+      "Landing page en Argentina para conseguir consultas: mobile-first, mensaje claro y WhatsApp a un toque. Essential desde USD 298. Presupuesto en 24 hs.",
     keyword: "landing page",
     label: "Landing page",
     h1: "Landing page para convertir visitas en consultas",
@@ -229,7 +229,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
         title: "Landing page Essential o Premium",
         paragraphs: [
           "Essential: una landing de hasta 5 secciones, WhatsApp, SEO base y publicación. Premium suma formulario, animaciones, una sección extra y 30 días de soporte.",
-          "Hasta el 1 de enero de 2027 hay 25% off: Essential USD 225 y Premium USD 375. La demo previa es gratuita.",
+          "Hasta el 1 de enero de 2027 hay 15% off: Essential USD 298 y Premium USD 425. La demo previa es gratuita.",
         ],
       },
       {
@@ -492,7 +492,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         question: "¿Cuánto sale el desarrollo web en Buenos Aires?",
         answer:
-          "Una landing Essential parte de USD 300 (USD 225 con promo hasta el 1 de enero de 2027) y Premium de USD 500 (USD 375 en promo). Un sitio completo —varias páginas, idiomas, casos clínicos o destinos— se cotiza aparte.",
+          "Una landing Essential parte de USD 350 (USD 298 con promo hasta el 1 de enero de 2027) y Premium de USD 500 (USD 425 en promo). Un sitio completo —varias páginas, idiomas, casos clínicos o destinos— se cotiza aparte.",
       },
     ],
     related: [

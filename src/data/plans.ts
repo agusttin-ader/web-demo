@@ -16,9 +16,9 @@ export type Plan = {
   whatsappMessage: string;
 };
 
-/** Promo 25% — fechas inclusive, calendario Argentina. */
+/** Promo 15% — fechas inclusive, calendario Argentina. */
 export const PLAN_PROMO = {
-  percent: 25,
+  percent: 15,
   start: "2026-10-27",
   end: "2027-01-01",
   timeZone: "America/Argentina/Buenos_Aires",
@@ -79,9 +79,9 @@ export const PLANS: Plan[] = [
     id: "essential",
     name: "Essential",
     tagline: "Para arrancar y recibir consultas",
-    priceUsd: 225,
-    compareAtPriceUsd: 300,
-    discountPercent: 25,
+    priceUsd: 298,
+    compareAtPriceUsd: 350,
+    discountPercent: 15,
     delivery: "7 a 10 días hábiles",
     features: [
       "Una landing de una sola página (hasta 5 secciones)",
@@ -93,15 +93,15 @@ export const PLANS: Plan[] = [
     ],
     cta: "Quiero Essential",
     whatsappMessage:
-      "Hola Agustín, me interesa el plan Essential (desde USD 300). Quiero una landing para mi negocio.",
+      "Hola Agustín, me interesa el plan Essential (desde USD 350). Quiero una landing para mi negocio.",
   },
   {
     id: "premium",
     name: "Premium",
     tagline: "Cuando querés ir un paso más allá",
-    priceUsd: 375,
+    priceUsd: 425,
     compareAtPriceUsd: 500,
-    discountPercent: 25,
+    discountPercent: 15,
     featured: true,
     delivery: "2 a 3 semanas",
     features: [
