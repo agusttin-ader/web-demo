@@ -107,7 +107,7 @@ export function SeoLanding({ page }: { page: SeoLandingPage }) {
                   </Magnetic>
                   <Magnetic className="seo-page__magnet" strength={0.14}>
                     <a href="/#planes" className={DS_CLASS.btnOutline}>
-                      Ver planes
+                      Ver precios
                     </a>
                   </Magnetic>
                 </div>

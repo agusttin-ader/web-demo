@@ -24,7 +24,7 @@
       "beneficios": "Beneficios",
       "proyecto-real": "Proyectos",
       "servicios": "Servicios",
-      "planes": "Planes",
+      "planes": "Precios",
       "contacto": "Contacto"
     }
   },
@@ -47,13 +47,13 @@
     "promoKicker": "−15%",
     "promoLine": "Este año tu web sale menos",
     "promoUntil": "hasta el 1 de enero",
-    "promoCta": "Ver planes",
+    "promoCta": "Ver precios",
     "promoOfferKicker": "Promo hasta el 1 de enero",
-    "promoOfferTitle": "Tu landing, 15% off",
-    "promoPriceEssential": "Essential USD {amount}",
-    "promoPricePremium": "Premium USD {amount}",
+    "promoOfferTitle": "Landing con 15% off",
+    "promoPriceEssential": "Landing USD {amount}",
+    "promoPricePremium": "Completa USD {amount}",
     "promoPriceWas": "USD {amount}",
-    "promoAria": "15% off en Essential y Premium hasta el 1 de enero de 2027. Essential desde USD 298, Premium desde USD 425. Ver planes."
+    "promoAria": "15% off en landings hasta el 1 de enero de 2027. Landing desde USD 298, landing completa desde USD 425. Ver precios y pedir presupuesto."
   },
   "problem": {
     "label": "El problema",
@@ -225,29 +225,34 @@
     }
   },
   "plans": {
-    "label": "Planes",
-    "title": "Planes y precios",
-    "description": "Valores en USD, sin letra chica. Si necesitás algo extra, lo vemos aparte. Te respondo en 24 hs.",
-    "delivery": "Entrega: {time}",
+    "label": "Inversión",
+    "title": "Precios de referencia",
+    "description": "Valores orientativos en USD. El presupuesto final lo armo a medida según tu negocio, alcance y plazos. Te respondo en menos de 24 hs.",
+    "delivery": "Entrega típica: {time}",
     "priceFrom": "Desde USD {amount}",
     "priceFixed": "USD {amount}",
-    "priceFree": "Gratuita",
+    "priceFree": "Gratis",
     "discountBadge": "−{percent}%",
     "promoUntil": "Hasta el 01/01/2027",
-    "promoNote": "Promo del 15% válida del 27/10/2026 al 01/01/2027 inclusive.",
+    "promoNote": "Promo del 15% sobre estos valores de referencia, válida del 27/10/2026 al 01/01/2027 inclusive.",
     "paymentNote": "Forma de pago: 50% al iniciar el proyecto y el otro 50% al terminar.",
-    "featuredBadge": "Más elegido",
-    "demoBadge": "Para probar",
-    "addonsNote": "Dominio, textos, SEO avanzado, blog, otro idioma y mantenimiento mensual van aparte — te los cotizo sin drama.",
+    "featuredBadge": "Más pedido",
+    "demoBadge": "Sin compromiso",
+    "startingHint": "Referencia · el precio final se cotiza según tu alcance",
+    "addonsNote": "Dominio, textos, SEO avanzado, blog, otro idioma, multi-página y mantenimiento mensual van aparte — te los cotizo sin drama.",
     "noteLink": "Escribime y lo vemos juntos",
+    "quoteTitle": "¿Tu proyecto es más grande o distinto?",
+    "quoteBody": "Sitios multiidioma, varias páginas o algo a medida se cotizan aparte. Contame qué necesitás y te mando un presupuesto claro en menos de 24 hs.",
+    "quoteCta": "Pedir presupuesto a medida",
+    "quoteWhatsapp": "Hola Agustín, quiero un presupuesto a medida para mi web. Mi negocio es: ",
     "items": {
       "essential": {
-        "name": "Essential",
+        "name": "Landing",
         "tagline": "Para arrancar y recibir consultas",
         "delivery": "7 a 10 días hábiles",
-        "cta": "Quiero Essential",
-        "whatsappMessage": "Hola Agustín, me interesa el plan Essential (desde USD 350). Quiero una landing para mi negocio.",
-        "whatsappMessagePromo": "Hola Agustín, me interesa el plan Essential con 15% off (desde USD 298, antes USD 350, promo hasta el 01/01/2027). Quiero una landing para mi negocio.",
+        "cta": "Cotizar landing",
+        "whatsappMessage": "Hola Agustín, quiero cotizar una landing (referencia desde USD 350). Mi negocio es: ",
+        "whatsappMessagePromo": "Hola Agustín, quiero cotizar una landing con la promo del 15% (referencia desde USD 298, antes USD 350, hasta el 01/01/2027). Mi negocio es: ",
         "features": [
           "Una landing de una sola página (hasta 5 secciones)",
           "Diseño pensado para el celu",
@@ -258,14 +263,14 @@
         ]
       },
       "premium": {
-        "name": "Premium",
-        "tagline": "Cuando querés ir un paso más allá",
+        "name": "Landing completa",
+        "tagline": "Cuando necesitás más conversión y detalle",
         "delivery": "2 a 3 semanas",
-        "cta": "Quiero Premium",
-        "whatsappMessage": "Hola Agustín, me interesa el plan Premium (desde USD 500). Quiero una landing más completa para mi negocio.",
-        "whatsappMessagePromo": "Hola Agustín, me interesa el plan Premium con 15% off (desde USD 425, antes USD 500, promo hasta el 01/01/2027). Quiero una landing más completa para mi negocio.",
+        "cta": "Cotizar landing completa",
+        "whatsappMessage": "Hola Agustín, quiero cotizar una landing completa (referencia desde USD 500). Mi negocio es: ",
+        "whatsappMessagePromo": "Hola Agustín, quiero cotizar una landing completa con la promo del 15% (referencia desde USD 425, antes USD 500, hasta el 01/01/2027). Mi negocio es: ",
         "features": [
-          "Todo lo del Essential",
+          "Todo lo de la Landing",
           "Formulario de contacto que te llega al mail",
           "Animaciones y diseño más trabajado",
           "Una sección extra: FAQ, galería o testimonios",
@@ -275,11 +280,11 @@
         ]
       },
       "demo": {
-        "name": "Demo a medida",
+        "name": "Demo gratis",
         "tagline": "Mirá cómo quedaría tu web antes de decidir",
         "delivery": "3 a 5 días hábiles",
-        "cta": "Pedir demo",
-        "whatsappMessage": "Hola Agustín, me interesa la demo a medida gratuita. Mi negocio es: ",
+        "cta": "Pedir demo gratis",
+        "whatsappMessage": "Hola Agustín, me interesa la demo gratis a medida. Mi negocio es: ",
         "features": [
           "Preview con tu logo y colores",
           "Hero + 2 secciones de ejemplo",
@@ -364,7 +369,7 @@
       },
       {
         "question": "¿Cuánto cuesta el desarrollo web de una landing en Argentina?",
-        "answer": "Essential desde USD 350 y Premium desde USD 500. Hasta el 1 de enero de 2027 hay 15% off (USD 298 y USD 425). La demo a medida es gratuita. El pago es 50% al iniciar y 50% al terminar."
+        "answer": "Una landing parte desde USD 350 y una landing completa desde USD 500 (referencias). Hasta el 1 de enero de 2027 hay 15% off (desde USD 298 y USD 425). La demo a medida es gratuita. El precio final se cotiza según tu alcance. El pago es 50% al iniciar y 50% al terminar."
       },
       {
         "question": "¿Qué incluye el desarrollo web de una página para mi negocio?",
@@ -372,8 +377,8 @@
       },
       {
         "question": "¿Cuánto cuesta una página web o landing en Argentina?",
-        "answer": "Essential desde USD 350 y Premium desde USD 500. La demo a medida es gratuita. El precio final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
-        "answerPromo": "Del 27/10/2026 al 01/01/2027 inclusive, Essential y Premium tienen 15% de descuento: desde USD 298 (antes USD 350) y desde USD 425 (antes USD 500). La demo a medida es gratuita. El precio final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica."
+        "answer": "Uso precios de referencia: landing desde USD 350 y landing completa desde USD 500. La demo a medida es gratuita. El presupuesto final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas, idiomas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
+        "answerPromo": "Del 27/10/2026 al 01/01/2027 inclusive hay 15% off sobre las referencias: landing desde USD 298 (antes USD 350) y landing completa desde USD 425 (antes USD 500). La demo a medida es gratuita. El presupuesto final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas, idiomas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica."
       },
       {
         "question": "¿Hacés diseño web, programación o las dos cosas?",

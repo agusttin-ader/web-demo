@@ -51,6 +51,18 @@ export function PlansOffer({ copy }: { copy: Dictionary["plans"] }) {
         })}
       </div>
 
+      <Reveal variant="up" delay={240}>
+        <aside className="plans__quote">
+          <div className="plans__quote-copy">
+            <p className="plans__quote-title">{copy.quoteTitle}</p>
+            <p className="plans__quote-body">{copy.quoteBody}</p>
+          </div>
+          <ExternalLink href={whatsappUrl(copy.quoteWhatsapp)} className={DS_CLASS.btnPrimary}>
+            {copy.quoteCta}
+          </ExternalLink>
+        </aside>
+      </Reveal>
+
       {promoActive ? <p className="plans__footnote">{copy.promoNote}</p> : null}
       <p className="plans__footnote">{copy.paymentNote}</p>
       <p className="plans__footnote">
@@ -121,6 +133,9 @@ function PlanCard({
         ) : null}
         <p className="plan-card__price">{priceLabel}</p>
         {showCompare ? <p className="plan-card__promo-until">{copy.promoUntil}</p> : null}
+        {plan.id !== "demo" ? (
+          <p className="plan-card__starting">{copy.startingHint}</p>
+        ) : null}
       </div>
       <p className="plan-card__delivery">{interpolate(copy.delivery, { time: item.delivery })}</p>
 

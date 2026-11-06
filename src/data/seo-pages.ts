@@ -72,7 +72,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
     slug: "desarrollo-web",
     title: "Desarrollo Web en Argentina | Freelance para negocios",
     description:
-      "Desarrollo web freelance en Argentina: landings y páginas web rápidas, mobile-first y con WhatsApp. Essential desde USD 298. Presupuesto en 24 hs.",
+      "Desarrollo web freelance en Argentina: landings y páginas web rápidas, mobile-first y con WhatsApp. Landing desde USD 298. Presupuesto en 24 hs.",
     keyword: "desarrollo web",
     label: "Desarrollo web",
     h1: "Desarrollo web en Argentina para conseguir más consultas",
@@ -103,7 +103,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         title: "No es lo mismo una landing que un sitio como Chinski o Alo Patagonia",
         paragraphs: [
-          "Essential y Premium cubren una landing de conversión. Los proyectos grandes son otro alcance: Dr. Chinski Rinoplastia es un sitio clínico en tres idiomas, con casos, equipo y dos caminos de turno. Alo Patagonia ordena destinos e itinerarios de viaje y deja el WhatsApp a mano. Rhinoscopy arma congreso, webinars y certificados. Eso se cotiza aparte, con plazos de sitio completo.",
+          "Las landings de referencia cubren conversión rápida. Los proyectos grandes son otro alcance: Dr. Chinski Rinoplastia es un sitio clínico en tres idiomas, con casos, equipo y dos caminos de turno. Alo Patagonia ordena destinos e itinerarios de viaje y deja el WhatsApp a mano. Rhinoscopy arma congreso, webinars y certificados. Eso se cotiza aparte, con plazos de sitio completo.",
           "Si todavía no sabés si te alcanza una landing, te lo digo en la primera charla. La demo a medida es gratis.",
         ],
       },
@@ -117,7 +117,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         title: "Cuánto cuesta el desarrollo web",
         paragraphs: [
-          "Essential parte de USD 350 (USD 298 con la promo vigente hasta el 1 de enero de 2027) y Premium de USD 500 (USD 425 en promo). La demo a medida es gratuita. El pago es 50% al iniciar y 50% al terminar.",
+          "Una landing parte de USD 350 (USD 298 con la promo vigente hasta el 1 de enero de 2027) y una landing completa de USD 500 (USD 425 en promo). Son referencias: el presupuesto final se arma a medida. La demo es gratuita. El pago es 50% al iniciar y 50% al terminar.",
           "Si el alcance crece —más páginas, blog, otro idioma, SEO avanzado— lo cotizo aparte, sin letra chica. Pedime un presupuesto y te respondo en menos de 24 horas.",
         ],
       },
@@ -185,7 +185,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         question: "¿Cuánto sale una página web en Argentina?",
         answer:
-          "Una landing Essential parte de USD 350 y Premium de USD 500. Hay 15% off hasta el 1 de enero de 2027 (USD 298 y USD 425). Un sitio completo como el de un consultorio o una operadora de turismo se cotiza aparte, según páginas, idiomas y contenido.",
+          "Una landing parte de USD 350 y una landing completa de USD 500 (referencias). Hay 15% off hasta el 1 de enero de 2027 (USD 298 y USD 425). Un sitio completo como el de un consultorio o una operadora de turismo se cotiza aparte, según páginas, idiomas y contenido.",
       },
       {
         question: "¿Me conviene una página web o solo Instagram?",
@@ -204,7 +204,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
     slug: "landing-page",
     title: "Landing Page que convierte visitas en consultas | Argentina",
     description:
-      "Landing page en Argentina para conseguir consultas: mobile-first, mensaje claro y WhatsApp a un toque. Essential desde USD 298. Presupuesto en 24 hs.",
+      "Landing page en Argentina para conseguir consultas: mobile-first, mensaje claro y WhatsApp a un toque. Landing desde USD 298. Presupuesto en 24 hs.",
     keyword: "landing page",
     label: "Landing page",
     h1: "Landing page para convertir visitas en consultas",
@@ -226,10 +226,10 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
         ],
       },
       {
-        title: "Landing page Essential o Premium",
+        title: "Landing page: referencia y cotización a medida",
         paragraphs: [
-          "Essential: una landing de hasta 5 secciones, WhatsApp, SEO base y publicación. Premium suma formulario, animaciones, una sección extra y 30 días de soporte.",
-          "Hasta el 1 de enero de 2027 hay 15% off: Essential USD 298 y Premium USD 425. La demo previa es gratuita.",
+          "Landing de referencia: hasta 5 secciones, WhatsApp, SEO base y publicación. La landing completa suma formulario, animaciones, una sección extra y 30 días de soporte. El precio final se cotiza según tu alcance.",
+          "Hasta el 1 de enero de 2027 hay 15% off sobre esas referencias: desde USD 298 y USD 425. La demo previa es gratuita.",
         ],
       },
       {
@@ -244,7 +244,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         question: "¿Cuánto tarda una landing page?",
         answer:
-          "Entre 7 y 15 días hábiles cuando hay logo, textos y referencias. Premium, 2 a 3 semanas. Un sitio completo lleva más: se arma por etapas.",
+          "Entre 7 y 15 días hábiles cuando hay logo, textos y referencias. Una landing completa, 2 a 3 semanas. Un sitio completo lleva más: se arma por etapas.",
       },
       {
         question: "¿La landing page sirve para anuncios de Instagram o Google?",
@@ -285,7 +285,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         title: "Cómo arrancamos",
         paragraphs: [
-          "Me escribís por WhatsApp con el rubro y lo que necesitás. En menos de 24 horas te digo si encaja, el plan (Essential, Premium, demo o sitio completo) y el plazo. Si hay promo vigente, te la aplico. El pago es 50% al iniciar y 50% al entregar.",
+          "Me escribís por WhatsApp con el rubro y lo que necesitás. En menos de 24 horas te digo si encaja, el alcance (landing, landing completa, demo o sitio) y el plazo, con presupuesto a medida. Si hay promo vigente, te la aplico. El pago es 50% al iniciar y 50% al entregar.",
         ],
       },
     ],
@@ -331,7 +331,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
         title: "Dr. Chinski Rinoplastia: un sitio clínico, no una landing",
         paragraphs: [
           "rinoplastia.com.ar es el proyecto más grande que tengo online en salud. Sitio completo para los Dres. Luis y Hernán Chinski: rinoplastia estética, funcional y reparadora. Casos, equipo, técnica (incluida la ultrasónica), testimonios, FAQ y dos caminos de contacto —WhatsApp y formulario—. Contenido en español, inglés y portugués, porque parte de la demanda es internacional.",
-          "Ese alcance no entra en un plan Essential. Se arma como sitio: arquitectura, i18n, páginas de prueba social y un tono premium que no grita descuento.",
+          "Ese alcance no entra en una landing de referencia. Se arma como sitio: arquitectura, i18n, páginas de prueba social y un tono premium que no grita descuento.",
         ],
       },
       {
@@ -422,7 +422,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
         title: "Turismo en Argentina, desarrollo desde Buenos Aires",
         paragraphs: [
           "Vivo en Buenos Aires y trabajo remoto. Alo Patagonia es un cliente del sur: reuniones por WhatsApp o videollamada, el mismo seguimiento que con un consultorio en CABA. Si tu operación está en la Patagonia, el norte, Mendoza o un pueblo, el sitio se puede armar igual.",
-          "Una landing de un hospedaje o de un solo circuito entra en Essential o Premium. Un sitio con varios destinos, como Alo, se cotiza como proyecto de sitio.",
+          "Una landing de un hospedaje o de un solo circuito entra en las referencias de landing. Un sitio con varios destinos, como Alo, se cotiza como proyecto de sitio.",
         ],
       },
     ],
@@ -466,7 +466,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         title: "Qué entrego si me contratás desde Buenos Aires (o desde afuera)",
         paragraphs: [
-          "Una landing Essential o Premium, o un sitio completo si el contenido lo pide. Siempre: diseño mobile-first, código propio, SEO técnico, WhatsApp y publicación en tu dominio. No subcontrato el front a un tercero anónimo.",
+          "Una landing o landing completa de referencia, o un sitio completo si el contenido lo pide. Siempre: diseño mobile-first, código propio, SEO técnico, WhatsApp y publicación en tu dominio. No subcontrato el front a un tercero anónimo.",
         ],
         bullets: [
           "Respuesta en menos de 24 horas",
@@ -492,7 +492,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         question: "¿Cuánto sale el desarrollo web en Buenos Aires?",
         answer:
-          "Una landing Essential parte de USD 350 (USD 298 con promo hasta el 1 de enero de 2027) y Premium de USD 500 (USD 425 en promo). Un sitio completo —varias páginas, idiomas, casos clínicos o destinos— se cotiza aparte.",
+          "Una landing parte de USD 350 (USD 298 con promo hasta el 1 de enero de 2027) y una landing completa de USD 500 (USD 425 en promo). Son referencias. Un sitio completo —varias páginas, idiomas, casos clínicos o destinos— se cotiza aparte.",
       },
     ],
     related: [
@@ -523,7 +523,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
         title: "Cómo lo uso en proyectos reales",
         paragraphs: [
           "En Dr. Chinski hay WhatsApp y formulario: el paciente elige. En Alo Patagonia el WhatsApp es el cierre del itinerario, porque el viaje se arma. En La Guarida Instrumentos el catálogo visual termina en consulta directa, para no volver a depender de un DM de Instagram. En el Dr. López Moris, el turno sale por el mismo canal.",
-          "Si el plan es Essential, el WhatsApp va incluido. Premium suma formulario para quien prefiere no abrir el chat.",
+          "En la landing de referencia el WhatsApp va incluido. La landing completa suma formulario para quien prefiere no abrir el chat.",
         ],
       },
       {
@@ -543,7 +543,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         question: "¿Puedo tener WhatsApp y formulario?",
         answer:
-          "Sí. En los sitios de consultorio suele convivir: hay quien escribe al toque y hay quien prefiere dejar mail. Premium y los sitios completos lo contemplan.",
+          "Sí. En los sitios de consultorio suele convivir: hay quien escribe al toque y hay quien prefiere dejar mail. La landing completa y los sitios a medida lo contemplan.",
       },
     ],
     related: [
@@ -580,7 +580,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         title: "Qué implica sumar idiomas al desarrollo",
         paragraphs: [
-          "Se cotiza aparte del plan Essential. Hay que traducir (vos, un traductor, o lo coordinamos), armar la navegación y revisar que el WhatsApp y los formularios hablen el idioma de la página. El código queda preparado en Next.js para no rehacer el sitio el día que sumás portugués.",
+          "Se cotiza aparte de una landing de referencia. Hay que traducir (vos, un traductor, o lo coordinamos), armar la navegación y revisar que el WhatsApp y los formularios hablen el idioma de la página. El código queda preparado en Next.js para no rehacer el sitio el día que sumás portugués.",
         ],
       },
     ],
@@ -636,7 +636,7 @@ export const SEO_LANDING_PAGES: readonly SeoLandingPage[] = [
       {
         title: "Landing de comercio vs sitio más grande",
         paragraphs: [
-          "La Guarida es una landing de conversión. Alo Patagonia, aunque también “vende”, es un sitio de destinos: más páginas, otro ritmo. Si tu comercio tiene una línea clara, Essential o Premium alcanzan. Si tenés sucursales, talleres y una marca para armar, lo vemos como sitio.",
+          "La Guarida es una landing de conversión. Alo Patagonia, aunque también “vende”, es un sitio de destinos: más páginas, otro ritmo. Si tu comercio tiene una línea clara, una landing o landing completa alcanza. Si tenés sucursales, talleres y una marca para armar, lo vemos como sitio.",
         ],
       },
     ],

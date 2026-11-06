@@ -24,7 +24,7 @@
       "beneficios": "Benefits",
       "proyecto-real": "Work",
       "servicios": "Services",
-      "planes": "Plans",
+      "planes": "Pricing",
       "contacto": "Contact"
     }
   },
@@ -47,13 +47,13 @@
     "promoKicker": "−15%",
     "promoLine": "Your site costs less this year",
     "promoUntil": "through 1 January",
-    "promoCta": "See plans",
+    "promoCta": "See pricing",
     "promoOfferKicker": "Offer through 1 January",
-    "promoOfferTitle": "Your landing, 15% off",
-    "promoPriceEssential": "Essential USD {amount}",
-    "promoPricePremium": "Premium USD {amount}",
+    "promoOfferTitle": "Landing pages, 15% off",
+    "promoPriceEssential": "Landing USD {amount}",
+    "promoPricePremium": "Complete USD {amount}",
     "promoPriceWas": "USD {amount}",
-    "promoAria": "15% off Essential and Premium through 1 January 2027. Essential from USD 298, Premium from USD 425. See plans."
+    "promoAria": "15% off landings through 1 January 2027. Landing from USD 298, complete landing from USD 425. See pricing and request a quote."
   },
   "problem": {
     "label": "The problem",
@@ -225,29 +225,34 @@
     }
   },
   "plans": {
-    "label": "Plans",
-    "title": "Plans and pricing",
-    "description": "Prices in USD, no fine print. If you need something extra, we'll quote it separately. I reply within 24 hours.",
-    "delivery": "Delivery: {time}",
+    "label": "Investment",
+    "title": "Reference pricing",
+    "description": "Orientative prices in USD. The final quote is custom to your business, scope and timeline. I reply in under 24 hours.",
+    "delivery": "Typical delivery: {time}",
     "priceFrom": "From USD {amount}",
     "priceFixed": "USD {amount}",
     "priceFree": "Free",
     "discountBadge": "−{percent}%",
     "promoUntil": "Until 1 Jan 2027",
-    "promoNote": "15% off is valid from 27 Oct 2026 through 1 Jan 2027 inclusive.",
+    "promoNote": "15% off these reference prices is valid from 27 Oct 2026 through 1 Jan 2027 inclusive.",
     "paymentNote": "Payment: 50% when the project starts and the other 50% when it's finished.",
-    "featuredBadge": "Most chosen",
-    "demoBadge": "Try it first",
-    "addonsNote": "Domain, copywriting, advanced SEO, blog, another language and monthly maintenance are extra — I'll quote them with no fuss.",
+    "featuredBadge": "Most requested",
+    "demoBadge": "No commitment",
+    "startingHint": "Reference · final price is quoted to your scope",
+    "addonsNote": "Domain, copywriting, advanced SEO, blog, another language, multi-page builds and monthly maintenance are extra — I'll quote them with no fuss.",
     "noteLink": "Write me and we'll sort it out",
+    "quoteTitle": "Is your project bigger or different?",
+    "quoteBody": "Multilingual sites, multi-page builds or custom work are quoted separately. Tell me what you need and I'll send a clear quote in under 24 hours.",
+    "quoteCta": "Request a custom quote",
+    "quoteWhatsapp": "Hi Agustín, I want a custom quote for my website. My business is: ",
     "items": {
       "essential": {
-        "name": "Essential",
+        "name": "Landing",
         "tagline": "To get started and start getting inquiries",
         "delivery": "7 to 10 business days",
-        "cta": "I want Essential",
-        "whatsappMessage": "Hi Agustín, I'm interested in the Essential plan (from USD 350). I want a landing for my business.",
-        "whatsappMessagePromo": "Hi Agustín, I'm interested in the Essential plan with 15% off (from USD 298, was USD 350, promo until 1 Jan 2027). I want a landing for my business.",
+        "cta": "Quote a landing",
+        "whatsappMessage": "Hi Agustín, I'd like a quote for a landing (reference from USD 350). My business is: ",
+        "whatsappMessagePromo": "Hi Agustín, I'd like a quote for a landing with the 15% offer (reference from USD 298, was USD 350, until 1 Jan 2027). My business is: ",
         "features": [
           "A one-page landing (up to 5 sections)",
           "Designed for mobile",
@@ -258,14 +263,14 @@
         ]
       },
       "premium": {
-        "name": "Premium",
-        "tagline": "When you want to go a step further",
+        "name": "Complete landing",
+        "tagline": "When you need more conversion and detail",
         "delivery": "2 to 3 weeks",
-        "cta": "I want Premium",
-        "whatsappMessage": "Hi Agustín, I'm interested in the Premium plan (from USD 500). I want a more complete landing for my business.",
-        "whatsappMessagePromo": "Hi Agustín, I'm interested in the Premium plan with 15% off (from USD 425, was USD 500, promo until 1 Jan 2027). I want a more complete landing for my business.",
+        "cta": "Quote a complete landing",
+        "whatsappMessage": "Hi Agustín, I'd like a quote for a complete landing (reference from USD 500). My business is: ",
+        "whatsappMessagePromo": "Hi Agustín, I'd like a quote for a complete landing with the 15% offer (reference from USD 425, was USD 500, until 1 Jan 2027). My business is: ",
         "features": [
-          "Everything in Essential",
+          "Everything in Landing",
           "Contact form that lands in your inbox",
           "Animations and a more polished design",
           "An extra section: FAQ, gallery or testimonials",
@@ -275,10 +280,10 @@
         ]
       },
       "demo": {
-        "name": "Custom demo",
+        "name": "Free demo",
         "tagline": "See how your site would look before you decide",
         "delivery": "3 to 5 business days",
-        "cta": "Request a demo",
+        "cta": "Request a free demo",
         "whatsappMessage": "Hi Agustín, I'm interested in the free custom demo. My business is: ",
         "features": [
           "Preview with your logo and colors",
@@ -364,7 +369,7 @@
       },
       {
         "question": "How much does web development for a landing cost in Argentina?",
-        "answer": "Essential from USD 350 and Premium from USD 500. Through 1 January 2027 there's 15% off (USD 298 and USD 425). The custom demo is free. Payment is 50% at kickoff and 50% at delivery."
+        "answer": "A landing starts from USD 350 and a complete landing from USD 500 (reference prices). Through 1 January 2027 there's 15% off (from USD 298 and USD 425). The custom demo is free. The final price is quoted to your scope. Payment is 50% at kickoff and 50% at delivery."
       },
       {
         "question": "What's included in a website for my business?",
@@ -372,8 +377,8 @@
       },
       {
         "question": "How much does a website or landing page cost in Argentina?",
-        "answer": "Essential starts at USD 350 and Premium at USD 500. The custom demo is free. The final price depends on scope: number of sections, whether you need a form, multiple pages or extra content. Payment is 50% when the project starts and 50% when it's finished. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print.",
-        "answerPromo": "From 27 Oct 2026 through 1 Jan 2027 inclusive, Essential and Premium are 15% off: from USD 298 (was USD 350) and from USD 425 (was USD 500). The custom demo is free. The final price depends on scope: number of sections, whether you need a form, multiple pages or extra content. Payment is 50% when the project starts and 50% when it's finished. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print."
+        "answer": "I share reference prices: landing from USD 350 and complete landing from USD 500. The custom demo is free. The final quote depends on scope: number of sections, whether you need a form, multiple pages, languages or extra content. Payment is 50% when the project starts and 50% when it's finished. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print.",
+        "answerPromo": "From 27 Oct 2026 through 1 Jan 2027 inclusive there's 15% off the reference prices: landing from USD 298 (was USD 350) and complete landing from USD 425 (was USD 500). The custom demo is free. The final quote depends on scope: number of sections, whether you need a form, multiple pages, languages or extra content. Payment is 50% when the project starts and 50% when it's finished. Tell me about your business on WhatsApp and I'll send a clear quote in under 24 hours, no fine print."
       },
       {
         "question": "Do you do web design, development, or both?",

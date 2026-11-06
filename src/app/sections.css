@@ -2089,6 +2089,14 @@
     color: var(--section-muted);
   }
 
+  .plan-card__starting {
+    margin: 0.35rem 0 0;
+    font-size: var(--text-xs);
+    line-height: 1.45;
+    color: var(--section-muted);
+    max-width: 18rem;
+  }
+
   .plan-card--featured .plan-card__price {
     color: var(--color-accent);
   }
@@ -2098,6 +2106,49 @@
     margin: var(--space-2) 0 0;
     font-size: var(--text-sm);
     color: var(--section-muted);
+  }
+
+  .plans__quote {
+    margin-top: var(--space-8);
+    padding: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    align-items: flex-start;
+    border: 1px solid var(--section-border);
+    background: color-mix(in srgb, var(--color-accent) 6%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .plans__quote {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-8);
+    }
+  }
+
+  .plans__quote-copy {
+    max-width: 40rem;
+  }
+
+  .plans__quote-title {
+    margin: 0;
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.25;
+  }
+
+  .plans__quote-body {
+    margin: var(--space-2) 0 0;
+    font-size: var(--text-sm);
+    color: var(--section-muted);
+    line-height: 1.55;
+  }
+
+  .plans__quote .ds-btn {
+    flex-shrink: 0;
   }
 
   .plan-card ul {

@@ -77,7 +77,7 @@ export function resolvePlanPricing(plan: Plan, promoActive = isPlanPromoActive()
 export const PLANS: Plan[] = [
   {
     id: "essential",
-    name: "Essential",
+    name: "Landing",
     tagline: "Para arrancar y recibir consultas",
     priceUsd: 298,
     compareAtPriceUsd: 350,
@@ -91,21 +91,21 @@ export const PLANS: Plan[] = [
       "La subo online y conecto tu dominio",
       "1 ronda de cambios incluida",
     ],
-    cta: "Quiero Essential",
+    cta: "Cotizar landing",
     whatsappMessage:
-      "Hola Agustín, me interesa el plan Essential (desde USD 350). Quiero una landing para mi negocio.",
+      "Hola Agustín, quiero cotizar una landing (referencia desde USD 350). Mi negocio es: ",
   },
   {
     id: "premium",
-    name: "Premium",
-    tagline: "Cuando querés ir un paso más allá",
+    name: "Landing completa",
+    tagline: "Cuando necesitás más conversión y detalle",
     priceUsd: 425,
     compareAtPriceUsd: 500,
     discountPercent: 15,
     featured: true,
     delivery: "2 a 3 semanas",
     features: [
-      "Todo lo del Essential",
+      "Todo lo de la Landing",
       "Formulario de contacto que te llega al mail",
       "Animaciones y diseño más trabajado",
       "Una sección extra: FAQ, galería o testimonios",
@@ -113,13 +113,13 @@ export const PLANS: Plan[] = [
       "2 rondas de cambios incluidas",
       "30 días de soporte después de publicar",
     ],
-    cta: "Quiero Premium",
+    cta: "Cotizar landing completa",
     whatsappMessage:
-      "Hola Agustín, me interesa el plan Premium (desde USD 500). Quiero una landing más completa para mi negocio.",
+      "Hola Agustín, quiero cotizar una landing completa (referencia desde USD 500). Mi negocio es: ",
   },
   {
     id: "demo",
-    name: "Demo a medida",
+    name: "Demo gratis",
     tagline: "Mirá cómo quedaría tu web antes de decidir",
     priceUsd: 0,
     delivery: "3 a 5 días hábiles",
@@ -129,7 +129,7 @@ export const PLANS: Plan[] = [
       "Link en vivo para compartir",
       "Sin costo ni compromiso",
     ],
-    cta: "Pedir demo",
-    whatsappMessage: "Hola Agustín, me interesa la demo a medida gratuita. Mi negocio es: ",
+    cta: "Pedir demo gratis",
+    whatsappMessage: "Hola Agustín, me interesa la demo gratis a medida. Mi negocio es: ",
   },
 ];

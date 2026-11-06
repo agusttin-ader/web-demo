@@ -8,7 +8,7 @@ export const SEO_FAQ = [
   {
     question: "¿Cuánto cuesta el desarrollo web de una landing en Argentina?",
     answer:
-      "Essential desde USD 350 y Premium desde USD 500. Hasta el 1 de enero de 2027 hay 15% off (USD 298 y USD 425). La demo a medida es gratuita. El pago es 50% al iniciar y 50% al terminar.",
+      "Una landing parte desde USD 350 y una landing completa desde USD 500 (referencias). Hasta el 1 de enero de 2027 hay 15% off (desde USD 298 y USD 425). La demo a medida es gratuita. El precio final se cotiza según tu alcance. El pago es 50% al iniciar y 50% al terminar.",
   },
   {
     question: "¿Qué incluye el desarrollo web de una página para mi negocio?",
@@ -18,9 +18,9 @@ export const SEO_FAQ = [
   {
     question: "¿Cuánto cuesta una página web o landing en Argentina?",
     answer:
-      "Essential desde USD 350 y Premium desde USD 500. La demo a medida es gratuita. El precio final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
+      "Uso precios de referencia: landing desde USD 350 y landing completa desde USD 500. La demo a medida es gratuita. El presupuesto final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas, idiomas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
     answerPromo:
-      "Del 27/10/2026 al 01/01/2027 inclusive, Essential y Premium tienen 15% de descuento: desde USD 298 (antes USD 350) y desde USD 425 (antes USD 500). La demo a medida es gratuita. El precio final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
+      "Del 27/10/2026 al 01/01/2027 inclusive hay 15% off sobre las referencias: landing desde USD 298 (antes USD 350) y landing completa desde USD 425 (antes USD 500). La demo a medida es gratuita. El presupuesto final depende del alcance: cantidad de secciones, si necesitás formulario, varias páginas, idiomas o contenido extra. El pago es 50% al iniciar el proyecto y 50% al terminar. Contame tu negocio por WhatsApp y te paso un presupuesto claro en menos de 24 horas, sin letra chica.",
   },
   {
     question: "¿Hacés diseño web, programación o las dos cosas?",
