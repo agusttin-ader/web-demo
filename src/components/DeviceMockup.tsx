@@ -54,7 +54,7 @@ export function DeviceMockup({
                 alt={mobileAlt}
                 fill
                 quality={92}
-                sizes="(min-width: 768px) 160px, 120px"
+                sizes="(min-width: 768px) 200px, 160px"
                 className="device-mockup__shot device-mockup__shot--phone"
                 priority={priority}
                 loading={priority ? "eager" : "lazy"}
