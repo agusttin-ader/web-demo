@@ -650,7 +650,7 @@
     display: block;
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain;
+    object-fit: cover;
     object-position: top center;
     transform: translateZ(0);
   }
@@ -661,7 +661,7 @@
     flex: 0 0 auto;
     width: clamp(5.75rem, 38%, 8rem);
     margin-left: -1.85rem;
-    aspect-ratio: 393 / 852;
+    aspect-ratio: 390 / 844;
     transition: transform 0.5s var(--ease-out);
   }
 
@@ -687,7 +687,7 @@
     position: relative;
     width: 100%;
     max-height: 100%;
-    aspect-ratio: 393 / 852;
+    aspect-ratio: 390 / 844;
     overflow: hidden;
     border-radius: 0.92rem;
     background: #050505;
