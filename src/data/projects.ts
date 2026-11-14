@@ -20,6 +20,10 @@ export interface Project {
   /** @deprecated Usar logo + ProjectMedia */
   image: string;
   logo: string;
+  /** Captura desktop del sitio en producción */
+  mockupDesktop?: string;
+  /** Captura mobile del sitio en producción */
+  mockupMobile?: string;
   mediaTheme: ProjectMediaTheme;
   /** Logo oscuro sobre PNG transparente — monocromo blanco en portfolio */
   logoOnDark?: boolean;
@@ -58,6 +62,8 @@ export const projects: Project[] = [
       "Sitio de rinoplastia estética, funcional y reparadora: casos, equipo, turnos y consulta en Buenos Aires.",
     image: "/images/logos/chinski.png",
     logo: "/images/logos/chinski.png",
+    mockupDesktop: "/images/mockups/dr-chinski-desktop.jpg",
+    mockupMobile: "/images/mockups/dr-chinski-mobile.jpg",
     logoCrisp: true,
     mediaTheme: "chinski",
     imageAlt:
@@ -69,7 +75,14 @@ export const projects: Project[] = [
       "Sitio completo con casos, equipo, técnica ultrasónica, testimonios, FAQ y caminos de turno por WhatsApp y formulario.",
     result:
       "Hub clínico en rinoplastia.com.ar, con identidad propia, contenido en tres idiomas y consulta directa.",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "i18n", "Vercel"],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "i18n",
+      "Vercel",
+    ],
     type: "production",
     featured: true,
     demo: "https://rinoplastia.com.ar/",
@@ -83,6 +96,8 @@ export const projects: Project[] = [
       "Plataforma de formación en otorrinolaringología, rinología y rinoscopia: congreso, webinars y certificados.",
     image: "/images/logos/rhinoscopy-logo-hero-sombra.png",
     logo: "/images/logos/rhinoscopy-logo-hero-sombra.png",
+    mockupDesktop: "/images/mockups/rhinoscopy-desktop.jpg",
+    mockupMobile: "/images/mockups/rhinoscopy-mobile.jpg",
     mediaTheme: "rhinoscopy",
     imageAlt:
       "Sitio de Rhinoscopy: formación en rinología, Rhinoscopy Meet, webinars y certificados",
@@ -93,7 +108,14 @@ export const projects: Project[] = [
       "Sitio completo con Meet 2026, speakers, galería, webinars, certificados descargables y contacto.",
     result:
       "Hub educativo regional en rhinoscopy.com.ar, con congreso, contenido clínico y canal propio.",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "i18n", "Vercel"],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "i18n",
+      "Vercel",
+    ],
     type: "production",
     demo: "https://www.rhinoscopy.com.ar/",
     link: "https://www.rhinoscopy.com.ar/",
@@ -106,6 +128,8 @@ export const projects: Project[] = [
       "Web de turismo para coordinar viajes por la Patagonia con consultas directas por WhatsApp.",
     image: "/images/alopatagonia-home.webp",
     logo: "/images/logos/alopatagonia.png",
+    mockupDesktop: "/images/mockups/alo-patagonia-desktop.jpg",
+    mockupMobile: "/images/mockups/alo-patagonia-mobile.jpg",
     mediaTheme: "patagonia",
     imageAlt:
       "Sitio web de Alo Patagonia: viajes por la Patagonia con itinerarios claros y consulta por WhatsApp",
@@ -116,7 +140,13 @@ export const projects: Project[] = [
       "Web con destinos ordenados, mensaje claro y WhatsApp a mano para cerrar la charla.",
     result:
       "Oferta más clara, contacto al toque y una web pensada para quien entra desde el celu.",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "WhatsApp"],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "WhatsApp",
+    ],
     type: "production",
     demo: "https://www.alopatagonia.com/",
     link: "https://www.alopatagonia.com/",
@@ -129,6 +159,8 @@ export const projects: Project[] = [
       "Web para mostrar mejor el negocio y que la gente consulte directo, sin depender solo de Instagram.",
     image: "/images/laguarida-instrumentos.webp",
     logo: "/images/logos/laguarida.png",
+    mockupDesktop: "/images/mockups/la-guarida-desktop.jpg",
+    mockupMobile: "/images/mockups/la-guarida-mobile.jpg",
     mediaTheme: "guarida",
     imageAlt:
       "Landing page de La Guarida Instrumentos: catálogo visual de instrumentos musicales y contacto directo",
@@ -152,6 +184,8 @@ export const projects: Project[] = [
       "Landing en producción para otorrinolaringología: rinología y trastornos respiratorios del sueño.",
     image: "/images/drakarmijos-home.png",
     logo: "/images/logos/karmijos.png",
+    mockupDesktop: "/images/mockups/dra-karla-armijos-desktop.jpg",
+    mockupMobile: "/images/mockups/dra-karla-armijos-mobile.jpg",
     logoScreenBlend: true,
     mediaTheme: "medical",
     imageAlt:
@@ -176,6 +210,8 @@ export const projects: Project[] = [
       "Sitio en producción para rinología y cirugía nasal: servicios, formación, casos, reseñas y turnos en Buenos Aires.",
     image: "/images/drlopezmoris-home.jpg",
     logo: "/images/logos/lopezmoris.png",
+    mockupDesktop: "/images/mockups/dr-lopez-moris-desktop.jpg",
+    mockupMobile: "/images/mockups/dr-lopez-moris-mobile.jpg",
     logoCrisp: true,
     mediaTheme: "medical",
     imageAlt:
@@ -185,9 +221,15 @@ export const projects: Project[] = [
       "Sin web propia, los pacientes no encontraban info clara ni un camino simple para pedir turno.",
     solution:
       "Sitio con servicios, formación, casos, FAQ, galería y contacto por WhatsApp y formulario.",
-    result:
-      "Canal propio en drlopezmoris.com para consultas y turnos.",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "WhatsApp", "Vercel"],
+    result: "Canal propio en drlopezmoris.com para consultas y turnos.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "WhatsApp",
+      "Vercel",
+    ],
     type: "production",
     demo: "https://drlopezmoris.com/",
     link: "https://drlopezmoris.com/",
@@ -195,7 +237,9 @@ export const projects: Project[] = [
 ];
 
 export function getFeaturedProjects(): Project[] {
-  const featured = projects.filter((p) => p.featured && p.type === "production");
+  const featured = projects.filter(
+    (p) => p.featured && p.type === "production",
+  );
   if (featured.length) return featured;
   const fallback = projects.find((p) => p.type === "production");
   return fallback ? [fallback] : [];
@@ -216,16 +260,26 @@ const PRODUCTION_GRID_ORDER = [
 
 export function getProductionProjects(): Project[] {
   const featuredIds = new Set(getFeaturedProjects().map((p) => p.id));
-  const rest = projects.filter((p) => p.type === "production" && !featuredIds.has(p.id));
-  const rank = new Map<string, number>(PRODUCTION_GRID_ORDER.map((id, index) => [id, index]));
-  return [...rest].sort((a, b) => (rank.get(a.id) ?? 99) - (rank.get(b.id) ?? 99));
+  const rest = projects.filter(
+    (p) => p.type === "production" && !featuredIds.has(p.id),
+  );
+  const rank = new Map<string, number>(
+    PRODUCTION_GRID_ORDER.map((id, index) => [id, index]),
+  );
+  return [...rest].sort(
+    (a, b) => (rank.get(a.id) ?? 99) - (rank.get(b.id) ?? 99),
+  );
 }
 
 /** Todos los clientes en producción (destacados primero, mismo orden que en `projects`). */
 export function getAllProductionProjects(): Project[] {
   const featuredIds = new Set(getFeaturedProjects().map((p) => p.id));
-  const featured = projects.filter((p) => p.type === "production" && featuredIds.has(p.id));
-  const rest = projects.filter((p) => p.type === "production" && !featuredIds.has(p.id));
+  const featured = projects.filter(
+    (p) => p.type === "production" && featuredIds.has(p.id),
+  );
+  const rest = projects.filter(
+    (p) => p.type === "production" && !featuredIds.has(p.id),
+  );
   return [...featured, ...rest];
 }
 
@@ -241,7 +295,7 @@ export function withProjectCopy(
     problem: string;
     solution: string;
     result: string;
-  }
+  },
 ): Project {
   return {
     ...project,

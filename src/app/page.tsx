@@ -10,7 +10,12 @@ import { Portfolio } from "@/components/Portfolio";
 import { Plans } from "@/components/Plans";
 import { Problem } from "@/components/Problem";
 import { Services } from "@/components/Services";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
+import dynamic from "next/dynamic";
+
+const WhatsAppFab = dynamic(
+  () => import("@/components/WhatsAppFab").then((mod) => mod.WhatsAppFab),
+  { loading: () => null }
+);
 import { homeMetadata } from "@/lib/seo";
 import { SeoFaq } from "@/components/SeoFaq";
 import { SeoHub } from "@/components/SeoHub";
@@ -28,13 +33,13 @@ export default async function Home() {
       <HomeJsonLd />
       <main id="contenido" aria-label={t.common.mainAria}>
         <Hero />
-        <Problem />
-        <Benefits />
         <Portfolio />
+        <About />
         <BentoGrid />
         <Services />
+        <Benefits />
         <Plans />
-        <About />
+        <Problem />
         <SeoFaq />
         <SeoHub />
         <CtaBanner />

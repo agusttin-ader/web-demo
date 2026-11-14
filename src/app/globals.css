@@ -179,10 +179,20 @@ body {
   font-feature-settings: "kern" 1, "liga" 1;
 }
 
+/* Full-bleed video hero: let media run under the fixed transparent header. */
+body:has(.hero--video) {
+  padding-top: 0;
+}
+
 img,
 svg,
 video {
   max-width: 100%;
+  height: auto;
+}
+
+.hero__video {
+  max-width: none;
   height: auto;
 }
 
@@ -450,6 +460,56 @@ a:hover {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 1px 0 var(--color-border);
+  }
+
+  .site-header--transparent {
+    background-color: transparent;
+    border-bottom-color: transparent;
+    box-shadow: none;
+  }
+
+  .site-header--transparent .site-header__logo,
+  .site-header--transparent .site-header__logo:hover {
+    color: #fff;
+  }
+
+  .site-header--transparent .site-header__nav-link {
+    color: rgb(255 255 255 / 0.78);
+  }
+
+  .site-header--transparent .site-header__nav-link:hover,
+  .site-header--transparent .site-header__nav-link[aria-current="location"] {
+    color: #fff;
+  }
+
+  .site-header--transparent .site-header__nav-link::after {
+    background: #fff;
+  }
+
+  .site-header--transparent .site-header__menu-btn {
+    color: #fff;
+  }
+
+  .site-header--transparent .site-header__menu-icon span {
+    background: #fff;
+  }
+
+  .site-header--transparent .ds-locale-switch__sep,
+  .site-header--transparent .ds-locale-switch__btn {
+    color: rgb(255 255 255 / 0.72);
+  }
+
+  .site-header--transparent .ds-locale-switch__btn:hover:not(:disabled):not([aria-pressed="true"]) {
+    color: #fff;
+  }
+
+  .site-header--transparent .ds-locale-switch__btn[aria-pressed="true"],
+  .site-header--transparent .ds-locale-switch__btn[aria-pressed="true"] .ds-locale-switch__code {
+    color: #fff;
+  }
+
+  .site-header--transparent .ds-locale-switch__btn[aria-pressed="true"] .ds-locale-switch__code {
+    box-shadow: inset 0 -2px 0 var(--color-accent);
   }
 
   .site-header__bar {
@@ -1061,6 +1121,13 @@ button.ds-btn-primary:focus-visible {
   text-decoration: none;
 }
 
+a.ds-btn-outline.hero__btn-ghost,
+a.ds-btn-outline.hero__btn-ghost:hover,
+a.ds-btn-outline.hero__btn-ghost:focus-visible {
+  color: #fff;
+  text-decoration: none;
+}
+
 .whatsapp-fab a,
 .whatsapp-fab a:hover,
 .whatsapp-fab a:focus-visible {
@@ -1094,6 +1161,49 @@ a.hero__offer:focus-visible {
 .site-header__logo:hover,
 .site-header__logo:focus-visible {
   text-decoration: none;
+}
+
+/* Transparent header over hero video (unlayered so it wins). */
+.site-header.site-header--transparent {
+  background-color: transparent !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.site-header.site-header--transparent .site-header__logo,
+.site-header.site-header--transparent .site-header__logo:hover,
+.site-header.site-header--transparent .site-header__logo:focus-visible,
+.site-header.site-header--transparent .site-header__logo-text,
+.site-header.site-header--transparent .site-header__nav-link,
+.site-header.site-header--transparent .site-header__nav-link:hover,
+.site-header.site-header--transparent .site-header__nav-link:focus-visible,
+.site-header.site-header--transparent .site-header__nav-link[aria-current="location"],
+.site-header.site-header--transparent .ds-locale-switch__sep,
+.site-header.site-header--transparent .ds-locale-switch__btn,
+.site-header.site-header--transparent .ds-locale-switch__code {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.45);
+}
+
+.site-header.site-header--transparent .site-header__nav-link {
+  color: rgb(255 255 255 / 0.92) !important;
+  font-weight: 600;
+}
+
+.site-header.site-header--transparent .site-header__nav-link::after {
+  background: #fff !important;
+}
+
+.site-header.site-header--transparent .site-header__menu-icon span {
+  background: #fff !important;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
+}
+
+.site-header.site-header--transparent .ds-locale-switch__btn[aria-pressed="true"] .ds-locale-switch__code {
+  color: #fff !important;
+  box-shadow: inset 0 -2px 0 var(--color-accent);
 }
 
 .site-header__menu-btn,

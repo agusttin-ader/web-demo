@@ -29,21 +29,20 @@
     }
   },
   "whatsapp": {
-    "defaultMessage": "Oi Agustín, quero um site que me traga mais consultas.",
+    "defaultMessage": "Oi Agustín, vi seu portfolio e quero falar de um projeto web.",
     "fabAria": "Abrir conversa no WhatsApp"
   },
   "hero": {
-    "eyebrow": "Desenvolvimento web · Argentina",
+    "eyebrow": "Desenvolvedor web freelance · Argentina",
+    "brand": "Agustín Ader",
     "titleLines": [
-      { "text": "Landing pages", "variant": "default" },
-      { "text": "que", "variant": "default" },
-      { "text": "convertem", "variant": "accent" },
-      { "text": "visitas em", "variant": "muted" },
-      { "text": "consultas", "variant": "muted" }
+      { "text": "Landings e sites", "variant": "default" },
+      { "text": "em produção", "variant": "accent" }
     ],
-    "body": "Design e código para o celular: carga rápida, mensagem clara e WhatsApp à mão — para negócios que querem um site que trabalhe de verdade.",
+    "body": "Design e desenvolvimento web com projetos reais no ar — saúde, turismo e comércios que já usam o site para gerar consultas.",
     "ctaProjects": "Ver projetos",
-    "ctaWhatsapp": "Falar no WhatsApp",
+    "ctaWhatsapp": "Me escreve",
+    "photoAlt": "Agustín Ader, desenvolvedor web freelance na Argentina",
     "promoKicker": "−15%",
     "promoLine": "Este ano seu site sai menos",
     "promoUntil": "até 1 de janeiro",
@@ -306,7 +305,7 @@
       "Entrega online no seu domínio, pronta para usar"
     ],
     "photoAlt": "Agustín Ader — desenvolvedor web freelance na Argentina",
-    "photoCaption": "Landings · mais consultas",
+    "photoCaption": "Design + desenvolvimento",
     "numbers": "Em números",
     "timelineLabel": "Percurso",
     "timelineTitle": "Como cheguei até aqui",
@@ -414,7 +413,7 @@
     "label": "Contato",
     "titleBefore": "Me conta o seu",
     "titleAccent": "projeto",
-    "body": "Preencha o formulário ou me chame no WhatsApp se preferir ir mais direto.",
+    "body": "Deixe seus dados e conte o projeto — respondo com uma proposta clara.",
     "whatsappPrompt": "Quer resposta na hora?",
     "whatsappCta": "Me chamar no WhatsApp",
     "promises": [
@@ -426,8 +425,7 @@
   "form": {
     "label": "Contato",
     "title": "Me conta o seu projeto",
-    "hint": "Nome, e-mail e o que você precisa. Em um minuto está pronto.",
-    "sending": "Enviando…",
+    "sending": "Abrindo WhatsApp…",
     "name": "Nome e sobrenome",
     "email": "E-mail",
     "phone": "Telefone de contato",
@@ -438,16 +436,17 @@
     "emailPlaceholder": "seu@email.com",
     "phonePlaceholder": "+54 9 11 1234-5678",
     "messagePlaceholder": "Me conta o que você precisa, prazos, ramo… o que ajudar",
-    "submit": "Enviar mensagem",
+    "submit": "Enviar pelo WhatsApp",
     "submitDone": "Pronto, eu leio em breve",
     "honeypot": "Empresa",
+    "whatsappIntro": "Oi Agustín, estou escrevendo pelo formulário do site.",
     "errors": {
       "required": "Preencha nome, e-mail e mensagem, por favor.",
       "email": "Coloque um e-mail válido, por favor.",
       "config": "Algo falhou do lado técnico. Me chama no WhatsApp ou e-mail direto.",
       "send": "Não consegui enviar. Tenta pelo WhatsApp ou e-mail direto."
     },
-    "success": "Pronto, eu te escrevo em breve."
+    "success": "Pronto: o WhatsApp abre com sua mensagem. Envie e eu respondo."
   },
   "footer": {
     "blurb": "Desenvolvimento web, páginas e programação para negócios na Argentina. Landings rápidas com WhatsApp integrado.",

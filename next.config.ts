@@ -20,10 +20,17 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [360, 414, 640, 768, 1024, 1280, 1536, 1920],
     imageSizes: [32, 48, 64, 96, 128, 256, 384],
+    qualities: [75, 90, 92],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
   experimental: {
-    optimizePackageImports: ["react-icons", "react-icons/fa6", "react-icons/hi2", "react-icons/si"],
+    optimizePackageImports: [
+      "react-icons",
+      "react-icons/fa6",
+      "react-icons/hi2",
+      "react-icons/si",
+      "framer-motion",
+    ],
   },
   async headers() {
     return [
@@ -32,7 +39,16 @@ const nextConfig: NextConfig = {
         headers: securityHeaders,
       },
       {
-        source: "/:path*.:ext(webp|avif|png|jpg|jpeg|svg|ico|woff2)",
+        source: "/:path*.:ext(webp|avif|png|jpg|jpeg|svg|ico|woff2|mp4|mov)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/videos/:path*",
         headers: [
           {
             key: "Cache-Control",

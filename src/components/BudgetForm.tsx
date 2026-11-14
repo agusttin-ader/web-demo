@@ -1,47 +1,130 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
-import { sendBudgetRequest, type BudgetFormState } from "@/app/actions/send-budget-request";
+import { FormEvent, useRef, useState } from "react";
 import { useI18n } from "@/i18n/I18nProvider";
+import { whatsappUrl } from "@/lib/constants";
 import { DS_CLASS } from "@/lib/design-system";
-
-const initialState: BudgetFormState = {
-  success: false,
-  message: "",
-};
 
 /** Stable ids — single form on page; avoids useId SSR/client tree mismatch. */
 const FORM_ID = "budget-request-form";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_NAME = 120;
+const MAX_EMAIL = 254;
+const MAX_PHONE = 30;
+const MAX_MESSAGE = 2000;
 
 type BudgetFormProps = {
   featured?: boolean;
   showHeader?: boolean;
 };
 
+type FormStatus = {
+  tone: "error" | "success";
+  message: string;
+} | null;
+
+function buildWhatsAppMessage(fields: {
+  intro: string;
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  labels: { name: string; email: string; phone: string; message: string };
+}) {
+  const lines = [
+    fields.intro,
+    "",
+    `${fields.labels.name}: ${fields.name}`,
+    `${fields.labels.email}: ${fields.email}`,
+  ];
+
+  if (fields.phone) {
+    lines.push(`${fields.labels.phone}: ${fields.phone}`);
+  }
+
+  lines.push("", `${fields.labels.message}:`, fields.message);
+  return lines.join("\n");
+}
+
 export function BudgetForm({ featured = false, showHeader = true }: BudgetFormProps) {
   const { t } = useI18n();
-  const [state, formAction, isPending] = useActionState(sendBudgetRequest, initialState);
+  const [status, setStatus] = useState<FormStatus>(null);
+  const [isOpening, setIsOpening] = useState(false);
   const statusId = `${FORM_ID}-status`;
-  const hintId = `${FORM_ID}-hint`;
   const statusRef = useRef<HTMLParagraphElement>(null);
-  const hasError = Boolean(state.message && !state.success);
-  const hasSuccess = Boolean(state.message && state.success);
-  const hasStatus = Boolean(state.message);
+  const hasError = status?.tone === "error";
+  const hasSuccess = status?.tone === "success";
+  const hasStatus = Boolean(status?.message);
 
-  useEffect(() => {
-    if (!state.message) return;
-    statusRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }, [state.message]);
+  const showStatus = (next: FormStatus) => {
+    setStatus(next);
+    queueMicrotask(() => {
+      statusRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  };
 
-  const statusTone = hasError ? "error" : hasSuccess ? "success" : undefined;
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
+    // Honeypot — bots that fill hidden fields get a silent success.
+    if (String(data.get("company") ?? "").trim()) {
+      showStatus({ tone: "success", message: t.form.success });
+      return;
+    }
+
+    const name = String(data.get("name") ?? "").trim().slice(0, MAX_NAME);
+    const email = String(data.get("email") ?? "").trim().slice(0, MAX_EMAIL);
+    const phone = String(data.get("phone") ?? "").trim().slice(0, MAX_PHONE);
+    const message = String(data.get("message") ?? "").trim().slice(0, MAX_MESSAGE);
+
+    if (!name || !email || !message) {
+      showStatus({ tone: "error", message: t.form.errors.required });
+      return;
+    }
+
+    if (!EMAIL_RE.test(email)) {
+      showStatus({ tone: "error", message: t.form.errors.email });
+      return;
+    }
+
+    const href = whatsappUrl(
+      buildWhatsAppMessage({
+        intro: t.form.whatsappIntro,
+        name,
+        email,
+        phone,
+        message,
+        labels: {
+          name: t.form.name,
+          email: t.form.email,
+          phone: t.form.phone,
+          message: t.form.message,
+        },
+      })
+    );
+
+    setIsOpening(true);
+    const opened = window.open(href, "_blank", "noopener,noreferrer");
+    if (!opened) {
+      window.location.assign(href);
+      return;
+    }
+
+    showStatus({ tone: "success", message: t.form.success });
+    form.reset();
+    setIsOpening(false);
+  };
 
   return (
     <form
       className="budget-form"
-      action={formAction}
+      onSubmit={onSubmit}
       noValidate={false}
-      aria-busy={isPending}
-      aria-describedby={hintId}
+      aria-busy={isOpening}
+      aria-describedby={statusId}
       data-featured={featured ? "true" : undefined}
     >
       {showHeader ? (
@@ -51,11 +134,8 @@ export function BudgetForm({ featured = false, showHeader = true }: BudgetFormPr
             {t.form.label}
           </p>
           <h3>{t.form.title}</h3>
-          <p id={hintId} className="project-card__meta">{t.form.hint}</p>
         </div>
-      ) : (
-        <p id={hintId} className="budget-form__lead">{t.form.hint}</p>
-      )}
+      ) : null}
 
       <p
         ref={statusRef}
@@ -64,14 +144,21 @@ export function BudgetForm({ featured = false, showHeader = true }: BudgetFormPr
         aria-live="polite"
         aria-atomic="true"
         className={`budget-form__status ${hasStatus ? "" : "sr-only"}`.trim()}
-        data-tone={statusTone}
+        data-tone={status?.tone}
       >
-        {state.message || (isPending ? t.form.sending : "")}
+        {status?.message || (isOpening ? t.form.sending : "")}
       </p>
 
       <div className="hp-field" aria-hidden="true">
         <label htmlFor={`${FORM_ID}-company`}>{t.form.honeypot}</label>
-        <input id={`${FORM_ID}-company`} name="company" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+        <input
+          id={`${FORM_ID}-company`}
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          defaultValue=""
+        />
       </div>
 
       <div className="budget-form__fields">
@@ -91,8 +178,8 @@ export function BudgetForm({ featured = false, showHeader = true }: BudgetFormPr
             aria-invalid={hasError || undefined}
             aria-describedby={hasStatus ? statusId : undefined}
             placeholder={t.form.namePlaceholder}
-            maxLength={120}
-            disabled={isPending || hasSuccess}
+            maxLength={MAX_NAME}
+            disabled={isOpening}
           />
         </div>
 
@@ -113,8 +200,8 @@ export function BudgetForm({ featured = false, showHeader = true }: BudgetFormPr
             aria-invalid={hasError || undefined}
             aria-describedby={hasStatus ? statusId : undefined}
             placeholder={t.form.emailPlaceholder}
-            maxLength={254}
-            disabled={isPending || hasSuccess}
+            maxLength={MAX_EMAIL}
+            disabled={isOpening}
           />
         </div>
 
@@ -130,8 +217,8 @@ export function BudgetForm({ featured = false, showHeader = true }: BudgetFormPr
             autoComplete="tel"
             inputMode="tel"
             placeholder={t.form.phonePlaceholder}
-            maxLength={30}
-            disabled={isPending || hasSuccess}
+            maxLength={MAX_PHONE}
+            disabled={isOpening}
           />
         </div>
 
@@ -146,17 +233,17 @@ export function BudgetForm({ featured = false, showHeader = true }: BudgetFormPr
             name="message"
             required
             rows={4}
-            maxLength={2000}
+            maxLength={MAX_MESSAGE}
             aria-required="true"
             aria-invalid={hasError || undefined}
             aria-describedby={hasStatus ? statusId : undefined}
             placeholder={t.form.messagePlaceholder}
-            disabled={isPending || hasSuccess}
+            disabled={isOpening}
           />
         </div>
 
-        <button type="submit" className={DS_CLASS.btnPrimary} disabled={isPending || hasSuccess}>
-          {hasSuccess ? t.form.submitDone : isPending ? t.form.sending : t.form.submit}
+        <button type="submit" className={DS_CLASS.btnPrimary} disabled={isOpening}>
+          {isOpening ? t.form.sending : t.form.submit}
         </button>
       </div>
     </form>

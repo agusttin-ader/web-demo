@@ -242,9 +242,17 @@ export function Header() {
   return (
     <>
       <header
-        className={`site-header${scrolled ? " site-header--scrolled" : ""}${headerHidden && !open ? " site-header--hidden" : ""}`}
+        className={[
+          "site-header",
+          isHome && !scrolled && !open ? "site-header--transparent" : "",
+          scrolled ? "site-header--scrolled" : "",
+          headerHidden && !open ? "site-header--hidden" : "",
+        ]
+          .filter(Boolean)
+          .join(" ")}
         role="banner"
         data-scrolled={scrolled ? "true" : undefined}
+        data-transparent={isHome && !scrolled && !open ? "true" : undefined}
       >
         <div className={`site-header__bar ${DS_CLASS.container}`}>
           <div className="site-header__start">
