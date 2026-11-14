@@ -809,12 +809,35 @@
   }
 
   .client-mockups--compact .device-mockup__phone {
-    width: clamp(4.5rem, 32%, 6.25rem);
-    margin-left: -1.35rem;
+    width: clamp(5rem, 36%, 7rem);
+    margin-left: -1.45rem;
   }
 
   .client-mockups--compact .device-mockup__desktop {
-    max-width: calc(100% - 3.5rem);
+    max-width: calc(100% - 4rem);
+  }
+
+  @media (max-width: 519px) {
+    .device-mockup {
+      padding: clamp(0.65rem, 2.5vw, 1rem);
+    }
+
+    .device-mockup__phone {
+      width: clamp(6.5rem, 46%, 8.75rem);
+      margin-left: clamp(-2.35rem, -14%, -1.65rem);
+    }
+
+    .device-mockup__desktop {
+      max-width: calc(100% - clamp(4.75rem, 32%, 5.75rem));
+    }
+
+    .portfolio__production-grid .production-card__stage--mockup {
+      aspect-ratio: 5 / 4;
+    }
+
+    .production-card.production-card--featured .production-card__stage--mockup {
+      min-height: 13.5rem;
+    }
   }
 
   .client-mockups--compact .device-mockup__url {

@@ -37,7 +37,7 @@ export function DeviceMockup({
               src={desktopSrc}
               alt={desktopAlt}
               fill
-              quality={92}
+              unoptimized
               sizes="(min-width: 1180px) 28vw, (min-width: 768px) 42vw, 90vw"
               className="device-mockup__shot"
               priority={priority}
@@ -53,8 +53,8 @@ export function DeviceMockup({
                 src={mobileSrc}
                 alt={mobileAlt}
                 fill
-                quality={92}
-                sizes="(min-width: 768px) 200px, 160px"
+                unoptimized
+                sizes="(min-width: 768px) 200px, 180px"
                 className="device-mockup__shot device-mockup__shot--phone"
                 priority={priority}
                 loading={priority ? "eager" : "lazy"}

@@ -6,6 +6,7 @@ import { mkdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import puppeteer from "puppeteer-core";
+import sharp from "sharp";
 import { existsSync } from "node:fs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -32,9 +33,12 @@ function resolveBrowser() {
 const MOBILE_UA =
   "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1";
 
+const DPR = 2;
+
+/** @type {[string, string, { scrollY?: number }?][]} */
 const SITES = [
   ["dr-chinski", "https://rinoplastia.com.ar/"],
-  ["rhinoscopy", "https://www.rhinoscopy.com.ar/"],
+  ["rhinoscopy", "https://www.rhinoscopy.com.ar/es"],
   ["alo-patagonia", "https://www.alopatagonia.com/"],
   ["la-guarida", "https://www.laguaridainstrumentos.com/"],
   ["dra-karla-armijos", "https://www.drakarmijos.com/"],
@@ -98,17 +102,20 @@ const browser = await puppeteer.launch({
 });
 
 try {
-  for (const [id, url] of SITES) {
+  for (const [id, url, options] of SITES) {
     const page = await browser.newPage();
     const client = await page.createCDPSession();
 
     await client.send("Emulation.setDeviceMetricsOverride", {
       width: WIDTH,
       height: HEIGHT,
-      deviceScaleFactor: 1,
+      deviceScaleFactor: DPR,
       mobile: true,
     });
     await page.setUserAgent(MOBILE_UA);
+    await page.setExtraHTTPHeaders({
+      "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
+    });
 
     await page.evaluateOnNewDocument(() => {
       const ensureViewport = () => {
@@ -118,16 +125,7 @@ try {
           vp.name = "viewport";
           document.head?.appendChild(vp);
         }
-        const content = vp.getAttribute("content") || "";
-        if (!/viewport-fit=cover/.test(content)) {
-          vp.setAttribute(
-            "content",
-            `${content}${content ? ", " : ""}viewport-fit=cover`.replace(
-              /^,\s*/,
-              "",
-            ),
-          );
-        }
+        vp.setAttribute("content", "width=device-width, initial-scale=1");
       };
       ensureViewport();
       document.addEventListener("DOMContentLoaded", ensureViewport, {
@@ -137,20 +135,37 @@ try {
 
     await page.goto(url, { waitUntil: "networkidle2", timeout: 90_000 });
     await applyMockupSafeArea(page, SAFE_TOP);
-    await page.evaluate(() => {
-      document.documentElement.style.overflowX = "clip";
-      document.body.style.overflowX = "clip";
-      window.scrollTo(0, 0);
-    });
+    const scrollY = options?.scrollY ?? 0;
+    await page.evaluate((y) => {
+      const clientW = document.documentElement.clientWidth;
+      const scrollW = Math.max(
+        document.documentElement.scrollWidth,
+        document.body.scrollWidth,
+      );
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+
+      if (scrollW > clientW + 2) {
+        const scale = clientW / scrollW;
+        document.body.style.transform = `scale(${scale})`;
+        document.body.style.transformOrigin = "top left";
+        document.body.style.width = `${clientW / scale}px`;
+      }
+
+      window.scrollTo(0, y);
+    }, scrollY);
     await page.evaluate(() => new Promise((r) => setTimeout(r, 1500)));
 
     const out = join(OUT_DIR, `${id}-mobile.jpg`);
-    await page.screenshot({
-      path: out,
+    const buffer = await page.screenshot({
       type: "jpeg",
-      quality: 90,
+      quality: 92,
       clip: { x: 0, y: 0, width: WIDTH, height: HEIGHT },
     });
+    await sharp(buffer)
+      .resize(WIDTH, HEIGHT, { fit: "cover", position: "top" })
+      .jpeg({ quality: 90, mozjpeg: true })
+      .toFile(out);
 
     console.log(`OK ${id} -> ${out}`);
     await page.close();
