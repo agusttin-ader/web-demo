@@ -817,26 +817,37 @@
     max-width: calc(100% - 4rem);
   }
 
-  @media (max-width: 519px) {
+  @media (max-width: 767px) {
     .device-mockup {
       padding: clamp(0.65rem, 2.5vw, 1rem);
     }
 
+    .device-mockup__cluster {
+      height: 100%;
+      max-height: 100%;
+    }
+
     .device-mockup__phone {
-      width: clamp(6.5rem, 46%, 8.75rem);
-      margin-left: clamp(-2.35rem, -14%, -1.65rem);
+      width: auto;
+      height: 100%;
+      max-width: 48%;
+      margin-left: -1.25rem;
     }
 
     .device-mockup__desktop {
-      max-width: calc(100% - clamp(4.75rem, 32%, 5.75rem));
+      max-width: calc(100% - 7.5rem);
     }
 
-    .portfolio__production-grid .production-card__stage--mockup {
-      aspect-ratio: 5 / 4;
+    .device-mockup__shot--phone {
+      object-fit: contain;
+      object-position: top center;
     }
 
+    .production-card__stage--mockup,
+    .portfolio__production-grid .production-card__stage--mockup,
     .production-card.production-card--featured .production-card__stage--mockup {
-      min-height: 13.5rem;
+      aspect-ratio: 4 / 5;
+      min-height: 20rem;
     }
   }
 
